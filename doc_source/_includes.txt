@@ -16,7 +16,7 @@
 .. _aws_java_api_v2_url: http://aws-java-sdk-javadoc.s3-website-us-west-2.amazonaws.com/latest/
 
 .. |sdk-java-github| replace:: AWS SDK for Java 2.0 (GitHub)
-.. _sdk-java-github: https://github.com/aws/aws-java-sdk-v2
+.. _sdk-java-github: https://github.com/aws/aws-sdk-java-v2
 
 .. |sdk-java-github-v1| replace:: AWS SDK for Java 1.x (GitHub)
 .. _sdk-java-github-v1: https://github.com/aws/aws-sdk-java

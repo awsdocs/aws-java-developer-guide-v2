@@ -61,7 +61,7 @@ developers:
 
   + :github:`Documentation source <awsdocs/aws-java-developer-guide-v2>`
 
-  + :github:`SDK source <aws/aws-java-sdk-v2>`
+  + :github:`SDK source <aws/aws-sdk-java-v2>`
 
 * `@awsforjava (Twitter) <https://twitter.com/awsforjava>`_
 
@@ -74,9 +74,9 @@ Developers can also contribute feedback through the following channels:
 
   + :github:`Submit documentation issues <awsdocs/aws-java-developer-guide-v2/issues>`
 
-  + :github:`Submit SDK issues <aws/aws-java-sdk-v2/issues>`
+  + :github:`Submit SDK issues <aws/aws-sdk-java-v2/issues>`
 
-* Join an informal chat about SDK on the |sdk-java| 2.0 `gitter channel <https://gitter.im/aws/aws-java-sdk-v2>`_
+* Join an informal chat about SDK on the |sdk-java| 2.0 `gitter channel <https://gitter.im/aws/aws-sdk-java-v2>`_
 
 * Submit feedback anonymously to aws-java-sdk-v2-feedback@amazon.com. This email is
   monitored by the AWS SDK for Java team.
