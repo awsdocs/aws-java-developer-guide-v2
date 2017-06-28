@@ -13,6 +13,7 @@
          Welcome to the AWS Java Developer Guide
 
 .. _release notes: https://github.com/aws/aws-sdk-java-v2#release-notes
+.. _change log: https://github.com/aws/aws-sdk-java-v2/blob/master/CHANGELOG.md
 .. _AWS Blog: https://aws.amazon.com/blogs/developer/aws-sdk-for-java-2-0-developer-preview/
 
 #########################################################
@@ -21,8 +22,8 @@ AWS SDK for Java 2.0 Developer Guide (Developer Preview)
 
 The |sdk-java|_ 2.0 provides a Java API for |AWSlong|. Using the SDK, you can easily build Java
 applications that work with |S3|, |EC2|, |DDB|, and more. We regularly add support for new services
-to the |sdk-java|. For a list of the supported services and their API versions that are included
-with each release of the SDK, view the `release notes`_ for the version that you're working with.
+to the |sdk-java|. For a list of changes and features in a particular version,
+view the `change log`_ for that version.
 
 .. _whats_new:
 
