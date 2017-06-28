@@ -52,13 +52,13 @@ Compiling the SDK
 You can build the |sdk-java| using Maven. Maven downloads all necessary dependencies, builds the SDK,
 and installs the SDK in one step. See http://maven.apache.org/ for installation instructions and more information.
 
-.. topic::
+.. topic:: To compile the SDK
 
     #. Open |sdk-java-github|_.
 
        .. note:: Version 1.0 of the SDK is also available in GitHub at |sdk-java-github-v1|_.
 
-    #. Click the :guilabel:`Clone or download` button to choose your download option. 
+    #. Click the :guilabel:`Clone or download` button to choose your download option.
 
     #. In a terminal window, navigate to the directory where you downloaded the SDK source.
 

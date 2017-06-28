@@ -8,12 +8,12 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-########################
-aws-java-developer-guide
-########################
+###########################
+aws-java-developer-guide-v2
+###########################
 
 This repository contains source content for the official `AWS Java Developer Guide`_. The source
-code for the `AWS SDK for Java`_ is also on GitHub, at https://github.com/aws/aws-sdk-java-v2/.
+code for the `AWS SDK for Java 2.0`_ is also on GitHub, at https://github.com/aws/aws-sdk-java-v2/.
 
 The guide content is written in reStructuredText_ and built using Sphinx_. It relies upon content
 which is provided in the AWS documentation team's `shared content`_ and `SDK examples`_
@@ -84,7 +84,7 @@ more details.
 Copyright and license
 =====================
 
-All content in this repository, unless otherwise stated, is Copyright © 2010-2016, Amazon Web
+All content in this repository, unless otherwise stated, is Copyright © 2010-2017, Amazon Web
 Services, Inc. or its affiliates. All rights reserved.
 
 Except where otherwise noted, this work is licensed under a `Creative Commons
@@ -99,7 +99,7 @@ repository.
 .. =================================================================================
 
 .. _`available sphinx builders`: http://www.sphinx-doc.org/en/stable/builders.html
-.. _`aws java developer guide`: http://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/welcome.html
+.. _`aws java developer guide`: http://docs.aws.amazon.com/sdk-for-java/v2/developer-guide/welcome.html
 .. _`aws sdk for java`: https://aws.amazon.com/sdk-for-java/
 .. _`forking the repository`: https://help.github.com/articles/fork-a-repo/
 .. _`pull request`: https://help.github.com/articles/using-pull-requests/

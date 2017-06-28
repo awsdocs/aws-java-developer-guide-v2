@@ -42,21 +42,21 @@ the following to your :file:`pom.xml` file.
 
    <build>
      <plugins>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <configuration>
-                <source>1.8</source>
-                <target>1.8</target>
-            </configuration>
-        </plugin>
-    </plugins>
+       <plugin>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-compiler-plugin</artifactId>
+         <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+         </configuration>
+       </plugin>
+     </plugins>
    </build>
 
 
-   You can choose a particular archetype to use by adding the ``-DarchetypeArtifactId`` argument
-   to the ``archetype:generate`` command. To skip step to update the :file:`pom.xml` file, you can use the
-   following archetype that creates a Java 1.8 project from the start. 
+You can choose a particular archetype to use by adding the ``-DarchetypeArtifactId`` argument
+to the ``archetype:generate`` command. To skip step to update the :file:`pom.xml` file, you can use the
+following archetype that creates a Java 1.8 project from the start.
 
 .. code-block:: sh
    :emphasize-lines: 3

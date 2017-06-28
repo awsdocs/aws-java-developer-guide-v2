@@ -51,7 +51,7 @@ Additional Resources
 In addition to this guide, the following are valuable online resources for |sdk-java|
 developers:
 
-* |sdk-java-ref|_
+* |aws_java_api_v2_url|_
 
 * :blog:`Java developer blog <developer/category/java>`
 
@@ -91,7 +91,7 @@ Eclipse IDE Support
 ===================
 
 The |tke| doesn't currently support the |sdk-java| version 2.0. To use the |tke| with
-the |sdk-java| version 2.0, you must add the path to the SDK JAR files to the classpath.
+the |sdk-java| version 2.0, you should use Maven tools in Eclipse to add a dependency on the 2.0 SDK.
 
 .. _android-support:
 
