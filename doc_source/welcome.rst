@@ -23,7 +23,7 @@ AWS SDK for Java 2.0 Developer Guide (Developer Preview)
 The |sdk-java|_ 2.0 provides a Java API for |AWSlong|. Using the SDK, you can easily build Java
 applications that work with |S3|, |EC2|, |DDB|, and more. We regularly add support for new services
 to the |sdk-java|. For a list of changes and features in a particular version,
-view the `change log`_ for that version.
+view the `change log`_.
 
 .. _whats_new:
 
