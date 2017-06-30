@@ -23,6 +23,7 @@
    welcome
    getting-started
    basics
+   advanced-topics
    document-history
 
 .. include:: about-aws.txt

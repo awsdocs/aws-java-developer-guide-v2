@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#############################################
-Set up the |sdk-java| 2.0 Developer Preview
-#############################################
+#####################
+Set up the |sdk-java|
+#####################
 
 This topic describes how to set up and use the |sdk-java| in your project.
 

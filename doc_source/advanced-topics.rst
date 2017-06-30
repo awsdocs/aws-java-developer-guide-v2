@@ -8,22 +8,18 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#############
-Using the SDK
-#############
+###############
+Advanced Topics
+###############
 
 .. meta::
    :description: Programming information for the AWS SDK for Java
    :keywords:
 
-This section provides important general information about programming with the |sdk-java| that applies
-to all services you might use with the SDK.
+This section provides more advanced topics about programming with the |sdk-java| that applies
+to specific use cases.
 
 .. toctree::
    :maxdepth: 1
 
-   creating-clients
-   credentials
-   java-dg-region-selection
-   java-dg-exceptions
-   java-dg-logging
+   java-dg-roles

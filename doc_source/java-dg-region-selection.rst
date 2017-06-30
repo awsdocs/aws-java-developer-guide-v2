@@ -20,7 +20,7 @@ Regions enable you to access AWS services that physically reside in a specific g
 can be useful both for redundancy and to keep your data and applications running close to where you
 and your users will access them.
 
-In |sdk-java| version 2.0, all the different region related classes from version 1 have been collapsed
+In |sdk-java| version 2.0, all the different region related classes from version 1.x have been collapsed
 into one Region class.
 You can use this class for all region-related actions such as retrieving metadata about a region
 or
@@ -36,7 +36,7 @@ You can specify a region name and the SDK will automatically choose an appropria
 
 To explicitly set a region, we recommend that you use the constants defined in the
 :aws-java-class:`Region <regions/Region>` class. This is an enumeration of all publicly available
-regions. To create a client with a region from the enum, use the following code.
+regions. To create a client with a region from the class, use the following code.
 
 .. code-block:: java
 
@@ -44,8 +44,9 @@ regions. To create a client with a region from the enum, use the following code.
                         .region(Region.US_WEST_2)
                         .build();
 
-If the region you are attempting to use isn't in the :classname:`Region` enum, you can create a new
-region using the :methodname:`of` method.
+If the region you are attempting to use isn't one of the constants in the :classname:`Region`
+class, you can create a new region using the :methodname:`of` method. This feature allows you
+access to new Regions without upgrading the SDK. 
 
 .. code-block:: java
 

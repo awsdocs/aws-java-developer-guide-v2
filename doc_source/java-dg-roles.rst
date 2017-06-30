@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-###########################################################
-Using |IAM| Roles to Grant Access to AWS Resources on |EC2|
-###########################################################
+###############################
+Configure |IAM| Roles for |EC2|
+###############################
 
 All requests to AWS services must be cryptographically signed using credentials issued
 by AWS. You can use :emphasis:`IAM roles` to conveniently grant secure access to AWS resources from
@@ -26,7 +26,7 @@ on |EC2|. For more information about |IAM| instances, see :ec2-ug:`IAM Roles for
 Default Provider Chain and |EC2| Instance Profiles
 ==================================================
 
-If your application creates an AWS client using the default constructor, the client searches
+If your application creates an AWS client using the ``create`` method, the client searches
 for credentials using the :emphasis:`default credentials provider chain`, in the following order:
 
 1. In the Java system properties: :code:`aws.accessKeyId` and :code:`aws.secretKey`.
