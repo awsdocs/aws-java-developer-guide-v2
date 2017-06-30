@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-###############
-Getting Started
-###############
+#####################################################
+Getting Started with |sdk-java| 2.0 Developer Preview
+#####################################################
 
 This section provides information about how to install, set up, and use the |sdk-java|.
 
@@ -19,7 +19,7 @@ This section provides information about how to install, set up, and use the |sdk
    :titlesonly:
 
    signup-create-iam-user
-   setup-install
-   setup-credentials
+   Set up the SDK <setup-install>
+   Set up AWS Credentials and Region <setup-credentials>
    setup-project-maven
    setup-project-gradle

@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#################################
-Set up AWS Credentials and Region
-#################################
+#################################################
+Set up AWS Credentials and Region for Development
+#################################################
 
 .. meta::
    :description: Set up default AWS credentials and region for development with the AWS SDK for

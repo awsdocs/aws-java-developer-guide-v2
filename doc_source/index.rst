@@ -21,9 +21,9 @@
    :titlesonly:
 
    welcome
-   getting-started
-   basics
-   advanced-topics
+   Getting Started <getting-started>
+   Using the SDK <basics>
+   Advanced Topics <advanced-topics>
    document-history
 
 .. include:: about-aws.txt
