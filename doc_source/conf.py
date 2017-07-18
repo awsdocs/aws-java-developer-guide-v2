@@ -373,7 +373,7 @@ if 'extlinks' not in vars():
     extlinks = {}
 
 # These URLs make maintaining the extlinks easier.
-aws_java_api_url = 'https://aws-java-sdk-javadoc.s3-website-us-west-2.amazonaws.com/latest/'
+aws_java_api_url = 'http://aws-java-sdk-javadoc.s3-website-us-west-2.amazonaws.com/latest/'
 javase_api_url = 'https://docs.oracle.com/javase/8/docs/api/'
 javadoc_f = 'index.html?%s.html' # javadoc link + frames
 javadoc_nf = '%s.html' # javadoc link - frames

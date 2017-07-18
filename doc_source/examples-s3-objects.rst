@@ -33,9 +33,11 @@ An |S3| object represents a *file* or collection of data. Every object must resi
 Upload an Object
 ================
 
-Build a :classname:`PutObjectRequest`, supplying bucket name and key name. Then use the |s3client|'s
-:methodname:`putObject` method with a :classname:`RequestBody` that contains the object content
-and the PutObjectRequest object. *The bucket must exist, or an error will result*.
+Build a :aws-java-class:`PutObjectRequest <services/sqs/model/PutObjectRequest>`,
+supplying bucket name and key name. Then use the |s3client|'s
+:methodname:`putObject` method with a :classname:`RequestBody` :aws-java-class:`RequestBody <sync/RequestBody>`
+that contains the object content and the :classname:`PutObjectRequest` object.
+*The bucket must exist, or an error will result*.
 
 **Imports**
 
@@ -56,7 +58,7 @@ Upload Objects in Multiparts
 ============================
 
 To upload an object in multiple parts, use the |s3client|'s :methodname:`createMultipartUpload`
-method to get an upload ID. Then use the |s3client|'s :methodname:`uploadPart` method for each part.
+method to get an upload ID. Then use the :methodname:`uploadPart` method to upload each part.
 Finally use the |s3client|'s :methodname:`completeMultipartUpload` method to tell S3 to
 merge all the uploaded parts and finish the upload operation.
 
@@ -78,7 +80,8 @@ See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>`.
 Download an Object
 ==================
 
-Build a :classname:`GetObjectRequest`, supplying a bucket name and key name.
+Build a :aws-java-class:`GetObjectRequest <services/sqs/model/GetObjectRequest>`,
+supplying a bucket name and key name.
 Use the |s3client|'s :methodname:`getObject` method, passing it the
 :classname:`GetObjectRequest` object and a :classname:`StreamingResponseHandler` object.
 The :classname:`StreamingResponseHandler` creates a response handler that will write
@@ -104,7 +107,8 @@ See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>`.
 Delete an Object
 ================
 
-Build a :classname:`DeleteObjectRequest`, supplying a bucket name and key name.
+Build a :aws-java-class:`DeleteObjectRequest <services/sqs/model/DeleteObjectRequest>`,
+supplying a bucket name and key name.
 Use the |s3client| client's :methodname:`deleteObject` method, passing it the name of a bucket and
 object to delete. *The specified bucket and object key must exist, or an error will result*.
 

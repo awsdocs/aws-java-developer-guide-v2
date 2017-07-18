@@ -31,8 +31,8 @@ the |s3-dg|.
 Create a Bucket
 ===============
 
-Build a :classname:`CreateBucketRequest` with a bucket name and
-pass it to the |s3client|'s
+Build a :aws-java-class:`CreateBucketRequest <services/sqs/model/CreateBucketRequest>`
+with a bucket name and pass it to the |s3client|'s
 :methodname:`createBucket` method. Use the |s3client| to do additional operations.
 
 **Imports**
@@ -54,10 +54,10 @@ See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>`.
 List Buckets
 ============
 
-Build a :classname:`CreateBucketRequest`. Use the |s3client|'s :methodname:`listBuckets`
-method to retrieve the list of buckets. If successful,
-a :aws-java-class:`ListBucketsResponse <services/s3/model/ListBucketsResponse>` is returned.
-Use this to retrieve the list of buckets.
+Build a :aws-java-class:`ListBucketRequest <services/sqs/model/ListBucketRequest>`.
+Use the |s3client|'s :methodname:`listBuckets` method to retrieve the list of buckets.
+If successful, a :aws-java-class:`ListBucketsResponse <services/s3/model/ListBucketsResponse>`
+is returned. Use this to retrieve the list of buckets.
 
 **Imports**
 
@@ -87,7 +87,8 @@ versioned objects associated with the bucket.
 
 Delete Objects in Bucket
 ------------------------
-Build a :classname:`ListObjectsV2Request` and use the |s3client|'s :methodname:`listObjects`
+Build a :aws-java-class:`ListObjectsV2Request <services/sqs/model/ListObjectsV2Request>`
+and use the |s3client|'s :methodname:`listObjects`
 method to retrieve the list of objects in a bucket. Then use the :methodname:`deleteObject`
 method on each object.
 
@@ -107,8 +108,8 @@ See the :sdk-examples-java-s3:`complete example <S3BucketDeletion.java>`.
 Delete an Empty Bucket
 ----------------------
 
-To delete an empty bucket, build a :methodname:`CreateBucketRequest` with a bucket name
-and pass it to the |s3client|'s :methodname:`deleteBucket` method.
+To delete an empty bucket, build a :aws-java-class:`DeleteBucketRequest <services/sqs/model/DeleteBucketRequest>`
+with a bucket name and pass it to the |s3client|'s :methodname:`deleteBucket` method.
 
 **Imports**
 

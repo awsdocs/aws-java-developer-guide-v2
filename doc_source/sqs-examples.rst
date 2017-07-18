@@ -8,20 +8,21 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-##################################
-Advanced Topics for |sdk-java| 2.0
-##################################
+##############
+|sqs| Examples
+##############
 
 .. meta::
-   :description: Programming information for the AWS SDK for Java
-   :keywords:
+   :description: Programming Amazon SQS using the AWS SDK for Java 2.0
+   :keywords: AWS SDK for Java code examples
 
-This section provides more advanced topics about programming with the |sdk-java| 2.0 that applies
-to specific use cases.
+This section provides examples of programming |sqs|_ using the |sdk-java|_ 2.0.
+
+.. include:: includes/complete-examples-note.txt
 
 .. toctree::
+   :titlesonly:
    :maxdepth: 1
 
-   java-dg-roles
-   s3-examples
-   sqs-examples
+   examples-sqs-message-queues
+   examples-sqs-messages
