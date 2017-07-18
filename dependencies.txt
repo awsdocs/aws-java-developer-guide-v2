@@ -8,5 +8,4 @@
 # Git URL                                               Subdirectory to copy
 # ---------------------------------------------------   ------------------------------------------
 https://github.com/awsdocs/aws-doc-shared-content.git   sphinx_shared
-https://github.com/awsdocs/aws-doc-sdk-examples.git     java
-
+https://github.com/awsdocs/aws-doc-sdk-examples.git     javav2
