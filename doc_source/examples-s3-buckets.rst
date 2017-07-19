@@ -14,11 +14,10 @@ Creating, Listing, and Deleting |S3| Buckets
 
 .. meta::
     :description: How to create, list, or delete a bucket using the AWS SDK for Java 2.0.
-    :keywords: Amazon S3, AWS SDK for Java 2.0, create bucket, list bucket, delete
-               bucket, delete versioned bucket
+    :keywords: Amazon Simple Storage Service, Amazon S3, AWS SDK for Java 2.0, S3 code examples
 
-Every object (file) in |S3| must reside within a *bucket*, which represents a collection (container)
-of objects. Each bucket is known by a *key* (name), which must be unique. For detailed information
+Every object (file) in |S3| must reside within a *bucket*. A bucket represents a collection (container)
+of objects. Each bucket must have a unique *key* (name). For detailed information
 about buckets and their configuration, see :s3-dg:`Working with Amazon S3 Buckets <UsingBucket>` in
 the |s3-dg|.
 
@@ -32,7 +31,7 @@ Create a Bucket
 ===============
 
 Build a :aws-java-class:`CreateBucketRequest <services/sqs/model/CreateBucketRequest>`
-with a bucket name and pass it to the |s3client|'s
+and provide a bucket name. Pass it to the |s3client|
 :methodname:`createBucket` method. Use the |s3client| to do additional operations.
 
 **Imports**
@@ -51,11 +50,11 @@ See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>`.
 
 .. _list-buckets:
 
-List Buckets
-============
+List the Buckets
+================
 
 Build a :aws-java-class:`ListBucketRequest <services/sqs/model/ListBucketRequest>`.
-Use the |s3client|'s :methodname:`listBuckets` method to retrieve the list of buckets.
+Use the |s3client| :methodname:`listBuckets` method to retrieve the list of buckets.
 If successful, a :aws-java-class:`ListBucketsResponse <services/s3/model/ListBucketsResponse>`
 is returned. Use this to retrieve the list of buckets.
 
@@ -78,19 +77,20 @@ See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>`.
 Delete a Bucket
 ===============
 
-Before you can delete an |S3| bucket, you must ensure that the bucket is empty or an error
-will result. If you have a :S3-dg:`versioned bucket <Versioning>`, you must also delete any
-versioned objects associated with the bucket.
+Before you can delete an |S3| bucket, you must ensure that the bucket is empty or
+an error will result. If you have a :S3-dg:`versioned bucket <Versioning>`, you must also delete any
+versioned objects that are associated with the bucket.
 
 .. contents::
    :local:
 
-Delete Objects in Bucket
-------------------------
+Delete Objects in a Bucket
+--------------------------
+
 Build a :aws-java-class:`ListObjectsV2Request <services/sqs/model/ListObjectsV2Request>`
-and use the |s3client|'s :methodname:`listObjects`
-method to retrieve the list of objects in a bucket. Then use the :methodname:`deleteObject`
-method on each object.
+and use the |s3client| :methodname:`listObjects`
+method to retrieve the list of objects in the bucket. Then use the :methodname:`deleteObject`
+method on each object to delete it.
 
 **Imports**
 
@@ -108,8 +108,8 @@ See the :sdk-examples-java-s3:`complete example <S3BucketDeletion.java>`.
 Delete an Empty Bucket
 ----------------------
 
-To delete an empty bucket, build a :aws-java-class:`DeleteBucketRequest <services/sqs/model/DeleteBucketRequest>`
-with a bucket name and pass it to the |s3client|'s :methodname:`deleteBucket` method.
+Build a :aws-java-class:`DeleteBucketRequest <services/sqs/model/DeleteBucketRequest>`
+with a bucket name and pass it to the |s3client| :methodname:`deleteBucket` method.
 
 **Imports**
 

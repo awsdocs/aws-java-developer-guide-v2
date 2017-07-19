@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#####################################
-Performing Operations on |S3| Objects
-#####################################
+#######################################
+Performing Operations on an |S3| Object
+#######################################
 
 .. meta::
     :description: How to list, upload, download or delete objects in an Amazon
@@ -18,7 +18,7 @@ Performing Operations on |S3| Objects
     :keywords: AWS SDK for Java 2.0 code example
 
 
-An |S3| object represents a *file* or collection of data. Every object must reside within a
+An |S3| object represents a file or collection of data. Every object must reside within a
 :doc:`bucket <examples-s3-buckets>`.
 
 .. include:: includes/examples-note.txt
@@ -33,11 +33,11 @@ An |S3| object represents a *file* or collection of data. Every object must resi
 Upload an Object
 ================
 
-Build a :aws-java-class:`PutObjectRequest <services/sqs/model/PutObjectRequest>`,
-supplying bucket name and key name. Then use the |s3client|'s
+Build a :aws-java-class:`PutObjectRequest <services/sqs/model/PutObjectRequest>`
+and supply a bucket name and key name. Then use the |s3client|
 :methodname:`putObject` method with a :classname:`RequestBody` :aws-java-class:`RequestBody <sync/RequestBody>`
 that contains the object content and the :classname:`PutObjectRequest` object.
-*The bucket must exist, or an error will result*.
+*The bucket must exist, or an error will result.*
 
 **Imports**
 
@@ -54,12 +54,12 @@ See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>`.
 
 .. _list-objects:
 
-Upload Objects in Multiparts
-============================
+Upload Objects in Multiple Parts
+================================
 
-To upload an object in multiple parts, use the |s3client|'s :methodname:`createMultipartUpload`
+Use the |s3client| :methodname:`createMultipartUpload`
 method to get an upload ID. Then use the :methodname:`uploadPart` method to upload each part.
-Finally use the |s3client|'s :methodname:`completeMultipartUpload` method to tell S3 to
+Finally, use the |s3client| :methodname:`completeMultipartUpload` method to tell |S3| to
 merge all the uploaded parts and finish the upload operation.
 
 **Imports**
@@ -80,11 +80,11 @@ See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>`.
 Download an Object
 ==================
 
-Build a :aws-java-class:`GetObjectRequest <services/sqs/model/GetObjectRequest>`,
-supplying a bucket name and key name.
-Use the |s3client|'s :methodname:`getObject` method, passing it the
+Build a :aws-java-class:`GetObjectRequest <services/sqs/model/GetObjectRequest>`
+and supply a bucket name and key name.
+Use the |s3client| :methodname:`getObject` method, passing it the
 :classname:`GetObjectRequest` object and a :classname:`StreamingResponseHandler` object.
-The :classname:`StreamingResponseHandler` creates a response handler that will write
+The :classname:`StreamingResponseHandler` creates a response handler that writes
 the response content to the specified file or stream.
 
 The following example specifies a file name to write the object content to.
@@ -107,9 +107,9 @@ See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>`.
 Delete an Object
 ================
 
-Build a :aws-java-class:`DeleteObjectRequest <services/sqs/model/DeleteObjectRequest>`,
-supplying a bucket name and key name.
-Use the |s3client| client's :methodname:`deleteObject` method, passing it the name of a bucket and
+Build a :aws-java-class:`DeleteObjectRequest <services/sqs/model/DeleteObjectRequest>`
+and supply a bucket name and key name.
+Use the |s3client| client's :methodname:`deleteObject` method, and pass it the name of a bucket and
 object to delete. *The specified bucket and object key must exist, or an error will result*.
 
 **Imports**
