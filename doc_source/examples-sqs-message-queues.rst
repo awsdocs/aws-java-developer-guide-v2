@@ -14,7 +14,7 @@ Working with |SQS| Message Queues
 
 .. meta::
    :description: How to create, list, delete, and get an Amazon SQS queue's URL.
-   :keywords: AWS SDK for Java code example, queue operations
+   :keywords: AWS SDK for Java code example, Amazon SQS, queue operations
 
 A *message queue* is the logical container used for sending messages reliably in |sqs|. There are
 two types of queues: *standard* and *first-in, first-out* (FIFO). To learn more about queues and the
@@ -56,8 +56,8 @@ To list the |SQS| queues for your account, call the |sqsclient| :methodname:`lis
 method with a :aws-java-class:`ListQueuesRequest <services/sqs/model/ListQueuesRequest>` object.
 
 Using the :methodname:`listQueues` overload without any parameters returns *all queues*, up to
-1,000 queues. You can filter the returned results by passing it a queue name prefix
-in the :code-java:`ListQueuesRequest` object.
+1,000 queues. You can supply a queue name prefix to the :code-java:`ListQueuesRequest` object to limit
+the results to queues that match that prefix.
 
 **Imports**
 

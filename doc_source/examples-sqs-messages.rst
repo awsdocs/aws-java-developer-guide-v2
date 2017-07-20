@@ -18,8 +18,8 @@ Sending, Receiving, and Deleting |SQS| Messages
    :keywords: AWS SDK for Java code examples, Amazon SQS, send message, receive message, delete
               message
 
-This topic describes how to send, receive, and delete |SQS| messages. Messages are always delivered
-using an :doc:`SQS Queue <examples-sqs-message-queues>`.
+A message is a piece of data that can be sent and recieved by distributed components.
+Messages are always delivered using an :doc:`SQS Queue <examples-sqs-message-queues>`.
 
 
 .. _sqs-message-send:
@@ -53,8 +53,8 @@ Send more than one message in a single request by using the
 |sqsclient| :methodname:`sendMessageBatch` method. This method takes a
 :aws-java-class:`SendMessageBatchRequest <services/sqs/model/SendMessageBatchRequest>` that contains
 the queue URL and a list of messages to send. (Each message is a :aws-java-class:`SendMessageBatchRequestEntry
-<services/sqs/model/SendMessageBatchRequestEntry>`.) You can also set an optional delay
-value per message.
+<services/sqs/model/SendMessageBatchRequestEntry>`.)  You can also delay sending
+a specific message by setting a delay value on the message.
 
 **Imports**
 
@@ -72,7 +72,7 @@ See the :sdk-examples-java-sqs:`complete sample <SQSExample.java>`.
 
 .. _sqs-messages-receive:
 
-Receive Messages
+Retrieve Messages
 ================
 
 Retrieve any messages that are currently in the queue by calling the |sqsclient|

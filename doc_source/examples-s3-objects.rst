@@ -15,10 +15,10 @@ Performing Operations on an |S3| Object
 .. meta::
     :description: How to list, upload, download or delete objects in an Amazon
                   S3 bucket using the AWS SDK for Java 2.0.
-    :keywords: AWS SDK for Java 2.0 code example
+    :keywords: Amazon Simple Storage Service, Amazon S3, AWS SDK for Java 2.0 code example
 
 
-An |S3| object represents a file or collection of data. Every object must reside within a
+An |S3| object represents a file or collection of data. Every object must be contained in a
 :doc:`bucket <examples-s3-buckets>`.
 
 .. include:: includes/examples-note.txt
@@ -37,7 +37,7 @@ Build a :aws-java-class:`PutObjectRequest <services/sqs/model/PutObjectRequest>`
 and supply a bucket name and key name. Then use the |s3client|
 :methodname:`putObject` method with a :classname:`RequestBody` :aws-java-class:`RequestBody <sync/RequestBody>`
 that contains the object content and the :classname:`PutObjectRequest` object.
-*The bucket must exist, or an error will result.*
+*The bucket must exist, or the service will return an error.*
 
 **Imports**
 
@@ -109,8 +109,8 @@ Delete an Object
 
 Build a :aws-java-class:`DeleteObjectRequest <services/sqs/model/DeleteObjectRequest>`
 and supply a bucket name and key name.
-Use the |s3client| client's :methodname:`deleteObject` method, and pass it the name of a bucket and
-object to delete. *The specified bucket and object key must exist, or an error will result*.
+Use the |s3client| :methodname:`deleteObject` method, and pass it the name of a bucket and
+object to delete. *The specified bucket and object key must exist, or the service will return an error.*
 
 **Imports**
 
