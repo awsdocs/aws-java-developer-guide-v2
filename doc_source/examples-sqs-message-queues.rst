@@ -29,7 +29,7 @@ This topic describes how to create, list, delete, and get the URL of an |sqs| qu
 Create a Queue
 ==============
 
-Use the |sqsclient|'s :methodname:`createQueue` method, providing a
+Use the |sqsclient| :methodname:`createQueue` method, and provide a
 :aws-java-class:`CreateQueueRequest <services/sqs/model/CreateQueueRequest>` object that describes
 the queue parameters.
 
@@ -49,14 +49,14 @@ See the :sdk-examples-java-sqs:`complete sample <SQSExample.java>`.
 
 .. _sqs-list-queues:
 
-Listing Queues
-==============
+List Queues
+===========
 
-To list the |SQS| queues for your account, call the |sqsclient|'s :methodname:`listQueues`
+To list the |SQS| queues for your account, call the |sqsclient| :methodname:`listQueues`
 method with a :aws-java-class:`ListQueuesRequest <services/sqs/model/ListQueuesRequest>` object.
 
-Using the :methodname:`listQueues` overload without any parameters returns *all queues* up to
-1000. You can filter the returned results by passing it a queue name prefix
+Using the :methodname:`listQueues` overload without any parameters returns *all queues*, up to
+1,000 queues. You can filter the returned results by passing it a queue name prefix
 in the :code-java:`ListQueuesRequest` object.
 
 **Imports**
@@ -78,7 +78,7 @@ See the :sdk-examples-java-sqs:`complete sample <SQSExample.java>`.
 Get the URL for a Queue
 =======================
 
-To get a particular queue's url, call the |sqsclient|'s :methodname:`getQueueUrl` method
+Call the |sqsclient| :methodname:`getQueueUrl` method.
 with a :aws-java-class:`GetQueueUrlRequest <services/sqs/model/GetQueueUrlRequest>` object.
 
 **Imports**
@@ -100,9 +100,9 @@ See the :sdk-examples-java-sqs:`complete sample <SQSExample.java>`.
 Delete a Queue
 ==============
 
-To delete a queue, provide the queue's :ref:`URL <sqs-get-queue-url>` to the
-:aws-java-class:`DeleteMessageRequest <services/sqs/model/DeleteMessageRequest>` object
-and call the |sqsclient|'s :methodname:`deleteQueue` method.
+Provide the queue's :ref:`URL <sqs-get-queue-url>` to the
+:aws-java-class:`DeleteMessageRequest <services/sqs/model/DeleteMessageRequest>` object.
+Then call the |sqsclient| :methodname:`deleteQueue` method.
 
 **Imports**
 
