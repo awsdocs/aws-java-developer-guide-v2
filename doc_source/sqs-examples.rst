@@ -24,5 +24,5 @@ This section provides examples of programming |sqs|_ using the |sdk-java|_ 2.0.
    :titlesonly:
    :maxdepth: 1
 
-   examples-sqs-message-queues
-   examples-sqs-messages
+   Queue Operations <examples-sqs-message-queues>
+   Message Operations <examples-sqs-messages>

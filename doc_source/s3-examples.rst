@@ -24,5 +24,5 @@ This section provides examples of programming |S3|_ using the |sdk-java|_ 2.0.
     :titlesonly:
     :maxdepth: 1
 
-    examples-s3-buckets
-    examples-s3-objects
+    Bucket Operations <examples-s3-buckets>
+    Object Operations <examples-s3-objects>
