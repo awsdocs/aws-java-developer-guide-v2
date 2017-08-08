@@ -15,7 +15,7 @@ Asynchronous Programming
 .. meta::
    :description: How asynchronous programming works in the AWS SDK for Java 2.0
 
-|sdk-java| 2.0 features truly non-blocking asychronous clients that implements high
+|sdk-java-v2| features truly non-blocking asychronous clients that implements high
 concurrency across a few threads. |sdk-java| 1.11.x has
 asynchronous clients that are wrappers around a thread pool and blocking synchronous clients
 which do not provide the full benefit of non-blocking I/O.
@@ -25,7 +25,7 @@ service. Asynchronous methods return immediately, giving control back to the cal
 waiting for a response.
 
 Because an asynchronous method returns before a response is available, you need a way to get the
-response when it's ready. The |sdk-java| asynch client methods return *CompletableFuture objects*
+response when it's ready. The |sdk-java-v2| asynchronous client methods return *CompletableFuture objects*
 that allows you to access the response when it's ready.
 
 .. _basics-async:
@@ -66,4 +66,11 @@ Here is an example that uploads a file to |S3| asynchronously with the
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3AsyncOps.java
    :language: java
-   :lines: 28-
+   :lines: 26-
+
+Here is an example that gets a file from |S3| asynchronously with the
+:methodname:`GetObject` operation.
+
+.. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3AsyncStreamOps.java
+   :language: java
+   :lines: 25-
