@@ -9,7 +9,7 @@
    limitations under the License.
 
 #####################################################
-Getting Started with |sdk-java| 2.0 Developer Preview
+Getting Started with |sdk-java-v2| Developer Preview
 #####################################################
 
 This section provides information about how to install, set up, and use the |sdk-java|.

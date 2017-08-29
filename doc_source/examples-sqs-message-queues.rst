@@ -37,12 +37,14 @@ the queue parameters.
 
 .. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
    :lines: 18, 20
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
    :lines: 41-43
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-sqs:`complete sample <SQSExample.java>`.
 
@@ -63,12 +65,14 @@ the results to queues that match that prefix.
 
 .. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
    :lines: 25-26
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
    :lines: 52-58
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-sqs:`complete sample <SQSExample.java>`.
 
@@ -85,12 +89,14 @@ with a :aws-java-class:`GetQueueUrlRequest <services/sqs/model/GetQueueUrlReques
 
 .. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
    :lines: 23-24
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
    :lines: 45-49
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-sqs:`complete sample <SQSExample.java>`.
 
@@ -108,12 +114,14 @@ Then call the |sqsclient| :methodname:`deleteQueue` method.
 
 .. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
    :lines: 21-22
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
    :lines: 101-103
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-sqs:`complete sample <SQSExample.java>`.
 

@@ -43,12 +43,14 @@ that contains the object content and the :classname:`PutObjectRequest` object.
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
    :lines: 33-35
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
    :lines: 51-54
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>`.
 
@@ -66,12 +68,14 @@ merge all the uploaded parts and finish the upload operation.
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
    :lines: 23-34
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
    :lines: 102-130
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>`.
 
@@ -93,12 +97,14 @@ The following example specifies a file name to write the object content to.
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
    :lines: 17-23
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
    :lines: 62-64
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>`.
 
@@ -116,11 +122,13 @@ object to delete. *The specified bucket and object key must exist, or the servic
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
    :lines: 31-32
+   :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
    :lines: 67-69
    :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>`.

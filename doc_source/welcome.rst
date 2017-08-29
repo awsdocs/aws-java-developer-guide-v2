@@ -17,10 +17,10 @@
 .. _AWS Blog: https://aws.amazon.com/blogs/developer/aws-sdk-for-java-2-0-developer-preview/
 
 #########################################################
-AWS SDK for Java 2.0 Developer Guide (Developer Preview)
+|sdk-java-dg-v2| (Developer Preview)
 #########################################################
 
-The |sdk-java|_ 2.0 provides a Java API for |AWSlong|. Using the SDK, you can easily build Java
+The |sdk-java|_ provides a Java API for |AWSlong|. Using the SDK, you can easily build Java
 applications that work with |S3|, |EC2|, |DDB|, and more. We regularly add support for new services
 to the |sdk-java|. For a list of changes and features in a particular version,
 view the `change log`_.
@@ -30,7 +30,7 @@ view the `change log`_.
 What's New in Version 2.0
 =========================
 
-The |sdk-java| version 2.0 is a major rewrite of the version 1.x code base. It's built on top of
+The |sdk-java-v2| is a major rewrite of the version 1.x code base. It's built on top of
 Java 8 and adds several frequently requested features. These include support for non-blocking I/O
 and the ability to plug in a different HTTP implementation at run time. For more information see
 the `AWS Blog`_.
@@ -77,7 +77,7 @@ Developers can also contribute feedback through the following channels:
 
   + :github:`Submit SDK issues <aws/aws-sdk-java-v2/issues>`
 
-* Join an informal chat about SDK on the |sdk-java| 2.0 `gitter channel <https://gitter.im/aws/aws-sdk-java-v2>`_
+* Join an informal chat about SDK on the |sdk-java-v2| `gitter channel <https://gitter.im/aws/aws-sdk-java-v2>`_
 
 * Submit feedback anonymously to aws-java-sdk-v2-feedback@amazon.com. This email is
   monitored by the AWS SDK for Java team.
@@ -91,8 +91,8 @@ Developers can also contribute feedback through the following channels:
 Eclipse IDE Support
 ===================
 
-The |tke| doesn't currently support the |sdk-java| version 2.0. To use the |tke| with
-the |sdk-java| version 2.0, you should use Maven tools in Eclipse to add a dependency on the 2.0 SDK.
+The |tke| doesn't currently support the |sdk-java-v2|. To use the |tke| with
+the |sdk-java-v2|, you should use Maven tools in Eclipse to add a dependency on the 2.0 SDK.
 
 .. _android-support:
 

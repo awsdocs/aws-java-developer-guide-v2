@@ -9,7 +9,7 @@
    limitations under the License.
 
 ##########################################
-Using the |sdk-java| 2.0 Developer Preview
+Using the |sdk-java-v2| Developer Preview
 ##########################################
 
 .. meta::

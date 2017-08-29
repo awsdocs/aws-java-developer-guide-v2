@@ -9,14 +9,14 @@
    limitations under the License.
 
 ##################################
-Advanced Topics for |sdk-java| 2.0
+Advanced Topics for |sdk-java-v2|
 ##################################
 
 .. meta::
    :description: Programming information for the AWS SDK for Java
    :keywords:
 
-This section provides more advanced topics about programming with the |sdk-java| 2.0 that applies
+This section provides more advanced topics about programming with the |sdk-java-v2| that applies
 to specific use cases.
 
 .. toctree::

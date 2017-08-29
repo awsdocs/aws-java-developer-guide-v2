@@ -20,7 +20,7 @@ Regions enable you to access AWS services that physically reside in a specific g
 can be useful both for redundancy and to keep your data and applications running close to where you
 and your users will access them.
 
-In |sdk-java| version 2.0, all the different region related classes from version 1.x have been collapsed
+In |sdk-java-v2|, all the different region related classes from version 1.x have been collapsed
 into one Region class.
 You can use this class for all region-related actions such as retrieving metadata about a region
 or
@@ -46,7 +46,7 @@ regions. To create a client with a region from the class, use the following code
 
 If the region you are attempting to use isn't one of the constants in the :classname:`Region`
 class, you can create a new region using the :methodname:`of` method. This feature allows you
-access to new Regions without upgrading the SDK. 
+access to new Regions without upgrading the SDK.
 
 .. code-block:: java
 
