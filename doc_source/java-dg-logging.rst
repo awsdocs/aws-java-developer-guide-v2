@@ -16,8 +16,8 @@ Logging |sdk-java| Calls
    :description: How to use Apache Log4j with the AWS SDK for Java.
    :keywords:
 
-The |sdk-java| is instrumented with `Apache Commons Logging
-<http://commons.apache.org/proper/commons-logging/guide.html>`_, which is an abstraction layer that
+The |sdk-java| is instrumented with `Slf4j
+<https://www.slf4j.org/manual.html>`_, which is an abstraction layer that
 enables the use of any one of several logging systems at runtime.
 
 Supported logging systems include the Java Logging Framework and Apache Log4j, among others. This
@@ -26,11 +26,6 @@ making any changes to your application code.
 
 To learn more about `Log4j <http://logging.apache.org/log4j/2.x/>`_,
 see the `Apache website <http://www.apache.org/>`_.
-
-.. note:: This topic focuses on Log4j 1.x. Log4j2 doesn't directly support Apache Commons Logging, but
-          provides an adapter that directs logging calls automatically to Log4j2 using the Apache Commons
-          Logging interface. For more information, see `Commons Logging Bridge
-          <http://logging.apache.org/log4j/2.x/log4j-jcl/index.html>`_ in the Log4j2 documentation.
 
 Download the Log4J JAR
 ======================
