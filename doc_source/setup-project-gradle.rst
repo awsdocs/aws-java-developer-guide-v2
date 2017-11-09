@@ -27,7 +27,7 @@ plugin to import the SDK's Maven Bill of Materials (BOM) to manage SDK dependenc
                   mavenCentral()
               }
               dependencies {
-                  classpath "io.spring.gradle:dependency-management-plugin:1.0.0.RC2"
+                  classpath "io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE"
               }
           }
 
@@ -54,6 +54,43 @@ plugin to import the SDK's Maven Bill of Materials (BOM) to manage SDK dependenc
 
 Gradle automatically resolves the correct version of your SDK dependencies using the information
 from the BOM.
+
+Here's the complete :file:`build.gradle` file:
+
+.. code-block:: groovy
+
+   group 'aws.test'
+   version '1.0-SNAPSHOT'
+
+   apply plugin: 'java'
+
+   sourceCompatibility = 1.8
+
+   repositories {
+     mavenCentral()
+   }
+
+   buildscript {
+     repositories {
+         mavenCentral()
+     }
+     dependencies {
+         classpath "io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE"
+     }
+   }
+
+   apply plugin: "io.spring.dependency-management"
+
+   dependencyManagement {
+     imports {
+         mavenBom 'software.amazon.awssdk:bom:2.0.0-preview-1'
+     }
+   }
+
+   dependencies {
+     compile 'software.amazon.awssdk:s3'
+     testCompile group: 'junit', name: 'junit', version: '4.11'
+   }
 
 .. note:: For more detail about specifying SDK dependencies using the BOM, see
    :doc:`setup-project-maven`.
