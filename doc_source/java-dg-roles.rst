@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-###############################
-Configure |IAM| Roles for |EC2|
-###############################
+##########################################
+Configure |IAM| Roles for |EC2| (Advanced)
+##########################################
 
 All requests to AWS services must be cryptographically signed using credentials issued
 by AWS. You can use :emphasis:`IAM roles` to conveniently grant secure access to AWS resources from

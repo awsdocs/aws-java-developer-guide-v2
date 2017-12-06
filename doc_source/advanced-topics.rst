@@ -8,20 +8,19 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-##################################
-Advanced Topics for |sdk-java-v2|
-##################################
+###########################
+|sdk-java-v2| Code Examples
+###########################
 
 .. meta::
    :description: Programming information for the AWS SDK for Java
    :keywords:
 
-This section provides more advanced topics about programming with the |sdk-java-v2| that applies
+This section provides programming examples using the |sdk-java-v2| that applies
 to specific use cases.
 
 .. toctree::
    :maxdepth: 1
 
-   java-dg-roles
    s3-examples
    sqs-examples

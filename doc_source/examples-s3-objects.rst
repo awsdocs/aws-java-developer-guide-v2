@@ -52,7 +52,7 @@ that contains the object content and the :classname:`PutObjectRequest` object.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>`.
+See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>` on GitHub.
 
 .. _list-objects:
 
@@ -77,7 +77,7 @@ merge all the uploaded parts and finish the upload operation.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>`.
+See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>` on GitHub.
 
 .. _download-object:
 
@@ -106,7 +106,7 @@ The following example specifies a file name to write the object content to.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>`.
+See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>` on GitHub.
 
 .. _delete-object:
 
@@ -131,4 +131,4 @@ object to delete. *The specified bucket and object key must exist, or the servic
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>`.
+See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>` on GitHub.

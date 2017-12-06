@@ -28,3 +28,4 @@ to all services you might use with the SDK.
    basics-async
    java-dg-exceptions
    java-dg-logging
+   java-dg-roles

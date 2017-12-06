@@ -48,7 +48,7 @@ such as listing or deleting buckets as shown in later examples.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>`.
+See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>` on GitHub.
 
 
 .. _list-buckets:
@@ -74,7 +74,7 @@ is returned. Use this response object to retrieve the list of buckets.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>`.
+See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>` on GitHub.
 
 
 .. _delete-bucket:
@@ -110,7 +110,7 @@ method on each object to delete it.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <S3BucketDeletion.java>`.
+See the :sdk-examples-java-s3:`complete example <S3BucketDeletion.java>` on GitHub.
 
 Delete an Empty Bucket
 ----------------------
@@ -131,4 +131,4 @@ with a bucket name and pass it to the |s3client| :methodname:`deleteBucket` meth
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>`.
+See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>` on GitHub.

@@ -23,7 +23,7 @@
    welcome
    Getting Started <getting-started>
    Using the SDK <basics>
-   Advanced Topics <advanced-topics>
+   Code Examples <advanced-topics>
    document-history
 
 .. include:: about-aws.txt
