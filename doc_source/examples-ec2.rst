@@ -8,23 +8,23 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-###########################
-|sdk-java-v2| Code Examples
-###########################
+###################################
+|EC2| Examples Using the |sdk-java|
+###################################
 
 .. meta::
-   :description: Programming information for the AWS SDK for Java
-   :keywords:
+   :description: Programming Amazon EC2 using the AWS SDK for Java 2.0
+   :keywords: AWS SDK for Java 2.0 code examples
 
-This section provides programming examples using the |sdk-java-v2| that applies
-to specific use cases.
+
+This section provides examples of programming |EC2|_ with the |sdk-java|_ 2.0.
 
 .. toctree::
    :maxdepth: 1
+   :titlesonly:
 
-   s3-examples
-   sqs-examples
-   examples-cloudwatch
-   examples-dynamodb
-   examples-iam
-   examples-ec2
+   examples-ec2-instances
+   examples-ec2-elastic-ip
+   examples-ec2-regions-zones
+   examples-ec2-key-pairs
+   examples-ec2-security-groups

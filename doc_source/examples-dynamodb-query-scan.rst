@@ -8,23 +8,17 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-###########################
-|sdk-java-v2| Code Examples
-###########################
+##############################
+Querying and Scanning in |DDB|
+##############################
 
-.. meta::
-   :description: Programming information for the AWS SDK for Java
-   :keywords:
+In addition to using primary keys to access items, |DDB| also provides two operations for searching
+your data: *Query* and *Scan*.
 
-This section provides programming examples using the |sdk-java-v2| that applies
-to specific use cases.
+.. TODO
 
-.. toctree::
-   :maxdepth: 1
+More Info
+=========
 
-   s3-examples
-   sqs-examples
-   examples-cloudwatch
-   examples-dynamodb
-   examples-iam
-   examples-ec2
+* :ddb-dg:`Guidelines for Query and Scan <QueryAndScanGuidelines>` in the |ddb-dg|
+* :ddb-dg:`Query and Scan Operations in DynamoDB <QueryAndScan>` in the |ddb-dg|

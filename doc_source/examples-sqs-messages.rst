@@ -77,7 +77,7 @@ See the :sdk-examples-java-sqs:`complete sample <SQSExample.java>`.
 .. _sqs-messages-receive:
 
 Retrieve Messages
-================
+=================
 
 Retrieve any messages that are currently in the queue by calling the |sqsclient|
 :methodname:`receiveMessage` method. This method takes a

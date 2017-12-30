@@ -394,6 +394,13 @@ samples_url = 'https://github.com/awsdocs/aws-doc-sdk-examples/'
 for svc in [
         's3',
         'sqs',
+        'cloudwatch',
+        'dynamodb',
+        'ec2',
+        'iam',
+        'glacier',
+        'swf',
+        'workdocs'
     ]:
     extlinks['sdk-examples-java-%s' % svc] = (samples_url +
         'blob/master/javav2/example_code/{svc}/src/main/java/com/example/{svc}/'.format(svc=svc) +
