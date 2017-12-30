@@ -22,9 +22,9 @@ to specific use cases.
 .. toctree::
    :maxdepth: 1
 
-   s3-examples
-   sqs-examples
-   examples-cloudwatch
-   examples-dynamodb
-   examples-iam
-   examples-ec2
+   Amazon S3 Examples <s3-examples>
+   Amazon SQS Examples <sqs-examples>
+   Amazon CloudWatch Examples <examples-cloudwatch>
+   Amazon DynamoDB Examples <examples-dynamodb>
+   Amazon EC2 Examples <examples-ec2>
+   AWS Identity and Access Management (IAM) Examples <examples-iam>
