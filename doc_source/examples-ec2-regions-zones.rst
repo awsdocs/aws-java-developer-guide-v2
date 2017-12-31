@@ -40,7 +40,7 @@ each region.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-ec2:`complete example <DescribeRegionsAndZones.java>`.
+See the :sdk-examples-java-ec2:`complete example <DescribeRegionsAndZones.java>` on GitHub.
 
 
 Describing Availability Zones
@@ -66,7 +66,7 @@ objects that represent each availability zone.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-ec2:`complete example <DescribeRegionsAndZones.java>`.
+See the :sdk-examples-java-ec2:`complete example <DescribeRegionsAndZones.java>` on GitHub.
 
 
 More Information

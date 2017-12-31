@@ -38,7 +38,7 @@ key's name.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-ec2:`complete example <CreateKeyPair.java>`.
+See the :sdk-examples-java-ec2:`complete example <CreateKeyPair.java>` on GitHub.
 
 
 Describing Key Pairs
@@ -63,7 +63,7 @@ calling its :methodname:`keyPairs` method, which returns a list of :aws-java-cla
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-ec2:`complete example <DescribeKeyPairs.java>`.
+See the :sdk-examples-java-ec2:`complete example <DescribeKeyPairs.java>` on GitHub.
 
 
 Deleting a Key Pair
@@ -86,7 +86,7 @@ name of the key pair to delete.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-ec2:`complete example <DeleteKeyPair.java>`.
+See the :sdk-examples-java-ec2:`complete example <DeleteKeyPair.java>` on GitHub.
 
 
 More Information

@@ -39,7 +39,7 @@ containing the :ec2-ug:`Amazon Machine Image (AMI) <AMIs>` to use and an :ec2-ug
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-ec2:`complete example <CreateInstance.java>`.
+See the :sdk-examples-java-ec2:`complete example <CreateInstance.java>` on GitHub.
 
 
 Starting an Instance
@@ -62,7 +62,7 @@ the ID of the instance to start.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-ec2:`complete example <StartStopInstance.java>`.
+See the :sdk-examples-java-ec2:`complete example <StartStopInstance.java>` on GitHub.
 
 
 Stopping an Instance
@@ -85,7 +85,7 @@ the ID of the instance to stop.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-ec2:`complete example <StartStopInstance.java>`.
+See the :sdk-examples-java-ec2:`complete example <StartStopInstance.java>` on GitHub.
 
 
 Rebooting an Instance
@@ -108,7 +108,7 @@ the ID of the instance to reboot.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-ec2:`complete example <RebootInstance.java>`.
+See the :sdk-examples-java-ec2:`complete example <RebootInstance.java>` on GitHub.
 
 
 Describing Instances
@@ -144,7 +144,7 @@ object's :methodname:`nextToken` method to a new request object's
 :methodname:`nextToken` method, then using the new request object in your next call to
 :methodname:`describeInstances`.
 
-See the :sdk-examples-java-ec2:`complete example <DescribeInstances.java>`.
+See the :sdk-examples-java-ec2:`complete example <DescribeInstances.java>` on GitHub.
 
 
 Monitoring an Instance
@@ -171,7 +171,7 @@ the |ec2client|'s :methodname:`monitorInstances` method.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-ec2:`complete example <MonitorInstance.java>`.
+See the :sdk-examples-java-ec2:`complete example <MonitorInstance.java>` on GitHub.
 
 
 Stopping Instance Monitoring
@@ -194,7 +194,7 @@ pass it to the |ec2client|'s :methodname:`unmonitorInstances` method.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-ec2:`complete example <MonitorInstance.java>`.
+See the :sdk-examples-java-ec2:`complete example <MonitorInstance.java>` on GitHub.
 
 
 More Information

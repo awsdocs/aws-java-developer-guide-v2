@@ -38,7 +38,7 @@ contains the key's name.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-ec2:`complete example <CreateSecurityGroup.java>`.
+See the :sdk-examples-java-ec2:`complete example <CreateSecurityGroup.java>` on GitHub.
 
 
 Configuring a Security Group
@@ -72,7 +72,7 @@ To add an egress rule to the security group, provide similar data in an
 <services/ec2/model/AuthorizeSecurityGroupEgressRequest>` to the |ec2client|'s
 :methodname:`authorizeSecurityGroupEgress` method.
 
-See the :sdk-examples-java-ec2:`complete example <CreateSecurityGroup.java>`.
+See the :sdk-examples-java-ec2:`complete example <CreateSecurityGroup.java>` on GitHub.
 
 
 Describing Security Groups
@@ -98,7 +98,7 @@ that you can use to access the list of security groups by calling its
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-ec2:`complete example <DescribeSecurityGroups.java>`.
+See the :sdk-examples-java-ec2:`complete example <DescribeSecurityGroups.java>` on GitHub.
 
 
 Deleting a Security Group
@@ -121,7 +121,7 @@ that contains the ID of the security group to delete.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-ec2:`complete example <DeleteSecurityGroup.java>`.
+See the :sdk-examples-java-ec2:`complete example <DeleteSecurityGroup.java>` on GitHub.
 
 
 More Information

@@ -71,7 +71,7 @@ a specific message by setting a delay value on the message.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-sqs:`complete sample <SQSExample.java>`.
+See the :sdk-examples-java-sqs:`complete sample <SQSExample.java>` on GitHub.
 
 
 .. _sqs-messages-receive:
@@ -120,7 +120,7 @@ the message's receipt handle and queue URL to the |sqsclient|
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-sqs:`complete sample <SQSExample.java>`.
+See the :sdk-examples-java-sqs:`complete sample <SQSExample.java>` on GitHub.
 
 
 More Info

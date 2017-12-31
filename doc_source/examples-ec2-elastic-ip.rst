@@ -48,7 +48,7 @@ method.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-ec2:`complete example <AllocateAddress.java>`.
+See the :sdk-examples-java-ec2:`complete example <AllocateAddress.java>` on GitHub.
 
 
 Describing Elastic IP Addresses
@@ -73,7 +73,7 @@ addresses on your account.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-ec2:`complete example <DescribeAddresses.java>`.
+See the :sdk-examples-java-ec2:`complete example <DescribeAddresses.java>` on GitHub.
 
 
 Releasing an Elastic IP Address
@@ -98,7 +98,7 @@ containing the allocation ID of the Elastic IP address you want to release.
 
 After you release an Elastic IP address, it is released to the AWS IP address pool and might be
 unavailable to you afterward. Be sure to update your DNS records and any servers or devices that
-communicate with the address. 
+communicate with the address.
 
 If you are using *EC2-Classic* or a *default VPC*, then releasing an Elastic IP address
 automatically disassociates it from any instance that it's associated with. To disassociate an
@@ -109,7 +109,7 @@ If you are using a non-default VPC, you *must* use :methodname:`disassociateAddr
 the Elastic IP address before you try to release it. Otherwise, |EC2| returns an error
 (*InvalidIPAddress.InUse*).
 
-See the :sdk-examples-java-ec2:`complete example <ReleaseAddress.java>`.
+See the :sdk-examples-java-ec2:`complete example <ReleaseAddress.java>` on GitHub.
 
 
 More Information

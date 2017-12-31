@@ -46,7 +46,7 @@ the queue parameters.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-sqs:`complete sample <SQSExample.java>`.
+See the :sdk-examples-java-sqs:`complete sample <SQSExample.java>` on GitHub.
 
 
 .. _sqs-list-queues:
@@ -74,7 +74,7 @@ the results to queues that match that prefix.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-sqs:`complete sample <SQSExample.java>`.
+See the :sdk-examples-java-sqs:`complete sample <SQSExample.java>` on GitHub.
 
 
 .. _sqs-get-queue-url:
@@ -98,7 +98,7 @@ with a :aws-java-class:`GetQueueUrlRequest <services/sqs/model/GetQueueUrlReques
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-sqs:`complete sample <SQSExample.java>`.
+See the :sdk-examples-java-sqs:`complete sample <SQSExample.java>` on GitHub.
 
 
 .. _sqs-delete-queue:
@@ -123,7 +123,7 @@ Then call the |sqsclient| :methodname:`deleteQueue` method.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-sqs:`complete sample <SQSExample.java>`.
+See the :sdk-examples-java-sqs:`complete sample <SQSExample.java>` on GitHub.
 
 More Info
 =========
