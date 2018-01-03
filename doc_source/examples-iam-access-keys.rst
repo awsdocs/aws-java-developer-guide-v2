@@ -1,4 +1,4 @@
-.. Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -21,7 +21,7 @@ Managing |IAM| Access Keys
 Creating an Access Key
 ======================
 
-To create an |IAM| access key, call the |iamclient| :methodname:`createAccessKey` method with an
+To create an |IAM| access key, call the |iamclient|'s :methodname:`createAccessKey` method with a
 :aws-java-class:`CreateAccessKeyRequest <services/iam/model/CreateAccessKeyRequest>`
 object.
 
