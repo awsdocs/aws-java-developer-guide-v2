@@ -13,41 +13,34 @@ Logging |sdk-java| Calls
 ########################
 
 .. meta::
-   :description: How to use Apache Log4j with the AWS SDK for Java.
+   :description: How to use Slf4j with the AWS SDK for Java.
    :keywords:
 
-The |sdk-java| is instrumented with `Apache Commons Logging
-<http://commons.apache.org/proper/commons-logging/guide.html>`_, which is an abstraction layer that
+The |sdk-java| is instrumented with `Slf4j
+<https://www.slf4j.org/manual.html>`_, which is an abstraction layer that
 enables the use of any one of several logging systems at runtime.
 
 Supported logging systems include the Java Logging Framework and Apache Log4j, among others. This
 topic shows you how to use Log4j. You can use the SDK's logging functionality without
 making any changes to your application code.
 
-To learn more about `Log4j <http://logging.apache.org/log4j/2.x/>`_,
+To learn more about `Log4j <http://logging.apache.org/log4j/1.2/>`_,
 see the `Apache website <http://www.apache.org/>`_.
-
-.. note:: This topic focuses on Log4j 1.x. Log4j2 doesn't directly support Apache Commons Logging, but
-          provides an adapter that directs logging calls automatically to Log4j2 using the Apache Commons
-          Logging interface. For more information, see `Commons Logging Bridge
-          <http://logging.apache.org/log4j/2.x/log4j-jcl/index.html>`_ in the Log4j2 documentation.
 
 Download the Log4J JAR
 ======================
 
-To use Log4j with the SDK, you need to download the Log4j JAR from the Apache website. The SDK doesn't
-include the JAR. Copy the JAR file to a location that is on your classpath.
+To use Log4j with the SDK, you need to download the Log4j JAR from the Apache website or use Maven. The SDK doesn't
+include the JAR.
 
 Log4j uses a configuration file, log4j.properties. Example configuration files are shown below. Copy
 this configuration file to a directory on your classpath. The Log4j JAR and the log4j.properties
 file don't have to be in the same directory.
 
-The log4j.properties configuration file specifies properties such as `logging level
-<http://logging.apache.org/log4j/2.x/manual/configuration.html#Loggers>`_, where logging output is
-sent (for example, `to a file or to the console
-<http://logging.apache.org/log4j/2.x/manual/appenders.html>`_), and the `format of the output
-<http://logging.apache.org/log4j/2.x/manual/layouts.html>`_. The logging level is the granularity of
-output that the logger generates. Log4j supports the concept of multiple logging
+The log4j.properties configuration file specifies properties such as logging level, where logging output is
+sent (for example, to a file or to the console), and the format of the output. See the Log4j `manual <https://logging.apache.org/log4j/1.2/manual.html>`_ for more information on configuration. 
+
+The logging level is the granularity of output that the logger generates. Log4j supports the concept of multiple logging
 :emphasis:`hierarchies`. The logging level is set independently for each hierarchy. The following
 two logging hierarchies are available in the |sdk-java|:
 
@@ -60,18 +53,15 @@ two logging hierarchies are available in the |sdk-java|:
 Setting the Classpath
 =====================
 
-Both the Log4j JAR and the log4j.properties file must be located on your classpath. If
-you're using `Apache Ant <http://ant.apache.org/manual/>`_, set the classpath in the :code:`path` element in your
-Ant file. The following example shows a path element from the Ant file for the |S3| example included
-with the SDK.
+Both the Log4j JAR and the log4j.properties file must be located on your classpath. To configure the log4j binding for Sl4j in Maven you can add the following to your pom.xml:
 
 .. code-block:: xml
 
-    <path id="aws.java.sdk.classpath">
-      <fileset dir="../../third-party" includes="**/*.jar"/>
-      <fileset dir="../../lib" includes="**/*.jar"/>
-      <pathelement location="."/>
-    </path>
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>1.7.25</version>
+    </dependency>
 
 If you're using the Eclipse IDE, you can set the classpath by opening the menu and navigating to
 :guilabel:`Project` | :guilabel:`Properties` | :guilabel:`Java Build Path`.
