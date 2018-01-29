@@ -13,36 +13,40 @@ Logging |sdk-java| Calls
 ########################
 
 .. meta::
-   :description: How to use Apache Log4j with the AWS SDK for Java.
+   :description: How to use Slf4j with the AWS SDK for Java.
    :keywords:
 
-The |sdk-java| is instrumented with `Apache Commons Logging
-<http://commons.apache.org/proper/commons-logging/guide.html>`_, which is an abstraction layer that
+The |sdk-java| is instrumented with `Slf4j <https://www.slf4j.org/manual.html>`_,
+which is an abstraction layer that
 enables the use of any one of several logging systems at runtime.
 
-Supported logging systems include the Java Logging Framework and Apache Log4j, among others. This
-topic shows you how to use Log4j. You can use the SDK's logging functionality without
-making any changes to your application code.
+Supported logging systems include the Java Logging Framework and Apache Log4j,
+among others. This topic shows you how to use Log4j. You can use the SDK's
+logging functionality without making any changes to your application code.
 
 To learn more about `Log4j <http://logging.apache.org/log4j/2.x/>`_,
 see the `Apache website <http://www.apache.org/>`_.
 
-.. note:: This topic focuses on Log4j 1.x. Log4j2 doesn't directly support Apache Commons Logging, but
-          provides an adapter that directs logging calls automatically to Log4j2 using the Apache Commons
-          Logging interface. For more information, see `Commons Logging Bridge
-          <http://logging.apache.org/log4j/2.x/log4j-jcl/index.html>`_ in the Log4j2 documentation.
+Add the Log4J JAR
+=================
 
-Download the Log4J JAR
-======================
+To use Log4j with the SDK, you need to download the Log4j JAR from the
+`Apache website <https://logging.apache.org/log4j/2.0/download.html/>`_ or
+use Maven by adding a dependency on Log4j in your pom.xml file.
+The SDK doesn't include the JAR.
 
-To use Log4j with the SDK, you need to download the Log4j JAR from the Apache website. The SDK doesn't
-include the JAR. Copy the JAR file to a location that is on your classpath.
+.. _log4j-configuration-file:
 
-Log4j uses a configuration file, log4j.properties. Example configuration files are shown below. Copy
-this configuration file to a directory on your classpath. The Log4j JAR and the log4j.properties
-file don't have to be in the same directory.
+Log4j Configuration file
+========================
+Log4j uses a configuration file, log4j2.xml. Example configuration files are shown below.
+To learn more about the values used in the configuration file, see the
+`manual for Log4j configuration <https://logging.apache.org/log4j/2.x/manual/configuration.html/>`_.
 
-The log4j.properties configuration file specifies properties such as `logging level
+Place your configuration file in a directory on your classpath. The Log4j JAR
+and the log4j2.xml file do not have to be in the same directory.
+
+The log4j2.xml configuration file specifies properties such as `logging level
 <http://logging.apache.org/log4j/2.x/manual/configuration.html#Loggers>`_, where logging output is
 sent (for example, `to a file or to the console
 <http://logging.apache.org/log4j/2.x/manual/appenders.html>`_), and the `format of the output
@@ -51,55 +55,67 @@ output that the logger generates. Log4j supports the concept of multiple logging
 :emphasis:`hierarchies`. The logging level is set independently for each hierarchy. The following
 two logging hierarchies are available in the |sdk-java|:
 
-*   log4j.logger.software.amazon.awssdk
+*   software.amazon.awssdk
 
-*   log4j.logger.org.apache.http.wire
+*   org.apache.http.wire
 
 .. _sdk-net-logging-classpath:
 
 Setting the Classpath
 =====================
 
-Both the Log4j JAR and the log4j.properties file must be located on your classpath. If
-you're using `Apache Ant <http://ant.apache.org/manual/>`_, set the classpath in the :code:`path` element in your
-Ant file. The following example shows a path element from the Ant file for the |S3| example included
-with the SDK.
+Both the Log4j JAR and the log4j2.xml file must be located on your classpath.
+To configure the log4j binding for Sl4j in Maven you can add the following to your pom.xml:
 
 .. code-block:: xml
-
-    <path id="aws.java.sdk.classpath">
-      <fileset dir="../../third-party" includes="**/*.jar"/>
-      <fileset dir="../../lib" includes="**/*.jar"/>
-      <pathelement location="."/>
-    </path>
+   <dependency>
+     <groupId>org.apache.logging.log4j</groupId>
+     <artifactId>log4j-core</artifactId>
+   </dependency>
+   <dependency>
+     <groupId>org.apache.logging.log4j</groupId>
+     <artifactId>log4j-api</artifactId>
+   </dependency>
+   <dependency>
+     <groupId>org.apache.logging.log4j</groupId>
+     <artifactId>log4j-slf4j-impl</artifactId>
+   </dependency>
 
 If you're using the Eclipse IDE, you can set the classpath by opening the menu and navigating to
 :guilabel:`Project` | :guilabel:`Properties` | :guilabel:`Java Build Path`.
-
 
 .. _sdk-net-logging-service:
 
 Service-Specific Errors and Warnings
 ====================================
 
-We recommend that you always leave the "software.amazon.awssdk" logger hierarchy set to "WARN" to
-catch any important messages from the client libraries. For example, if the |S3| client detects
-that your application hasn't properly closed an :code:`InputStream` and could be leaking resources,
-the S3 client reports it through a warning message to the logs. This also ensures that messages
+We recommend that you always leave the "software.amazon.awssdk" logger hierarchy
+set to "WARN" to catch any important messages from the client libraries. For
+example, if the |S3| client detects that your application hasn't properly closed
+an :code:`InputStream` and could be leaking resources, the S3 client reports it
+through a warning message to the logs. This also ensures that messages
 are logged if the client has any problems handling requests or responses.
 
-The following log4j.properties file sets the :code:`rootLogger` to WARN, which causes warning
+The following log4j2.xml file sets the :code:`rootLogger` to WARN, which causes warning
 and error messages from all loggers in the "software.amazon.awssdk" hierarchy to be included. Alternatively,
 you can explicitly set the software.amazon.awssdk logger to WARN.
 
-.. code-block:: properties
+.. code-block:: xml
 
-    log4j.rootLogger=WARN, A1
-    log4j.appender.A1=org.apache.log4j.ConsoleAppender
-    log4j.appender.A1.layout=org.apache.log4j.PatternLayout
-    log4j.appender.A1.layout.ConversionPattern=%d [%t] %-5p %c -  %m%n
-    # Or you can explicitly enable WARN and ERROR messages for the AWS Java clients
-    log4j.logger.software.amazon.awssdk=WARN
+   <Configuration status="WARN">
+     <Appenders>
+       <Console name="ConsoleAppender" target="SYSTEM_OUT">
+         <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss} [%t] %-5p %c:%L - %m%n" />
+       </Console>
+     </Appenders>
+
+     <Loggers>
+       <Root level="WARN">
+         <AppenderRef ref="ConsoleAppender"/>
+       </Root>
+       <Logger name="software.amazon.awssdk" level="WARN" />
+     </Loggers>
+   </Configuration>
 
 
 .. _sdk-net-logging-request-response:
@@ -112,42 +128,31 @@ issue with how an AWS service is handling a request. AWS request IDs are accessi
 through Exception objects in the SDK for any failed service call, and can also be reported through
 the DEBUG log level in the "software.amazon.awssdk.request" logger.
 
-The following log4j.properties file enables a summary of requests and responses, including AWS
-request IDs.
+The following log4j2.xml file enables a summary of requests and responses.
 
-.. code-block:: properties
+.. code-block:: xml
 
-    log4j.rootLogger=WARN, A1
-    log4j.appender.A1=org.apache.log4j.ConsoleAppender
-    log4j.appender.A1.layout=org.apache.log4j.PatternLayout
-    log4j.appender.A1.layout.ConversionPattern=%d [%t] %-5p %c -  %m%n
-    # Turn on DEBUG logging in software.amazon.awssdk.request to log
-    # a summary of requests/responses with AWS request IDs
-    log4j.logger.software.amazon.awssdk.request=DEBUG
+   <Configuration status="WARN">
+     <Appenders>
+       <Console name="ConsoleAppender" target="SYSTEM_OUT">
+         <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss} [%t] %-5p %c:%L - %m%n" />
+       </Console>
+     </Appenders>
 
-Here is an example of the log output.
+     <Loggers>
+       <Root level="WARN">
+         <AppenderRef ref="ConsoleAppender"/>
+       </Root>
+       <Logger name="software.amazon.awssdk" level="WARN" />
+       <Logger name="software.amazon.awssdk.request" level="DEBUG" />
+     </Loggers>
+   </Configuration>
+
+Here is an example of the log output:
 
 .. code-block:: none
 
-    2009-12-17 09:53:04,269 [main] DEBUG software.amazon.awssdk.request - Sending
-    Request: POST https://rds.amazonaws.com / Parameters: (MaxRecords: 20,
-    Action: DescribeEngineDefaultParameters, SignatureMethod: HmacSHA256,
-    AWSAccessKeyId: ACCESSKEYID, Version: 2009-10-16, SignatureVersion: 2,
-    Engine: mysql5.1, Timestamp: 2009-12-17T17:53:04.267Z, Signature:
-    q963XH63Lcovl5Rr71APlzlye99rmWwT9DfuQaNznkD, ) 2009-12-17 09:53:04,464
-    [main] DEBUG software.amazon.awssdk.request - Received successful response: 200, AWS
-    Request ID: 694d1242-cee0-c85e-f31f-5dab1ea18bc6 2009-12-17 09:53:04,469
-    [main] DEBUG software.amazon.awssdk.request - Sending Request: POST
-    https://rds.amazonaws.com / Parameters: (ResetAllParameters: true, Action:
-    ResetDBParameterGroup, SignatureMethod: HmacSHA256, DBParameterGroupName:
-    java-integ-test-param-group-0000000000000, AWSAccessKeyId: ACCESSKEYID,
-    Version: 2009-10-16, SignatureVersion: 2, Timestamp:
-    2009-12-17T17:53:04.467Z, Signature:
-    9WcgfPwTobvLVcpyhbrdN7P7l3uH0oviYQ4yZ+TQjsQ=, )
-
-    2009-12-17 09:53:04,646 [main] DEBUG software.amazon.awssdk.request - Received
-    successful response: 200, AWS Request ID:
-    694d1242-cee0-c85e-f31f-5dab1ea18bc6
+   2018-01-28 19:31:56 [main] DEBUG software.amazon.awssdk.request:Logger.java:78 - Sending Request: software.amazon.awssdk.http.DefaultSdkHttpFullRequest@3a80515c
 
 
 .. _sdk-net-logging-verbose:
@@ -157,7 +162,7 @@ Verbose Wire Logging
 
 In some cases, it can be useful to see the exact requests and responses that the |sdk-java|
 sends and receives. If you really need access to this information, you can temporarily enable it through
-the Apache HttpClient 4 logger. Enabling the DEBUG level on the :code:`apache.http.wire` logger
+the Apache HttpClient logger. Enabling the DEBUG level on the :code:`apache.http.wire` logger
 enables logging for all request and response data.
 
 .. warning:: We recommend you only use wire logging for debugging purposes.
@@ -166,15 +171,33 @@ enables logging for all request and response data.
    For large requests (e.g., to upload a file to |S3|) or responses,
    verbose wire logging can also significantly impact your application's performance.
 
-The following log4j.properties file turns on full wire logging in Apache HttpClient 4.
+The following log4j2.xml file turns on full wire logging in Apache HttpClient.
 
-.. code-block:: properties
+.. code-block:: xml
 
-    log4j.rootLogger=WARN, A1
-    log4j.appender.A1=org.apache.log4j.ConsoleAppender
-    log4j.appender.A1.layout=org.apache.log4j.PatternLayout
-    log4j.appender.A1.layout.ConversionPattern=%d [%t] %-5p %c -  %m%n
-    # Log all HTTP content (headers, parameters, content, etc)  for
-    # all requests and responses. Use caution with this since it can
-    # be very expensive to log such verbose data!
-    log4j.logger.org.apache.http.wire=DEBUG
+   <Configuration status="WARN">
+     <Appenders>
+       <Console name="ConsoleAppender" target="SYSTEM_OUT">
+         <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss} [%t] %-5p %c:%L - %m%n" />
+       </Console>
+     </Appenders>
+
+     <Loggers>
+       <Root level="WARN">
+        <AppenderRef ref="ConsoleAppender"/>
+       </Root>
+       <Logger name="software.amazon.awssdk" level="WARN" />
+       <Logger name="software.amazon.awssdk.request" level="DEBUG" />
+       <Logger name="org.apache.http.wire" level="DEBUG" />
+     </Loggers>
+   </Configuration>
+
+Additional Maven dependency on log4j-1.2-api is required for wire-logging with Apache as
+it uses 1.2 under  the hood. Add the following to the pom.xml file if you enable wire logging.
+
+.. code-block:: xml
+
+   <dependency>
+     <groupId>org.apache.logging.log4j</groupId>
+     <artifactId>log4j-1.2-api</artifactId>
+   </dependency>
