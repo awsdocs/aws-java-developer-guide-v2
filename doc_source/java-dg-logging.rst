@@ -68,6 +68,7 @@ Both the Log4j JAR and the log4j2.xml file must be located on your classpath.
 To configure the log4j binding for Sl4j in Maven you can add the following to your pom.xml:
 
 .. code-block:: xml
+
    <dependency>
      <groupId>org.apache.logging.log4j</groupId>
      <artifactId>log4j-core</artifactId>
