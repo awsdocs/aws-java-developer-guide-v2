@@ -14,7 +14,7 @@ Logging |sdk-java| Calls
 
 .. meta::
    :description: How to use Slf4j with the AWS SDK for Java.
-   :keywords:
+   :keywords: logging, slf4j, AWS SDK for Java 2.0
 
 The |sdk-java| is instrumented with `Slf4j <https://www.slf4j.org/manual.html>`_,
 which is an abstraction layer that
@@ -31,7 +31,7 @@ Add the Log4J JAR
 =================
 
 To use Log4j with the SDK, you need to download the Log4j JAR from the
-`Apache website <https://logging.apache.org/log4j/2.0/download.html/>`_ or
+`Log4j website <https://logging.apache.org/log4j/2.0/download.html/>`_ or
 use Maven by adding a dependency on Log4j in your pom.xml file.
 The SDK doesn't include the JAR.
 
@@ -59,7 +59,7 @@ two logging hierarchies are available in the |sdk-java|:
 
 *   org.apache.http.wire
 
-.. _sdk-net-logging-classpath:
+.. _sdk-java-logging-classpath:
 
 Setting the Classpath
 =====================
@@ -85,7 +85,7 @@ To configure the log4j binding for Sl4j in Maven you can add the following to yo
 If you're using the Eclipse IDE, you can set the classpath by opening the menu and navigating to
 :guilabel:`Project` | :guilabel:`Properties` | :guilabel:`Java Build Path`.
 
-.. _sdk-net-logging-service:
+.. _sdk-java-logging-service:
 
 Service-Specific Errors and Warnings
 ====================================
@@ -119,7 +119,7 @@ you can explicitly set the software.amazon.awssdk logger to WARN.
    </Configuration>
 
 
-.. _sdk-net-logging-request-response:
+.. _sdk-java-logging-request-response:
 
 Request/Response Summary Logging
 ================================
@@ -156,7 +156,7 @@ Here is an example of the log output:
    2018-01-28 19:31:56 [main] DEBUG software.amazon.awssdk.request:Logger.java:78 - Sending Request: software.amazon.awssdk.http.DefaultSdkHttpFullRequest@3a80515c
 
 
-.. _sdk-net-logging-verbose:
+.. _sdk-java-logging-verbose:
 
 Verbose Wire Logging
 ====================
