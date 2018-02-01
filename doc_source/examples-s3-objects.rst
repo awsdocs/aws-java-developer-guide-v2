@@ -21,6 +21,8 @@ Performing Operations on an |S3| Object
 An |S3| object represents a file or collection of data. Every object must be contained in a
 :doc:`bucket <examples-s3-buckets>`.
 
+.. include:: common/s3-note-incomplete-upload-policy.txt
+
 .. include:: includes/examples-note.txt
 
 .. contents::
