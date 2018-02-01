@@ -59,9 +59,9 @@ See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>` on Gi
 Upload Objects in Multiple Parts
 ================================
 
-Use the |s3client| :methodname:`createMultipartUpload`
+Use the |s3client|'s :methodname:`createMultipartUpload`
 method to get an upload ID. Then use the :methodname:`uploadPart` method to upload each part.
-Finally, use the |s3client| :methodname:`completeMultipartUpload` method to tell |S3| to
+Finally, use the |s3client|'s :methodname:`completeMultipartUpload` method to tell |S3| to
 merge all the uploaded parts and finish the upload operation.
 
 **Imports**
@@ -86,7 +86,7 @@ Download an Object
 
 Build a :aws-java-class:`GetObjectRequest <services/s3/model/GetObjectRequest>`
 and supply a bucket name and key name.
-Use the |s3client| :methodname:`getObject` method, passing it the
+Use the |s3client|'s :methodname:`getObject` method, passing it the
 :classname:`GetObjectRequest` object and a :classname:`StreamingResponseHandler` object.
 The :classname:`StreamingResponseHandler` creates a response handler that writes
 the response content to the specified file or stream.
@@ -115,7 +115,7 @@ Delete an Object
 
 Build a :aws-java-class:`DeleteObjectRequest <services/s3/model/DeleteObjectRequest>`
 and supply a bucket name and key name.
-Use the |s3client| :methodname:`deleteObject` method, and pass it the name of a bucket and
+Use the |s3client|'s :methodname:`deleteObject` method, and pass it the name of a bucket and
 object to delete. *The specified bucket and object key must exist, or the service will return an error.*
 
 **Imports**

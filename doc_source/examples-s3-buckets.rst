@@ -116,7 +116,7 @@ Delete an Empty Bucket
 ----------------------
 
 Build a :aws-java-class:`DeleteBucketRequest <services/s3/model/DeleteBucketRequest>`
-with a bucket name and pass it to the |s3client| :methodname:`deleteBucket` method.
+with a bucket name and pass it to the |s3client|'s :methodname:`deleteBucket` method.
 
 **Imports**
 
