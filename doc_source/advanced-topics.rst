@@ -28,3 +28,4 @@ to specific use cases.
    Amazon DynamoDB Examples <examples-dynamodb>
    Amazon EC2 Examples <examples-ec2>
    AWS Identity and Access Management (IAM) Examples <examples-iam>
+   Pagination Examples <examples-pagination>
