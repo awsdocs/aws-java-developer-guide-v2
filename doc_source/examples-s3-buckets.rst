@@ -31,7 +31,7 @@ Create a Bucket
 ===============
 
 Build a :aws-java-class:`CreateBucketRequest <services/s3/model/CreateBucketRequest>`
-and provide a bucket name. Pass it to the |s3client|
+and provide a bucket name. Pass it to the |s3client|'s
 :methodname:`createBucket` method. Use the |s3client| to do additional operations
 such as listing or deleting buckets as shown in later examples.
 
@@ -57,7 +57,7 @@ List the Buckets
 ================
 
 Build a :aws-java-class:`ListBucketRequest <services/s3/model/ListBucketRequest>`.
-Use the |s3client| :methodname:`listBuckets` method to retrieve the list of buckets.
+Use the |s3client|'s :methodname:`listBuckets` method to retrieve the list of buckets.
 If the request succeeds a :aws-java-class:`ListBucketsResponse <services/s3/model/ListBucketsResponse>`
 is returned. Use this response object to retrieve the list of buckets.
 
@@ -93,7 +93,7 @@ Delete Objects in a Bucket
 --------------------------
 
 Build a :aws-java-class:`ListObjectsV2Request <services/s3/model/ListObjectsV2Request>`
-and use the |s3client| :methodname:`listObjects`
+and use the |s3client|'s :methodname:`listObjects`
 method to retrieve the list of objects in the bucket. Then use the :methodname:`deleteObject`
 method on each object to delete it.
 

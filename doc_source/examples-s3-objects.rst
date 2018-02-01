@@ -34,8 +34,8 @@ Upload an Object
 ================
 
 Build a :aws-java-class:`PutObjectRequest <services/s3/model/PutObjectRequest>`
-and supply a bucket name and key name. Then use the |s3client|
-:methodname:`putObject` method with a :classname:`RequestBody` :aws-java-class:`RequestBody <sync/RequestBody>`
+and supply a bucket name and key name. Then use the |s3client|'s
+:methodname:`putObject` method with a :aws-java-class:`RequestBody <core/sync/RequestBody>`
 that contains the object content and the :classname:`PutObjectRequest` object.
 *The bucket must exist, or the service will return an error.*
 
