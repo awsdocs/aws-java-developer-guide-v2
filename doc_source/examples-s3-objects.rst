@@ -33,7 +33,7 @@ An |S3| object represents a file or collection of data. Every object must be con
 Upload an Object
 ================
 
-Build a :aws-java-class:`PutObjectRequest <services/sqs/model/PutObjectRequest>`
+Build a :aws-java-class:`PutObjectRequest <services/s3/model/PutObjectRequest>`
 and supply a bucket name and key name. Then use the |s3client|
 :methodname:`putObject` method with a :classname:`RequestBody` :aws-java-class:`RequestBody <sync/RequestBody>`
 that contains the object content and the :classname:`PutObjectRequest` object.
@@ -42,13 +42,13 @@ that contains the object content and the :classname:`PutObjectRequest` object.
 **Imports**
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 33-35
+   :lines: 22,34,38
    :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 51-54
+   :lines: 54-57
    :dedent: 8
    :language: java
 
@@ -67,13 +67,13 @@ merge all the uploaded parts and finish the upload operation.
 **Imports**
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 23-34
+   :lines: 22-25,28-29,36
    :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 102-130
+   :lines: 125-153
    :dedent: 8
    :language: java
 
@@ -84,7 +84,7 @@ See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>` on Gi
 Download an Object
 ==================
 
-Build a :aws-java-class:`GetObjectRequest <services/sqs/model/GetObjectRequest>`
+Build a :aws-java-class:`GetObjectRequest <services/s3/model/GetObjectRequest>`
 and supply a bucket name and key name.
 Use the |s3client| :methodname:`getObject` method, passing it the
 :classname:`GetObjectRequest` object and a :classname:`StreamingResponseHandler` object.
@@ -96,13 +96,13 @@ The following example specifies a file name to write the object content to.
 **Imports**
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 17-23
+   :lines: 22,32,39
    :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 62-64
+   :lines: 85-87
    :dedent: 8
    :language: java
 
@@ -113,7 +113,7 @@ See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>` on Gi
 Delete an Object
 ================
 
-Build a :aws-java-class:`DeleteObjectRequest <services/sqs/model/DeleteObjectRequest>`
+Build a :aws-java-class:`DeleteObjectRequest <services/s3/model/DeleteObjectRequest>`
 and supply a bucket name and key name.
 Use the |s3client| :methodname:`deleteObject` method, and pass it the name of a bucket and
 object to delete. *The specified bucket and object key must exist, or the service will return an error.*
@@ -121,13 +121,13 @@ object to delete. *The specified bucket and object key must exist, or the servic
 **Imports**
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 31-32
+   :lines: 22,31
    :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 67-69
+   :lines: 89-91
    :dedent: 8
    :language: java
 
