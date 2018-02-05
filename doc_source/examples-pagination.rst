@@ -17,7 +17,7 @@ Retrieving Paginated Results
     :keywords: Pagination, AWS SDK for Java 2.0, S3 code examples
 
 Many AWS operations return paginated results when the response object is too large
-to return in a single response. In |sdk-java|_ 1.0, the response contained a token
+to return in a single response. In the |sdk-java|_ 1.0, the response contained a token
 you had to use to retrieve the next page of results. With the |sdk-java|_ 2.0,
 multiple service calls to get the next page of results are made for you automatically.
 You only have to code what to do with the results.
@@ -33,16 +33,17 @@ Iterate over Pages
 ==================
 
 Build a :aws-java-class:`ListObjectsV2Request <services/s3/model/ListObjectsV2Request>`
-and provide a bucket name. You can optionally provide the max number of keys to retrieve at a time.
+and provide a bucket name. Optionally you can provide the maximum number of keys to
+retrieve at one time.
 Pass it to the |s3client|'s :methodname:`listObjectsV2Iterable` method. This method
 returns a :aws-java-class:`ListObjectsV2Paginator <services/s3/paginators/ListObjectsV2Paginator>`
-object which is an iterable of the
+object, which is an iterable of the
 :aws-java-class:`ListObjectsV2Response <services/s3/model/ListObjectsV2Response>` class.
 
 The first example demonstrates using the paginator object to iterate through all the
 response pages with the :methodname:`stream` method. You can directly stream over
 the response pages, convert the response stream to a stream of
-:aws-java-class:`S3Object <services/s3/model/S3Object>` content, then process
+:aws-java-class:`S3Object <services/s3/model/S3Object>` content, and then process
 the content of the |S3| object.
 
 **Imports**
@@ -66,8 +67,8 @@ See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>` on Gi
 Iterate over Objects
 ====================
 
-This next examples show ways to iterate over the objects returned in the response
-instead of the pages of response.
+The following examples show ways to iterate over the objects returned in the response
+instead of in the pages of the response.
 
 Use a Stream
 ------------
@@ -87,11 +88,10 @@ See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>` on Gi
 
 .. _for-loop:
 
-Use a For-Loop
+Use a For Loop
 --------------
 
-You can also use a standard for loop to iterate through the contents of the response
-as shown in the following example.
+Use a standard for loop to iterate through the contents of the response.
 
 **Code**
 
