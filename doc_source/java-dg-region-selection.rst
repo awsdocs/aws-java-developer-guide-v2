@@ -59,6 +59,24 @@ access to new Regions without upgrading the SDK.
    be changed*. If you are working with multiple AWS Regions for the same service, you should
    create multiple clients |mdash| one per region.
 
+Choosing a Specific Endpoint
+============================
+
+Each AWS client can be configured to use a *specific endpoint* within a region by calling the
+:methodname:`endpointOverride` method.
+
+For example, to configure the |EC2| client to use the |euwest1-name|, use the following code.
+
+.. code-block:: java
+
+   EC2Client ec2 = EC2Client.builder()
+                     		.region(Region.EU_WEST_1)
+                     		.endpointOverride(URI.create("https://ec2.eu-west-1.amazonaws.com"))
+                     		.build();
+
+See |regions-and-endpoints|_ for the current list of regions and their corresponding endpoints for
+all AWS services.
+
 Automatically Determine the AWS Region from the Environment
 =============================================================
 
