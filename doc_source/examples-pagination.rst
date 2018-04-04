@@ -22,7 +22,7 @@ you had to use to retrieve the next page of results. New in |sdk-java|_ 2.0 are 
 pagination methods which make multiple
 service calls to get the next page of results for you automatically.
 You only have to write code that processes the results. Additionally both types of methods
-have synchronous and asynchronous versions. See :doc:`basic-async` for more detail about
+have synchronous and asynchronous versions. See :doc:`basics-async` for more detail about
 asynchronous clients.
 
 The examples on this page use |S3| and |DDB| operations to demonstrate the
@@ -135,7 +135,7 @@ Asynchronous Pagination
 These examples use the asynchronous pagination methods for listing tables in
 |DDB|. A manual pagination example is available in the :doc:`basics-async` topic.
 
-.. _iterate-pages:
+.. _iterate-pages-async:
 
 Iterate over Pages of Table names
 =================================
@@ -193,7 +193,7 @@ for this purpose.
 See the :sdk-examples-java-dynamodb:`complete example <AsyncPagination.java>` on GitHub.
 
 
-.. _iterate-objects:
+.. _iterate-objects-async:
 
 Iterate over Table names
 ========================
@@ -217,7 +217,7 @@ Use a Subscriber
 See the :sdk-examples-java-dynamodb:`complete example <AsyncPagination.java>` on GitHub.
 
 
-.. _for-loop:
+.. _for-loop-async:
 
 Use a For Loop
 --------------
