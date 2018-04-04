@@ -14,18 +14,29 @@ Retrieving Paginated Results
 
 .. meta::
     :description: How to use stream to get automatic pagination in AWS SDK for Java 2.0.
-    :keywords: Pagination, AWS SDK for Java 2.0, S3 code examples
+    :keywords: Pagination, AWS SDK for Java 2.0, S3 code examples, async pagination
 
 Many AWS operations return paginated results when the response object is too large
 to return in a single response. In the |sdk-java|_ 1.0, the response contained a token
-you had to use to retrieve the next page of results. With the |sdk-java|_ 2.0,
-multiple service calls to get the next page of results are made for you automatically.
-You only have to code what to do with the results.
+you had to use to retrieve the next page of results. New in |sdk-java|_ 2.0 are auto
+pagination methods which make multiple
+service calls to get the next page of results for you automatically.
+You only have to write code that processes the results. Additionally both types of methods
+have synchronous and asynchronous versions. See :doc:`basic-async` for more detail about
+asynchronous clients.
 
-The examples on this page use |S3| object operations to demonstrate the
+The examples on this page use |S3| and |DDB| operations to demonstrate the
 various methods of retrieving your data from paginated responses.
 
 .. include:: includes/examples-note.txt
+
+======================
+Synchronous Pagination
+======================
+
+These examples use the synchronous pagination methods for listing objects in an
+|S3| bucket.
+
 
 .. _iterate-pages:
 
@@ -35,8 +46,8 @@ Iterate over Pages
 Build a :aws-java-class:`ListObjectsV2Request <services/s3/model/ListObjectsV2Request>`
 and provide a bucket name. Optionally you can provide the maximum number of keys to
 retrieve at one time.
-Pass it to the |s3client|'s :methodname:`listObjectsV2Iterable` method. This method
-returns a :aws-java-class:`ListObjectsV2Paginator <services/s3/paginators/ListObjectsV2Paginator>`
+Pass it to the |s3client|'s :methodname:`listObjectsV2Paginator` method. This method
+returns a :aws-java-class:`ListObjectsV2Iterable <services/s3/paginators/ListObjectsV2Iterable>`
 object, which is an iterable of the
 :aws-java-class:`ListObjectsV2Response <services/s3/model/ListObjectsV2Response>` class.
 
@@ -49,13 +60,13 @@ the content of the |S3| object.
 **Imports**
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 21-22,33,37
+   :lines: 21-22,33,38
    :language: java
 
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 64-74
+   :lines: 89-99
    :dedent: 8
    :language: java
 
@@ -68,7 +79,7 @@ Iterate over Objects
 ====================
 
 The following examples show ways to iterate over the objects returned in the response
-instead of in the pages of the response.
+instead of the pages of the response.
 
 Use a Stream
 ------------
@@ -79,7 +90,7 @@ to iterate over the paginated item collection.
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 76-78
+   :lines: 101-103
    :dedent: 8
    :language: java
 
@@ -96,8 +107,153 @@ Use a standard for loop to iterate through the contents of the response.
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 80-83
+   :lines: 105-108
    :dedent: 8
    :language: java
 
 See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>` on GitHub.
+
+Manual pagination
+=================
+
+Manual pagination is still available if your use case requires it. Use the next token
+in the response object for the subsequent requests. Here's an example using a while loop.
+
+**Code**
+
+.. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
+   :lines: 67-87
+   :dedent: 8
+   :language: java
+
+See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>` on GitHub.
+
+=======================
+Asynchronous Pagination
+=======================
+
+These examples use the asynchronous pagination methods for listing tables in
+|DDB|. A manual pagination example is available in the :doc:`basics-async` topic.
+
+.. _iterate-pages:
+
+Iterate over Pages of Table names
+=================================
+
+First create an asynchronous |DDB| client. Then, call the
+:methodname:`listTablesPaginator` method to get a
+:aws-java-class:`ListTablesPublisher <services/dynamodb/paginators/ListTablesPublisher>`.
+This is an implementation of the reactive streams Publisher interface. To learn more
+about the reactive streams model, see
+the `Reactive Streams Github repo <https://github.com/reactive-streams/reactive-streams-jvm/blob/v1.0.2/README.md>`_.
+
+Call the :methodname:`subscribe` method on the :aws-java-class:`ListTablesPublisher <services/dynamodb/paginators/ListTablesPublisher>`
+and pass a subscriber implementation. In this example, the subscriber has an :methodname:`onNext` method
+that requests one item at a time from the publisher. This is the method that gets called
+repeatedly until all pages are retrieved. The :methodname:`onSubscribe` method
+calls the :methodname:`Subscription.request` method to initiate
+requests for data from the publisher. This method must be called to start getting data
+from the publisher. The :methodname:`onError` method is triggered
+if an error occurs while retrieving data. Finally,
+the :methodname:`onComplete` method is called when all pages have been requested.
+
+
+Use a Subscriber
+----------------
+
+**Imports**
+
+.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/AsyncPagination.java
+   :lines: 18-28
+   :language: java
+
+**Code**
+
+.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/AsyncPagination.java
+   :lines: 90-94,102-130
+   :dedent: 8
+   :language: java
+
+See the :sdk-examples-java-dynamodb:`complete example <AsyncPagination.java>` on GitHub.
+
+Use a For Loop
+--------------
+
+Use a for loop to iterate through the pages for simple use cases when creating a new subscriber
+might be too much overhead. The response publisher object has a :methodname:`forEach` helper method
+for this purpose.
+
+**Code**
+
+.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/AsyncPagination.java
+   :lines: 95-99
+   :dedent: 8
+   :language: java
+
+See the :sdk-examples-java-dynamodb:`complete example <AsyncPagination.java>` on GitHub.
+
+
+.. _iterate-objects:
+
+Iterate over Table names
+========================
+
+The following examples show ways to iterate over the objects returned in the response
+instead of the pages of the response. Similar to the synchronous result,
+the asynchronous result class has a method to interact with the underlying item
+collection. The return type of the convenience method will be a publisher that can be
+used to request items across all pages.
+
+Use a Subscriber
+----------------
+
+**Code**
+
+.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/AsyncPagination.java
+   :lines: 140-145,151-172
+   :dedent: 8
+   :language: java
+
+See the :sdk-examples-java-dynamodb:`complete example <AsyncPagination.java>` on GitHub.
+
+
+.. _for-loop:
+
+Use a For Loop
+--------------
+
+Use the :methodname:`forEach` convenience method to iterate through the results.
+
+**Code**
+
+.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/AsyncPagination.java
+   :lines: 147-149
+   :dedent: 8
+   :language: java
+
+See the :sdk-examples-java-dynamodb:`complete example <AsyncPagination.java>` on GitHub.
+
+====================
+Resume after Failure
+====================
+
+Use the :methodname:`resume` on the response object to resume pagination after an error.
+Multiple calls are made to retrieve paginated results. If a transient error occurs during
+those calls, you can use the :methodname:`resume` method to resume the iteration from
+the last successful call. This method is available in both the asynchronous and synchronous
+APIs.
+
+**Imports**
+
+.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/SyncPagination.java
+   :lines: 17-20
+   :language: java
+
+**Code**
+
+.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/SyncPagination.java
+   :lines: 111-129
+   :dedent: 8
+   :language: java
+
+See the :sdk-examples-java-dynamodb:`complete example <SyncPagination.java>` on GitHub.

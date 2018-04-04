@@ -57,8 +57,8 @@ Streaming Operations
 ======================
 
 For streaming operations, you must provide an :aws-java-class:`AsyncRequestProvider
-<services/async/AsyncRequestProvider>` to provide the content incrementally or
-an :aws-java-class:`AsyncResponseHandler <services/async/AsyncResponseHandler>` to receive and
+<core/async/AsyncRequestProvider>` to provide the content incrementally or
+an :aws-java-class:`AsyncResponseHandler <core/async/AsyncResponseHandler>` to receive and
 process the response.
 
 Here is an example that uploads a file to |S3| asynchronously with the

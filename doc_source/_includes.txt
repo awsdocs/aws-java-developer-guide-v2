@@ -36,3 +36,4 @@
 .. |ddbclient| replace:: :aws-java-class:`DynamoDBClient <services/dynamodb/DynamoDBClient>`
 .. |ec2client| replace:: :aws-java-class:`EC2Client <services/ec2/EC2Client>`
 .. |iamclient| replace:: :aws-java-class:`IAMClient <services/iam/IAMClient>`
+.. |ddbasyncclient| replace:: :aws-java-class:`DynamoDBAsyncClient <services/dynamodb/DynamoDBAsyncClient>`

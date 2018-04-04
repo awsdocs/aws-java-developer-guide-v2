@@ -16,5 +16,17 @@ This topic describes important changes to the |sdk-java-dg| over the course of i
 
 **This documentation was built on:** |today|
 
+Apr 5, 2018
+   Added auto pagination topic.
+
+Dec 29, 2017
+   Added example topics for |IAM|, |EC2|, Cloudwatch and |DDB|
+
+Aug 7, 2017
+   Added getobjects example for S3.
+
+Aug 4, 2017
+   Added async topic.
+
 Jun 28, 2017
    New SDK version, 2.0 released.

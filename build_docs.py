@@ -130,13 +130,19 @@ def run():
             bare_line = line.strip()
             if bare_line == '':
                 continue
+            elif bare_line.startswith("dir"):
+                # then this is just a directory, not a git repo so just copy - useful for test builds
+                (temp, path_to_copy) = line.split()
+                print("Copying doc examples from %s to %s" % (path_to_copy, BUILD_DIR))
+                copy_dir_contents_with_overwrite(path_to_copy, BUILD_DIR)
             elif not bare_line.startswith('#'):
                 (git_url, subdir) = line.split()
+                print("Copying git repo from %s to %s" % (git_url, BUILD_DIR))
                 if subdir == None:
                     subdir = ''
                 clone_and_copy_dependency(git_url, str(dep_num), subdir)
                 dep_num += 1
-
+    
     #
     # Step 2: copy the contents of SOURCE_DIR into the BUILD_DIR.
     #
@@ -170,7 +176,7 @@ def run():
     except:
         print(FAILED_CHECKOUT)
         sys.exit(1)
-
+    
     #
     # Step 4: Clean up the build dir and shared content.
     #
