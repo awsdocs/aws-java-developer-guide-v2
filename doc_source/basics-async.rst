@@ -28,7 +28,7 @@ Because an asynchronous method returns before a response is available, you need 
 response when it's ready. The |sdk-java-v2| asynchronous client methods return *CompletableFuture objects*
 that allows you to access the response when it's ready.
 
-.. _basics-async:
+.. _basics-async-non-streaming:
 
 Non-streaming Operations
 ========================
