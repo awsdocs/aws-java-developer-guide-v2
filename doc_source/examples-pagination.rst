@@ -164,13 +164,13 @@ Use a Subscriber
 **Imports**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/AsyncPagination.java
-   :lines: 18-28
+   :lines: 17-28
    :language: java
 
 **Code**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/AsyncPagination.java
-   :lines: 90-94,102-130
+   :lines: 93-97,105-133
    :dedent: 8
    :language: java
 
@@ -186,7 +186,7 @@ for this purpose.
 **Code**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/AsyncPagination.java
-   :lines: 95-99
+   :lines: 98-102
    :dedent: 8
    :language: java
 
@@ -210,7 +210,7 @@ Use a Subscriber
 **Code**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/AsyncPagination.java
-   :lines: 140-145,151-172
+   :lines: 143-148,154-175
    :dedent: 8
    :language: java
 
@@ -227,11 +227,43 @@ Use the :methodname:`forEach` convenience method to iterate through the results.
 **Code**
 
 .. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/AsyncPagination.java
-   :lines: 147-149
+   :lines: 150-152
    :dedent: 8
    :language: java
 
 See the :sdk-examples-java-dynamodb:`complete example <AsyncPagination.java>` on GitHub.
+
+
+Use Third-party Subscriber
+==========================
+
+You can use other third party subscriber classes instead of
+implementing your own. This example demonstrates using the RxJava implementation
+but any library that implements the reactive stream interfaces can be used.
+See the `RxJava wiki page on Github <https://github.com/ReactiveX/RxJava/wiki>`_
+for more information on that library.
+
+To use the library, add it as a dependency. If using Maven, the example shows the
+POM snippet to use.
+
+**POM Entry**
+
+.. literalinclude:: example_code/dynamodb/pom.xml
+   :lines: 57-61
+   :language: xml
+
+**Import**
+
+.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/AsyncPagination.java
+   :lines: 25-29
+   :language: java
+
+**Code**
+
+.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/AsyncPagination.java
+  :lines: 185-194
+  :dedent: 8
+  :language: java
 
 ====================
 Resume after Failure
