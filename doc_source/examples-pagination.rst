@@ -18,14 +18,14 @@ Retrieving Paginated Results
 
 Many AWS operations return paginated results when the response object is too large
 to return in a single response. In the |sdk-java|_ 1.0, the response contained a token
-you had to use to retrieve the next page of results. New in |sdk-java|_ 2.0 are auto
-pagination methods which make multiple
+you had to use to retrieve the next page of results. New in the |sdk-java|_ 2.0 are
+autopagination methods that make multiple
 service calls to get the next page of results for you automatically.
 You only have to write code that processes the results. Additionally both types of methods
 have synchronous and asynchronous versions. See :doc:`basics-async` for more detail about
 asynchronous clients.
 
-The examples on this page use |S3| and |DDB| operations to demonstrate the
+The following examples use |S3| and |DDBlong| operations to demonstrate the
 various methods of retrieving your data from paginated responses.
 
 .. include:: includes/examples-note.txt
@@ -48,7 +48,7 @@ and provide a bucket name. Optionally you can provide the maximum number of keys
 retrieve at one time.
 Pass it to the |s3client|'s :methodname:`listObjectsV2Paginator` method. This method
 returns a :aws-java-class:`ListObjectsV2Iterable <services/s3/paginators/ListObjectsV2Iterable>`
-object, which is an iterable of the
+object, which is an ``Iterable`` of the
 :aws-java-class:`ListObjectsV2Response <services/s3/model/ListObjectsV2Response>` class.
 
 The first example demonstrates using the paginator object to iterate through all the
@@ -113,11 +113,11 @@ Use a standard for loop to iterate through the contents of the response.
 
 See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>` on GitHub.
 
-Manual pagination
+Manual Pagination
 =================
 
-Manual pagination is still available if your use case requires it. Use the next token
-in the response object for the subsequent requests. Here's an example using a while loop.
+If your use case requires it, manual pagination is still available. Use the next token
+in the response object for the subsequent requests. Here's an example using a ``while`` loop.
 
 **Code**
 
@@ -137,10 +137,10 @@ These examples use the asynchronous pagination methods for listing tables in
 
 .. _iterate-pages-async:
 
-Iterate over Pages of Table names
+Iterate over Pages of Table Names
 =================================
 
-First create an asynchronous |DDB| client. Then, call the
+First, create an asynchronous |DDB| client. Then, call the
 :methodname:`listTablesPaginator` method to get a
 :aws-java-class:`ListTablesPublisher <services/dynamodb/paginators/ListTablesPublisher>`.
 This is an implementation of the reactive streams Publisher interface. To learn more
@@ -149,7 +149,7 @@ the `Reactive Streams Github repo <https://github.com/reactive-streams/reactive-
 
 Call the :methodname:`subscribe` method on the :aws-java-class:`ListTablesPublisher <services/dynamodb/paginators/ListTablesPublisher>`
 and pass a subscriber implementation. In this example, the subscriber has an :methodname:`onNext` method
-that requests one item at a time from the publisher. This is the method that gets called
+that requests one item at a time from the publisher. This is the method that is called
 repeatedly until all pages are retrieved. The :methodname:`onSubscribe` method
 calls the :methodname:`Subscription.request` method to initiate
 requests for data from the publisher. This method must be called to start getting data
@@ -179,7 +179,7 @@ See the :sdk-examples-java-dynamodb:`complete example <AsyncPagination.java>` on
 Use a For Loop
 --------------
 
-Use a for loop to iterate through the pages for simple use cases when creating a new subscriber
+Use a ``for`` loop to iterate through the pages for simple use cases when creating a new subscriber
 might be too much overhead. The response publisher object has a :methodname:`forEach` helper method
 for this purpose.
 
@@ -201,7 +201,7 @@ Iterate over Table names
 The following examples show ways to iterate over the objects returned in the response
 instead of the pages of the response. Similar to the synchronous result,
 the asynchronous result class has a method to interact with the underlying item
-collection. The return type of the convenience method will be a publisher that can be
+collection. The return type of the convenience method is a publisher that can be
 used to request items across all pages.
 
 Use a Subscriber
@@ -234,11 +234,11 @@ Use the :methodname:`forEach` convenience method to iterate through the results.
 See the :sdk-examples-java-dynamodb:`complete example <AsyncPagination.java>` on GitHub.
 
 
-Use Third-party Subscriber
+Use Third-party Library
 ==========================
 
-You can use other third party subscriber classes instead of
-implementing your own. This example demonstrates using the RxJava implementation
+You can use other third party libraries instead of implementing a custom subscriber.
+This example demonstrates using the RxJava implementation
 but any library that implements the reactive stream interfaces can be used.
 See the `RxJava wiki page on Github <https://github.com/ReactiveX/RxJava/wiki>`_
 for more information on that library.
@@ -269,7 +269,7 @@ POM snippet to use.
 Resume after Failure
 ====================
 
-Use the :methodname:`resume` on the response object to resume pagination after an error.
+Use the :methodname:`resume` method on the response object to resume pagination after an error.
 Multiple calls are made to retrieve paginated results. If a transient error occurs during
 those calls, you can use the :methodname:`resume` method to resume the iteration from
 the last successful call. This method is available in both the asynchronous and synchronous
