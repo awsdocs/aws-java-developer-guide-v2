@@ -102,7 +102,7 @@ See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>` on Gi
 Use a For Loop
 --------------
 
-Use a standard for loop to iterate through the contents of the response.
+Use a standard ``for`` loop to iterate through the contents of the response.
 
 **Code**
 
@@ -195,7 +195,7 @@ See the :sdk-examples-java-dynamodb:`complete example <AsyncPagination.java>` on
 
 .. _iterate-objects-async:
 
-Iterate over Table names
+Iterate over Table Names
 ========================
 
 The following examples show ways to iterate over the objects returned in the response
