@@ -17,7 +17,7 @@
 .. _AWS Blog: https://aws.amazon.com/blogs/developer/aws-sdk-for-java-2-0-developer-preview/
 
 #########################################################
-|sdk-java-dg-v2| (Developer Preview)
+AWS SDK for Java 2.0 Developer Guide (Developer Preview)
 #########################################################
 
 The |sdk-java|_ provides a Java API for |AWSlong|. Using the SDK, you can easily build Java
