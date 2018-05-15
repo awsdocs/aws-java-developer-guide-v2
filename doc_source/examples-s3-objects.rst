@@ -15,7 +15,8 @@ Performing Operations on an |S3| Object
 .. meta::
     :description: How to list, upload, download or delete objects in an Amazon
                   S3 bucket using the AWS SDK for Java 2.0.
-    :keywords: Amazon Simple Storage Service, Amazon S3, AWS SDK for Java 2.0 code example
+    :keywords: Amazon Simple Storage Service, Amazon S3, AWS SDK for Java 2.0 code example,
+               PutObjectRequest, createMultipartUpload, GetObjectRequest
 
 
 An |S3| object represents a file or collection of data. Every object must be contained in a

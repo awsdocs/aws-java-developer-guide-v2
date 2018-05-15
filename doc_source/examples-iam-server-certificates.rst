@@ -14,7 +14,9 @@ Working with |IAM| Server Certificates
 
 .. meta::
    :description: How to get, list, update and delete IAM server certificates.
-   :keywords: AWS for Java SDK 2.0 code examples, IAM server certificates
+   :keywords: AWS for Java SDK 2.0 code examples, IAM server certificates,
+              GetServerCertificateRequest, ListServerCertificatesRequest,
+              UpdateServerCertificateRequest
 
 To enable HTTPS connections to your website or application on AWS, you need an SSL/TLS *server
 certificate*. You can use a server certificate provided by |acmlong| or one that you obtained from

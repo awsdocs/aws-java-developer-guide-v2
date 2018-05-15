@@ -14,7 +14,8 @@ Retrieving Paginated Results
 
 .. meta::
     :description: How to use stream to get automatic pagination in AWS SDK for Java 2.0.
-    :keywords: Pagination, AWS SDK for Java 2.0, S3 code examples, async pagination
+    :keywords: Pagination, AWS SDK for Java 2.0, S3 code examples, async pagination,
+               listObjectsV2Paginator, listTablesPaginator
 
 Many AWS operations return paginated results when the response object is too large
 to return in a single response. In the |sdk-java|_ 1.0, the response contained a token

@@ -14,7 +14,8 @@ Managing |IAM| Users
 
 .. meta::
    :description: How to create, list, update and delete IAM users.
-   :keywords: AWS for Java SDK 2.0 code examples, IAM users
+   :keywords: AWS for Java SDK 2.0 code examples, IAM users, CreateUserRequest,
+              ListUsersRequest, UpdateUserRequest
 
 Creating a User
 ===============
