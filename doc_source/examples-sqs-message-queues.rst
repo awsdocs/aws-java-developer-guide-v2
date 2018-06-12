@@ -43,7 +43,7 @@ the queue parameters.
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
-   :lines: 41-43
+   :lines: 42-43
    :dedent: 8
    :language: java
 
@@ -71,7 +71,7 @@ the results to queues that match that prefix.
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
-   :lines: 52-58
+   :lines: 53-58
    :dedent: 8
    :language: java
 
@@ -95,7 +95,7 @@ with a :aws-java-class:`GetQueueUrlRequest <services/sqs/model/GetQueueUrlReques
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
-   :lines: 45-49
+   :lines: 46-49
    :dedent: 8
    :language: java
 
@@ -120,7 +120,7 @@ Then call the |sqsclient| :methodname:`deleteQueue` method.
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
-   :lines: 101-103
+   :lines: 113-114
    :dedent: 8
    :language: java
 

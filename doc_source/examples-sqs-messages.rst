@@ -41,7 +41,7 @@ Add a single message to an |SQS| queue by calling the |sqsclient| client
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
-   :lines: 60-65
+   :lines: 72-76
    :dedent: 8
    :language: java
 
@@ -67,7 +67,7 @@ a specific message by setting a delay value on the message.
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
-   :lines: 67-73
+   :lines: 79-84
    :dedent: 8
    :language: java
 
@@ -94,7 +94,7 @@ returned as a list of :aws-java-class:`Message <services/sqs/model/Message>` obj
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
-   :lines: 76-81
+   :lines: 88-92
    :dedent: 8
    :language: java
 
@@ -116,7 +116,7 @@ the message's receipt handle and queue URL to the |sqsclient|
 **Code**
 
 .. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
-   :lines: 92-99
+   :lines: 104-110
    :dedent: 8
    :language: java
 
