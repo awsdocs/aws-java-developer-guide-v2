@@ -49,7 +49,7 @@ such as listing or deleting buckets as shown in later examples.
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3BucketOps.java
-   :lines: 33-41
+   :lines: 29-31, 35-42
    :dedent: 8
    :language: java
 
@@ -75,7 +75,7 @@ is returned. Use this response object to retrieve the list of buckets.
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3BucketOps.java
-   :lines: 44-46
+   :lines: 29-30, 44-47
    :dedent: 8
    :language: java
 
@@ -111,7 +111,7 @@ method on each object to delete it.
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3BucketDeletion.java
-   :lines: 54-66
+   :lines: 53-66
    :dedent: 8
    :language: java
 
@@ -132,7 +132,7 @@ with a bucket name and pass it to the |s3client|'s :methodname:`deleteBucket` me
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3BucketOps.java
-   :lines: 49-50
+   :lines: 29-30, 50-51
    :dedent: 8
    :language: java
 

@@ -51,7 +51,7 @@ that contains the object content and the :classname:`PutObjectRequest` object.
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 54-57
+   :lines: 47-51, 54-58
    :dedent: 8
    :language: java
 
@@ -76,7 +76,7 @@ merge all the uploaded parts and finish the upload operation.
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 125-153
+   :lines: 151-178
    :dedent: 8
    :language: java
 
@@ -90,8 +90,8 @@ Download an Object
 Build a :aws-java-class:`GetObjectRequest <services/s3/model/GetObjectRequest>`
 and supply a bucket name and key name.
 Use the |s3client|'s :methodname:`getObject` method, passing it the
-:classname:`GetObjectRequest` object and a :classname:`StreamingResponseHandler` object.
-The :classname:`StreamingResponseHandler` creates a response handler that writes
+:classname:`GetObjectRequest` object and a :classname:`ResponseTransformer` object.
+The :classname:`ResponseTransformer` creates a response handler that writes
 the response content to the specified file or stream.
 
 The following example specifies a file name to write the object content to.
@@ -105,7 +105,7 @@ The following example specifies a file name to write the object content to.
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 85-87
+   :lines: 110-112
    :dedent: 8
    :language: java
 
@@ -130,7 +130,7 @@ object to delete. *The specified bucket and object key must exist, or the servic
 **Code**
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 89-91
+   :lines: 114-116
    :dedent: 8
    :language: java
 
