@@ -15,7 +15,7 @@ Retrieving Paginated Results
 .. meta::
     :description: How to use stream to get automatic pagination in AWS SDK for Java 2.0.
     :keywords: Pagination, AWS SDK for Java 2.0, S3 code examples, async pagination,
-               listObjectsV2Paginator, listTablesPaginator
+               listObjectsV2Paginator, listTablesPaginator, paginate
 
 Many AWS operations return paginated results when the response object is too large
 to return in a single response. In the |sdk-java|_ 1.0, the response contained a token
@@ -250,7 +250,7 @@ POM snippet to use.
 **POM Entry**
 
 .. literalinclude:: example_code/dynamodb/pom.xml
-   :lines: 57-61
+   :lines: 46-50
    :language: xml
 
 **Import**
