@@ -56,10 +56,10 @@ is only done when the asynchronous call is complete.
 Streaming Operations
 ======================
 
-For streaming operations, you must provide an :aws-java-class:`AsyncRequestProvider
-<core/async/AsyncRequestProvider>` to provide the content incrementally or
-an :aws-java-class:`AsyncResponseHandler <core/async/AsyncResponseHandler>` to receive and
-process the response.
+For streaming operations, you must provide an :aws-java-class:`AsyncRequestBody
+<core/async/AsyncRequestBody>` to provide the content incrementally or
+an :aws-java-class:`AsyncResponseTransformer <core/async/AsyncResponseTransformer>`
+to receive and process the response.
 
 Here is an example that uploads a file to |S3| asynchronously with the
 :methodname:`PutObject` operation.
