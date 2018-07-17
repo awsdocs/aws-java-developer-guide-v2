@@ -31,7 +31,7 @@ Add the Log4J JAR
 =================
 
 To use Log4j with the SDK, you need to download the Log4j JAR from the
-`Log4j website <https://logging.apache.org/log4j/2.0/download.html/>`_ or
+`Log4j website <https://logging.apache.org/log4j/2.0/download.html>`_ or
 use Maven by adding a dependency on Log4j in your pom.xml file.
 The SDK doesn't include the JAR.
 
@@ -41,7 +41,7 @@ Log4j Configuration file
 ========================
 Log4j uses a configuration file, log4j2.xml. Example configuration files are shown below.
 To learn more about the values used in the configuration file, see the
-`manual for Log4j configuration <https://logging.apache.org/log4j/2.x/manual/configuration.html/>`_.
+`manual for Log4j configuration <https://logging.apache.org/log4j/2.x/manual/configuration.html>`_.
 
 Place your configuration file in a directory on your classpath. The Log4j JAR
 and the log4j2.xml file do not have to be in the same directory.
