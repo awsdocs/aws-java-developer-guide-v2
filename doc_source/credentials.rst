@@ -154,7 +154,7 @@ To do this, you instantiate an AWS service client without explicitly providing c
 .. code-block:: java
 
     S3Client s3 = S3Client.builder()
-                           .region(Regions.US_WEST_2)
+                           .region(Region.US_WEST_2)
                            .build();
 
 
@@ -174,7 +174,7 @@ following example shows how to use :emphasis:`environment` credentials specifica
 .. code-block:: java
 
     S3Client s3 = S3Client.builder()
-                           .credentialsProvider(new EnvironmentVariableCredentialsProvider())
+                           .credentialsProvider(EnvironmentVariableCredentialsProvider.create())
                            .build();
 
 For the full list of |sdk-java|-supplied credential providers and provider chains,
@@ -211,13 +211,13 @@ The following is an example.
 
 .. code-block:: java
 
-    AwsSessionCredentials awsCreds = new AwsSessionCredentials(
-                                           "access_key_id",
-                                           "secret_key_id",
-                                           "session_token");
-    S3Client s3 = S3Client.builder()
-                            .credentialsProvider(new StaticCredentialsProvider(awsCreds))
-                            .build();
+    AwsSessionCredentials awsCreds = AwsSessionCredentials.create(
+          "access_key_id",
+          "secret_key_id",
+          "session_token");
+    S3Client s32 = S3Client.builder()
+           		  .credentialsProvider(StaticCredentialsProvider.create(awsCreds))
+           		  .build();
 
 More Info
 =========
