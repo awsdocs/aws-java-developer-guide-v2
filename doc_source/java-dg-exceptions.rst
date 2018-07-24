@@ -35,22 +35,22 @@ In general, checked exceptions work well on small scales, but can become trouble
 grow and become more complex.
 
 
-AmazonServiceException (and Subclasses)
-========================================
+SdkServiceException (and Subclasses)
+======================================
 
-:aws-java-class:`AmazonServiceException` is the most common exception that you'll experience when using
+:aws-java-class:`SdkServiceException <core/exception/SdkServiceException>` is the most common
+exception that you'll experience when using
 the |sdk-java|. This exception represents an error response from an AWS service. For example, if you
 try to terminate an |EC2| instance that doesn't exist, EC2 will return an error response and all the
-details of that error response will be included in the :classname:`AmazonServiceException` that's thrown.
-For some cases, a subclass of :classname:`AmazonServiceException` is thrown to allow developers
+details of that error response will be included in the :classname:`SdkServiceException` that's thrown.
+For some cases, a subclass of :classname:`SdkServiceException` is thrown to allow developers
 fine-grained control over handling error cases through catch blocks.
 
-When you encounter an :classname:`AmazonServiceException`, you know that your request was successfully
+When you encounter an :classname:`SdkServiceException`, you know that your request was successfully
 sent to the AWS service but couldn't be successfully processed. This can be because of errors in
-the
-request's parameters or because of issues on the service side.
+the request's parameters or because of issues on the service side.
 
-:classname:`AmazonServiceException` provides you with information such as:
+:classname:`SdkServiceException` provides you with information such as:
 
 * Returned HTTP status code
 
@@ -60,18 +60,20 @@ request's parameters or because of issues on the service side.
 
 * AWS request ID for the failed request
 
-:classname:`AmazonServiceException` also includes information about whether the failed request was
-the caller's fault (a request with illegal values) or the AWS service's fault (an
-internal service error).
+:classname:`SdkServiceException` also includes an
+:aws-java-class:`ErrorType <core/exception/ErrorType>` field that indicates whether
+the failed request was the caller's fault (a request with illegal values) or the
+AWS service's fault (an internal service error).
 
 
-AmazonClientException
-=====================
+SdkClientException
+===================
 
-:aws-java-class:`AmazonClientException` indicates that a problem occurred inside the Java client code,
+:aws-java-class:`SdkClientException <core/exception/SdkClientException>` indicates that a
+problem occurred inside the Java client code,
 either while trying to send a request to AWS or while trying to parse a response from AWS.
-An :classname:`AmazonClientException` is generally more severe than an
-:classname:`AmazonServiceException`, and indicates a major problem that is preventing the
+An :classname:`SdkClientException` is generally more severe than an
+:classname:`SdkServiceException`, and indicates a major problem that is preventing the
 client from making service calls to AWS services. For example, the |sdk-java|
-throws an :classname:`AmazonClientException` if no network connection is available when you try to
+throws an :classname:`SdkClientException` if no network connection is available when you try to
 call an operation on one of the clients.
