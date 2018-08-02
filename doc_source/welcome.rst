@@ -16,9 +16,9 @@
 .. _change log: https://github.com/aws/aws-sdk-java-v2/blob/master/CHANGELOG.md
 .. _AWS Blog: https://aws.amazon.com/blogs/developer/aws-sdk-for-java-2-0-developer-preview/
 
-#########################################################
-AWS SDK for Java 2.0 Developer Guide (Developer Preview)
-#########################################################
+#####################################
+AWS SDK for Java 2.0 Developer Guide
+#####################################
 
 The |sdk-java|_ provides a Java API for |AWSlong|. Using the SDK, you can easily build Java
 applications that work with |S3|, |EC2|, |DDB|, and more. We regularly add support for new services
@@ -35,7 +35,10 @@ Java 8 and adds several frequently requested features. These include support for
 and the ability to plug in a different HTTP implementation at run time. For more information see
 the `AWS Blog`_.
 
-.. important:: This is a preview release and is not recommended for production environments.
+.. important::
+   Currently the |AKlong|, |DDBlong| and |CWlong| modules in version 2.0 are production ready
+   and can be used in production environments.
+   All other modules are preview releases and are not recommended for production use.
 
 .. _1.0-support:
 

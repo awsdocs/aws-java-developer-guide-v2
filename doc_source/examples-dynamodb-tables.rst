@@ -56,7 +56,7 @@ attributes and a table schema, both of which are used to identify the primary ke
 must also supply initial provisioned throughput values and a table name.
 
 .. note:: If a table with the name you chose already exists, an
-   :aws-java-class:`DynamoDBException <services/dynamodb/model/DynamoDBException>` is thrown.
+   :aws-java-class:`DynamoDbException <services/dynamodb/model/DynamoDbException>` is thrown.
 
 .. These Imports/Code headings are sufficient without the colons
 

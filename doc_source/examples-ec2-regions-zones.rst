@@ -17,6 +17,7 @@ Using Regions and Availability Zones
    :keywords: AWS SDK for Java 2.0, code examples, EC2, list regions, describe regions, list availability
               zones, describe availability zones
 
+.. include:: includes/dev-preview-note.txt
 
 Describing Regions
 ==================

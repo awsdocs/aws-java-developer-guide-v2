@@ -8,15 +8,17 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-###################################
-|sqs| Examples Using the |sdk-java|
-###################################
+###########################################
+|sqs| Examples Using the |sdk-java-preview|
+###########################################
 
 .. meta::
    :description: Programming Amazon SQS using the AWS SDK for Java 2.0
    :keywords: AWS SDK for Java code examples
 
 This section provides examples of programming |sqs|_ using the |sdk-java|_ 2.0.
+
+.. include:: includes/dev-preview-note.txt
 
 .. include:: includes/complete-examples-note.txt
 

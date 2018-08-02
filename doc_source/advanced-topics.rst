@@ -19,13 +19,21 @@
 This section provides programming examples using the |sdk-java-v2| that applies
 to specific use cases.
 
+.. important::
+   Currently the |AKlong|, |DDBlong| and |CWlong| modules are production ready
+   and can be used in production environments.
+   All other modules are preview releases, 
+   and we don't recommend you use them in your production environments.
+
+
 .. toctree::
    :maxdepth: 1
 
-   Amazon S3 Examples <s3-examples>
-   Amazon SQS Examples <sqs-examples>
+   Amazon S3 Examples (Developer Preview) <s3-examples>
+   Amazon SQS Examples (Developer Preview) <sqs-examples>
    Amazon CloudWatch Examples <examples-cloudwatch>
    Amazon DynamoDB Examples <examples-dynamodb>
-   Amazon EC2 Examples <examples-ec2>
-   AWS Identity and Access Management (IAM) Examples <examples-iam>
+   Amazon EC2 Examples (Developer Preview) <examples-ec2>
+   AWS Identity and Access Management (IAM) Examples (Developer Preview) <examples-iam>
+   Amazon Kinesis Examples <examples-kinesis>
    Pagination Examples <examples-pagination>

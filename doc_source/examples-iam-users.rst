@@ -17,6 +17,8 @@ Managing |IAM| Users
    :keywords: AWS for Java SDK 2.0 code examples, IAM users, CreateUserRequest,
               ListUsersRequest, UpdateUserRequest
 
+.. include:: includes/dev-preview-note.txt
+
 Creating a User
 ===============
 

@@ -266,27 +266,27 @@ POM snippet to use.
   :dedent: 8
   :language: java
 
-====================
-Resume after Failure
-====================
+..  ====================
+    Resume after Failure
+    ====================
 
-Use the :methodname:`resume` method on the response object to resume pagination after an error.
-Multiple calls are made to retrieve paginated results. If a transient error occurs during
-those calls, you can use the :methodname:`resume` method to resume the iteration from
-the last successful call. This method is available in both the asynchronous and synchronous
-APIs.
+    Use the :methodname:`resume` method on the response object to resume pagination after an error.
+    Multiple calls are made to retrieve paginated results. If a transient error occurs during
+    those calls, you can use the :methodname:`resume` method to resume the iteration from
+    the last successful call. This method is available in both the asynchronous and synchronous
+    APIs.
 
-**Imports**
+    **Imports**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/SyncPagination.java
-   :lines: 17-20
-   :language: java
+    .. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/SyncPagination.java
+       :lines: 17-20
+       :language: java
 
-**Code**
+    **Code**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/SyncPagination.java
-   :lines: 111-129
-   :dedent: 8
-   :language: java
+    .. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/SyncPagination.java
+       :lines: 111-129
+       :dedent: 8
+       :language: java
 
-See the :sdk-examples-java-dynamodb:`complete example <SyncPagination.java>` on GitHub.
+    See the :sdk-examples-java-dynamodb:`complete example <SyncPagination.java>` on GitHub.

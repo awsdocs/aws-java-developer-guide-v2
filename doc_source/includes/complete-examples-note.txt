@@ -8,7 +8,6 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-.. note:: The examples include only the code needed to demonstrate each technique. The
-   :sdk-doc-examples:`complete example code is available on GitHub <java>`. From there, you can download a
-   single source file or clone the repository locally to get all the examples to build and run.
-
+The following examples include only the code needed to demonstrate each technique. The
+:sdk-doc-examples:`complete example code is available on GitHub <java>`. From there, you can download a
+single source file or clone the repository locally to get all the examples to build and run.

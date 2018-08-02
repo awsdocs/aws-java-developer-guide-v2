@@ -8,25 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-##########################################
-Using the |sdk-java-v2| Developer Preview
-##########################################
+If you are testing out the developer preview, add :code-xml:`preview-*`
+to the version.
 
-.. meta::
-   :description: Programming information for the AWS SDK for Java
-   :keywords:
-
-This section provides important general information about programming with the |sdk-java| that applies
-to all services you might use with the SDK.
-
-.. toctree::
-   :maxdepth: 1
-
-   creating-clients
-   credentials
-   java-dg-region-selection
-   basics-async
-   basics-http2
-   java-dg-exceptions
-   java-dg-logging
-   java-dg-roles
+.. note::
+   You can't use a mix of |sdk-java-v2| developer preview and non-preview
+   modules in one project.

@@ -39,7 +39,17 @@ plugin to import the SDK's Maven Bill of Materials (BOM) to manage SDK dependenc
 
           dependencyManagement {
               imports {
-                  mavenBom 'software.amazon.awssdk:bom:2.0.0-preview-1'
+                  mavenBom 'software.amazon.awssdk:bom:2.0.0'
+              }
+          }
+
+       .. include:: includes/dev-preview-module-setup.txt
+
+       .. code-block:: groovy
+
+          dependencyManagement {
+              imports {
+                  mavenBom 'software.amazon.awssdk:bom:2.0.0-preview-10'
               }
           }
 
@@ -48,7 +58,7 @@ plugin to import the SDK's Maven Bill of Materials (BOM) to manage SDK dependenc
        .. code-block:: groovy
 
           dependencies {
-              compile 'software.amazon.awssdk:s3'
+              compile 'software.amazon.awssdk:kinesis'
               testCompile group: 'junit', name: 'junit', version: '4.11'
           }
 
@@ -60,7 +70,7 @@ Here's the complete :file:`build.gradle` file:
 .. code-block:: groovy
 
    group 'aws.test'
-   version '1.0-SNAPSHOT'
+   version '1.0'
 
    apply plugin: 'java'
 
@@ -83,12 +93,12 @@ Here's the complete :file:`build.gradle` file:
 
    dependencyManagement {
      imports {
-         mavenBom 'software.amazon.awssdk:bom:2.0.0-preview-1'
+         mavenBom 'software.amazon.awssdk:bom:2.0.0'
      }
    }
 
    dependencies {
-     compile 'software.amazon.awssdk:s3'
+     compile 'software.amazon.awssdk:kinesis'
      testCompile group: 'junit', name: 'junit', version: '4.11'
    }
 

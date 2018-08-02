@@ -108,7 +108,23 @@ SDK to use.
         <dependency>
           <groupId>software.amazon.awssdk</groupId>
           <artifactId>bom</artifactId>
-          <version>2.0.0-preview-1</version>
+          <version>2.0.0</version>
+          <type>pom</type>
+          <scope>import</scope>
+        </dependency>
+      </dependencies>
+    </dependencyManagement>
+
+.. include:: includes/dev-preview-module-setup.txt
+
+.. code-block:: xml
+
+    <dependencyManagement>
+      <dependencies>
+        <dependency>
+          <groupId>software.amazon.awssdk</groupId>
+          <artifactId>bom</artifactId>
+          <version>2.0.0-preview-10</version>
           <type>pom</type>
           <scope>import</scope>
         </dependency>
@@ -129,7 +145,7 @@ component.
     <dependencies>
       <dependency>
         <groupId>software.amazon.awssdk</groupId>
-        <artifactId>s3</artifactId>
+        <artifactId>kinesis</artifactId>
       </dependency>
       <dependency>
         <groupId>software.amazon.awssdk</groupId>
@@ -152,7 +168,7 @@ declare it in your :file:`pom.xml` as follows.
     <dependency>
       <groupId>software.amazon.awssdk</groupId>
       <artifactId>aws-java-sdk</artifactId>
-      <version>2.0.0-preview-1</version>
+      <version>2.0.0</version>
     </dependency>
   </dependencies>
 

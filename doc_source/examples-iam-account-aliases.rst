@@ -17,6 +17,8 @@ Using |IAM| Account Aliases
    :keywords: AWS for Java SDK 2.0 code examples, IAM account aliases,
               CreateAccountAliasRequest, ListAccountAliasesResponse, DeleteAccountAliasRequest
 
+.. include:: includes/dev-preview-note.txt
+
 If you want the URL for your sign-in page to contain your company name or other friendly identifier
 instead of your AWS account ID, you can create an alias for your AWS account.
 

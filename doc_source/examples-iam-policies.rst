@@ -17,6 +17,8 @@ Working with |IAM| Policies
    :keywords: AWS for Java SDK 2.0 code examples, IAM policies, CreatePolicyRequest,
               GetPolicyRequest, ListAttachedRolePoliciesRequest, DetachRolePolicyRequest
 
+.. include:: includes/dev-preview-note.txt
+
 Creating a Policy
 =================
 

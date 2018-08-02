@@ -8,19 +8,17 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-###################################
-|IAM| Examples Using the |sdk-java|
-###################################
+##################################
+|AK| Examples Using the |sdk-java|
+##################################
 
 .. meta::
-   :description: Programming AWS Identity and Access Management using the AWS SDK for Java 2.0
-   :keywords: AWS SDK for Java 2.0 code examples, IAM
+   :description: Programming Amazon Kinesis using the AWS SDK for Java 2.0
+   :keywords: AWS SDK for Java 2.0 code examples, Amazon Kinesis
 
-This section provides examples of programming |iam|_ using the |sdk-java|_.
+This section provides examples of programming |AKlong|_ using the |sdk-java|_ 2.0.
 
-.. include:: includes/dev-preview-note.txt
-
-.. include:: common/desc-iam.txt
+For more information about |AK|, see the |AK-dg|_.
 
 .. include:: includes/complete-examples-note.txt
 
@@ -28,8 +26,4 @@ This section provides examples of programming |iam|_ using the |sdk-java|_.
    :titlesonly:
    :maxdepth: 1
 
-   examples-iam-access-keys
-   examples-iam-users
-   examples-iam-account-aliases
-   examples-iam-policies
-   examples-iam-server-certificates
+   examples-kinesis-stream

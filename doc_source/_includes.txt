@@ -11,6 +11,7 @@
 .. project-specific includes for this project.
 
 .. |sdk-java-dl| replace:: https://sdk-for-java.amazonwebservices.com/latest/aws-java-sdk.zip
+.. |sdk-java-preview| replace:: AWS SDK for Java (Developer Preview)
 
 .. |aws_java_api_v2_url| replace:: AWS SDK for Java 2.0 Reference
 .. _aws_java_api_v2_url: http://aws-java-sdk-javadoc.s3-website-us-west-2.amazonaws.com/latest/

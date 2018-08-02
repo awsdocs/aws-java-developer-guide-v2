@@ -400,7 +400,8 @@ for svc in [
         'iam',
         'glacier',
         'swf',
-        'workdocs'
+        'workdocs',
+        'kinesis'
     ]:
     extlinks['sdk-examples-java-%s' % svc] = (samples_url +
         'blob/master/javav2/example_code/{svc}/src/main/java/com/example/{svc}/'.format(svc=svc) +

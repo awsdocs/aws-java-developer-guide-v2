@@ -18,6 +18,7 @@ Managing |IAM| Access Keys
               deleting, getting last access time, CreateAccessKeyRequest, ListAccessKeysRequest,
               GetAccessKeyLastUsedRequest
 
+.. include:: includes/dev-preview-note.txt
 
 Creating an Access Key
 ======================

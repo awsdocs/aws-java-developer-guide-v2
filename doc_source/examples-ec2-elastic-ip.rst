@@ -18,6 +18,7 @@ Using Elastic IP Addresses in |EC2|
    :keywords: AWS SDK for Java, code examples, EC2, Elastic IP, allocate address, release address,
               assign address, associate address, list addresses
 
+.. include:: includes/dev-preview-note.txt
 
 Allocating an Elastic IP Address
 ================================

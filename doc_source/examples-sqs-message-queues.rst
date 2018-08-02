@@ -17,6 +17,8 @@ Working with |SQS| Message Queues
    :keywords: AWS SDK for Java code example, Amazon SQS, queue operations, CreateQueueRequest
               ListQueuesRequest, GetQueueUrlRequest, DeleteMessageRequest
 
+.. include:: includes/dev-preview-note.txt
+
 A *message queue* is the logical container used for sending messages reliably in |sqs|. There are
 two types of queues: *standard* and *first-in, first-out* (FIFO). To learn more about queues and the
 differences between these types, see the |sqs-dg|_.
