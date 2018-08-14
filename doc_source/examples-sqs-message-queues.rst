@@ -33,7 +33,7 @@ Create a Queue
 ==============
 
 Use the |sqsclient| :methodname:`createQueue` method, and provide a
-:aws-java-class:`CreateQueueRequest <services/sqs/model/CreateQueueRequest>` object that describes
+:aws-java-class-prev:`CreateQueueRequest <services/sqs/model/CreateQueueRequest>` object that describes
 the queue parameters.
 
 **Imports**
@@ -58,7 +58,7 @@ List Queues
 ===========
 
 To list the |SQS| queues for your account, call the |sqsclient| :methodname:`listQueues`
-method with a :aws-java-class:`ListQueuesRequest <services/sqs/model/ListQueuesRequest>` object.
+method with a :aws-java-class-prev:`ListQueuesRequest <services/sqs/model/ListQueuesRequest>` object.
 
 Using the :methodname:`listQueues` overload without any parameters returns *all queues*, up to
 1,000 queues. You can supply a queue name prefix to the :code-java:`ListQueuesRequest` object to limit
@@ -86,7 +86,7 @@ Get the URL for a Queue
 =======================
 
 Call the |sqsclient| :methodname:`getQueueUrl` method.
-with a :aws-java-class:`GetQueueUrlRequest <services/sqs/model/GetQueueUrlRequest>` object.
+with a :aws-java-class-prev:`GetQueueUrlRequest <services/sqs/model/GetQueueUrlRequest>` object.
 
 **Imports**
 
@@ -110,7 +110,7 @@ Delete a Queue
 ==============
 
 Provide the queue's :ref:`URL <sqs-get-queue-url>` to the
-:aws-java-class:`DeleteMessageRequest <services/sqs/model/DeleteMessageRequest>` object.
+:aws-java-class-prev:`DeleteMessageRequest <services/sqs/model/DeleteMessageRequest>` object.
 Then call the |sqsclient| :methodname:`deleteQueue` method.
 
 **Imports**

@@ -20,7 +20,7 @@
 AWS SDK for Java 2.0 Developer Guide
 #####################################
 
-The |sdk-java|_ provides a Java API for |AWSlong|. Using the SDK, you can easily build Java
+The |sdk-java| provides a Java API for |AWSlong|. Using the SDK, you can easily build Java
 applications that work with |S3|, |EC2|, |DDB|, and more. We regularly add support for new services
 to the |sdk-java|. For a list of changes and features in a particular version,
 view the `change log`_.
@@ -36,8 +36,8 @@ and the ability to plug in a different HTTP implementation at run time. For more
 the `AWS Blog`_.
 
 .. important::
-   Currently the |AKlong|, |DDBlong| and |CWlong| modules in version 2.0 are production ready
-   and can be used in production environments.
+   Currently the asynchronous clients for |AKlong|, |DDBlong| and |CWlong| modules in
+   version 2.0 are production ready and can be used in production environments.
    All other modules are preview releases and are not recommended for production use.
 
 .. _1.0-support:
@@ -55,7 +55,9 @@ Additional Resources
 In addition to this guide, the following are valuable online resources for |sdk-java|
 developers:
 
-* |aws_java_api_v2_url|_
+* :aws-java-class-root:`AWS SDK for Java 2.0 Reference <>`
+
+* :aws-java-class-prev-root:`AWS SDK for Java 2.0 Reference Developer Preview <>`
 
 * :blog:`Java developer blog <developer/category/java>`
 

@@ -21,7 +21,7 @@ you can create clients only by using service client builders.
 
 Each AWS service has a service interface with methods
 for each action in the service API. For example, the service interface for |DDBlong| is named
-:aws-java-class:`DynamoDbClient <services/dynamodb/DynamoDBClient>`. Each service interface has a
+:aws-java-class-prev:`DynamoDbClient <services/dynamodb/DynamoDbClient>`. Each service interface has a
 static factory builder method you can use to construct an implementation of the service interface.
 
 Obtaining a Client Builder
@@ -34,7 +34,7 @@ In the |sdk-java| 2.0, the setters are named without the ``with`` prefix.
 
 .. code-block:: java
 
-    DynamoDBClient client = DynamoDBClient.builder()
+    DynamoDbClient client = DynamoDbClient.builder()
                             .region(Region.US_WEST_2)
                             .credentialsProvider(ProfileCredentialsProvider.builder()
                                          .profileName("myProfile")
@@ -60,7 +60,7 @@ for more information about how credentials and region are determined.
 
    .. code-block:: java
 
-      DynamoDBClient client = DynamoDBClient.create();
+      DynamoDbClient client = DynamoDbClient.create();
 
 Client Lifecycle
 ================
@@ -74,5 +74,5 @@ interface. For best practices, explicitly close a client by calling the :methodn
 
    .. code-block:: java
 
-      DynamoDBClient client = DynamoDBClient.create();
+      DynamoDbClient client = DynamoDbClient.create();
       client.close();

@@ -9,7 +9,7 @@
    limitations under the License.
 
 #################################################
-Set up AWS Credentials and Region for Development
+Set Up AWS Credentials and Region for Development
 #################################################
 
 .. meta::

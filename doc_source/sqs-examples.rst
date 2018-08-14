@@ -16,7 +16,7 @@
    :description: Programming Amazon SQS using the AWS SDK for Java 2.0
    :keywords: AWS SDK for Java code examples
 
-This section provides examples of programming |sqs|_ using the |sdk-java|_ 2.0.
+This section provides examples of programming |sqs|_ using the |sdk-java| 2.0.
 
 .. include:: includes/dev-preview-note.txt
 

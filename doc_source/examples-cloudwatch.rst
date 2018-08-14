@@ -16,7 +16,9 @@
    :description: Programming Amazon Cloudwatch using the AWS SDK for Java 2.0
    :keywords: AWS SDK for Java 2.0 code examples, CloudWatch
 
-This section provides examples of programming |cw|_ using the |sdk-java|_ 2.0.
+This section provides examples of programming |cw|_ using the |sdk-java| 2.0.
+
+.. include:: includes/dev-preview-async-note.txt
 
 .. include:: common/desc-cloudwatch.txt
 

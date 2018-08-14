@@ -16,7 +16,7 @@
    :description: Programming Amazon Kinesis using the AWS SDK for Java 2.0
    :keywords: AWS SDK for Java 2.0 code examples, Amazon Kinesis
 
-This section provides examples of programming |AKlong|_ using the |sdk-java|_ 2.0.
+This section provides examples of programming |AKlong|_ using the |sdk-java| 2.0.
 
 For more information about |AK|, see the |AK-dg|_.
 

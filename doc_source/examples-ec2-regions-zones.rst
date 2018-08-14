@@ -23,9 +23,9 @@ Describing Regions
 ==================
 
 To list the regions available to your account, call the |ec2client|'s :methodname:`describeRegions`
-method. It returns a :aws-java-class:`DescribeRegionsResponse
+method. It returns a :aws-java-class-prev:`DescribeRegionsResponse
 <services/ec2/model/DescribeRegionsResponse>`. Call the returned object's :methodname:`regions`
-method to get a list of :aws-java-class:`Region <services/ec2/model/Region>` objects that represent
+method to get a list of :aws-java-class-prev:`Region <services/ec2/model/Region>` objects that represent
 each region.
 
 **Imports**
@@ -49,9 +49,9 @@ Describing Availability Zones
 
 To list each availability zone available to your account, call the |ec2client|'s
 :methodname:`describeAvailabilityZones` method. It returns a
-:aws-java-class:`DescribeAvailabilityZonesResponse
+:aws-java-class-prev:`DescribeAvailabilityZonesResponse
 <services/ec2/model/DescribeAvailabilityZonesResponse>`. Call its :methodname:`availabilityZones`
-method to get a list of :aws-java-class:`AvailabilityZone <services/ec2/model/AvailabilityZone>`
+method to get a list of :aws-java-class-prev:`AvailabilityZone <services/ec2/model/AvailabilityZone>`
 objects that represent each availability zone.
 
 **Imports**

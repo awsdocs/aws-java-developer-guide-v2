@@ -23,7 +23,7 @@ Creating a Key Pair
 ===================
 
 To create a key pair, call the |ec2client|'s :methodname:`createKeyPair` method with a
-:aws-java-class:`CreateKeyPairRequest <services/ec2/model/CreateKeyPairRequest>` that contains the
+:aws-java-class-prev:`CreateKeyPairRequest <services/ec2/model/CreateKeyPairRequest>` that contains the
 key's name.
 
 **Imports**
@@ -46,9 +46,9 @@ Describing Key Pairs
 ====================
 
 To list your key pairs or to get information about them, call the |ec2client|'s
-:methodname:`describeKeyPairs` method. It returns a :aws-java-class:`DescribeKeyPairsResponse
+:methodname:`describeKeyPairs` method. It returns a :aws-java-class-prev:`DescribeKeyPairsResponse
 <services/ec2/model/DescribeKeyPairsResponse>` that you can use to access the list of key pairs by
-calling its :methodname:`keyPairs` method, which returns a list of :aws-java-class:`KeyPairInfo
+calling its :methodname:`keyPairs` method, which returns a list of :aws-java-class-prev:`KeyPairInfo
 <services/ec2/model/KeyPairInfo>` objects.
 
 **Imports**
@@ -71,7 +71,7 @@ Deleting a Key Pair
 ===================
 
 To delete a key pair, call the |ec2client|'s :methodname:`deleteKeyPair` method, passing it a
-:aws-java-class:`DeleteKeyPairRequest <services/ec2/model/DeleteKeyPairRequest>` that contains the
+:aws-java-class-prev:`DeleteKeyPairRequest <services/ec2/model/DeleteKeyPairRequest>` that contains the
 name of the key pair to delete.
 
 **Imports**

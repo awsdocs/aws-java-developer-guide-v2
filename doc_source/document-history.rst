@@ -16,6 +16,9 @@ This topic describes important changes to the |sdk-java-dg| over the course of i
 
 **This documentation was built on:** |today|
 
+Aug 2, 2018
+   Added Kinesis stream examples.
+
 Apr 5, 2018
    Added auto pagination topic.
 

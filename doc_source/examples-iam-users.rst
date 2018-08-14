@@ -23,7 +23,7 @@ Creating a User
 ===============
 
 Create a new |IAM| user by providing the user name to the |iamclient|'s :methodname:`createUser`
-method using a :aws-java-class:`CreateUserRequest
+method using a :aws-java-class-prev:`CreateUserRequest
 <services/iam/model/CreateUserRequest>` object containing the user name.
 
 **Imports**
@@ -45,10 +45,10 @@ See the :sdk-examples-java-iam:`complete example <CreateUser.java>` on GitHub.
 Listing Users
 =============
 
-To list the |IAM| users for your account, create a new :aws-java-class:`ListUsersRequest
+To list the |IAM| users for your account, create a new :aws-java-class-prev:`ListUsersRequest
 <services/iam/model/ListUsersRequest>` and pass it to the |iamclient|'s
 :methodname:`listUsers` method. You can retrieve the list of users by calling :methodname:`users`
-on the returned :aws-java-class:`ListUsersResponse
+on the returned :aws-java-class-prev:`ListUsersResponse
 <services/iam/model/ListUsersResponse>` object.
 
 The list of users returned by :methodname:`listUsers` is paged. You can check to see there are more
@@ -77,7 +77,7 @@ Updating a User
 ===============
 
 To update a user, call the |iamclient| object's :methodname:`updateUser` method, which takes a
-:aws-java-class:`UpdateUserRequest <services/iam/model/UpdateUserRequest>` object
+:aws-java-class-prev:`UpdateUserRequest <services/iam/model/UpdateUserRequest>` object
 that you can use to change the user's *name* or *path*.
 
 **Imports**
@@ -100,7 +100,7 @@ Deleting a User
 ===============
 
 To delete a user, call the |iamclient|'s :methodname:`deleteUser` request with a
-:aws-java-class:`UpdateUserRequest <services/iam/model/UpdateUserRequest>` object set
+:aws-java-class-prev:`UpdateUserRequest <services/iam/model/UpdateUserRequest>` object set
 with the user name to delete.
 
 **Imports**

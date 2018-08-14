@@ -9,7 +9,7 @@
    limitations under the License.
 
 ###########################################
-Set up the |sdk-java-v2| Developer Preview
+Set Up the |sdk-java-v2| Developer Preview
 ###########################################
 
 This topic describes how to set up and use the |sdk-java| in your project.

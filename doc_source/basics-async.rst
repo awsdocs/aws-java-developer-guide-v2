@@ -47,9 +47,9 @@ Here is an example of an asynchronous operation that calls a |DDB| function to g
 <services/dynamodb/model/ListTablesResponse>` object. The action defined in the call to :methodname:`whenComplete()`
 is only done when the asynchronous call is complete.
 
-.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/DynamoDBAsync.java
+.. literalinclude:: example_code/dynamodbasync/src/main/java/com/example/dynamodbasync/DynamoDBAsync.java
    :language: java
-   :lines: 24-
+   :lines: 26-
 
 .. _basics-async-streaming:
 

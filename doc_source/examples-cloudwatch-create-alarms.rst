@@ -21,7 +21,7 @@ Create an Alarm
 ===============
 
 To create an alarm based on a |cw| metric, call the |cwclient|'s :methodname:`putMetricAlarm` method
-with a :aws-java-class:`PutMetricAlarmRequest <services/cloudwatch/model/PutMetricAlarmRequest>`
+with a :aws-java-class-prev:`PutMetricAlarmRequest <services/cloudwatch/model/PutMetricAlarmRequest>`
 filled with the alarm conditions.
 
 **Imports**
@@ -43,7 +43,7 @@ List Alarms
 ===========
 
 To list the |cw| alarms that you have created, call the |cwclient|'s :methodname:`describeAlarms`
-method with a :aws-java-class:`DescribeAlarmsRequest
+method with a :aws-java-class-prev:`DescribeAlarmsRequest
 <services/cloudwatch/model/DescribeAlarmsRequest>` that you can use to set options for the result.
 
 **Imports**
@@ -60,7 +60,7 @@ method with a :aws-java-class:`DescribeAlarmsRequest
    :language: java
 
 The list of alarms can be obtained by calling :methodname:`MetricAlarms` on the
-:aws-java-class:`DescribeAlarmsResponse <services/cloudwatch/model/DescribeAlarmsResponse>` that is
+:aws-java-class-prev:`DescribeAlarmsResponse <services/cloudwatch/model/DescribeAlarmsResponse>` that is
 returned by :methodname:`describeAlarms`.
 
 The results may be *paged*. To retrieve the next batch of results, call :methodname:`nextToken`
@@ -76,7 +76,7 @@ Delete Alarms
 =============
 
 To delete |cw| alarms, call the |cwclient|'s :methodname:`deleteAlarms` method with a
-:aws-java-class:`DeleteAlarmsRequest <services/cloudwatch/model/DeleteAlarmsRequest>` containing one
+:aws-java-class-prev:`DeleteAlarmsRequest <services/cloudwatch/model/DeleteAlarmsRequest>` containing one
 or more names of alarms that you want to delete.
 
 **Imports**

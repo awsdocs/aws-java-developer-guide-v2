@@ -16,7 +16,7 @@
    :description: Programming Amazon EC2 using the AWS SDK for Java 2.0
    :keywords: AWS SDK for Java 2.0 code examples
 
-This section provides examples of programming |EC2|_ with the |sdk-java|_ 2.0.
+This section provides examples of programming |EC2|_ with the |sdk-java| 2.0.
 
 .. include:: includes/dev-preview-note.txt
 

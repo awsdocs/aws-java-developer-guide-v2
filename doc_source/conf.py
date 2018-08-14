@@ -373,17 +373,18 @@ if 'extlinks' not in vars():
     extlinks = {}
 
 # These URLs make maintaining the extlinks easier.
-aws_java_api_url = 'http://aws-java-sdk-javadoc.s3-website-us-west-2.amazonaws.com/latest/'
+aws_java_api_prev_url = 'https://sdk.amazonaws.com/java/api/2.0.0-preview-11/'
+aws_java_api_url = 'https://sdk.amazonaws.com/java/api/latest/'
 javase_api_url = 'https://docs.oracle.com/javase/8/docs/api/'
 javadoc_f = 'index.html?%s.html' # javadoc link + frames
 javadoc_nf = '%s.html' # javadoc link - frames
 # extlinks['role'] = (url_string, term_prepended_by)
 
-# a generic link to the AWS SDK reference docs. Doesn't work well in a frame.
-extlinks['aws-java-ref'] = (aws_java_api_url + 'software/amazon/awssdk/%s', '')
-
 # a link to a class within the AWS SDK -- can use frames.
+extlinks['aws-java-class-prev'] = (aws_java_api_prev_url + (javadoc_f % 'software/amazon/awssdk/%s'), '')
+extlinks['aws-java-class-prev-root'] = (aws_java_api_prev_url, '')
 extlinks['aws-java-class'] = (aws_java_api_url + (javadoc_f % 'software/amazon/awssdk/%s'), '')
+extlinks['aws-java-class-root'] = (aws_java_api_url, '')
 
 # links to the Java SE documentation.
 extlinks['javase-ref'] = (javase_api_url + javadoc_f, '')

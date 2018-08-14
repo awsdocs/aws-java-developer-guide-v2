@@ -23,8 +23,8 @@ Add Events
 ==========
 
 To add custom |cw| events, call the |cweclient|'s :methodname:`putEvents` method with a
-:aws-java-class:`PutEventsRequest <services/cloudwatchevents/model/PutEventsRequest>` object that
-contains one or more :aws-java-class:`PutEventsRequestEntry
+:aws-java-class-prev:`PutEventsRequest <services/cloudwatchevents/model/PutEventsRequest>` object that
+contains one or more :aws-java-class-prev:`PutEventsRequestEntry
 <services/cloudwatchevents/model/PutEventsRequestEntry>` objects that provide details about each
 event. You can specify several parameters for the entry such as the source and type of the event,
 resources associated with the event, and so on.
@@ -50,7 +50,7 @@ Add Rules
 =========
 
 To create or update a rule, call the |cweclient|'s :methodname:`putRule` method with a
-:aws-java-class:`PutRuleRequest <services/cloudwatchevents/model/PutRuleRequest>` with the name of
+:aws-java-class-prev:`PutRuleRequest <services/cloudwatchevents/model/PutRuleRequest>` with the name of
 the rule and optional parameters such as the :cwe-ug:`event pattern
 <CloudWatchEventsandEventPatterns>`, IAM role to associate with the rule, and a :cwe-ug:`scheduling
 expression <ScheduledEvents>` that describes how often the rule is run.
@@ -77,7 +77,7 @@ Targets are the resources that are invoked when a rule is triggered. Example tar
 instances, |lam| functions, |ak| streams, |ecs| tasks, |sfn| state machines, and built-in targets.
 
 To add a target to a rule, call the |cweclient|'s :methodname:`putTargets` method with a
-:aws-java-class:`PutTargetsRequest <services/cloudwatchevents/model/PutTargetsRequest>` containing
+:aws-java-class-prev:`PutTargetsRequest <services/cloudwatchevents/model/PutTargetsRequest>` containing
 the rule to update and a list of targets to add to the rule.
 
 **Imports**

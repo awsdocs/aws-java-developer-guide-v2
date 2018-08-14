@@ -37,7 +37,7 @@ the |s3-dg|.
 Create a Bucket
 ===============
 
-Build a :aws-java-class:`CreateBucketRequest <services/s3/model/CreateBucketRequest>`
+Build a :aws-java-class-prev:`CreateBucketRequest <services/s3/model/CreateBucketRequest>`
 and provide a bucket name. Pass it to the |s3client|'s
 :methodname:`createBucket` method. Use the |s3client| to do additional operations
 such as listing or deleting buckets as shown in later examples.
@@ -63,9 +63,9 @@ See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>` on GitHub.
 List the Buckets
 ================
 
-Build a :aws-java-class:`ListBucketRequest <services/s3/model/ListBucketRequest>`.
+Build a :aws-java-class-prev:`ListBucketRequest <services/s3/model/ListBucketRequest>`.
 Use the |s3client|'s :methodname:`listBuckets` method to retrieve the list of buckets.
-If the request succeeds a :aws-java-class:`ListBucketsResponse <services/s3/model/ListBucketsResponse>`
+If the request succeeds a :aws-java-class-prev:`ListBucketsResponse <services/s3/model/ListBucketsResponse>`
 is returned. Use this response object to retrieve the list of buckets.
 
 **Imports**
@@ -99,7 +99,7 @@ you must also delete any versioned objects that are in the bucket.
 Delete Objects in a Bucket
 --------------------------
 
-Build a :aws-java-class:`ListObjectsV2Request <services/s3/model/ListObjectsV2Request>`
+Build a :aws-java-class-prev:`ListObjectsV2Request <services/s3/model/ListObjectsV2Request>`
 and use the |s3client|'s :methodname:`listObjects`
 method to retrieve the list of objects in the bucket. Then use the :methodname:`deleteObject`
 method on each object to delete it.
@@ -122,7 +122,7 @@ See the :sdk-examples-java-s3:`complete example <S3BucketDeletion.java>` on GitH
 Delete an Empty Bucket
 ----------------------
 
-Build a :aws-java-class:`DeleteBucketRequest <services/s3/model/DeleteBucketRequest>`
+Build a :aws-java-class-prev:`DeleteBucketRequest <services/s3/model/DeleteBucketRequest>`
 with a bucket name and pass it to the |s3client|'s :methodname:`deleteBucket` method.
 
 **Imports**

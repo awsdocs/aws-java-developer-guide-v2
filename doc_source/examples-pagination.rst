@@ -18,8 +18,8 @@ Retrieving Paginated Results
                listObjectsV2Paginator, listTablesPaginator, paginate
 
 Many AWS operations return paginated results when the response object is too large
-to return in a single response. In the |sdk-java|_ 1.0, the response contained a token
-you had to use to retrieve the next page of results. New in the |sdk-java|_ 2.0 are
+to return in a single response. In the |sdk-java| 1.0, the response contained a token
+you had to use to retrieve the next page of results. New in the |sdk-java| 2.0 are
 autopagination methods that make multiple
 service calls to get the next page of results for you automatically.
 You only have to write code that processes the results. Additionally both types of methods
@@ -44,18 +44,18 @@ These examples use the synchronous pagination methods for listing objects in an
 Iterate over Pages
 ==================
 
-Build a :aws-java-class:`ListObjectsV2Request <services/s3/model/ListObjectsV2Request>`
+Build a :aws-java-class-prev:`ListObjectsV2Request <services/s3/model/ListObjectsV2Request>`
 and provide a bucket name. Optionally you can provide the maximum number of keys to
 retrieve at one time.
 Pass it to the |s3client|'s :methodname:`listObjectsV2Paginator` method. This method
-returns a :aws-java-class:`ListObjectsV2Iterable <services/s3/paginators/ListObjectsV2Iterable>`
+returns a :aws-java-class-prev:`ListObjectsV2Iterable <services/s3/paginators/ListObjectsV2Iterable>`
 object, which is an ``Iterable`` of the
-:aws-java-class:`ListObjectsV2Response <services/s3/model/ListObjectsV2Response>` class.
+:aws-java-class-prev:`ListObjectsV2Response <services/s3/model/ListObjectsV2Response>` class.
 
 The first example demonstrates using the paginator object to iterate through all the
 response pages with the :methodname:`stream` method. You can directly stream over
 the response pages, convert the response stream to a stream of
-:aws-java-class:`S3Object <services/s3/model/S3Object>` content, and then process
+:aws-java-class-prev:`S3Object <services/s3/model/S3Object>` content, and then process
 the content of the |S3| object.
 
 **Imports**
@@ -164,13 +164,13 @@ Use a Subscriber
 
 **Imports**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/AsyncPagination.java
+.. literalinclude:: example_code/dynamodbasync/src/main/java/com/example/dynamodbasync/AsyncPagination.java
    :lines: 17-28
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/AsyncPagination.java
+.. literalinclude:: example_code/dynamodbasync/src/main/java/com/example/dynamodbasync/AsyncPagination.java
    :lines: 93-97,105-133
    :dedent: 8
    :language: java
@@ -186,7 +186,7 @@ for this purpose.
 
 **Code**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/AsyncPagination.java
+.. literalinclude:: example_code/dynamodbasync/src/main/java/com/example/dynamodbasync/AsyncPagination.java
    :lines: 98-102
    :dedent: 8
    :language: java
@@ -210,7 +210,7 @@ Use a Subscriber
 
 **Code**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/AsyncPagination.java
+.. literalinclude:: example_code/dynamodbasync/src/main/java/com/example/dynamodbasync/AsyncPagination.java
    :lines: 143-148,154-175
    :dedent: 8
    :language: java
@@ -227,7 +227,7 @@ Use the :methodname:`forEach` convenience method to iterate through the results.
 
 **Code**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/AsyncPagination.java
+.. literalinclude:: example_code/dynamodbasync/src/main/java/com/example/dynamodbasync/AsyncPagination.java
    :lines: 150-152
    :dedent: 8
    :language: java
@@ -255,13 +255,13 @@ POM snippet to use.
 
 **Import**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/AsyncPagination.java
+.. literalinclude:: example_code/dynamodbasync/src/main/java/com/example/dynamodbasync/AsyncPagination.java
    :lines: 25-29
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/AsyncPagination.java
+.. literalinclude:: example_code/dynamodbasync/src/main/java/com/example/dynamodbasync/AsyncPagination.java
   :lines: 185-194
   :dedent: 8
   :language: java

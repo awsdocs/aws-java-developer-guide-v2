@@ -35,12 +35,12 @@ Choosing a Region
 You can specify a region name and the SDK will automatically choose an appropriate endpoint for you.
 
 To explicitly set a region, we recommend that you use the constants defined in the
-:aws-java-class:`Region <regions/Region>` class. This is an enumeration of all publicly available
+:aws-java-class-prev:`Region <regions/Region>` class. This is an enumeration of all publicly available
 regions. To create a client with a region from the class, use the following code.
 
 .. code-block:: java
 
-    EC2Client ec2 = EC2Client.builder()
+    Ec2Client ec2 = Ec2Client.builder()
                         .region(Region.US_WEST_2)
                         .build();
 
@@ -51,7 +51,7 @@ access to new Regions without upgrading the SDK.
 .. code-block:: java
 
     Region newRegion = Region.of("us-east-42");
-    EC2Client ec2 = EC2Client.builder()
+    Ec2Client ec2 = Ec2Client.builder()
                         .region(newRegion)
                         .build();
 
@@ -69,7 +69,7 @@ For example, to configure the |EC2| client to use the |euwest1-name|, use the fo
 
 .. code-block:: java
 
-   EC2Client ec2 = EC2Client.builder()
+   Ec2Client ec2 = Ec2Client.builder()
                      		.region(Region.EU_WEST_1)
                      		.endpointOverride(URI.create("https://ec2.eu-west-1.amazonaws.com"))
                      		.build();
@@ -89,7 +89,7 @@ use the client builder's :methodname:`create` method.
 
 .. code-block:: java
 
-   EC2Client ec2 = EC2Client.create();
+   Ec2Client ec2 = Ec2Client.create();
 
 If you don't explicitly set a region using the :methodname:`region` method, the SDK
 consults the default region provider chain to try and determine the region to use.
@@ -139,7 +139,7 @@ that you'd like to check.
 
 .. code-block:: java
 
-    DynamoDBClient.serviceMetadata().regions().forEach(System.out::println);
+    DynamoDbClient.serviceMetadata().regions().forEach(System.out::println);
 
-See the :aws-java-class:`Region <regions/Region>` class documentation for the regions you can specify,
+See the :aws-java-class-prev:`Region <regions/Region>` class documentation for the regions you can specify,
 and use the endpoint prefix of the service to query.

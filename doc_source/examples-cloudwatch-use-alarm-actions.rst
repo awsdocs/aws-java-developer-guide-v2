@@ -21,7 +21,7 @@ Using |cw| alarm actions, you can create alarms that perform actions such as aut
 terminating, rebooting, or recovering |ec2| instances.
 
 .. note:: Alarm actions can be added to an alarm by using the
-   :aws-java-class:`PutMetricAlarmRequest <services/cloudwatch/model/PutMetricAlarmRequest>`'s
+   :aws-java-class-prev:`PutMetricAlarmRequest <services/cloudwatch/model/PutMetricAlarmRequest>`'s
    :methodname:`alarmActions` method when :doc:`creating an alarm <examples-cloudwatch-create-alarms>`.
 
 
@@ -29,7 +29,7 @@ Enable Alarm Actions
 ====================
 
 To enable alarm actions for a |cw| alarm, call the |cwclient|'s :methodname:`enableAlarmActions`
-with a :aws-java-class:`EnableAlarmActionsRequest
+with a :aws-java-class-prev:`EnableAlarmActionsRequest
 <services/cloudwatch/model/EnableAlarmActionsRequest>` containing one or more names of alarms whose
 actions you want to enable.
 
@@ -52,7 +52,7 @@ Disable Alarm Actions
 =====================
 
 To disable alarm actions for a |cw| alarm, call the |cwclient|'s :methodname:`disableAlarmActions`
-with a :aws-java-class:`DisableAlarmActionsRequest
+with a :aws-java-class-prev:`DisableAlarmActionsRequest
 <services/cloudwatch/model/DisableAlarmActionsRequest>` containing one or more names of alarms whose
 actions you want to disable.
 

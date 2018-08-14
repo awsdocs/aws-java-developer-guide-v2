@@ -31,7 +31,7 @@ For each table, you must define:
   of a partition and a sort (RANGE) key.
 
   Each key value has an associated *data type*, enumerated by the
-  :aws-java-class:`ScalarAttributeType <services/dynamodb/model/ScalarAttributeType>` class. The key
+  :aws-java-class-prev:`ScalarAttributeType <services/dynamodb/model/ScalarAttributeType>` class. The key
   value can be binary (B), numeric (N), or a string (S). For more information, see
   :ddb-dg:`Naming Rules and Data Types <HowItWorks.NamingRulesDataTypes>` in the |ddb-dg|.
 
@@ -56,7 +56,7 @@ attributes and a table schema, both of which are used to identify the primary ke
 must also supply initial provisioned throughput values and a table name.
 
 .. note:: If a table with the name you chose already exists, an
-   :aws-java-class:`DynamoDbException <services/dynamodb/model/DynamoDbException>` is thrown.
+   :aws-java-class-prev:`DynamoDbException <services/dynamodb/model/DynamoDbException>` is thrown.
 
 .. These Imports/Code headings are sufficient without the colons
 
@@ -88,9 +88,9 @@ Create a Table with a Composite Primary Key
 ---------------------------------------------
 
 Add another
-:aws-java-class:`AttributeDefinition <services/dynamodb/model/AttributeDefinition>` and
-:aws-java-class:`KeySchemaElement <services/dynamodb/model/KeySchemaElement>` to
-:aws-java-class:`CreateTableRequest <services/dynamodb/model/CreateTableRequest>`.
+:aws-java-class-prev:`AttributeDefinition <services/dynamodb/model/AttributeDefinition>` and
+:aws-java-class-prev:`KeySchemaElement <services/dynamodb/model/KeySchemaElement>` to
+:aws-java-class-prev:`CreateTableRequest <services/dynamodb/model/CreateTableRequest>`.
 
 **Code**
 
@@ -110,7 +110,7 @@ You can list the tables in a particular region by calling the |ddbclient|'s
 :methodname:`listTables` method.
 
 .. note:: If the named table doesn't exist for your account and region, a
-   :aws-java-class:`ResourceNotFoundException <services/dynamodb/model/ResourceNotFoundException>`
+   :aws-java-class-prev:`ResourceNotFoundException <services/dynamodb/model/ResourceNotFoundException>`
    is thrown.
 
 **Imports**
@@ -128,7 +128,7 @@ You can list the tables in a particular region by calling the |ddbclient|'s
 
 By default, up to 100 tables are returned per call |mdash| use
 :methodname:`lastEvaluatedTableName` on the returned
-:aws-java-class:`ListTablesResponse <services/dynamodb/model/ListTablesResponse>` object
+:aws-java-class-prev:`ListTablesResponse <services/dynamodb/model/ListTablesResponse>` object
 to get the last table that was evaluated. You can use this value to start the
 listing after the last returned value of the previous listing.
 
@@ -142,7 +142,7 @@ Describe (Get Information about) a Table
 Call the |ddbclient|'s :methodname:`describeTable` method.
 
 .. note:: If the named table doesn't exist for your account and region, a
-   :aws-java-class:`ResourceNotFoundException <services/dynamodb/model/ResourceNotFoundException>`
+   :aws-java-class-prev:`ResourceNotFoundException <services/dynamodb/model/ResourceNotFoundException>`
    is thrown.
 
 **Imports**
@@ -171,7 +171,7 @@ You can modify your table's provisioned throughput values at any time by calling
 method.
 
 .. note:: If the named table doesn't exist for your account and region, a
-   :aws-java-class:`ResourceNotFoundException <services/dynamodb/model/ResourceNotFoundException>`
+   :aws-java-class-prev:`ResourceNotFoundException <services/dynamodb/model/ResourceNotFoundException>`
    is thrown.
 
 **Imports**
@@ -199,7 +199,7 @@ Call the |ddbclient|'s
 :methodname:`deleteTable` method and pass it the table's name.
 
 .. note:: If the named table doesn't exist for your account and region, a
-   :aws-java-class:`ResourceNotFoundException <services/dynamodb/model/ResourceNotFoundException>`
+   :aws-java-class-prev:`ResourceNotFoundException <services/dynamodb/model/ResourceNotFoundException>`
    is thrown.
 
 **Imports**

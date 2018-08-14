@@ -42,7 +42,7 @@ for credentials using the :emphasis:`default credentials provider chain`, in the
 
 The final step in the default provider chain is available only when running your application on an
 |EC2| instance. However, it provides the greatest ease of use and best security when working with |EC2|
-instances. You can also pass an :aws-java-class:`InstanceProfileCredentialsProvider
+instances. You can also pass an :aws-java-class-prev:`InstanceProfileCredentialsProvider
 <auth/InstanceProfileCredentialsProvider>` instance directly to the client constructor to get
 instance profile credentials without proceeding through the entire default provider chain.
 
