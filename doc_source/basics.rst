@@ -25,6 +25,7 @@ to all services you might use with the SDK.
    creating-clients
    credentials
    java-dg-region-selection
+   client-configuration
    basics-async
    basics-http2
    java-dg-exceptions
