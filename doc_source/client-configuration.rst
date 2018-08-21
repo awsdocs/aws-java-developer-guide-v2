@@ -16,7 +16,7 @@ Client Configuration
    :description: How to change max concurrency configuration by using the AWS SDK for Java.
 
 The |sdk-java| enables you to change the default client configuration. This can be useful
-when you want to specify settings like HTTP transport settings.
+when you want to specify settings like those for HTTP transport.
 
 
 HTTP Transport Configuration
@@ -25,12 +25,12 @@ HTTP Transport Configuration
 You can use the
 :aws-java-class:`NettyNioAsyncHttpClient <http/nio/netty/NettyNioAsyncHttpClient>`
 for asynchronous clients or the
-:aws-java-class:`ApacheHttpClient <http/apache/ApacheHttpClient>` for synchrnous clients
+:aws-java-class:`ApacheHttpClient <http/apache/ApacheHttpClient>` for synchronous clients
 to set HTTP transport settings. For a full list of options you can set with these clients,
 see the |sdk-java-ref|.
 
-Add a dependency on the netty-nio-client in your POM to use the
-:aws-java-class:`NettyNioAsyncHttpClient <http/nio/netty/NettyNioAsyncHttpClient>`
+Add a dependency on the :code:`netty-nio-client` in your POM to use the
+:aws-java-class:`NettyNioAsyncHttpClient <http/nio/netty/NettyNioAsyncHttpClient>`.
 
 **POM Entry**
 
@@ -44,7 +44,7 @@ Maximum Connections
 
 You can set the maximum allowed number of open HTTP connections by using the
 :methodname:`maxConcurrency` method. The :methodname:`maxPendingConnectionAcquires`
-method allows you to set the maximum requests allowed to queue up once max concurrency
+method enables you to set the maximum requests allowed to queue up once max concurrency
 is reached.
 
 * Default for maxConcurrency: 50
