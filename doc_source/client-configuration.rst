@@ -29,6 +29,15 @@ for asynchronous clients or the
 to set HTTP transport settings. For a full list of options you can set with these clients,
 see the |sdk-java-ref|.
 
+Add a dependency on the netty-nio-client in your POM to use the
+:aws-java-class:`NettyNioAsyncHttpClient <http/nio/netty/NettyNioAsyncHttpClient>`
+
+**POM Entry**
+
+.. literalinclude:: example_code/kinesis/pom.xml
+   :lines: 18-21
+   :language: xml
+
 
 Maximum Connections
 -------------------
