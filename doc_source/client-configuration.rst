@@ -27,7 +27,7 @@ You can use the
 for asynchronous clients or the
 :aws-java-class:`ApacheHttpClient <http/apache/ApacheHttpClient>` for synchronous clients
 to set HTTP transport settings. For a full list of options you can set with these clients,
-see the |sdk-java-ref|.
+see the :aws-java-class-root:`AWS SDK for Java 2.0 Reference <>`.
 
 Add a dependency on the :code:`netty-nio-client` in your POM to use the
 :aws-java-class:`NettyNioAsyncHttpClient <http/nio/netty/NettyNioAsyncHttpClient>`.
