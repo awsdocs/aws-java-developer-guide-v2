@@ -35,7 +35,7 @@ Add a dependency on the :code:`netty-nio-client` in your POM to use the
 **POM Entry**
 
 .. literalinclude:: example_code/kinesis/pom.xml
-   :lines: 18-21
+   :lines: 18-22
    :language: xml
 
 
