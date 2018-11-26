@@ -16,7 +16,7 @@ Creating Service Clients
    :description: How to create service clients by using the AWS SDK for Java.
    :keywords:
 
-To make requests to |AWSlong|, you first create a service client object. In version 2.0 of the SDK,
+To make requests to |AWSlong|, you first create a service client object. In version 2.x of the SDK,
 you can create clients only by using service client builders.
 
 Each AWS service has a service interface with methods
@@ -30,7 +30,7 @@ Obtaining a Client Builder
 To obtain an instance of the client, use the static factory method ``builder``.
 Then customize it by using the setters in the builder, as shown in the following example.
 
-In the |sdk-java| 2.0, the setters are named without the ``with`` prefix.
+In the |sdk-java-v2|, the setters are named without the ``with`` prefix.
 
 .. code-block:: java
 
@@ -67,7 +67,7 @@ Client Lifecycle
 
 Service clients in the SDK are thread-safe. For best performance, treat them as
 long-lived objects. Each client has its own connection pool resource that is released when the
-client is garbage collected. The clients in the |sdk-java| 2.0 now extend the AutoClosable
+client is garbage collected. The clients in the |sdk-java-v2| now extend the AutoClosable
 interface. For best practices, explicitly close a client by calling the :methodname:`close` method.
 
 .. topic:: To close a client

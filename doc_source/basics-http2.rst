@@ -14,7 +14,7 @@ HTTP/2 Programming
 
 .. meta::
    :description: Basic information about the HTTP/2 protocol and how it's implemented
-                 in the AWS SDK for Java 2.0.
+                 in the AWS SDK for Java 2.x.
 
 HTTP/2 is a major revision of the HTTP protocol. This new version has several
 enhancements to improve performance:

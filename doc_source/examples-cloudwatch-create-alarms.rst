@@ -14,8 +14,8 @@ Working with |CW| Alarms
 
 .. meta::
    :description: How to create, list, and delete alarms in Amazon CloudWatch using the AWS SDK for
-                 Java 2.0
-   :keywords: create alarm, delete alarm, list alarms, metric alarms, AWS SDK for Java 2.0, example code
+                 Java 2.x
+   :keywords: create alarm, delete alarm, list alarms, metric alarms, AWS SDK for Java 2.x, example code
 
 Create an Alarm
 ===============

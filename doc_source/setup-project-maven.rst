@@ -35,7 +35,7 @@ with your project name (this becomes the name of the directory for your project)
 
 By default, |mvn| creates a project template for you using the `quickstart
 <http://maven.apache.org/archetypes/maven-archetype-quickstart/>`_ archetype. This creates a Java 1.5 project.
-You must update your application to Java 1.8 to be compatible with |sdk-java| 2.0. To update to Java 1.8, add
+You must update your application to Java 1.8 to be compatible with |sdk-java-v2|. To update to Java 1.8, add
 the following to your :file:`pom.xml` file.
 
 .. code-block:: xml

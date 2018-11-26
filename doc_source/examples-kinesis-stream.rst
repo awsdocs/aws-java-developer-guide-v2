@@ -13,8 +13,8 @@ Subscribing to Amazon Kinesis Data Streams
 ##########################################
 
 .. meta::
-    :description: How to use Amazon Kinesis data streams to get results from Amazon Kinesis using the AWS SDK for Java 2.0.
-    :keywords: Kinesis, AWS SDK for Java 2.0, async streaming
+    :description: How to use Amazon Kinesis data streams to get results from Amazon Kinesis using the AWS SDK for Java 2.x.
+    :keywords: Kinesis, AWS SDK for Java 2.x, async streaming
 
 The following examples show you how to retrieve and process data from |AKSlong|
 using the :methodname:`subscribeToShard` method.

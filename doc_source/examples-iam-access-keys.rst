@@ -13,8 +13,8 @@ Managing |IAM| Access Keys
 ##########################
 
 .. meta::
-   :description: How to manage IAM access keys with the AWS SDK for Java 2.0.
-   :keywords: AWS SDK for Java 2.0, code examples, IAM access keys, creating, listing, updating,
+   :description: How to manage IAM access keys with the AWS SDK for Java 2.x.
+   :keywords: AWS SDK for Java 2.x, code examples, IAM access keys, creating, listing, updating,
               deleting, getting last access time, CreateAccessKeyRequest, ListAccessKeysRequest,
               GetAccessKeyLastUsedRequest
 

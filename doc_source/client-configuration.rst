@@ -24,3 +24,4 @@ information about configuring those settings.
    :maxdepth: 1
 
    client-configuration-http
+   client-configuration-starttime

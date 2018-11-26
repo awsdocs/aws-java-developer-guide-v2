@@ -9,5 +9,5 @@
    limitations under the License.
 
 The following examples include only the code needed to demonstrate each technique. The
-:sdk-doc-examples:`complete example code is available on GitHub <java>`. From there, you can download a
+:sdk-doc-examples:`complete example code is available on GitHub <javav2>`. From there, you can download a
 single source file or clone the repository locally to get all the examples to build and run.

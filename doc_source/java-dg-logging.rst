@@ -14,7 +14,7 @@ Logging |sdk-java| Calls
 
 .. meta::
    :description: How to use Slf4j with the AWS SDK for Java.
-   :keywords: logging, slf4j, AWS SDK for Java 2.0
+   :keywords: logging, slf4j, AWS SDK for Java 2.x
 
 The |sdk-java| is instrumented with `Slf4j <https://www.slf4j.org/manual.html>`_,
 which is an abstraction layer that

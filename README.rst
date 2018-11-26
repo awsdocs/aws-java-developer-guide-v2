@@ -13,7 +13,7 @@ aws-java-developer-guide-v2
 ###########################
 
 This repository contains source content for the official `AWS Java Developer Guide`_. The source
-code for the `AWS SDK for Java 2.0`_ is also on GitHub, at https://github.com/aws/aws-sdk-java-v2/.
+code for the `AWS SDK for Java 2.x`_ is also on GitHub, at https://github.com/aws/aws-sdk-java-v2/.
 
 The guide content is written in reStructuredText_ and built using Sphinx_. It relies upon content
 which is provided in the AWS documentation team's `shared content`_ and `SDK examples`_

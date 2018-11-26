@@ -14,7 +14,7 @@ Working with Tables in |DDB|
 
 .. meta::
    :description: How to create, describe, modify (update) and delete Amazon DynamoDB tables.
-   :keywords: AWS SDK for Java 2.0 code examples, DynamoDB tables
+   :keywords: AWS SDK for Java 2.x code examples, DynamoDB tables
 
 
 Tables are the containers for all items in a |DDB| database. Before you can add or remove data from

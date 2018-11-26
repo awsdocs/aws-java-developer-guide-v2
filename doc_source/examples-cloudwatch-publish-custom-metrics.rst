@@ -14,8 +14,8 @@ Publishing Custom Metric Data
 
 .. meta::
    :description: How to publish your own custom metric data to Amazon Cloudwatch using the AWS SDK
-                 for Java 2.0.
-   :keywords: Amazon Cloudwatch, AWS SDK for Java, custom metrics, AWS SDK for Java 2.0, code examples
+                 for Java 2.x.
+   :keywords: Amazon Cloudwatch, AWS SDK for Java, custom metrics, AWS SDK for Java 2.x, code examples
 
 
 A number of AWS services publish :cw-ug:`their own metrics <aws-namespaces>` in namespaces beginning

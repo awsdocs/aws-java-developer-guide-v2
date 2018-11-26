@@ -14,7 +14,7 @@ Working with |IAM| Policies
 
 .. meta::
    :description: How to create, attach and detach policies to IAM roles.
-   :keywords: AWS for Java SDK 2.0 code examples, IAM policies, CreatePolicyRequest,
+   :keywords: AWS SDK for Java 2.x code examples, IAM policies, CreatePolicyRequest,
               GetPolicyRequest, ListAttachedRolePoliciesRequest, DetachRolePolicyRequest
 
 .. include:: includes/dev-preview-note.txt

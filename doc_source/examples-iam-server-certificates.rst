@@ -14,7 +14,7 @@ Working with |IAM| Server Certificates
 
 .. meta::
    :description: How to get, list, update and delete IAM server certificates.
-   :keywords: AWS for Java SDK 2.0 code examples, IAM server certificates,
+   :keywords: AWS SDK for Java 2.x code examples, IAM server certificates,
               GetServerCertificateRequest, ListServerCertificatesRequest,
               UpdateServerCertificateRequest
 

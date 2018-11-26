@@ -13,8 +13,8 @@ Working with Security Groups in |EC2|
 #####################################
 
 .. meta::
-   :description: How to create, configure and delete EC2 security groups with the AWS SDK for Java 2.0.
-   :keywords: AWS SDK for Java 2.0, code examples, EC2 security groups, create a security group, ingress
+   :description: How to create, configure and delete EC2 security groups with the AWS SDK for Java 2.x.
+   :keywords: AWS SDK for Java 2.x, code examples, EC2 security groups, create a security group, ingress
               rules, egress rules, IP permissions, EC2 access
 
 .. include:: includes/dev-preview-note.txt

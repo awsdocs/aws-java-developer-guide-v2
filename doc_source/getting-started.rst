@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#####################################################
-Getting Started with |sdk-java-v2| Developer Preview
-#####################################################
+##################################
+Getting Started with |sdk-java-v2|
+##################################
 
 This section provides information about how to install, set up, and use the |sdk-java|.
 

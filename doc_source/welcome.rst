@@ -17,7 +17,7 @@
 .. _AWS Blog: https://aws.amazon.com/blogs/developer/aws-sdk-for-java-2-0-developer-preview/
 
 #####################################
-AWS SDK for Java 2.0 Developer Guide
+|sdk-java-v2| Developer Guide
 #####################################
 
 The |sdk-java| provides a Java API for |AWSlong|. Using the SDK, you can easily build Java
@@ -27,7 +27,7 @@ view the `change log`_.
 
 .. _whats_new:
 
-What's New in Version 2.0
+What's New in Version 2.x
 =========================
 
 The |sdk-java-v2| is a major rewrite of the version 1.x code base. It's built on top of
@@ -35,14 +35,9 @@ Java 8 and adds several frequently requested features. These include support for
 and the ability to plug in a different HTTP implementation at run time. For more information see
 the `AWS Blog`_.
 
-.. important::
-   Currently the asynchronous clients for |AKlong|, |DDBlong| and |CWlong| modules in
-   version 2.0 are production ready and can be used in production environments.
-   All other modules are preview releases and are not recommended for production use.
-
 .. _1.0-support:
 
-Support for 1.0
+Support for 1.x
 ===============
 
 We are not dropping support for the 1.x versions of the AWS SDK for Java currently.
@@ -55,9 +50,7 @@ Additional Resources
 In addition to this guide, the following are valuable online resources for |sdk-java|
 developers:
 
-* :aws-java-class-root:`AWS SDK for Java 2.0 Reference <>`
-
-* :aws-java-class-prev-root:`AWS SDK for Java 2.0 Reference Developer Preview <>`
+* :aws-java-class-root:`AWS SDK for Java 2.x Reference <>`
 
 * :blog:`Java developer blog <developer/category/java>`
 
@@ -71,8 +64,8 @@ developers:
 
 * `@awsforjava (Twitter) <https://twitter.com/awsforjava>`_
 
-Contributing to the Developer Preview
-=====================================
+Contributing to the SDK
+========================
 
 Developers can also contribute feedback through the following channels:
 
@@ -82,7 +75,7 @@ Developers can also contribute feedback through the following channels:
 
   + :github:`Submit SDK issues <aws/aws-sdk-java-v2/issues>`
 
-* Join an informal chat about SDK on the |sdk-java-v2| `gitter channel <https://gitter.im/aws/aws-sdk-java-v2>`_
+* Join an informal chat about SDK on the AWS SDK for Java 2.x `gitter channel <https://gitter.im/aws/aws-sdk-java-v2>`_
 
 * Submit feedback anonymously to aws-java-sdk-v2-feedback@amazon.com. This email is
   monitored by the AWS SDK for Java team.
@@ -97,7 +90,7 @@ Eclipse IDE Support
 ===================
 
 The |tke| doesn't currently support the |sdk-java-v2|. To use the |tke| with
-the |sdk-java-v2|, you should use Maven tools in Eclipse to add a dependency on the 2.0 SDK.
+the |sdk-java-v2|, you should use Maven tools in Eclipse to add a dependency on the 2.x SDK.
 
 .. _android-support:
 

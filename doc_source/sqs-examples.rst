@@ -9,16 +9,14 @@
    limitations under the License.
 
 ###########################################
-|sqs| Examples Using the |sdk-java-preview|
+|sqs| Examples Using the |sdk-java|
 ###########################################
 
 .. meta::
-   :description: Programming Amazon SQS using the AWS SDK for Java 2.0
+   :description: Programming Amazon SQS using the AWS SDK for Java 2.x
    :keywords: AWS SDK for Java code examples
 
-This section provides examples of programming |sqs|_ using the |sdk-java| 2.0.
-
-.. include:: includes/dev-preview-note.txt
+This section provides examples of programming |sqs|_ using the |sdk-java-v2|.
 
 .. include:: includes/complete-examples-note.txt
 

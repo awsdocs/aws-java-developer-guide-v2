@@ -14,7 +14,7 @@ Using |IAM| Account Aliases
 
 .. meta::
    :description: How to create, list and delete AWS account aliases.
-   :keywords: AWS for Java SDK 2.0 code examples, IAM account aliases,
+   :keywords: AWS SDK for Java 2.x code examples, IAM account aliases,
               CreateAccountAliasRequest, ListAccountAliasesResponse, DeleteAccountAliasRequest
 
 .. include:: includes/dev-preview-note.txt

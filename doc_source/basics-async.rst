@@ -13,7 +13,7 @@ Asynchronous Programming
 ########################
 
 .. meta::
-   :description: How asynchronous programming works in the AWS SDK for Java 2.0
+   :description: How asynchronous programming works in the AWS SDK for Java 2.x
 
 |sdk-java-v2| features truly non-blocking asychronous clients that implements high
 concurrency across a few threads. |sdk-java| 1.11.x has

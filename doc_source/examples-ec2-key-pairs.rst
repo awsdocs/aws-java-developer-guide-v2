@@ -13,8 +13,8 @@ Working with |EC2| Key Pairs
 ############################
 
 .. meta::
-   :description: How to create, list and delete EC2 key pairs using the AWS SDK for Java 2.0.
-   :keywords: AWS SDK for Java 2.0, code examples, EC2 key pairs, create key pair, list key pairs, delete
+   :description: How to create, list and delete EC2 key pairs using the AWS SDK for Java 2.x.
+   :keywords: AWS SDK for Java 2.x, code examples, EC2 key pairs, create key pair, list key pairs, delete
               key pair
 
 .. include:: includes/dev-preview-note.txt

@@ -14,8 +14,8 @@ Managing |EC2| Instances
 
 .. meta::
    :description: How to create, start, stop, reboot, list and monitor EC2 instances using the AWS
-                 SDK for Java 2.0.
-   :keywords: AWS SDK for Java 2.0, code examples, EC2 instances, create instance, start instance, stop
+                 SDK for Java 2.x.
+   :keywords: AWS SDK for Java 2.x, code examples, EC2 instances, create instance, start instance, stop
               instance, reboot instance, monitor instance, list instances, describe instances
 
 .. include:: includes/dev-preview-note.txt

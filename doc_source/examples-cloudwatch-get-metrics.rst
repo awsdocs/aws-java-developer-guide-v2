@@ -13,8 +13,8 @@ Getting Metrics from |CW|
 #########################
 
 .. meta::
-   :description: How to list metrics from Amazon CloudWatch using the AWS SDK for Java 2.0.
-   :keywords: Amazon Cloudwatch, AWS SDK for Java, metrics, listing, AWS SDK for Java 2.0, code examples
+   :description: How to list metrics from Amazon CloudWatch using the AWS SDK for Java 2.x.
+   :keywords: Amazon Cloudwatch, AWS SDK for Java, metrics, listing, AWS SDK for Java 2.x, code examples
 
 Listing Metrics
 ===============

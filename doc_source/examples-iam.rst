@@ -13,12 +13,10 @@
 ###################################
 
 .. meta::
-   :description: Programming AWS Identity and Access Management using the AWS SDK for Java 2.0
-   :keywords: AWS SDK for Java 2.0 code examples, IAM
+   :description: Programming AWS Identity and Access Management using the AWS SDK for Java 2.x
+   :keywords: AWS SDK for Java 2.x code examples, IAM
 
-This section provides examples of programming |iam|_ using the |sdk-java|.
-
-.. include:: includes/dev-preview-note.txt
+This section provides examples of programming |iam|_ using the |sdk-java-v2|.
 
 .. include:: common/desc-iam.txt
 

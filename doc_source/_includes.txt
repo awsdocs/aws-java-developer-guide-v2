@@ -12,7 +12,7 @@
 
 .. |sdk-java-preview| replace:: AWS SDK for Java (Developer Preview)
 
-.. |sdk-java-github| replace:: AWS SDK for Java 2.0 (GitHub)
+.. |sdk-java-github| replace:: AWS SDK for Java 2.x (GitHub)
 .. _sdk-java-github: https://github.com/aws/aws-sdk-java-v2
 
 .. |sdk-java-github-v1| replace:: AWS SDK for Java 1.x (GitHub)
