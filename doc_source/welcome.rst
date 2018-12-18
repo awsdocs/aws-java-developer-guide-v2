@@ -15,6 +15,7 @@
 .. _release notes: https://github.com/aws/aws-sdk-java-v2#release-notes
 .. _change log: https://github.com/aws/aws-sdk-java-v2/blob/master/CHANGELOG.md
 .. _AWS Blog: https://aws.amazon.com/blogs/developer/aws-sdk-for-java-2-0-developer-preview/
+.. _migration guide: https://docs.aws.amazon.com/sdk-for-java/v2/migration-guide/what-is-java-migration.html
 
 #####################################
 |sdk-java-v2| Developer Guide
@@ -31,9 +32,37 @@ What's New in Version 2.x
 =========================
 
 The |sdk-java-v2| is a major rewrite of the version 1.x code base. It's built on top of
-Java 8 and adds several frequently requested features. These include support for non-blocking I/O
+Java 8+ and adds several frequently requested features. These include support for non-blocking I/O
 and the ability to plug in a different HTTP implementation at run time. For more information see
-the `AWS Blog`_.
+the `AWS Blog`_. For guidance on migrating your application from 1.11.x to 2.x, see the
+`migration guide`_.
+
+See the Github issues for details about additional features not yet in 2.x. Comments and
+feedback are also welcomed. 
+
+* High-level libraries
+
+  + `S3 Transfer manager <https://github.com/aws/aws-sdk-java-v2/issues/37>`_
+
+  + `S3 URL Presigners <https://github.com/aws/aws-sdk-java-v2/issues/849>`_
+
+  + `S3 Encryption Client <https://github.com/aws/aws-sdk-java-v2/issues/34>`_
+
+  + `DynamoDB Object Mapper <https://github.com/aws/aws-sdk-java-v2/issues/35>`_
+
+  + `DynamoDb document APIs <https://github.com/aws/aws-sdk-java-v2/issues/36>`_
+
+  + `DynamoDB Encryption Client <https://github.com/aws/aws-sdk-java-v2/issues/34>`_
+
+  + `SQS Client-side Buffering <https://github.com/aws/aws-sdk-java-v2/issues/848>`_
+
+
+* `Waiters <https://github.com/aws/aws-sdk-java-v2/issues/24>`_
+
+* `SDK Metrics <https://github.com/aws/aws-sdk-java-v2/issues/23>`_
+
+* `Progress Listeners <https://github.com/aws/aws-sdk-java-v2/issues/25>`_
+
 
 .. _1.0-support:
 
