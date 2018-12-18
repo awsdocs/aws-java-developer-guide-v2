@@ -38,7 +38,7 @@ the `AWS Blog`_. For guidance on migrating your application from 1.11.x to 2.x, 
 `migration guide`_.
 
 See the Github issues for details about additional features not yet in 2.x. Comments and
-feedback are also welcomed. 
+feedback are also welcome.
 
 * High-level libraries
 
