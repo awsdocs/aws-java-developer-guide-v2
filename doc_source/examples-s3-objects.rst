@@ -18,7 +18,6 @@ Performing Operations on an |S3| Object
     :keywords: Amazon Simple Storage Service, Amazon S3, AWS SDK for Java 2.x code example,
                PutObjectRequest, createMultipartUpload, GetObjectRequest
 
-.. include:: includes/dev-preview-note.txt
 
 An |S3| object represents a file or collection of data. Every object must be contained in a
 :doc:`bucket <examples-s3-buckets>`.

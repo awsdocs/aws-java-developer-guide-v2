@@ -17,7 +17,6 @@ Working with Security Groups in |EC2|
    :keywords: AWS SDK for Java 2.x, code examples, EC2 security groups, create a security group, ingress
               rules, egress rules, IP permissions, EC2 access
 
-.. include:: includes/dev-preview-note.txt
 
 Creating a Security Group
 =========================

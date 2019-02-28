@@ -17,7 +17,6 @@ Working with |EC2| Key Pairs
    :keywords: AWS SDK for Java 2.x, code examples, EC2 key pairs, create key pair, list key pairs, delete
               key pair
 
-.. include:: includes/dev-preview-note.txt
 
 Creating a Key Pair
 ===================

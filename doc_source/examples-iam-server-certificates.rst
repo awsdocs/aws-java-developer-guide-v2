@@ -18,7 +18,6 @@ Working with |IAM| Server Certificates
               GetServerCertificateRequest, ListServerCertificatesRequest,
               UpdateServerCertificateRequest
 
-.. include:: includes/dev-preview-note.txt
 
 To enable HTTPS connections to your website or application on AWS, you need an SSL/TLS *server
 certificate*. You can use a server certificate provided by |acmlong| or one that you obtained from

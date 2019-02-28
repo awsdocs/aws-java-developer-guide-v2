@@ -17,7 +17,6 @@ Creating, Listing, and Deleting |S3| Buckets
     :keywords: Amazon Simple Storage Service, Amazon S3, AWS SDK for Java 2.x, S3 code examples,
                CreateBucketRequest, ListBucketRequest, ListObjectsV2Request
 
-.. include:: includes/dev-preview-note.txt
 
 Every object (file) in |S3| must reside within a *bucket*. A bucket represents a collection (container)
 of objects. Each bucket must have a unique *key* (name). For detailed information
