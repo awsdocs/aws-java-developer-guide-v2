@@ -175,7 +175,7 @@ Use a Subscriber
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-dynamodb:`complete example <AsyncPagination.java>` on GitHub.
+See the :sdk-examples-java-dynamodbasync:`complete example <AsyncPagination.java>` on GitHub.
 
 Use a For Loop
 --------------
@@ -191,7 +191,7 @@ for this purpose.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-dynamodb:`complete example <AsyncPagination.java>` on GitHub.
+See the :sdk-examples-java-dynamodbasync:`complete example <AsyncPagination.java>` on GitHub.
 
 
 .. _iterate-objects-async:
@@ -215,7 +215,7 @@ Use a Subscriber
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-dynamodb:`complete example <AsyncPagination.java>` on GitHub.
+See the :sdk-examples-java-dynamodbasync:`complete example <AsyncPagination.java>` on GitHub.
 
 
 .. _for-loop-async:
@@ -232,7 +232,7 @@ Use the :methodname:`forEach` convenience method to iterate through the results.
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-dynamodb:`complete example <AsyncPagination.java>` on GitHub.
+See the :sdk-examples-java-dynamodbasync:`complete example <AsyncPagination.java>` on GitHub.
 
 
 Use Third-party Library

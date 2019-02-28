@@ -397,6 +397,7 @@ for svc in [
         'sqs',
         'cloudwatch',
         'dynamodb',
+        'dynamodbasync',
         'ec2',
         'iam',
         'glacier',
