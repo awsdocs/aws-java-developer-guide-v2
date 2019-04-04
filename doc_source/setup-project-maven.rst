@@ -167,7 +167,7 @@ declare it in your :file:`pom.xml` as follows.
   <dependencies>
     <dependency>
       <groupId>software.amazon.awssdk</groupId>
-      <artifactId>aws-java-sdk</artifactId>
+      <artifactId>aws-sdk-java</artifactId>
       <version>2.0.0</version>
     </dependency>
   </dependencies>
