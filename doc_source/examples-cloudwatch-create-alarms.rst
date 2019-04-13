@@ -26,14 +26,12 @@ filled with the alarm conditions.
 
 **Imports**
 
-.. literalinclude:: example_code/cloudwatch/src/main/java/com/example/cloudwatch/PutMetricAlarm.java
-   :lines: 16-23
+.. literalinclude:: cloudwatch.java.put_metric_alarm.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/cloudwatch/src/main/java/com/example/cloudwatch/PutMetricAlarm.java
-   :lines: 42-66
+.. literalinclude:: cloudwatch.java.put_metric_alarm.main.txt
    :dedent: 8
    :language: java
 
@@ -46,16 +44,15 @@ To list the |cw| alarms that you have created, call the |cwclient|'s :methodname
 method with a :aws-java-class-prev:`DescribeAlarmsRequest
 <services/cloudwatch/model/DescribeAlarmsRequest>` that you can use to set options for the result.
 
+
 **Imports**
 
-.. literalinclude:: example_code/cloudwatch/src/main/java/com/example/cloudwatch/DescribeAlarms.java
-   :lines: 16-20
+.. literalinclude:: cloudwatch.java.describe_alarms.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/cloudwatch/src/main/java/com/example/cloudwatch/DescribeAlarms.java
-   :lines: 29-58
+.. literalinclude:: cloudwatch.java.describe_alarms.main.txt
    :dedent: 8
    :language: java
 
@@ -79,18 +76,18 @@ To delete |cw| alarms, call the |cwclient|'s :methodname:`deleteAlarms` method w
 :aws-java-class-prev:`DeleteAlarmsRequest <services/cloudwatch/model/DeleteAlarmsRequest>` containing one
 or more names of alarms that you want to delete.
 
+
 **Imports**
 
-.. literalinclude:: example_code/cloudwatch/src/main/java/com/example/cloudwatch/DeleteAlarm.java
-   :lines: 16-19
+.. literalinclude:: cloudwatch.java.delete_metrics.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/cloudwatch/src/main/java/com/example/cloudwatch/DeleteAlarm.java
-   :lines: 37-45
+.. literalinclude:: cloudwatch.java.delete_metrics.main.txt
    :dedent: 8
    :language: java
+
 
 See the :sdk-examples-java-cloudwatch:`complete example <DeleteAlarm.java>` on GitHub.
 

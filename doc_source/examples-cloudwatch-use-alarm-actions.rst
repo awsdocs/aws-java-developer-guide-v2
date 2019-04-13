@@ -35,14 +35,12 @@ actions you want to enable.
 
 **Imports**
 
-.. literalinclude:: example_code/cloudwatch/src/main/java/com/example/cloudwatch/EnableAlarmActions.java
-   :lines: 16-19
+.. literalinclude:: cloudwatch.java.enable_alarm_actions.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/cloudwatch/src/main/java/com/example/cloudwatch/EnableAlarmActions.java
-   :lines: 38-44
+.. literalinclude:: cloudwatch.java.enable_alarm_actions.main.txt
    :dedent: 8
    :language: java
 
@@ -58,14 +56,12 @@ actions you want to disable.
 
 **Imports**
 
-.. literalinclude:: example_code/cloudwatch/src/main/java/com/example/cloudwatch/DisableAlarmActions.java
-   :lines: 16-19
+.. literalinclude:: cloudwatch.java.disable_alarm_actions.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/cloudwatch/src/main/java/com/example/cloudwatch/DisableAlarmActions.java
-   :lines: 38-44
+.. literalinclude:: cloudwatch.java.disable_alarm_actions.main.txt
    :dedent: 8
    :language: java
 

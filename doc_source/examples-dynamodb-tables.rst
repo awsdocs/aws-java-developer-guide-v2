@@ -60,11 +60,12 @@ must also supply initial provisioned throughput values and a table name.
 
 .. These Imports/Code headings are sufficient without the colons
 
+
 **Imports**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/CreateTable.java
-   :lines: 15-23
+.. literalinclude:: dynamodb.java.create_table.import.txt
    :language: java
+
 
 .. _dynamodb-create-table-simple:
 
@@ -75,8 +76,7 @@ This code creates a table with a simple primary key ("Name").
 
 **Code**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/CreateTable.java
-   :lines: 58-83
+.. literalinclude:: dynamodb.java.create_table.main.txt
    :dedent: 8
    :language: java
 
@@ -92,10 +92,14 @@ Add another
 :aws-java-class-prev:`KeySchemaElement <services/dynamodb/model/KeySchemaElement>` to
 :aws-java-class-prev:`CreateTableRequest <services/dynamodb/model/CreateTableRequest>`.
 
+**Imports**
+
+.. literalinclude:: dynamodb.java.create_table_composite_key.import.txt
+   :language: java
+
 **Code**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/CreateTableCompositeKey.java
-   :lines: 60-94
+.. literalinclude:: dynamodb.java.create_table_composite_key.main.txt
    :dedent: 8
    :language: java
 
@@ -115,14 +119,12 @@ You can list the tables in a particular region by calling the |ddbclient|'s
 
 **Imports**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/ListTables.java
-   :lines: 15-19
+.. literalinclude:: dynamodb.java.list_tables.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/ListTables.java
-   :lines: 33-72
+.. literalinclude:: dynamodb.java.list_tables.main.txt
    :dedent: 8
    :language: java
 
@@ -147,14 +149,12 @@ Call the |ddbclient|'s :methodname:`describeTable` method.
 
 **Imports**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/DescribeTable.java
-   :lines: 15-20
+.. literalinclude:: dynamodb.java.describe_table.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/DescribeTable.java
-   :lines: 51-93
+.. literalinclude:: dynamodb.java.describe_table.main.txt
    :dedent: 8
    :language: java
 
@@ -176,14 +176,12 @@ method.
 
 **Imports**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/UpdateTable.java
-   :lines: 15-18
+.. literalinclude:: dynamodb.java.update_table.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/UpdateTable.java
-   :lines: 60-79
+.. literalinclude:: dynamodb.java.update_table.main.txt
    :dedent: 8
    :language: java
 
@@ -204,14 +202,12 @@ Call the |ddbclient|'s
 
 **Imports**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/DeleteTable.java
-   :lines: 15-18
+.. literalinclude:: dynamodb.java.delete_table.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/DeleteTable.java
-   :lines: 53-65
+.. literalinclude:: dynamodb.java.delete_table.main.txt
    :dedent: 8
    :language: java
 

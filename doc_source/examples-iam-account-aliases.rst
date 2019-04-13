@@ -33,14 +33,12 @@ To create an account alias, call the |iamclient|'s :methodname:`createAccountAli
 
 **Imports**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/CreateAccountAlias.java
-   :lines: 16-20
+.. literalinclude:: iam.java.create_account_alias.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/CreateAccountAlias.java
-   :lines: 38-45
+.. literalinclude:: iam.java.create_account_alias.main.txt
    :dedent: 8
    :language: java
 
@@ -60,16 +58,14 @@ method.
    :methodname:`isTruncated` and :methodname:`marker` methods as other |sdk-java| *list*
    methods, but an AWS account can have only *one* account alias.
 
-**imports**
+**Imports**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/ListAccountAliases.java
-   :lines: 16-19
+.. literalinclude:: iam.java.list_account_aliases.import.txt
    :language: java
 
-**code**
+**Code**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/ListAccountAliases.java
-   :lines: 27-34
+.. literalinclude:: iam.java.list_account_aliases.main.txt
    :dedent: 8
    :language: java
 
@@ -84,16 +80,14 @@ deleting an account alias, you must supply its name using a
 :aws-java-class-prev:`DeleteAccountAliasRequest
 <services/iam/model/DeleteAccountAliasRequest>` object.
 
-**imports**
+**Imports**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/DeleteAccountAlias.java
-   :lines: 16-20
+.. literalinclude:: iam.java.delete_account_alias.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/DeleteAccountAlias.java
-   :lines: 39-47
+.. literalinclude:: iam.java.delete_account_alias.main.txt
    :dedent: 8
    :language: java
 

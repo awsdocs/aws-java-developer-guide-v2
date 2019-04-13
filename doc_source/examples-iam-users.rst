@@ -27,14 +27,12 @@ method using a :aws-java-class-prev:`CreateUserRequest
 
 **Imports**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/CreateUser.java
-   :lines: 16-20
+.. literalinclude:: iam.java.create_user.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/CreateUser.java
-   :lines: 40-46
+.. literalinclude:: iam.java.create_user.main.txt
    :dedent: 8
    :language: java
 
@@ -58,14 +56,12 @@ the new request.
 
 **Imports**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/ListUsers.java
-   :lines: 16-21
+.. literalinclude:: iam.java.list_user.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/ListUsers.java
-   :lines: 29-58
+.. literalinclude:: iam.java.list_user.main.txt
    :dedent: 8
    :language: java
 
@@ -81,14 +77,12 @@ that you can use to change the user's *name* or *path*.
 
 **Imports**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/UpdateUser.java
-   :lines: 16-19
+.. literalinclude:: iam.java.update_user.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/UpdateUser.java
-   :lines: 40-47
+.. literalinclude:: iam.java.update_user.main.txt
    :dedent: 8
    :language: java
 
@@ -104,14 +98,12 @@ with the user name to delete.
 
 **Imports**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/DeleteUser.java
-   :lines: 16-19
+.. literalinclude:: iam.java.delete_user.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/DeleteUser.java
-   :lines: 39-51
+.. literalinclude:: iam.java.delete_user.main.txt
    :dedent: 8
    :language: java
 

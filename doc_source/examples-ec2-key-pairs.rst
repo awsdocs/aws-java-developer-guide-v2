@@ -27,14 +27,12 @@ key's name.
 
 **Imports**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/CreateKeyPair.java
-   :lines: 17-19
+.. literalinclude:: ec2.java.create_key_pair.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/CreateKeyPair.java
-   :lines: 39-44
+.. literalinclude:: ec2.java.create_key_pair.main.txt
    :dedent: 8
    :language: java
 
@@ -52,16 +50,15 @@ calling its :methodname:`keyPairs` method, which returns a list of :aws-java-cla
 
 **Imports**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/DescribeKeyPairs.java
-   :lines: 16-18
+.. literalinclude:: ec2.java.describe_key_pairs.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/DescribeKeyPairs.java
-   :lines: 27-38
+.. literalinclude:: ec2.java.describe_key_pairs.main.txt
    :dedent: 8
    :language: java
+
 
 See the :sdk-examples-java-ec2:`complete example <DescribeKeyPairs.java>` on GitHub.
 
@@ -75,14 +72,12 @@ name of the key pair to delete.
 
 **Imports**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/DeleteKeyPair.java
-   :lines: 16-18
+.. literalinclude:: ec2.java.delete_key_pair.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/DeleteKeyPair.java
-   :lines: 38-44
+.. literalinclude:: ec2.java.delete_key_pair.main.txt
    :dedent: 8
    :language: java
 

@@ -33,14 +33,12 @@ resources associated with the event, and so on.
 
 **Imports**
 
-.. literalinclude:: example_code/cloudwatch/src/main/java/com/example/cloudwatch/PutEvents.java
-   :lines: 16-20
+.. literalinclude:: cloudwatch.java.put_events.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/cloudwatch/src/main/java/com/example/cloudwatch/PutEvents.java
-   :lines: 39-54
+.. literalinclude:: cloudwatch.java.put_events.main.txt
    :dedent: 8
    :language: java
 
@@ -57,14 +55,12 @@ expression <ScheduledEvents>` that describes how often the rule is run.
 
 **Imports**
 
-.. literalinclude:: example_code/cloudwatch/src/main/java/com/example/cloudwatch/PutRule.java
-   :lines: 16-20
+.. literalinclude:: cloudwatch.java.put_rule.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/cloudwatch/src/main/java/com/example/cloudwatch/PutRule.java
-   :lines: 40-50
+.. literalinclude:: cloudwatch.java.put_rule.main.txt
    :dedent: 8
    :language: java
 
@@ -82,14 +78,12 @@ the rule to update and a list of targets to add to the rule.
 
 **Imports**
 
-.. literalinclude:: example_code/cloudwatch/src/main/java/com/example/cloudwatch/PutTargets.java
-   :lines: 16-20
+.. literalinclude:: cloudwatch.java.put_targets.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/cloudwatch/src/main/java/com/example/cloudwatch/PutTargets.java
-   :lines: 44-57
+.. literalinclude:: cloudwatch.java.put_targets.main.txt
    :dedent: 8
    :language: java
 

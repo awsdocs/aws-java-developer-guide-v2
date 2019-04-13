@@ -29,16 +29,15 @@ each region.
 
 **Imports**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/DescribeRegionsAndZones.java
-   :lines: 16-18
+.. literalinclude:: ec2.java.describe_region_and_zones.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/DescribeRegionsAndZones.java
-   :lines: 29-39
+.. literalinclude:: ec2.java.describe_region_and_zones.client.txt, ec2.java.describe_region_and_zones.region
    :dedent: 8
    :language: java
+   
 
 See the :sdk-examples-java-ec2:`complete example <DescribeRegionsAndZones.java>` on GitHub.
 
@@ -55,14 +54,12 @@ objects that represent each availability zone.
 
 **Imports**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/DescribeRegionsAndZones.java
-   :lines: 16, 19-20
+.. literalinclude:: ec2.java.describe_region_and_zones.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/DescribeRegionsAndZones.java
-   :lines: 29, 41-52
+.. literalinclude:: ec2.java.describe_region_and_zones.client.txt, ec2.java.describe_region_and_zones.avail_zone
    :dedent: 8
    :language: java
 

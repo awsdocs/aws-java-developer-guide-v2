@@ -38,14 +38,12 @@ You can retrieve a server certificate by calling the |iamclient|'s
 
 **Imports**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/GetServerCertificate.java
-   :lines: 15-19
+.. literalinclude:: iam.java.get_server_certificate.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/GetServerCertificate.java
-   :lines: 39-45
+.. literalinclude:: iam.java.get_server_certificate.main.txt
    :dedent: 8
    :language: java
 
@@ -75,14 +73,12 @@ call :methodname:`listServerCertificates` again to get the next batch of results
 
 **Imports**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/ListServerCertificates.java
-   :lines: 16-21
+.. literalinclude:: iam.java.list_server_certificates.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/ListServerCertificates.java
-   :lines: 29-62
+.. literalinclude:: iam.java.list_server_certificates.main.txt
    :dedent: 8
    :language: java
 
@@ -100,14 +96,12 @@ certificate's current name and either a new name or new path to use.
 
 **Imports**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/UpdateServerCertificate.java
-   :lines: 16-19
+.. literalinclude:: iam.java.update_server_certificate.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/UpdateServerCertificate.java
-   :lines: 40-50
+.. literalinclude:: iam.java.update_server_certificate.main.txt
    :dedent: 8
    :language: java
 
@@ -124,14 +118,12 @@ name.
 
 **Imports**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/DeleteServerCertificate.java
-   :lines: 16-20
+.. literalinclude:: iam.java.delete_server_certificate.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/DeleteServerCertificate.java
-   :lines: 39-47
+.. literalinclude:: iam.java.delete_server_certificate.main.txt
    :dedent: 8
    :language: java
 
