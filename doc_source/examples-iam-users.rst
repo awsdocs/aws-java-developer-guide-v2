@@ -56,12 +56,12 @@ the new request.
 
 **Imports**
 
-.. literalinclude:: iam.java.list_user.import.txt
+.. literalinclude:: iam.java.list_users.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: iam.java.list_user.main.txt
+.. literalinclude:: iam.java.list_users.main.txt
    :dedent: 8
    :language: java
 

@@ -76,7 +76,7 @@ the ID of the instance to stop.
 
 **Code**
 
-.. literalinclude:: ec2.java.ec2.java.start_stop_instance.stop.txt
+.. literalinclude:: ec2.java.start_stop_instance.stop.txt
    :dedent: 8
    :language: java
 
