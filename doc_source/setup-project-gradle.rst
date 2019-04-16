@@ -39,17 +39,7 @@ plugin to import the SDK's Maven Bill of Materials (BOM) to manage SDK dependenc
 
           dependencyManagement {
               imports {
-                  mavenBom 'software.amazon.awssdk:bom:2.0.0'
-              }
-          }
-
-       .. include:: includes/dev-preview-module-setup.txt
-
-       .. code-block:: groovy
-
-          dependencyManagement {
-              imports {
-                  mavenBom 'software.amazon.awssdk:bom:2.0.0-preview-10'
+                  mavenBom 'software.amazon.awssdk:bom:2.3.9'
               }
           }
 
@@ -93,7 +83,7 @@ Here's the complete :file:`build.gradle` file:
 
    dependencyManagement {
      imports {
-         mavenBom 'software.amazon.awssdk:bom:2.0.0'
+         mavenBom 'software.amazon.awssdk:bom:2.3.9'
      }
    }
 
