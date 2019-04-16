@@ -18,7 +18,6 @@ Sending, Receiving, and Deleting |SQS| Messages
    :keywords: AWS SDK for Java code examples, Amazon SQS, send message, receive message, delete
               message, SendMessageRequest, ReceiveMessageRequest
 
-.. include:: includes/dev-preview-note.txt
 
 A message is a piece of data that can be sent and received by distributed components.
 Messages are always delivered using an :doc:`SQS Queue <examples-sqs-message-queues>`.

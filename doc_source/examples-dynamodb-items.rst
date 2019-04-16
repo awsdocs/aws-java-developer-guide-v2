@@ -41,14 +41,12 @@ with the item.
 
 **Imports**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/GetItem.java
-   :lines: 15-18
+.. literalinclude:: dynamodb.java.get_item.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/GetItem.java
-   :lines: 68-105
+.. literalinclude:: dynamodb.java.get_item.main.txt
    :dedent: 8
    :language: java
 
@@ -70,14 +68,12 @@ item identified by the primary key already exists, its fields are *updated* by t
 
 **Imports**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/PutItem.java
-   :lines: 15-19
+.. literalinclude:: dynamodb.java.put_item.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/PutItem.java
-   :lines: 77-102
+.. literalinclude:: dynamodb.java.put_item.main.txt
    :dedent: 8
    :language: java
 
@@ -99,14 +95,12 @@ update.
 
 **Imports**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/UpdateItem.java
-   :lines: 15-22
+.. literalinclude:: dynamodb.java.update_item.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/UpdateItem.java
-   :lines: 84-116
+.. literalinclude:: dynamodb.java.update_item.main.txt
    :dedent: 8
    :language: java
 
