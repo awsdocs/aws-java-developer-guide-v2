@@ -55,7 +55,7 @@ the ID of the instance to start.
 
 **Code**
 
-.. literalinclude:: ec2.java.ec2.java.start_stop_instance.start.txt
+.. literalinclude:: ec2.java.start_stop_instance.start.txt
    :dedent: 8
    :language: java
 
