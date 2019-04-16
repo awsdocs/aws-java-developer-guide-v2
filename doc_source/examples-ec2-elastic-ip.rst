@@ -37,14 +37,12 @@ method.
 
 **Imports**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/AllocateAddress.java
-   :lines: 17-22
+.. literalinclude:: ec2.java.allocate_address.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/AllocateAddress.java
-   :lines: 42-66
+.. literalinclude:: ec2.java.allocate_address.main.txt
    :dedent: 8
    :language: java
 
@@ -62,14 +60,12 @@ addresses on your account.
 
 **Imports**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/DescribeAddresses.java
-   :lines: 16-18
+.. literalinclude:: ec2.java.describe_addresses.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/DescribeAddresses.java
-   :lines: 27-41
+.. literalinclude:: ec2.java.describe_addresses.main.txt
    :dedent: 8
    :language: java
 
@@ -85,14 +81,12 @@ containing the allocation ID of the Elastic IP address you want to release.
 
 **Imports**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/ReleaseAddress.java
-   :lines: 17-19
+.. literalinclude:: ec2.java.release_instance.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/ReleaseAddress.java
-   :lines: 39-44
+.. literalinclude:: ec2.java.release_instance.main.txt
    :dedent: 8
    :language: java
 

@@ -31,14 +31,12 @@ object.
 
 **Imports**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/CreateAccessKey.java
-   :lines: 16-20
+.. literalinclude:: iam.java.create_access_key.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/CreateAccessKey.java
-   :lines: 39-46
+.. literalinclude:: iam.java.create_access_key.main.txt
    :dedent: 8
    :language: java
 
@@ -57,14 +55,12 @@ list keys for, and pass it to the |iamclient|'s :methodname:`listAccessKeys` met
 
 **Imports**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/ListAccessKeys.java
-   :lines: 16-21
+.. literalinclude:: iam.java.list_access_keys.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/ListAccessKeys.java
-   :lines: 40-73
+.. literalinclude:: iam.java.list_access_keys.main.txt
    :dedent: 8
    :language: java
 
@@ -93,14 +89,12 @@ used time.
 
 **Imports**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/AccessKeyLastUsed.java
-   :lines: 17-20
+.. literalinclude:: iam.java.access_key_last_used.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/AccessKeyLastUsed.java
-   :lines: 38-48
+.. literalinclude:: iam.java.access_key_last_used.main.txt
    :dedent: 8
    :language: java
 
@@ -120,14 +114,12 @@ then passing the request object to the
 
 **Imports**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/UpdateAccessKey.java
-   :lines: 16-20
+.. literalinclude:: iam.java.update_access_key.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/UpdateAccessKey.java
-   :lines: 39-64
+.. literalinclude:: iam.java.update_access_key.main.txt
    :dedent: 8
    :language: java
 
@@ -148,17 +140,15 @@ username.
 
 **Imports**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/DeleteAccessKey.java
-   :lines: 16-19
+.. literalinclude:: iam.java.delete_access_key.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/iam/src/main/java/com/example/iam/DeleteAccessKey.java
-   :lines: 39-46
+.. literalinclude:: iam.java.delete_access_key.main.txt
    :dedent: 8
    :language: java
-
+   
 See the :sdk-examples-java-iam:`complete example <DeleteAccessKey.java>` on GitHub.
 
 

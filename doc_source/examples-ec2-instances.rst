@@ -29,14 +29,12 @@ containing the :ec2-ug:`Amazon Machine Image (AMI) <AMIs>` to use and an :ec2-ug
 
 **Imports**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/CreateInstance.java
-   :lines: 16-22
+.. literalinclude:: ec2.java.create_instance.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/CreateInstance.java
-   :lines: 43-76
+.. literalinclude:: ec2.java.create_instance.main.txt
    :dedent: 8
    :language: java
 
@@ -52,14 +50,12 @@ the ID of the instance to start.
 
 **Imports**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/StartStopInstance.java
-   :lines: 16-17
+.. literalinclude:: ec2.java.start_stop_instance.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/StartStopInstance.java
-   :lines: 27-32
+.. literalinclude:: ec2.java.ec2.java.start_stop_instance.start.txt
    :dedent: 8
    :language: java
 
@@ -75,14 +71,12 @@ the ID of the instance to stop.
 
 **Imports**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/StartStopInstance.java
-   :lines: 16, 18
+.. literalinclude:: ec2.java.start_stop_instance.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/StartStopInstance.java
-   :lines: 39-44
+.. literalinclude:: ec2.java.start_stop_instance.stop.txt
    :dedent: 8
    :language: java
 
@@ -98,14 +92,12 @@ the ID of the instance to reboot.
 
 **Imports**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/RebootInstance.java
-   :lines: 16-18
+.. literalinclude:: ec2.java.reboot_instance.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/RebootInstance.java
-   :lines: 38-43
+.. literalinclude:: ec2.java.reboot_instance.main.txt
    :dedent: 8
    :language: java
 
@@ -129,14 +121,12 @@ the :classname:`DescribeInstancesResponse` class' :methodname:`reservations` met
 
 **Imports**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/DescribeInstances.java
-   :lines: 16-21
+.. literalinclude:: ec2.java.describe_instances.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/DescribeInstances.java
-   :lines: 32-57
+.. literalinclude:: ec2.java.describe_instances.main.txt
    :dedent: 8
    :language: java
 
@@ -161,14 +151,12 @@ the |ec2client|'s :methodname:`monitorInstances` method.
 
 **Imports**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/MonitorInstance.java
-   :lines: 16-17
+.. literalinclude:: ec2.java.monitor_instance.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/MonitorInstance.java
-   :lines: 27-32
+.. literalinclude:: ec2.java.monitor_instance.main.txt
    :dedent: 8
    :language: java
 
@@ -184,14 +172,12 @@ pass it to the |ec2client|'s :methodname:`unmonitorInstances` method.
 
 **Imports**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/MonitorInstance.java
-   :lines: 16, 18
+.. literalinclude:: ec2.java.monitor_instance.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/MonitorInstance.java
-   :lines: 41-46
+.. literalinclude:: ec2.java.monitor_instance.stop.txt
    :dedent: 8
    :language: java
 
