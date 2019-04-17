@@ -13,7 +13,7 @@
 ##########
 
 .. meta::
-    :description: Developer Guide for the AWS SDK for Java
+    :description: Describes the new features in version 2.x of the SDK.
     :keywords: java, sdk, aws
 
 .. toctree::
