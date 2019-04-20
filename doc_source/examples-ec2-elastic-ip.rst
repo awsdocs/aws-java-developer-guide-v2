@@ -26,12 +26,12 @@ To use an Elastic IP address, you first allocate one to your account, and then a
 your instance or a network interface.
 
 To allocate an Elastic IP address, call the |ec2client|'s :methodname:`allocateAddress` method with
-an :aws-java-class-prev:`AllocateAddressRequest <services/ec2/model/AllocateAddressRequest>` object
+an :aws-java-class:`AllocateAddressRequest <services/ec2/model/AllocateAddressRequest>` object
 containing the network type (classic EC2 or VPC).
 
-The returned :aws-java-class-prev:`AllocateAddressResponse <services/ec2/model/AllocateAddressResponse>`
+The returned :aws-java-class:`AllocateAddressResponse <services/ec2/model/AllocateAddressResponse>`
 contains an allocation ID that you can use to associate the address with an instance, by passing the
-allocation ID and instance ID in a :aws-java-class-prev:`AssociateAddressRequest
+allocation ID and instance ID in a :aws-java-class:`AssociateAddressRequest
 <services/ec2/model/AssociateAddressRequest>` to the |ec2client|'s :methodname:`associateAddress`
 method.
 
@@ -53,9 +53,9 @@ Describing Elastic IP Addresses
 ===============================
 
 To list the Elastic IP addresses assigned to your account, call the |ec2client|'s
-:methodname:`describeAddresses` method. It returns a :aws-java-class-prev:`DescribeAddressesResponse
+:methodname:`describeAddresses` method. It returns a :aws-java-class:`DescribeAddressesResponse
 <services/ec2/model/DescribeAddressesResponse>` which you can use to get a list of
-:aws-java-class-prev:`Address <services/ec2/model/Address>` objects that represent the Elastic IP
+:aws-java-class:`Address <services/ec2/model/Address>` objects that represent the Elastic IP
 addresses on your account.
 
 **Imports**
@@ -76,7 +76,7 @@ Releasing an Elastic IP Address
 ===============================
 
 To release an Elastic IP address, call the |ec2client|'s :methodname:`releaseAddress` method,
-passing it a :aws-java-class-prev:`ReleaseAddressRequest <services/ec2/model/ReleaseAddressRequest>`
+passing it a :aws-java-class:`ReleaseAddressRequest <services/ec2/model/ReleaseAddressRequest>`
 containing the allocation ID of the Elastic IP address you want to release.
 
 **Imports**

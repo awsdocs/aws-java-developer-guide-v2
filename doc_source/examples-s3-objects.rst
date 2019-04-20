@@ -36,9 +36,9 @@ An |S3| object represents a file or collection of data. Every object must be con
 Upload an Object
 ================
 
-Build a :aws-java-class-prev:`PutObjectRequest <services/s3/model/PutObjectRequest>`
+Build a :aws-java-class:`PutObjectRequest <services/s3/model/PutObjectRequest>`
 and supply a bucket name and key name. Then use the |s3client|'s
-:methodname:`putObject` method with a :aws-java-class-prev:`RequestBody <core/sync/RequestBody>`
+:methodname:`putObject` method with a :aws-java-class:`RequestBody <core/sync/RequestBody>`
 that contains the object content and the :classname:`PutObjectRequest` object.
 *The bucket must exist, or the service will return an error.*
 
@@ -87,7 +87,7 @@ See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>` on Gi
 Download an Object
 ==================
 
-Build a :aws-java-class-prev:`GetObjectRequest <services/s3/model/GetObjectRequest>`
+Build a :aws-java-class:`GetObjectRequest <services/s3/model/GetObjectRequest>`
 and supply a bucket name and key name.
 Use the |s3client|'s :methodname:`getObject` method, passing it the
 :classname:`GetObjectRequest` object and a :classname:`ResponseTransformer` object.
@@ -116,7 +116,7 @@ See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>` on Gi
 Delete an Object
 ================
 
-Build a :aws-java-class-prev:`DeleteObjectRequest <services/s3/model/DeleteObjectRequest>`
+Build a :aws-java-class:`DeleteObjectRequest <services/s3/model/DeleteObjectRequest>`
 and supply a bucket name and key name.
 Use the |s3client|'s :methodname:`deleteObject` method, and pass it the name of a bucket and
 object to delete. *The specified bucket and object key must exist, or the service will return an error.*

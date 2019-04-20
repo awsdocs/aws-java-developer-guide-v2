@@ -44,18 +44,18 @@ These examples use the synchronous pagination methods for listing objects in an
 Iterate over Pages
 ==================
 
-Build a :aws-java-class-prev:`ListObjectsV2Request <services/s3/model/ListObjectsV2Request>`
+Build a :aws-java-class:`ListObjectsV2Request <services/s3/model/ListObjectsV2Request>`
 and provide a bucket name. Optionally you can provide the maximum number of keys to
 retrieve at one time.
 Pass it to the |s3client|'s :methodname:`listObjectsV2Paginator` method. This method
-returns a :aws-java-class-prev:`ListObjectsV2Iterable <services/s3/paginators/ListObjectsV2Iterable>`
+returns a :aws-java-class:`ListObjectsV2Iterable <services/s3/paginators/ListObjectsV2Iterable>`
 object, which is an ``Iterable`` of the
-:aws-java-class-prev:`ListObjectsV2Response <services/s3/model/ListObjectsV2Response>` class.
+:aws-java-class:`ListObjectsV2Response <services/s3/model/ListObjectsV2Response>` class.
 
 The first example demonstrates using the paginator object to iterate through all the
 response pages with the :methodname:`stream` method. You can directly stream over
 the response pages, convert the response stream to a stream of
-:aws-java-class-prev:`S3Object <services/s3/model/S3Object>` content, and then process
+:aws-java-class:`S3Object <services/s3/model/S3Object>` content, and then process
 the content of the |S3| object.
 
 **Imports**

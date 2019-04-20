@@ -26,11 +26,12 @@
 .. _mvn: Maven_
 .. _mvnlong: Maven_
 
-.. |s3client| replace:: :aws-java-class-prev:`S3Client <services/s3/S3Client>`
-.. |sqsclient| replace:: :aws-java-class-prev:`SqsClient <services/sqs/SqsClient>`
-.. |cwclient| replace:: :aws-java-class-prev:`CloudWatchClient <services/cloudwatch/CloudWatchClient>`
-.. |cweclient| replace:: :aws-java-class-prev:`CloudWatchEventsClient <services/cloudwatchevents/CloudWatchEventsClient>`
-.. |ddbclient| replace:: :aws-java-class-prev:`DynamoDbClient <services/dynamodb/DynamoDbClient>`
-.. |ec2client| replace:: :aws-java-class-prev:`Ec2Client <services/ec2/Ec2Client>`
-.. |iamclient| replace:: :aws-java-class-prev:`IamClient <services/iam/IamClient>`
+.. |s3client| replace:: :aws-java-class:`S3Client <services/s3/S3Client>`
+.. |sqsclient| replace:: :aws-java-class:`SqsClient <services/sqs/SqsClient>`
+.. |cwclient| replace:: :aws-java-class:`CloudWatchClient <services/cloudwatch/CloudWatchClient>`
+.. |cweclient| replace:: :aws-java-class:`CloudWatchEventsClient <services/cloudwatchevents/CloudWatchEventsClient>`
+.. |ddbclient| replace:: :aws-java-class:`DynamoDbClient <services/dynamodb/DynamoDbClient>`
+.. |ec2client| replace:: :aws-java-class:`Ec2Client <services/ec2/Ec2Client>`
+.. |iamclient| replace:: :aws-java-class:`IamClient <services/iam/IamClient>`
 .. |ddbasyncclient| replace:: :aws-java-class:`DynamoDbAsyncClient <services/dynamodb/DynamoDbAsyncClient>`
+.. |tscstreamasyncclient| replace:: :aws-java-class:`TranscribeStreamingAsyncClient <services/transcribestreaming/TranscribeStreamingAsyncClient>`

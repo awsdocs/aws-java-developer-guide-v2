@@ -22,7 +22,7 @@ Creating a Security Group
 =========================
 
 To create a security group, call the |ec2client|'s :methodname:`createSecurityGroup` method with a
-:aws-java-class-prev:`CreateSecurityGroupRequest <services/ec2/model/CreateSecurityGroupRequest>` that
+:aws-java-class:`CreateSecurityGroupRequest <services/ec2/model/CreateSecurityGroupRequest>` that
 contains the key's name.
 
 **Imports**
@@ -49,8 +49,8 @@ instances.
 
 To add ingress rules to your security group, use the |ec2client|'s
 :methodname:`authorizeSecurityGroupIngress` method, providing the name of the security group and the
-access rules (:aws-java-class-prev:`IpPermission <services/ec2/model/IpPermission>`) you want to assign
-to it within an :aws-java-class-prev:`AuthorizeSecurityGroupIngressRequest
+access rules (:aws-java-class:`IpPermission <services/ec2/model/IpPermission>`) you want to assign
+to it within an :aws-java-class:`AuthorizeSecurityGroupIngressRequest
 <services/ec2/model/AuthorizeSecurityGroupIngressRequest>` object. The following example shows how
 to add IP permissions to a security group.
 
@@ -68,7 +68,7 @@ to add IP permissions to a security group.
    :language: java
 
 To add an egress rule to the security group, provide similar data in an
-:aws-java-class-prev:`AuthorizeSecurityGroupEgressRequest
+:aws-java-class:`AuthorizeSecurityGroupEgressRequest
 <services/ec2/model/AuthorizeSecurityGroupEgressRequest>` to the |ec2client|'s
 :methodname:`authorizeSecurityGroupEgress` method.
 
@@ -80,9 +80,9 @@ Describing Security Groups
 
 To describe your security groups or get information about them, call the |ec2client|'s
 :methodname:`describeSecurityGroups` method. It returns a
-:aws-java-class-prev:`DescribeSecurityGroupsResponse <services/ec2/model/DescribeSecurityGroupsResponse>`
+:aws-java-class:`DescribeSecurityGroupsResponse <services/ec2/model/DescribeSecurityGroupsResponse>`
 that you can use to access the list of security groups by calling its
-:methodname:`securityGroups` method, which returns a list of :aws-java-class-prev:`SecurityGroup
+:methodname:`securityGroups` method, which returns a list of :aws-java-class:`SecurityGroup
 <services/ec2/model/SecurityGroup>` objects.
 
 **Imports**
@@ -105,7 +105,7 @@ Deleting a Security Group
 =========================
 
 To delete a security group, call the |ec2client|'s :methodname:`deleteSecurityGroup` method, passing
-it a :aws-java-class-prev:`DeleteSecurityGroupRequest <services/ec2/model/DeleteSecurityGroupRequest>`
+it a :aws-java-class:`DeleteSecurityGroupRequest <services/ec2/model/DeleteSecurityGroupRequest>`
 that contains the ID of the security group to delete.
 
 **Imports**

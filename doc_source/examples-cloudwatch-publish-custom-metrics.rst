@@ -26,9 +26,9 @@ Publish Custom Metric Data
 ==========================
 
 To publish your own metric data, call the |cwclient|'s :methodname:`putMetricData` method with a
-:aws-java-class-prev:`PutMetricDataRequest <services/cloudwatch/model/PutMetricDataRequest>`. The
+:aws-java-class:`PutMetricDataRequest <services/cloudwatch/model/PutMetricDataRequest>`. The
 :classname:`PutMetricDataRequest` must include the custom namespace to use for the data, and
-information about the data point itself in a :aws-java-class-prev:`MetricDatum
+information about the data point itself in a :aws-java-class:`MetricDatum
 <services/cloudwatch/model/MetricDatum>` object.
 
 .. note:: You cannot specify a namespace that begins with "AWS/". Namespaces that begin with

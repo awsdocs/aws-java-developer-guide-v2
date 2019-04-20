@@ -35,7 +35,7 @@ Choosing a Region
 You can specify a region name and the SDK will automatically choose an appropriate endpoint for you.
 
 To explicitly set a region, we recommend that you use the constants defined in the
-:aws-java-class-prev:`Region <regions/Region>` class. This is an enumeration of all publicly available
+:aws-java-class:`Region <regions/Region>` class. This is an enumeration of all publicly available
 regions. To create a client with a region from the class, use the following code.
 
 .. code-block:: java
@@ -141,5 +141,5 @@ that you'd like to check.
 
     DynamoDbClient.serviceMetadata().regions().forEach(System.out::println);
 
-See the :aws-java-class-prev:`Region <regions/Region>` class documentation for the regions you can specify,
+See the :aws-java-class:`Region <regions/Region>` class documentation for the regions you can specify,
 and use the endpoint prefix of the service to query.

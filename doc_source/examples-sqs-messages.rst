@@ -28,7 +28,7 @@ Send a Message
 ==============
 
 Add a single message to an |SQS| queue by calling the |sqsclient| client
-:methodname:`sendMessage` method. Provide a :aws-java-class-prev:`SendMessageRequest
+:methodname:`sendMessage` method. Provide a :aws-java-class:`SendMessageRequest
 <services/sqs/model/SendMessageRequest>` object that contains the queue's :ref:`URL
 <sqs-get-queue-url>`, message body, and optional delay value (in seconds).
 
@@ -53,8 +53,8 @@ Send Multiple Messages in a Request
 
 Send more than one message in a single request by using the
 |sqsclient| :methodname:`sendMessageBatch` method. This method takes a
-:aws-java-class-prev:`SendMessageBatchRequest <services/sqs/model/SendMessageBatchRequest>` that contains
-the queue URL and a list of messages to send. (Each message is a :aws-java-class-prev:`SendMessageBatchRequestEntry
+:aws-java-class:`SendMessageBatchRequest <services/sqs/model/SendMessageBatchRequest>` that contains
+the queue URL and a list of messages to send. (Each message is a :aws-java-class:`SendMessageBatchRequestEntry
 <services/sqs/model/SendMessageBatchRequestEntry>`.)  You can also delay sending
 a specific message by setting a delay value on the message.
 
@@ -81,9 +81,9 @@ Retrieve Messages
 
 Retrieve any messages that are currently in the queue by calling the |sqsclient|
 :methodname:`receiveMessage` method. This method takes a
-:aws-java-class-prev:`ReceiveMessageRequest <services/sqs/model/ReceiveMessageRequest>` that contains
+:aws-java-class:`ReceiveMessageRequest <services/sqs/model/ReceiveMessageRequest>` that contains
 the queue URL. You can also specify the maximum number of messages to return. Messages are
-returned as a list of :aws-java-class-prev:`Message <services/sqs/model/Message>` objects.
+returned as a list of :aws-java-class:`Message <services/sqs/model/Message>` objects.
 
 **Imports**
 

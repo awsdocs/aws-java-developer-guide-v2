@@ -31,8 +31,8 @@ This topic describes how to create, list, delete, and get the URL of an |sqs| qu
 Create a Queue
 ==============
 
-Use the |sqsclient| :methodname:`createQueue` method, and provide a
-:aws-java-class-prev:`CreateQueueRequest <services/sqs/model/CreateQueueRequest>` object that describes
+Use the |sqsclient|'s :methodname:`createQueue` method, and provide a
+:aws-java-class:`CreateQueueRequest <services/sqs/model/CreateQueueRequest>` object that describes
 the queue parameters.
 
 **Imports**
@@ -56,8 +56,8 @@ See the :sdk-examples-java-sqs:`complete sample <SQSExample.java>` on GitHub.
 List Queues
 ===========
 
-To list the |SQS| queues for your account, call the |sqsclient| :methodname:`listQueues`
-method with a :aws-java-class-prev:`ListQueuesRequest <services/sqs/model/ListQueuesRequest>` object.
+To list the |SQS| queues for your account, call the |sqsclient|'s :methodname:`listQueues`
+method with a :aws-java-class:`ListQueuesRequest <services/sqs/model/ListQueuesRequest>` object.
 
 Using the :methodname:`listQueues` overload without any parameters returns *all queues*, up to
 1,000 queues. You can supply a queue name prefix to the :code-java:`ListQueuesRequest` object to limit
@@ -84,8 +84,8 @@ See the :sdk-examples-java-sqs:`complete sample <SQSExample.java>` on GitHub.
 Get the URL for a Queue
 =======================
 
-Call the |sqsclient| :methodname:`getQueueUrl` method.
-with a :aws-java-class-prev:`GetQueueUrlRequest <services/sqs/model/GetQueueUrlRequest>` object.
+Call the |sqsclient|'s :methodname:`getQueueUrl` method.
+with a :aws-java-class:`GetQueueUrlRequest <services/sqs/model/GetQueueUrlRequest>` object.
 
 **Imports**
 
@@ -109,8 +109,8 @@ Delete a Queue
 ==============
 
 Provide the queue's :ref:`URL <sqs-get-queue-url>` to the
-:aws-java-class-prev:`DeleteMessageRequest <services/sqs/model/DeleteMessageRequest>` object.
-Then call the |sqsclient| :methodname:`deleteQueue` method.
+:aws-java-class:`DeleteMessageRequest <services/sqs/model/DeleteMessageRequest>` object.
+Then call the |sqsclient|'s :methodname:`deleteQueue` method.
 
 **Imports**
 

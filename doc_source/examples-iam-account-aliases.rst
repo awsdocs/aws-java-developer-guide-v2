@@ -28,7 +28,7 @@ Creating an Account Alias
 =========================
 
 To create an account alias, call the |iamclient|'s :methodname:`createAccountAlias` method with a
-:aws-java-class-prev:`CreateAccountAliasRequest
+:aws-java-class:`CreateAccountAliasRequest
 <services/iam/model/CreateAccountAliasRequest>` object that contains the alias name.
 
 **Imports**
@@ -52,7 +52,7 @@ To list your account's alias, if any, call the |iamclient|'s :methodname:`listAc
 method.
 
 .. note:: The returned
-   :aws-java-class-prev:`ListAccountAliasesResponse
+   :aws-java-class:`ListAccountAliasesResponse
    <services/iam/model/ListAccountAliasesResponse>`
    supports the same
    :methodname:`isTruncated` and :methodname:`marker` methods as other |sdk-java| *list*
@@ -77,7 +77,7 @@ Deleting an account alias
 
 To delete your account's alias, call the |iamclient|'s :methodname:`deleteAccountAlias` method. When
 deleting an account alias, you must supply its name using a
-:aws-java-class-prev:`DeleteAccountAliasRequest
+:aws-java-class:`DeleteAccountAliasRequest
 <services/iam/model/DeleteAccountAliasRequest>` object.
 
 **Imports**

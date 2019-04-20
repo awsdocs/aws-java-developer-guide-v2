@@ -38,7 +38,7 @@ grow and become more complex.
 SdkServiceException (and Subclasses)
 ======================================
 
-:aws-java-class-prev:`SdkServiceException <core/exception/SdkServiceException>` is the most common
+:aws-java-class:`SdkServiceException <core/exception/SdkServiceException>` is the most common
 exception that you'll experience when using
 the |sdk-java|. This exception represents an error response from an AWS service. For example, if you
 try to terminate an |EC2| instance that doesn't exist, EC2 will return an error response and all the
@@ -60,16 +60,11 @@ the request's parameters or because of issues on the service side.
 
 * AWS request ID for the failed request
 
-:classname:`SdkServiceException` also includes an
-:aws-java-class-prev:`ErrorType <core/exception/ErrorType>` field that indicates whether
-the failed request was the caller's fault (a request with illegal values) or the
-AWS service's fault (an internal service error).
-
 
 SdkClientException
 ===================
 
-:aws-java-class-prev:`SdkClientException <core/exception/SdkClientException>` indicates that a
+:aws-java-class:`SdkClientException <core/exception/SdkClientException>` indicates that a
 problem occurred inside the Java client code,
 either while trying to send a request to AWS or while trying to parse a response from AWS.
 An :classname:`SdkClientException` is generally more severe than an

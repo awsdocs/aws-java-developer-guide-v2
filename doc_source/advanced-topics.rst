@@ -29,4 +29,5 @@ to specific use cases.
    Amazon EC2 Examples <examples-ec2>
    AWS Identity and Access Management (IAM) Examples <examples-iam>
    Amazon Kinesis Examples <examples-kinesis>
+   Amazon Transcribe Examples <examples-transcribe>
    Pagination Examples <examples-pagination>

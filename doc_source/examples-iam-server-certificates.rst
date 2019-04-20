@@ -33,7 +33,7 @@ Getting a Server Certificate
 ============================
 
 You can retrieve a server certificate by calling the |iamclient|'s
-:methodname:`getServerCertificate` method, passing it a :aws-java-class-prev:`GetServerCertificateRequest
+:methodname:`getServerCertificate` method, passing it a :aws-java-class:`GetServerCertificateRequest
 <services/iam/model/GetServerCertificateRequest>` with the certificate's name.
 
 **Imports**
@@ -54,14 +54,14 @@ Listing Server Certificates
 ===========================
 
 To list your server certificates, call the |iamclient|'s :methodname:`listServerCertificates` method
-with a :aws-java-class-prev:`ListServerCertificatesRequest
+with a :aws-java-class:`ListServerCertificatesRequest
 <services/iam/model/ListServerCertificatesRequest>`. It returns a
-:aws-java-class-prev:`ListServerCertificatesResponse
+:aws-java-class:`ListServerCertificatesResponse
 <services/iam/model/ListServerCertificatesResponse>`.
 
 Call the returned :classname:`ListServerCertificateResponse` object's
 :methodname:`serverCertificateMetadataList` method to get a list of
-:aws-java-class-prev:`ServerCertificateMetadata
+:aws-java-class:`ServerCertificateMetadata
 <services/iam/model/ServerCertificateMetadata>` objects that you can use to get
 information about each certificate.
 
@@ -90,7 +90,7 @@ Updating a Server Certificate
 
 You can update a server certificate's name or path by calling the |iamclient|'s
 :methodname:`updateServerCertificate` method. It takes a
-:aws-java-class-prev:`UpdateServerCertificateRequest
+:aws-java-class:`UpdateServerCertificateRequest
 <services/iam/model/UpdateServerCertificateRequest>` object set with the server
 certificate's current name and either a new name or new path to use.
 
@@ -112,7 +112,7 @@ Deleting a Server Certificate
 =============================
 
 To delete a server certificate, call the |iamclient|'s :methodname:`deleteServerCertificate` method
-with a :aws-java-class-prev:`DeleteServerCertificateRequest
+with a :aws-java-class:`DeleteServerCertificateRequest
 <services/iam/model/DeleteServerCertificateRequest>` containing the certificate's
 name.
 

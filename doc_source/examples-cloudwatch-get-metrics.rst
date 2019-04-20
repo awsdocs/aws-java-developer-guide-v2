@@ -19,7 +19,7 @@ Getting Metrics from |CW|
 Listing Metrics
 ===============
 
-To list |cw| metrics, create a :aws-java-class-prev:`ListMetricsRequest
+To list |cw| metrics, create a :aws-java-class:`ListMetricsRequest
 <services/cloudwatch/model/ListMetricsRequest>` and call the |cwclient|'s :methodname:`listMetrics`
 method. You can use the :classname:`ListMetricsRequest` to filter the returned metrics by namespace,
 metric name, or dimensions.
@@ -38,7 +38,7 @@ metric name, or dimensions.
    :dedent: 8
    :language: java
 
-The metrics are returned in a :aws-java-class-prev:`ListMetricsResponse
+The metrics are returned in a :aws-java-class:`ListMetricsResponse
 <services/cloudwatch/model/ListMetricsResponse>` by calling its :methodname:`getMetrics` method.
 
 The results may be *paged*. To retrieve the next batch of results, call :methodname:`nextToken`

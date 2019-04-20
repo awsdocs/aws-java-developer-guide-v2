@@ -23,7 +23,7 @@ Creating an Access Key
 ======================
 
 To create an |IAM| access key, call the |iamclient|'s :methodname:`createAccessKey` method with a
-:aws-java-class-prev:`CreateAccessKeyRequest <services/iam/model/CreateAccessKeyRequest>`
+:aws-java-class:`CreateAccessKeyRequest <services/iam/model/CreateAccessKeyRequest>`
 object.
 
 .. note:: You must set the region to :guilabel:`AWS_GLOBAL` for |iamclient| calls to work because
@@ -46,7 +46,7 @@ See the :sdk-examples-java-iam:`complete example <CreateAccessKey.java>` on GitH
 Listing Access Keys
 ===================
 
-To list the access keys for a given user, create a :aws-java-class-prev:`ListAccessKeysRequest
+To list the access keys for a given user, create a :aws-java-class:`ListAccessKeysRequest
 <services/iam/model/ListAccessKeysRequest>` object that contains the user name to
 list keys for, and pass it to the |iamclient|'s :methodname:`listAccessKeys` method.
 
@@ -66,7 +66,7 @@ list keys for, and pass it to the |iamclient|'s :methodname:`listAccessKeys` met
 
 The results of :methodname:`listAccessKeys` are paged (with a default maximum of 100 records per
 call). You can call :methodname:`isTruncated` on the returned
-:aws-java-class-prev:`ListAccessKeysResponse <services/iam/model/ListAccessKeysResponse>`
+:aws-java-class:`ListAccessKeysResponse <services/iam/model/ListAccessKeysResponse>`
 object to see if the query returned fewer results then are available. If so, then call
 :methodname:`marker` on the :classname:`ListAccessKeysResponse` and use it when creating
 a new request. Use that new request in the next
@@ -80,10 +80,10 @@ Retrieving an Access Key's Last Used Time
 
 To get the time an access key was last used, call the |iamclient|'s
 :methodname:`getAccessKeyLastUsed` method with the access key's ID (which can be passed in using a
-:aws-java-class-prev:`GetAccessKeyLastUsedRequest
+:aws-java-class:`GetAccessKeyLastUsedRequest
 <services/iam/model/GetAccessKeyLastUsedRequest>` object.
 
-You can then use the returned :aws-java-class-prev:`GetAccessKeyLastUsedResponse
+You can then use the returned :aws-java-class:`GetAccessKeyLastUsedResponse
 <services/iam/model/GetAccessKeyLastUsedResponse>` object to retrieve the key's last
 used time.
 
@@ -106,9 +106,9 @@ See the :sdk-examples-java-iam:`complete example <AccessKeyLastUsed.java>` on Gi
 Activating or Deactivating Access Keys
 ======================================
 
-You can activate or deactivate an access key by creating an :aws-java-class-prev:`UpdateAccessKeyRequest
+You can activate or deactivate an access key by creating an :aws-java-class:`UpdateAccessKeyRequest
 <services/iam/model/UpdateAccessKeyRequest>` object, providing the access key ID,
-optionally the user name, and the desired :aws-java-class-prev:`status <services/iam/model/StatusType>`,
+optionally the user name, and the desired :aws-java-class:`status <services/iam/model/StatusType>`,
 then passing the request object to the
 |iamclient|'s :methodname:`updateAccessKey` method.
 
@@ -130,7 +130,7 @@ Deleting an Access Key
 ======================
 
 To permanently delete an access key, call the |iamclient|'s :methodname:`deleteKey` method,
-providing it with a :aws-java-class-prev:`DeleteAccessKeyRequest
+providing it with a :aws-java-class:`DeleteAccessKeyRequest
 <services/iam/model/DeleteAccessKeyRequest>` containing the access key's ID and
 username.
 

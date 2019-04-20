@@ -22,7 +22,7 @@ Creating a Policy
 =================
 
 To create a new policy, provide the policy's name and a JSON-formatted policy document in a
-:aws-java-class-prev:`CreatePolicyRequest <services/iam/model/CreatePolicyRequest>` to the
+:aws-java-class:`CreatePolicyRequest <services/iam/model/CreatePolicyRequest>` to the
 |iamclient|'s :methodname:`createPolicy` method.
 
 **Imports**
@@ -51,7 +51,7 @@ Getting a Policy
 ================
 
 To retrieve an existing policy, call the |iamclient|'s :methodname:`getPolicy` method, providing the
-policy's ARN within a :aws-java-class-prev:`GetPolicyRequest
+policy's ARN within a :aws-java-class:`GetPolicyRequest
 <services/iam/model/GetPolicyRequest>` object.
 
 **Imports**
@@ -73,7 +73,7 @@ Attaching a Role Policy
 
 You can attach a policy to an |IAM| :iam-ug:`role <id_roles>` by calling the |iamclient|'s
 :methodname:`attachRolePolicy` method, providing it with the role name and policy ARN in an
-:aws-java-class-prev:`AttachRolePolicyRequest
+:aws-java-class:`AttachRolePolicyRequest
 <services/iam/model/AttachRolePolicyRequest>`.
 
 **Imports**
@@ -98,12 +98,12 @@ Listing Attached Role Policies
 ==============================
 
 List attached policies on a role by calling the |iamclient|'s :methodname:`listAttachedRolePolicies`
-method. It takes a :aws-java-class-prev:`ListAttachedRolePoliciesRequest
+method. It takes a :aws-java-class:`ListAttachedRolePoliciesRequest
 <services/iam/model/ListAttachedRolePoliciesRequest>` object that contains the role
 name to list the policies for.
 
 Call :methodname:`getAttachedPolicies` on the returned
-:aws-java-class-prev:`ListAttachedRolePoliciesResponse
+:aws-java-class:`ListAttachedRolePoliciesResponse
 <services/iam/model/ListAttachedRolePoliciesResponse>` object to get the list of
 attached policies. Results may be truncated; if the :classname:`ListAttachedRolePoliciesResponse`
 object's :methodname:`isTruncated` method returns :code-java:`true`, call the
@@ -129,7 +129,7 @@ Detaching a Role Policy
 =======================
 
 To detach a policy from a role, call the |iamclient|'s :methodname:`detachRolePolicy` method,
-providing it with the role name and policy ARN in a :aws-java-class-prev:`DetachRolePolicyRequest
+providing it with the role name and policy ARN in a :aws-java-class:`DetachRolePolicyRequest
 <services/iam/model/DetachRolePolicyRequest>`.
 
 **Imports**
