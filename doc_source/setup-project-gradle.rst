@@ -16,32 +16,20 @@ To use the |sdk-java| in your Gradle_ project, use Spring's `dependency manageme
 <https://github.com/spring-gradle-plugins/dependency-management-plugin>`_ for Gradle. You can use this
 plugin to import the SDK's Maven Bill of Materials (BOM) to manage SDK dependencies for your project.
 
-.. topic:: To configure the SDK for Gradle
+.. topic:: To configure the SDK for Gradle 5.0 or later
 
-    #. Add the dependency management plugin to your :file:`build.gradle` file.
-
-       .. code-block:: groovy
-
-          buildscript {
-              repositories {
-                  mavenCentral()
-              }
-              dependencies {
-                  classpath "io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE"
-              }
-          }
-
-          apply plugin: "io.spring.dependency-management"
-
+    
     #. Add the BOM to the *dependencyManagement* section of the file.
 
        .. code-block:: groovy
 
-          dependencyManagement {
-              imports {
-                  mavenBom 'software.amazon.awssdk:bom:2.3.9'
-              }
-          }
+          dependencies {
+             implementation platform('software.amazon.awssdk:bom:2.5.29')
+
+             // Declare SDK dependencies without version
+             ...
+         } 
+
 
     #. Specify the SDK modules you want to use in the *dependencies* section.
 
