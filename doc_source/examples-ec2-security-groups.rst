@@ -27,14 +27,12 @@ contains the key's name.
 
 **Imports**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/CreateSecurityGroup.java
-   :lines: 16-18
+.. literalinclude:: ec2.java.create_security_group.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/CreateSecurityGroup.java
-   :lines: 44-54
+.. literalinclude:: ec2.java.create_security_group.create.txt
    :dedent: 8
    :language: java
 
@@ -56,14 +54,20 @@ to add IP permissions to a security group.
 
 **Imports**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/CreateSecurityGroup.java
-   :lines: 16, 19-22
+.. literalinclude:: ec2.java.create_security_group.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/CreateSecurityGroup.java
-   :lines: 44, 59-83
+First, create an |ec2client|
+
+.. literalinclude:: ec2.java.create_security_group.client.txt
+   :dedent: 8
+   :language: java
+
+Then use the |ec2client|'s :methodname:`authorizeSecurityGroupIngress` method,
+
+.. literalinclude:: ec2.java.create_security_group.config.txt
    :dedent: 8
    :language: java
 
@@ -87,14 +91,12 @@ that you can use to access the list of security groups by calling its
 
 **Imports**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/DescribeSecurityGroups.java
-   :lines: 16-19
+.. literalinclude:: ec2.java.describe_security_groups.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/DescribeSecurityGroups.java
-   :lines: 39-56
+.. literalinclude:: ec2.java.describe_security_groups.main.txt
    :dedent: 8
    :language: java
 
@@ -110,14 +112,12 @@ that contains the ID of the security group to delete.
 
 **Imports**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/DeleteSecurityGroup.java
-   :lines: 16-18
+.. literalinclude:: ec2.java.delete_security_group.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/ec2/src/main/java/com/example/ec2/DeleteSecurityGroup.java
-   :lines: 38-44
+.. literalinclude:: ec2.java.delete_security_group.main.txt
    :dedent: 8
    :language: java
 

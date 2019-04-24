@@ -37,14 +37,12 @@ the queue parameters.
 
 **Imports**
 
-.. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
-   :lines: 18, 20
+.. literalinclude:: sqs.java.sqs_example.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
-   :lines: 42-43
+.. literalinclude:: sqs.java.sqs_example.create_queue.txt
    :dedent: 8
    :language: java
 
@@ -65,14 +63,12 @@ the results to queues that match that prefix.
 
 **Imports**
 
-.. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
-   :lines: 25-26
+.. literalinclude:: sqs.java.sqs_example.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
-   :lines: 53-58
+.. literalinclude:: sqs.java.sqs_example.list_queues.txt
    :dedent: 8
    :language: java
 
@@ -89,14 +85,12 @@ with a :aws-java-class:`GetQueueUrlRequest <services/sqs/model/GetQueueUrlReques
 
 **Imports**
 
-.. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
-   :lines: 23-24
+.. literalinclude:: sqs.java.sqs_example.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
-   :lines: 46-49
+.. literalinclude:: sqs.java.sqs_example.get_queue.txt
    :dedent: 8
    :language: java
 
@@ -114,14 +108,12 @@ Then call the |sqsclient|'s :methodname:`deleteQueue` method.
 
 **Imports**
 
-.. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
-   :lines: 21-22
+.. literalinclude:: sqs.java.sqs_example.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
-   :lines: 113-114
+.. literalinclude:: sqs.java.sqs_example.delete_message.txt
    :dedent: 8
    :language: java
 

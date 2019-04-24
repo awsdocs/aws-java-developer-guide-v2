@@ -43,14 +43,19 @@ such as listing or deleting buckets as shown in later examples.
 
 **Imports**
 
-.. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3BucketOps.java
-   :lines: 17-20
+.. literalinclude:: s3.java.s3_bucket_ops.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3BucketOps.java
-   :lines: 29-31, 35-42
+First create an |s3client|.
+
+.. literalinclude:: s3.java.s3_bucket_ops.region.txt
+   :language: java
+
+Make a Create Bucket Request. 
+
+.. literalinclude:: s3.java.s3_bucket_ops.create_bucket.txt
    :dedent: 8
    :language: java
 
@@ -69,14 +74,19 @@ is returned. Use this response object to retrieve the list of buckets.
 
 **Imports**
 
-.. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3BucketOps.java
-   :lines: 17-23
+.. literalinclude:: s3.java.s3_bucket_ops.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3BucketOps.java
-   :lines: 29-30, 44-47
+First create an |s3client|.
+
+.. literalinclude:: s3.java.s3_bucket_ops.region.txt
+   :language: java
+
+Make a List Buckets Request. 
+
+.. literalinclude:: s3.java.s3_bucket_ops.list_bucket.txt
    :dedent: 8
    :language: java
 
@@ -105,11 +115,16 @@ method on each object to delete it.
 
 **Imports**
 
-.. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3BucketDeletion.java
-   :lines: 22-28
+.. literalinclude:: s3.java.s3_bucket_ops.import.txt
    :language: java
 
 **Code**
+
+First create an |s3client|.
+
+.. literalinclude:: s3.java.s3_bucket_ops.region.txt
+   :language: java
+
 
 .. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3BucketDeletion.java
    :lines: 53-66
@@ -126,14 +141,20 @@ with a bucket name and pass it to the |s3client|'s :methodname:`deleteBucket` me
 
 **Imports**
 
-.. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3BucketOps.java
-   :lines: 17-21
+.. literalinclude:: s3.java.s3_bucket_ops.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3BucketOps.java
-   :lines: 29-30, 50-51
+First create an |s3client|.
+
+.. literalinclude:: s3.java.s3_bucket_ops.delete_bucket.txt
+   :language: java
+
+
+Delete all objects in the bucket. 
+
+.. literalinclude:: s3.java.s3_bucket_ops.delete_bucket.txt
    :dedent: 8
    :language: java
 
