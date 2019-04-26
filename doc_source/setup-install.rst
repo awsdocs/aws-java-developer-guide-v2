@@ -84,8 +84,10 @@ and installs the SDK in one step. See http://maven.apache.org/ for installation 
 Installing a Java Development Environment
 =========================================
 
-The |sdk-java| requires Java SE Development Kit *8.0 or later*. You can download the latest Java
-software from http://www.oracle.com/technetwork/java/javase/downloads/.
+The |sdk-java| requires Java *8.0 or later*. You can download the latest Java SE Development Kit 
+software from http://www.oracle.com/technetwork/java/javase/downloads/. 
+
+The |sdk-java| also works with `OpenJDK <https://openjdk.java.net/>`_ and |JDKlong| a distribuition of the Open Java Development Kit (OpenJDK). Download the latest OpenJDK version from https://openjdk.java.net/install/index.html. Download the latest |JDKlong8| or |JDKlong11| version from https://aws.amazon.com/corretto/.
 
 Choosing a JVM
 ==============
