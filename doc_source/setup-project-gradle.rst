@@ -58,26 +58,11 @@ Here's the complete :file:`build.gradle` file:
      mavenCentral()
    }
 
-   buildscript {
-     repositories {
-         mavenCentral()
-     }
-     dependencies {
-         classpath "io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE"
-     }
-   }
+  dependencies {
+    implementation platform('software.amazon.awssdk:bom:2.5.29')
+    implementation 'software.amazon.awssdk:kinesis'
+    testImplementation group: 'junit', name: 'junit', version: '4.11'
 
-   apply plugin: "io.spring.dependency-management"
-
-   dependencyManagement {
-     imports {
-         mavenBom 'software.amazon.awssdk:bom:2.3.9'
-     }
-   }
-
-   dependencies {
-     compile 'software.amazon.awssdk:kinesis'
-     testCompile group: 'junit', name: 'junit', version: '4.11'
    }
 
 .. note:: For more detail about specifying SDK dependencies using the BOM, see
