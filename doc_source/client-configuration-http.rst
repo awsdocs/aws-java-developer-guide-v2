@@ -28,7 +28,7 @@ Add a dependency on the :code:`netty-nio-client` in your POM to use the
 **POM Entry**
 
 .. literalinclude:: example_code/kinesis/pom.xml
-   :lines: 18-22
+   :lines: 20-24
    :language: xml
 
 
@@ -53,14 +53,12 @@ The HTTP client will be closed for you when the service client is shut down.
 
 **Imports**
 
-.. literalinclude:: example_code/kinesis/src/main/java/com/example/kinesis/ClientConfiguration.java
-  :lines: 17-19
+.. literalinclude:: kinesis.java.client_configuration.import.txt
   :language: java
 
 **Code**
 
-.. literalinclude:: example_code/kinesis/src/main/java/com/example/kinesis/ClientConfiguration.java
-  :lines: 26-30
+.. literalinclude:: kinesis.java.client_configuration.client.txt
   :dedent: 8
   :language: java
 
@@ -70,7 +68,6 @@ the lifecycle yourself.
 
 **Code**
 
-.. literalinclude:: example_code/kinesis/src/main/java/com/example/kinesis/ClientConfiguration.java
-  :lines: 34-43
+.. literalinclude:: kinesis.java.client_configuration.httpclient.txt
   :dedent: 8
   :language: java

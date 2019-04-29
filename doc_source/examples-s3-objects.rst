@@ -44,14 +44,12 @@ that contains the object content and the :classname:`PutObjectRequest` object.
 
 **Imports**
 
-.. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 22,34,38
+.. literalinclude:: s3.java.s3_object_operations.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 47-51, 54-58
+.. literalinclude:: s3.java.s3_object_operations.upload.txt
    :dedent: 8
    :language: java
 
@@ -69,14 +67,12 @@ merge all the uploaded parts and finish the upload operation.
 
 **Imports**
 
-.. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 22-25,28-29,36
+.. literalinclude:: s3.java.s3_object_operations.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 151-178
+.. literalinclude:: s3.java.s3_object_operations.upload_multi_part.txt
    :dedent: 8
    :language: java
 
@@ -98,14 +94,12 @@ The following example specifies a file name to write the object content to.
 
 **Imports**
 
-.. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 22,32,39
+.. literalinclude:: s3.java.s3_object_operations.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 110-112
+.. literalinclude:: s3.java.s3_object_operations.download.txt
    :dedent: 8
    :language: java
 
@@ -123,14 +117,12 @@ object to delete. *The specified bucket and object key must exist, or the servic
 
 **Imports**
 
-.. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 22,31
+.. literalinclude:: s3.java.s3_object_operations.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 114-116
+.. literalinclude:: s3.java.s3_object_operations.delete.txt
    :dedent: 8
    :language: java
 

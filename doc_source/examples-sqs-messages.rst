@@ -34,14 +34,12 @@ Add a single message to an |SQS| queue by calling the |sqsclient| client
 
 **Imports**
 
-.. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
-   :lines: 18, 31
+.. literalinclude:: sqs.java.sqs_example.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
-   :lines: 72-76
+.. literalinclude:: sqs.java.sqs_example.send_message.txt
    :dedent: 8
    :language: java
 
@@ -60,8 +58,7 @@ a specific message by setting a delay value on the message.
 
 **Imports**
 
-.. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
-   :lines: 18, 29-30
+.. literalinclude:: sqs.java.sqs_example.import.txt
    :language: java
 
 **Code**
@@ -87,14 +84,12 @@ returned as a list of :aws-java-class:`Message <services/sqs/model/Message>` obj
 
 **Imports**
 
-.. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
-   :lines: 18, 28
+.. literalinclude:: sqs.java.sqs_example.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
-   :lines: 88-92
+.. literalinclude:: sqs.java.sqs_example.send__multiple_messages.txt
    :dedent: 8
    :language: java
 
@@ -109,14 +104,12 @@ the message's receipt handle and queue URL to the |sqsclient|
 
 **Imports**
 
-.. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
-   :lines: 18, 22
+.. literalinclude:: sqs.java.sqs_example.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
-   :lines: 104-110
+.. literalinclude:: sqs.java.sqs_example.delete_message.txt
    :dedent: 8
    :language: java
 

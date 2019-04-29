@@ -60,14 +60,12 @@ the content of the |S3| object.
 
 **Imports**
 
-.. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 21-22,33,38
+.. literalinclude:: s3.java.s3_object_operations.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 89-99
+.. literalinclude:: s3.java.s3_object_operations.iterative.txt
    :dedent: 8
    :language: java
 
@@ -90,8 +88,7 @@ to iterate over the paginated item collection.
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 101-103
+.. literalinclude:: s3.java.s3_object_operations.stream.txt
    :dedent: 8
    :language: java
 
@@ -107,8 +104,7 @@ Use a standard ``for`` loop to iterate through the contents of the response.
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 105-108
+.. literalinclude:: s3.java.s3_object_operations.forloop.txt
    :dedent: 8
    :language: java
 
@@ -122,8 +118,7 @@ in the response object for the subsequent requests. Here's an example using a ``
 
 **Code**
 
-.. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java
-   :lines: 67-87
+.. literalinclude:: s3.java.s3_object_operations.pagination.txt
    :dedent: 8
    :language: java
 
@@ -164,14 +159,19 @@ Use a Subscriber
 
 **Imports**
 
-.. literalinclude:: example_code/dynamodbasync/src/main/java/com/example/dynamodbasync/AsyncPagination.java
-   :lines: 17-28
+.. literalinclude:: dynamodb.java.async_pagination.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/dynamodbasync/src/main/java/com/example/dynamodbasync/AsyncPagination.java
-   :lines: 93-97,105-133
+First create a asyc client
+.. literalinclude:: dynamodb.java.async_pagination.pagesclient.txt
+   :dedent: 8
+   :language: java
+
+Then use Subscriber to get results. 
+ 
+.. literalinclude:: dynamodb.java.async_pagination.pagessubscribe.txt
    :dedent: 8
    :language: java
 
@@ -186,8 +186,7 @@ for this purpose.
 
 **Code**
 
-.. literalinclude:: example_code/dynamodbasync/src/main/java/com/example/dynamodbasync/AsyncPagination.java
-   :lines: 98-102
+.. literalinclude:: dynamodb.java.async_pagination.pagesforeach.txt
    :dedent: 8
    :language: java
 
@@ -210,8 +209,14 @@ Use a Subscriber
 
 **Code**
 
-.. literalinclude:: example_code/dynamodbasync/src/main/java/com/example/dynamodbasync/AsyncPagination.java
-   :lines: 143-148,154-175
+First create a asyc client
+.. literalinclude:: dynamodb.java.async_pagination.client.txt
+   :dedent: 8
+   :language: java
+
+Then use Subscriber to get results. 
+ 
+.. literalinclude:: dynamodb.java.async_pagination.subscriber.txt
    :dedent: 8
    :language: java
 
@@ -227,10 +232,9 @@ Use the :methodname:`forEach` convenience method to iterate through the results.
 
 **Code**
 
-.. literalinclude:: example_code/dynamodbasync/src/main/java/com/example/dynamodbasync/AsyncPagination.java
-   :lines: 150-152
-   :dedent: 8
-   :language: java
+.. literalinclude:: dynamodb.java.async_pagination.foreach.txt
+  :dedent: 8
+  :language: java
 
 See the :sdk-examples-java-dynamodbasync:`complete example <AsyncPagination.java>` on GitHub.
 
@@ -253,18 +257,17 @@ POM snippet to use.
    :lines: 46-50
    :language: xml
 
-**Import**
+**Imports**
 
-.. literalinclude:: example_code/dynamodbasync/src/main/java/com/example/dynamodbasync/AsyncPagination.java
-   :lines: 25-29
+.. literalinclude:: dynamodb.java.async_pagination.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: example_code/dynamodbasync/src/main/java/com/example/dynamodbasync/AsyncPagination.java
-  :lines: 185-194
-  :dedent: 8
-  :language: java
+.. literalinclude:: dynamodb.java.async_pagination.async.txt
+   :dedent: 8
+   :language: java
+
 
 ..  ====================
     Resume after Failure
@@ -279,13 +282,11 @@ POM snippet to use.
     **Imports**
 
     .. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/SyncPagination.java
-       :lines: 17-20
        :language: java
 
     **Code**
 
     .. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/SyncPagination.java
-       :lines: 111-129
        :dedent: 8
        :language: java
 
