@@ -212,7 +212,7 @@ Use a Subscriber
 
 First create a asyc client
 
-.. literalinclude:: dynamodb.java.async_pagination.client.txt
+.. literalinclude:: dynamodb.java.async_pagination.asyncclient.txt
    :dedent: 8
    :language: java
 
