@@ -59,7 +59,6 @@ The HTTP client will be closed for you when the service client is shut down.
 **Code**
 
 .. literalinclude:: kinesis.java.client_configuration.client.txt
-  :lines: 26-30
   :dedent: 8
   :language: java
 
@@ -70,6 +69,5 @@ the lifecycle yourself.
 **Code**
 
 .. literalinclude:: kinesis.java.client_configuration.httpclient.txt
-  :lines: 34-43
   :dedent: 8
   :language: java

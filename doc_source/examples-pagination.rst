@@ -282,13 +282,11 @@ POM snippet to use.
     **Imports**
 
     .. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/SyncPagination.java
-       :lines: 17-20
        :language: java
 
     **Code**
 
     .. literalinclude:: example_code/dynamodb/src/main/java/com/example/dynamodb/SyncPagination.java
-       :lines: 111-129
        :dedent: 8
        :language: java
 
