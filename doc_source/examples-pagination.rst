@@ -165,6 +165,7 @@ Use a Subscriber
 **Code**
 
 First create a asyc client
+
 .. literalinclude:: dynamodb.java.async_pagination.pagesclient.txt
    :dedent: 8
    :language: java
@@ -210,6 +211,7 @@ Use a Subscriber
 **Code**
 
 First create a asyc client
+
 .. literalinclude:: dynamodb.java.async_pagination.client.txt
    :dedent: 8
    :language: java
