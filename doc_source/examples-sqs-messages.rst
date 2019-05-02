@@ -63,8 +63,7 @@ a specific message by setting a delay value on the message.
 
 **Code**
 
-.. literalinclude:: example_code/sqs/src/main/java/com/example/sqs/SQSExample.java
-   :lines: 79-84
+.. literalinclude:: sqs.java.sqs_example.send__multiple_messages.txt
    :dedent: 8
    :language: java
 
@@ -89,7 +88,7 @@ returned as a list of :aws-java-class:`Message <services/sqs/model/Message>` obj
 
 **Code**
 
-.. literalinclude:: sqs.java.sqs_example.send__multiple_messages.txt
+.. literalinclude:: sqs.java.sqs_example.retrieve_messages.txt
    :dedent: 8
    :language: java
 
