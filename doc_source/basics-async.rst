@@ -47,9 +47,15 @@ Here is an example of an asynchronous operation that calls a |DDB| function to g
 <services/dynamodb/model/ListTablesResponse>` object. The action defined in the call to :methodname:`whenComplete()`
 is only done when the asynchronous call is complete.
 
-.. literalinclude:: example_code/dynamodbasync/src/main/java/com/example/dynamodbasync/DynamoDBAsync.java
+**Imports**
+
+.. literalinclude:: dynamodb.java.dbasync.import.txt
    :language: java
-   :lines: 26-
+
+**Code**
+
+.. literalinclude:: dynamodb.java.dbasync.main.txt
+   :language: java
 
 .. _basics-async-streaming:
 
@@ -64,13 +70,26 @@ to receive and process the response.
 Here is an example that uploads a file to |S3| asynchronously with the
 :methodname:`PutObject` operation.
 
-.. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3AsyncOps.java
-   :language: java
-   :lines: 26-
+**Imports**
 
+.. literalinclude:: s3.java.async_ops.import.txt
+   :language: java
+
+**Code**
+
+.. literalinclude:: s3.java.async_ops.main.txt
+   :language: java
+   
 Here is an example that gets a file from |S3| asynchronously with the
 :methodname:`GetObject` operation.
 
-.. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3AsyncStreamOps.java
+**Imports**
+
+.. literalinclude:: s3.java.async_stream_ops.import.txt
    :language: java
-   :lines: 25-
+
+**Code**
+
+.. literalinclude:: s3.java.async_stream_ops.main.txt
+   :language: java
+   
