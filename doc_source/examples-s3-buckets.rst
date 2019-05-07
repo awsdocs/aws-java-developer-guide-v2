@@ -126,8 +126,7 @@ First create an |s3client|.
    :language: java
 
 
-.. literalinclude:: example_code/s3/src/main/java/com/example/s3/S3BucketDeletion.java
-   :lines: 53-66
+.. literalinclude:: s3.java.s3_bucket_ops.delete_bucket.txt
    :dedent: 8
    :language: java
 
