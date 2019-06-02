@@ -38,12 +38,12 @@ You can retrieve a server certificate by calling the |iamclient|'s
 
 **Imports**
 
-.. literalinclude:: iam.java.get_server_certificate.import.txt
+.. literalinclude:: iam.java2.get_server_certificate.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: iam.java.get_server_certificate.main.txt
+.. literalinclude:: iam.java2.get_server_certificate.main.txt
    :dedent: 8
    :language: java
 
@@ -73,12 +73,12 @@ call :methodname:`listServerCertificates` again to get the next batch of results
 
 **Imports**
 
-.. literalinclude:: iam.java.list_server_certificates.import.txt
+.. literalinclude:: iam.java2.list_server_certificates.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: iam.java.list_server_certificates.main.txt
+.. literalinclude:: iam.java2.list_server_certificates.main.txt
    :dedent: 8
    :language: java
 
@@ -96,12 +96,12 @@ certificate's current name and either a new name or new path to use.
 
 **Imports**
 
-.. literalinclude:: iam.java.update_server_certificate.import.txt
+.. literalinclude:: iam.java2.update_server_certificate.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: iam.java.update_server_certificate.main.txt
+.. literalinclude:: iam.java2.update_server_certificate.main.txt
    :dedent: 8
    :language: java
 
@@ -118,12 +118,12 @@ name.
 
 **Imports**
 
-.. literalinclude:: iam.java.delete_server_certificate.import.txt
+.. literalinclude:: iam.java2.delete_server_certificate.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: iam.java.delete_server_certificate.main.txt
+.. literalinclude:: iam.java2.delete_server_certificate.main.txt
    :dedent: 8
    :language: java
 

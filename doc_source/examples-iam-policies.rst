@@ -27,12 +27,12 @@ To create a new policy, provide the policy's name and a JSON-formatted policy do
 
 **Imports**
 
-.. literalinclude:: iam.java.create_policy.import.txt
+.. literalinclude:: iam.java2.create_policy.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: iam.java.create_policy.main.txt
+.. literalinclude:: iam.java2.create_policy.main.txt
    :dedent: 8
    :language: java
 
@@ -40,7 +40,7 @@ To create a new policy, provide the policy's name and a JSON-formatted policy do
 <reference_policies_grammar>`. Here is an example that provides access to make particular requests
 to |ddb|.
 
-.. literalinclude:: iam.java.create_policy.policy_document.txt
+.. literalinclude:: iam.java2.create_policy.policy_document.txt
    :dedent: 8
    :language: java
    
@@ -56,12 +56,12 @@ policy's ARN within a :aws-java-class:`GetPolicyRequest
 
 **Imports**
 
-.. literalinclude:: iam.java.get_policy.import.txt
+.. literalinclude:: iam.java2.get_policy.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: iam.java.get_policy.main.txt
+.. literalinclude:: iam.java2.get_policy.main.txt
    :dedent: 8
    :language: java
 
@@ -78,16 +78,16 @@ You can attach a policy to an |IAM| :iam-ug:`role <id_roles>` by calling the |ia
 
 **Imports**
 
-.. literalinclude:: iam.java.attach_role_policy.import.txt
+.. literalinclude:: iam.java2.attach_role_policy.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: iam.java.attach_role_policy.client.txt
+.. literalinclude:: iam.java2.attach_role_policy.client.txt
    :dedent: 8
    :language: java
    
-.. literalinclude:: iam.java.attach_role_policy.attach.txt
+.. literalinclude:: iam.java2.attach_role_policy.attach.txt
    :dedent: 8
    :language: java
 
@@ -113,12 +113,12 @@ call :methodname:`listAttachedRolePolicies` again to get the next batch of resul
 
 **Imports**
 
-.. literalinclude:: iam.java.attach_role_policy.import.txt
+.. literalinclude:: iam.java2.attach_role_policy.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: iam.java.attach_role_policy.main.txt
+.. literalinclude:: iam.java2.attach_role_policy.main.txt
    :dedent: 8
    :language: java
 
@@ -134,12 +134,12 @@ providing it with the role name and policy ARN in a :aws-java-class:`DetachRoleP
 
 **Imports**
 
-.. literalinclude:: iam.java.detach_role_policy.import.txt
+.. literalinclude:: iam.java2.detach_role_policy.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: iam.java.detach_role_policy.main.txt
+.. literalinclude:: iam.java2.detach_role_policy.main.txt
    :dedent: 8
    :language: java
 

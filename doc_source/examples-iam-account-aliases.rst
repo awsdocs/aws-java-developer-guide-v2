@@ -33,12 +33,12 @@ To create an account alias, call the |iamclient|'s :methodname:`createAccountAli
 
 **Imports**
 
-.. literalinclude:: iam.java.create_account_alias.import.txt
+.. literalinclude:: iam.java2.create_account_alias.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: iam.java.create_account_alias.main.txt
+.. literalinclude:: iam.java2.create_account_alias.main.txt
    :dedent: 8
    :language: java
 
@@ -60,12 +60,12 @@ method.
 
 **Imports**
 
-.. literalinclude:: iam.java.list_account_aliases.import.txt
+.. literalinclude:: iam.java2.list_account_aliases.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: iam.java.list_account_aliases.main.txt
+.. literalinclude:: iam.java2.list_account_aliases.main.txt
    :dedent: 8
    :language: java
 
@@ -82,12 +82,12 @@ deleting an account alias, you must supply its name using a
 
 **Imports**
 
-.. literalinclude:: iam.java.delete_account_alias.import.txt
+.. literalinclude:: iam.java2.delete_account_alias.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: iam.java.delete_account_alias.main.txt
+.. literalinclude:: iam.java2.delete_account_alias.main.txt
    :dedent: 8
    :language: java
 

@@ -37,12 +37,12 @@ method.
 
 **Imports**
 
-.. literalinclude:: ec2.java.allocate_address.import.txt
+.. literalinclude:: ec2.java2.allocate_address.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: ec2.java.allocate_address.main.txt
+.. literalinclude:: ec2.java2.allocate_address.main.txt
    :dedent: 8
    :language: java
 
@@ -60,12 +60,12 @@ addresses on your account.
 
 **Imports**
 
-.. literalinclude:: ec2.java.describe_addresses.import.txt
+.. literalinclude:: ec2.java2.describe_addresses.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: ec2.java.describe_addresses.main.txt
+.. literalinclude:: ec2.java2.describe_addresses.main.txt
    :dedent: 8
    :language: java
 
@@ -81,12 +81,12 @@ containing the allocation ID of the Elastic IP address you want to release.
 
 **Imports**
 
-.. literalinclude:: ec2.java.release_instance.import.txt
+.. literalinclude:: ec2.java2.release_instance.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: ec2.java.release_instance.main.txt
+.. literalinclude:: ec2.java2.release_instance.main.txt
    :dedent: 8
    :language: java
 

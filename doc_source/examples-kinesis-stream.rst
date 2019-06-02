@@ -33,12 +33,12 @@ These objects are used in each of the following examples to subscribe to |AK| ev
 
 **Imports**
 
-.. literalinclude:: kinesis.java.stream_example.import.txt
+.. literalinclude:: kinesis.java2.stream_example.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: kinesis.java.stream_example.setup.txt
+.. literalinclude:: kinesis.java2.stream_example.setup.txt
    :dedent: 8
    :language: java
 
@@ -54,7 +54,7 @@ the full interface.
 
 **Code**
 
-.. literalinclude:: kinesis.java.stream_example.lifecycle_callback.txt
+.. literalinclude:: kinesis.java2.stream_example.lifecycle_callback.txt
   :dedent: 4
   :language: java
 
@@ -63,7 +63,7 @@ method to customize the publisher.
 
 **Code**
 
-.. literalinclude:: kinesis.java.stream_example.publish_transformer.txt
+.. literalinclude:: kinesis.java2.stream_example.publish_transformer.txt
   :dedent: 4
   :language: java
 
@@ -81,7 +81,7 @@ event records for printing by the subscriber.
 
 **Code**
 
-.. literalinclude:: kinesis.java.stream_example.custom_handler.txt
+.. literalinclude:: kinesis.java2.stream_example.custom_handler.txt
    :dedent: 4
    :language: java
 
@@ -96,7 +96,7 @@ to subscribe to specific events you're interested in watching.
 
 **Code**
 
-.. literalinclude:: kinesis.java.stream_example.visitor.txt
+.. literalinclude:: kinesis.java2.stream_example.visitor.txt
    :dedent: 4
    :language: java
 
@@ -111,7 +111,7 @@ This code snippet shows an example subscriber.
 
 **Code**
 
-.. literalinclude:: kinesis.java.stream_example.custom_subscriber.txt
+.. literalinclude:: kinesis.java2.stream_example.custom_subscriber.txt
    :dedent: 4
    :language: java
 
@@ -120,7 +120,7 @@ to preview examples. The following code snippet shows this example.
 
 **Code**
 
-.. literalinclude:: kinesis.java.stream_example.subscribe.txt
+.. literalinclude:: kinesis.java2.stream_example.subscribe.txt
    :dedent: 4
    :language: java
 
@@ -146,7 +146,7 @@ POM snippet to use.
 
 **Imports**
 
-.. literalinclude:: kinesis.java.stream_rx_example.import.txt
+.. literalinclude:: kinesis.java2.stream_rx_example.import.txt
   :language: java
 
 This example uses RxJava in the :methodname:`onEventStream` lifecycle method. This gives you
@@ -154,7 +154,7 @@ full access to the publisher, which can be used to create an Rx Flowable.
 
 **Code**
 
-.. literalinclude:: kinesis.java.stream_rx_example.event_stream.txt
+.. literalinclude:: kinesis.java2.stream_rx_example.event_stream.txt
   :dedent: 8
   :language: java
 
@@ -164,7 +164,7 @@ the following example.
 
 **Code**
 
-.. literalinclude:: kinesis.java.stream_rx_example.publish_transform.txt
+.. literalinclude:: kinesis.java2.stream_rx_example.publish_transform.txt
   :dedent: 8
   :language: java
 

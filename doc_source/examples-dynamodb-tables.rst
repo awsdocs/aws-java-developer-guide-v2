@@ -63,7 +63,7 @@ must also supply initial provisioned throughput values and a table name.
 
 **Imports**
 
-.. literalinclude:: dynamodb.java.create_table.import.txt
+.. literalinclude:: dynamodb.java2.create_table.import.txt
    :language: java
 
 
@@ -76,7 +76,7 @@ This code creates a table with a simple primary key ("Name").
 
 **Code**
 
-.. literalinclude:: dynamodb.java.create_table.main.txt
+.. literalinclude:: dynamodb.java2.create_table.main.txt
    :dedent: 8
    :language: java
 
@@ -94,12 +94,12 @@ Add another
 
 **Imports**
 
-.. literalinclude:: dynamodb.java.create_table_composite_key.import.txt
+.. literalinclude:: dynamodb.java2.create_table_composite_key.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: dynamodb.java.create_table_composite_key.main.txt
+.. literalinclude:: dynamodb.java2.create_table_composite_key.main.txt
    :dedent: 8
    :language: java
 
@@ -119,12 +119,12 @@ You can list the tables in a particular region by calling the |ddbclient|'s
 
 **Imports**
 
-.. literalinclude:: dynamodb.java.list_tables.import.txt
+.. literalinclude:: dynamodb.java2.list_tables.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: dynamodb.java.list_tables.main.txt
+.. literalinclude:: dynamodb.java2.list_tables.main.txt
    :dedent: 8
    :language: java
 
@@ -149,12 +149,12 @@ Call the |ddbclient|'s :methodname:`describeTable` method.
 
 **Imports**
 
-.. literalinclude:: dynamodb.java.describe_table.import.txt
+.. literalinclude:: dynamodb.java2.describe_table.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: dynamodb.java.describe_table.main.txt
+.. literalinclude:: dynamodb.java2.describe_table.main.txt
    :dedent: 8
    :language: java
 
@@ -176,12 +176,12 @@ method.
 
 **Imports**
 
-.. literalinclude:: dynamodb.java.update_table.import.txt
+.. literalinclude:: dynamodb.java2.update_table.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: dynamodb.java.update_table.main.txt
+.. literalinclude:: dynamodb.java2.update_table.main.txt
    :dedent: 8
    :language: java
 
@@ -202,12 +202,12 @@ Call the |ddbclient|'s
 
 **Imports**
 
-.. literalinclude:: dynamodb.java.delete_table.import.txt
+.. literalinclude:: dynamodb.java2.delete_table.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: dynamodb.java.delete_table.main.txt
+.. literalinclude:: dynamodb.java2.delete_table.main.txt
    :dedent: 8
    :language: java
 

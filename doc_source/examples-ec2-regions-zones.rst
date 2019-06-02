@@ -29,12 +29,12 @@ each region.
 
 **Imports**
 
-.. literalinclude:: ec2.java.describe_region_and_zones.import.txt
+.. literalinclude:: ec2.java2.describe_region_and_zones.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: ec2.java.describe_region_and_zones.region.txt
+.. literalinclude:: ec2.java2.describe_region_and_zones.region.txt
    :dedent: 8
    :language: java
 
@@ -53,20 +53,20 @@ objects that represent each availability zone.
 
 **Imports**
 
-.. literalinclude:: ec2.java.describe_region_and_zones.import.txt
+.. literalinclude:: ec2.java2.describe_region_and_zones.import.txt
    :language: java
 
 **Code**
 
 Create the |ec2client|.
 
-.. literalinclude:: ec2.java.describe_region_and_zones.client.txt
+.. literalinclude:: ec2.java2.describe_region_and_zones.client.txt
    :dedent: 8
    :language: java
    
 Then call describeAvailabilityZones() and retrieve results. 
    
-.. literalinclude:: ec2.java.describe_region_and_zones.avail_zone.txt
+.. literalinclude:: ec2.java2.describe_region_and_zones.avail_zone.txt
    :dedent: 8
    :language: java
 

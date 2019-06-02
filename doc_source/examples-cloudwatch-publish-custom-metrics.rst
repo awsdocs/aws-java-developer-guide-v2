@@ -36,12 +36,12 @@ information about the data point itself in a :aws-java-class:`MetricDatum
 
 **Imports**
 
-.. literalinclude:: cloudwatch.java.put_metric_data.import.txt
+.. literalinclude:: cloudwatch.java2.put_metric_data.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: cloudwatch.java.put_metric_data.main.txt
+.. literalinclude:: cloudwatch.java2.put_metric_data.main.txt
    :dedent: 8
    :language: java
 

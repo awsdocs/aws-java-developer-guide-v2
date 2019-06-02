@@ -26,12 +26,12 @@ filled with the alarm conditions.
 
 **Imports**
 
-.. literalinclude:: cloudwatch.java.put_metric_alarm.import.txt
+.. literalinclude:: cloudwatch.java2.put_metric_alarm.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: cloudwatch.java.put_metric_alarm.main.txt
+.. literalinclude:: cloudwatch.java2.put_metric_alarm.main.txt
    :dedent: 8
    :language: java
 
@@ -47,12 +47,12 @@ method with a :aws-java-class:`DescribeAlarmsRequest
 
 **Imports**
 
-.. literalinclude:: cloudwatch.java.describe_alarms.import.txt
+.. literalinclude:: cloudwatch.java2.describe_alarms.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: cloudwatch.java.describe_alarms.main.txt
+.. literalinclude:: cloudwatch.java2.describe_alarms.main.txt
    :dedent: 8
    :language: java
 
@@ -79,12 +79,12 @@ or more names of alarms that you want to delete.
 
 **Imports**
 
-.. literalinclude:: cloudwatch.java.delete_metrics.import.txt
+.. literalinclude:: cloudwatch.java2.delete_metrics.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: cloudwatch.java.delete_metrics.main.txt
+.. literalinclude:: cloudwatch.java2.delete_metrics.main.txt
    :dedent: 8
    :language: java
 

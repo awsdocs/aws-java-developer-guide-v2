@@ -27,12 +27,12 @@ key's name.
 
 **Imports**
 
-.. literalinclude:: ec2.java.create_key_pair.import.txt
+.. literalinclude:: ec2.java2.create_key_pair.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: ec2.java.create_key_pair.main.txt
+.. literalinclude:: ec2.java2.create_key_pair.main.txt
    :dedent: 8
    :language: java
 
@@ -50,12 +50,12 @@ calling its :methodname:`keyPairs` method, which returns a list of :aws-java-cla
 
 **Imports**
 
-.. literalinclude:: ec2.java.describe_key_pairs.import.txt
+.. literalinclude:: ec2.java2.describe_key_pairs.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: ec2.java.describe_key_pairs.main.txt
+.. literalinclude:: ec2.java2.describe_key_pairs.main.txt
    :dedent: 8
    :language: java
 
@@ -72,12 +72,12 @@ name of the key pair to delete.
 
 **Imports**
 
-.. literalinclude:: ec2.java.delete_key_pair.import.txt
+.. literalinclude:: ec2.java2.delete_key_pair.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: ec2.java.delete_key_pair.main.txt
+.. literalinclude:: ec2.java2.delete_key_pair.main.txt
    :dedent: 8
    :language: java
 
