@@ -31,12 +31,12 @@ object.
 
 **Imports**
 
-.. literalinclude:: iam.java.create_access_key.import.txt
+.. literalinclude:: iam.java2.create_access_key.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: iam.java.create_access_key.main.txt
+.. literalinclude:: iam.java2.create_access_key.main.txt
    :dedent: 8
    :language: java
 
@@ -55,12 +55,12 @@ list keys for, and pass it to the |iamclient|'s :methodname:`listAccessKeys` met
 
 **Imports**
 
-.. literalinclude:: iam.java.list_access_keys.import.txt
+.. literalinclude:: iam.java2.list_access_keys.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: iam.java.list_access_keys.main.txt
+.. literalinclude:: iam.java2.list_access_keys.main.txt
    :dedent: 8
    :language: java
 
@@ -89,12 +89,12 @@ used time.
 
 **Imports**
 
-.. literalinclude:: iam.java.access_key_last_used.import.txt
+.. literalinclude:: iam.java2.access_key_last_used.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: iam.java.access_key_last_used.main.txt
+.. literalinclude:: iam.java2.access_key_last_used.main.txt
    :dedent: 8
    :language: java
 
@@ -114,12 +114,12 @@ then passing the request object to the
 
 **Imports**
 
-.. literalinclude:: iam.java.update_access_key.import.txt
+.. literalinclude:: iam.java2.update_access_key.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: iam.java.update_access_key.main.txt
+.. literalinclude:: iam.java2.update_access_key.main.txt
    :dedent: 8
    :language: java
 
@@ -140,12 +140,12 @@ username.
 
 **Imports**
 
-.. literalinclude:: iam.java.delete_access_key.import.txt
+.. literalinclude:: iam.java2.delete_access_key.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: iam.java.delete_access_key.main.txt
+.. literalinclude:: iam.java2.delete_access_key.main.txt
    :dedent: 8
    :language: java
    

@@ -27,12 +27,12 @@ contains the key's name.
 
 **Imports**
 
-.. literalinclude:: ec2.java.create_security_group.import.txt
+.. literalinclude:: ec2.java2.create_security_group.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: ec2.java.create_security_group.create.txt
+.. literalinclude:: ec2.java2.create_security_group.create.txt
    :dedent: 8
    :language: java
 
@@ -54,20 +54,20 @@ to add IP permissions to a security group.
 
 **Imports**
 
-.. literalinclude:: ec2.java.create_security_group.import.txt
+.. literalinclude:: ec2.java2.create_security_group.import.txt
    :language: java
 
 **Code**
 
 First, create an |ec2client|
 
-.. literalinclude:: ec2.java.create_security_group.client.txt
+.. literalinclude:: ec2.java2.create_security_group.client.txt
    :dedent: 8
    :language: java
 
 Then use the |ec2client|'s :methodname:`authorizeSecurityGroupIngress` method,
 
-.. literalinclude:: ec2.java.create_security_group.config.txt
+.. literalinclude:: ec2.java2.create_security_group.config.txt
    :dedent: 8
    :language: java
 
@@ -91,12 +91,12 @@ that you can use to access the list of security groups by calling its
 
 **Imports**
 
-.. literalinclude:: ec2.java.describe_security_groups.import.txt
+.. literalinclude:: ec2.java2.describe_security_groups.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: ec2.java.describe_security_groups.main.txt
+.. literalinclude:: ec2.java2.describe_security_groups.main.txt
    :dedent: 8
    :language: java
 
@@ -112,12 +112,12 @@ that contains the ID of the security group to delete.
 
 **Imports**
 
-.. literalinclude:: ec2.java.delete_security_group.import.txt
+.. literalinclude:: ec2.java2.delete_security_group.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: ec2.java.delete_security_group.main.txt
+.. literalinclude:: ec2.java2.delete_security_group.main.txt
    :dedent: 8
    :language: java
 

@@ -44,12 +44,12 @@ that contains the object content and the :classname:`PutObjectRequest` object.
 
 **Imports**
 
-.. literalinclude:: s3.java.s3_object_operations.import.txt
+.. literalinclude:: s3.java2.s3_object_operations.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: s3.java.s3_object_operations.upload.txt
+.. literalinclude:: s3.java2.s3_object_operations.upload.txt
    :dedent: 8
    :language: java
 
@@ -67,12 +67,12 @@ merge all the uploaded parts and finish the upload operation.
 
 **Imports**
 
-.. literalinclude:: s3.java.s3_object_operations.import.txt
+.. literalinclude:: s3.java2.s3_object_operations.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: s3.java.s3_object_operations.upload_multi_part.txt
+.. literalinclude:: s3.java2.s3_object_operations.upload_multi_part.txt
    :dedent: 8
    :language: java
 
@@ -94,12 +94,12 @@ The following example specifies a file name to write the object content to.
 
 **Imports**
 
-.. literalinclude:: s3.java.s3_object_operations.import.txt
+.. literalinclude:: s3.java2.s3_object_operations.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: s3.java.s3_object_operations.download.txt
+.. literalinclude:: s3.java2.s3_object_operations.download.txt
    :dedent: 8
    :language: java
 
@@ -117,12 +117,12 @@ object to delete. *The specified bucket and object key must exist, or the servic
 
 **Imports**
 
-.. literalinclude:: s3.java.s3_object_operations.import.txt
+.. literalinclude:: s3.java2.s3_object_operations.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: s3.java.s3_object_operations.delete.txt
+.. literalinclude:: s3.java2.s3_object_operations.delete.txt
    :dedent: 8
    :language: java
 

@@ -60,12 +60,12 @@ the content of the |S3| object.
 
 **Imports**
 
-.. literalinclude:: s3.java.s3_object_operations.import.txt
+.. literalinclude:: s3.java2.s3_object_operations.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: s3.java.s3_object_operations.iterative.txt
+.. literalinclude:: s3.java2.s3_object_operations.iterative.txt
    :dedent: 8
    :language: java
 
@@ -88,7 +88,7 @@ to iterate over the paginated item collection.
 
 **Code**
 
-.. literalinclude:: s3.java.s3_object_operations.stream.txt
+.. literalinclude:: s3.java2.s3_object_operations.stream.txt
    :dedent: 8
    :language: java
 
@@ -104,7 +104,7 @@ Use a standard ``for`` loop to iterate through the contents of the response.
 
 **Code**
 
-.. literalinclude:: s3.java.s3_object_operations.forloop.txt
+.. literalinclude:: s3.java2.s3_object_operations.forloop.txt
    :dedent: 8
    :language: java
 
@@ -118,7 +118,7 @@ in the response object for the subsequent requests. Here's an example using a ``
 
 **Code**
 
-.. literalinclude:: s3.java.s3_object_operations.pagination.txt
+.. literalinclude:: s3.java2.s3_object_operations.pagination.txt
    :dedent: 8
    :language: java
 
@@ -159,20 +159,20 @@ Use a Subscriber
 
 **Imports**
 
-.. literalinclude:: dynamodb.java.async_pagination.import.txt
+.. literalinclude:: dynamodb.java2.async_pagination.import.txt
    :language: java
 
 **Code**
 
 First create a asyc client
 
-.. literalinclude:: dynamodb.java.async_pagination.pagesclient.txt
+.. literalinclude:: dynamodb.java2.async_pagination.pagesclient.txt
    :dedent: 8
    :language: java
 
 Then use Subscriber to get results. 
  
-.. literalinclude:: dynamodb.java.async_pagination.pagessubscribe.txt
+.. literalinclude:: dynamodb.java2.async_pagination.pagessubscribe.txt
    :dedent: 8
    :language: java
 
@@ -187,7 +187,7 @@ for this purpose.
 
 **Code**
 
-.. literalinclude:: dynamodb.java.async_pagination.pagesforeach.txt
+.. literalinclude:: dynamodb.java2.async_pagination.pagesforeach.txt
    :dedent: 8
    :language: java
 
@@ -212,13 +212,13 @@ Use a Subscriber
 
 First create a asyc client
 
-.. literalinclude:: dynamodb.java.async_pagination.asyncclient.txt
+.. literalinclude:: dynamodb.java2.async_pagination.asyncclient.txt
    :dedent: 8
    :language: java
 
 Then use Subscriber to get results. 
  
-.. literalinclude:: dynamodb.java.async_pagination.subscriber.txt
+.. literalinclude:: dynamodb.java2.async_pagination.subscriber.txt
    :dedent: 8
    :language: java
 
@@ -234,7 +234,7 @@ Use the :methodname:`forEach` convenience method to iterate through the results.
 
 **Code**
 
-.. literalinclude:: dynamodb.java.async_pagination.foreach.txt
+.. literalinclude:: dynamodb.java2.async_pagination.foreach.txt
   :dedent: 8
   :language: java
 
@@ -261,12 +261,12 @@ POM snippet to use.
 
 **Imports**
 
-.. literalinclude:: dynamodb.java.async_pagination.import.txt
+.. literalinclude:: dynamodb.java2.async_pagination.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: dynamodb.java.async_pagination.async.txt
+.. literalinclude:: dynamodb.java2.async_pagination.async.txt
    :dedent: 8
    :language: java
 

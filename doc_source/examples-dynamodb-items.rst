@@ -41,12 +41,12 @@ with the item.
 
 **Imports**
 
-.. literalinclude:: dynamodb.java.get_item.import.txt
+.. literalinclude:: dynamodb.java2.get_item.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: dynamodb.java.get_item.main.txt
+.. literalinclude:: dynamodb.java2.get_item.main.txt
    :dedent: 8
    :language: java
 
@@ -68,12 +68,12 @@ item identified by the primary key already exists, its fields are *updated* by t
 
 **Imports**
 
-.. literalinclude:: dynamodb.java.put_item.import.txt
+.. literalinclude:: dynamodb.java2.put_item.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: dynamodb.java.put_item.main.txt
+.. literalinclude:: dynamodb.java2.put_item.main.txt
    :dedent: 8
    :language: java
 
@@ -95,12 +95,12 @@ update.
 
 **Imports**
 
-.. literalinclude:: dynamodb.java.update_item.import.txt
+.. literalinclude:: dynamodb.java2.update_item.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: dynamodb.java.update_item.main.txt
+.. literalinclude:: dynamodb.java2.update_item.main.txt
    :dedent: 8
    :language: java
 

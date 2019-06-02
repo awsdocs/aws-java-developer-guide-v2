@@ -43,19 +43,19 @@ such as listing or deleting buckets as shown in later examples.
 
 **Imports**
 
-.. literalinclude:: s3.java.s3_bucket_ops.import.txt
+.. literalinclude:: s3.java2.s3_bucket_ops.import.txt
    :language: java
 
 **Code**
 
 First create an |s3client|.
 
-.. literalinclude:: s3.java.s3_bucket_ops.region.txt
+.. literalinclude:: s3.java2.s3_bucket_ops.region.txt
    :language: java
 
 Make a Create Bucket Request. 
 
-.. literalinclude:: s3.java.s3_bucket_ops.create_bucket.txt
+.. literalinclude:: s3.java2.s3_bucket_ops.create_bucket.txt
    :dedent: 8
    :language: java
 
@@ -74,19 +74,19 @@ is returned. Use this response object to retrieve the list of buckets.
 
 **Imports**
 
-.. literalinclude:: s3.java.s3_bucket_ops.import.txt
+.. literalinclude:: s3.java2.s3_bucket_ops.import.txt
    :language: java
 
 **Code**
 
 First create an |s3client|.
 
-.. literalinclude:: s3.java.s3_bucket_ops.region.txt
+.. literalinclude:: s3.java2.s3_bucket_ops.region.txt
    :language: java
 
 Make a List Buckets Request. 
 
-.. literalinclude:: s3.java.s3_bucket_ops.list_bucket.txt
+.. literalinclude:: s3.java2.s3_bucket_ops.list_bucket.txt
    :dedent: 8
    :language: java
 
@@ -115,18 +115,18 @@ method on each object to delete it.
 
 **Imports**
 
-.. literalinclude:: s3.java.s3_bucket_ops.import.txt
+.. literalinclude:: s3.java2.s3_bucket_ops.import.txt
    :language: java
 
 **Code**
 
 First create an |s3client|.
 
-.. literalinclude:: s3.java.s3_bucket_ops.region.txt
+.. literalinclude:: s3.java2.s3_bucket_ops.region.txt
    :language: java
 
 
-.. literalinclude:: s3.java.s3_bucket_ops.delete_bucket.txt
+.. literalinclude:: s3.java2.s3_bucket_ops.delete_bucket.txt
    :dedent: 8
    :language: java
 
@@ -140,20 +140,20 @@ with a bucket name and pass it to the |s3client|'s :methodname:`deleteBucket` me
 
 **Imports**
 
-.. literalinclude:: s3.java.s3_bucket_ops.import.txt
+.. literalinclude:: s3.java2.s3_bucket_ops.import.txt
    :language: java
 
 **Code**
 
 First create an |s3client|.
 
-.. literalinclude:: s3.java.s3_bucket_ops.delete_bucket.txt
+.. literalinclude:: s3.java2.s3_bucket_ops.delete_bucket.txt
    :language: java
 
 
 Delete all objects in the bucket. 
 
-.. literalinclude:: s3.java.s3_bucket_ops.delete_bucket.txt
+.. literalinclude:: s3.java2.s3_bucket_ops.delete_bucket.txt
    :dedent: 8
    :language: java
 

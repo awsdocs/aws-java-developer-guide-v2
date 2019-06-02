@@ -49,12 +49,12 @@ is only done when the asynchronous call is complete.
 
 **Imports**
 
-.. literalinclude:: dynamodb.java.dbasync.import.txt
+.. literalinclude:: dynamodb.java2.dbasync.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: dynamodb.java.dbasync.main.txt
+.. literalinclude:: dynamodb.java2.dbasync.main.txt
    :language: java
 
 .. _basics-async-streaming:
@@ -72,12 +72,12 @@ Here is an example that uploads a file to |S3| asynchronously with the
 
 **Imports**
 
-.. literalinclude:: s3.java.async_ops.import.txt
+.. literalinclude:: s3.java2.async_ops.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: s3.java.async_ops.main.txt
+.. literalinclude:: s3.java2.async_ops.main.txt
    :language: java
    
 Here is an example that gets a file from |S3| asynchronously with the
@@ -85,11 +85,11 @@ Here is an example that gets a file from |S3| asynchronously with the
 
 **Imports**
 
-.. literalinclude:: s3.java.async_stream_ops.import.txt
+.. literalinclude:: s3.java2.async_stream_ops.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: s3.java.async_stream_ops.main.txt
+.. literalinclude:: s3.java2.async_stream_ops.main.txt
    :language: java
    

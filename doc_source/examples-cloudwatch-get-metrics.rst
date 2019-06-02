@@ -29,12 +29,12 @@ metric name, or dimensions.
 
 **Imports**
 
-.. literalinclude:: cloudwatch.java.list_metrics.import.txt
+.. literalinclude:: cloudwatch.java2.list_metrics.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: cloudwatch.java.list_metrics.main.txt
+.. literalinclude:: cloudwatch.java2.list_metrics.main.txt
    :dedent: 8
    :language: java
 
