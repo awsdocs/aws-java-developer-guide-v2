@@ -93,3 +93,61 @@ Here is an example that gets a file from |S3| asynchronously with the
 .. literalinclude:: s3.java2.async_stream_ops.main.txt
    :language: java
    
+Advanced Operations
+===================
+
+|sdk-java-v2| uses `Netty <https://netty.io>`_ an asynchronous event-driven network application framework to 
+handle I/O threads. |sdk-java-v2| creates an :methodname:`ExecutorService` behind Netty, to complete the futures returned 
+from the http client request through  to the Netty client. This abstraction reduces risk of an application breaking the  async
+ process if developers choose to stop or sleep threads. By default 50 Threads are generated for each asychronous client, 
+and managed in a queue within the :methodname:`ExecutorService`.
+
+Advanced users can specify their Thread Pool size when creating a asychronous client using the following option when building:
+
+**Code**
+
+.. code-block:: java
+
+        S3AsyncClient clientThread = S3AsyncClient.builder()
+            .asyncConfiguration(
+                b -> b.advancedOption(SdkAdvancedAsyncClientOption
+                    .FUTURE_COMPLETION_EXECUTOR,
+                    Executors.newFixedThreadPool(10)
+                )
+            )
+            .build();
+
+To optimize performance you can manage your own Thread Pool Executor, and include it when configuring your client.  
+
+.. code-block:: java
+
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(50, 50,
+                10, TimeUnit.SECONDS,
+                new LinkedBlockingQueue<>(10_000),
+                new ThreadFactoryBuilder()
+                    .threadNamePrefix("sdk-async-response").build());
+                
+        // Allow idle core threads to time out
+        executor.allowCoreThreadTimeOut(true);
+        
+        S3AsyncClient clientThread = S3AsyncClient.builder()
+            .asyncConfiguration(
+                b -> b.advancedOption(SdkAdvancedAsyncClientOption
+                    .FUTURE_COMPLETION_EXECUTOR,
+                    executor
+                )
+            )
+            .build();
+
+If you prefer to not use a Thread Pool at all, use `Runnable::run` instead of using a ThreadPoolExecutor. 
+
+.. code-block:: java
+
+    S3AsyncClient clientThread = S3AsyncClient.builder() 
+        .asyncConfiguration( 
+            b -> b.advancedOption(SdkAdvancedAsyncClientOption 
+                    .FUTURE_COMPLETION_EXECUTOR, 
+                    Runnable::run 
+                )
+            )
+            .build();
