@@ -36,7 +36,7 @@ plugin to import the SDK's Maven Bill of Materials (BOM) to manage SDK dependenc
        .. code-block:: groovy
 
           dependencies {
-              compile 'software.amazon.awssdk:kinesis'
+              implementation 'software.amazon.awssdk:kinesis'
               testCompile group: 'junit', name: 'junit', version: '4.11'
           }
 
