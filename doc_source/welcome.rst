@@ -50,7 +50,7 @@ feedback are also welcome.
 
   + `DynamoDB Object Mapper <https://github.com/aws/aws-sdk-java-v2/issues/35>`_
 
-  + `DynamoDb document APIs <https://github.com/aws/aws-sdk-java-v2/issues/36>`_
+  + `DynamoDB document APIs <https://github.com/aws/aws-sdk-java-v2/issues/36>`_
 
   + `DynamoDB Encryption Client <https://github.com/aws/aws-sdk-java-v2/issues/34>`_
 
