@@ -21,11 +21,11 @@ Using Regions and Availability Zones
 Describing Regions
 ==================
 
-To list the regions available to your account, call the |ec2client|'s :methodname:`describeRegions`
+To list the Regions available to your account, call the |ec2client|'s :methodname:`describeRegions`
 method. It returns a :aws-java-class:`DescribeRegionsResponse
 <services/ec2/model/DescribeRegionsResponse>`. Call the returned object's :methodname:`regions`
 method to get a list of :aws-java-class:`Region <services/ec2/model/Region>` objects that represent
-each region.
+each Region.
 
 **Imports**
 
@@ -44,12 +44,12 @@ See the :sdk-examples-java-ec2:`complete example <DescribeRegionsAndZones.java>`
 Describing Availability Zones
 =============================
 
-To list each availability zone available to your account, call the |ec2client|'s
+To list each Availability Zone available to your account, call the |ec2client|'s
 :methodname:`describeAvailabilityZones` method. It returns a
 :aws-java-class:`DescribeAvailabilityZonesResponse
 <services/ec2/model/DescribeAvailabilityZonesResponse>`. Call its :methodname:`availabilityZones`
 method to get a list of :aws-java-class:`AvailabilityZone <services/ec2/model/AvailabilityZone>`
-objects that represent each availability zone.
+objects that represent each Availability Zone.
 
 **Imports**
 
