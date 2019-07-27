@@ -35,7 +35,7 @@ This code uses the javax.sound.sampled package to stream audio from an input dev
 
 **Code**
 
-.. literalinclude:: transcribe.java.bidir_streaming_microphone.complete.txt
+.. literalinclude:: transcribe.java2.bidir_streaming_microphone.complete.txt
    :language: java
 
 See the :sdk-examples-java-transcribe:`complete example <Microphone.java>` on GitHub.
@@ -47,7 +47,7 @@ This code implements a publisher that publishes audio data from the |TSC| audio 
 
 **Code**
 
-.. literalinclude:: transcribe.java.bidir_streaming_audiopublisher.complete.txt
+.. literalinclude:: transcribe.java2.bidir_streaming_audiopublisher.complete.txt
    :language: java
 
 See the :sdk-examples-java-transcribe:`complete example <AudioStreamPublisher.java>` on GitHub.
@@ -68,12 +68,12 @@ Then, use the |tscstreamasyncclient|'s
 
 **Imports**
 
-.. literalinclude:: transcribe.java.bidir_streaming.import.txt
+.. literalinclude:: transcribe.java2.bidir_streaming.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: transcribe.java.bidir_streaming.main.txt
+.. literalinclude:: transcribe.java2.bidir_streaming.main.txt
    :dedent: 2
    :language: java
 
