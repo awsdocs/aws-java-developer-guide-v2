@@ -99,7 +99,8 @@ each other.
 
 To use the BOM, add a :code-xml:`<dependencyManagement>` section to your application's
 :file:`pom.xml` file. Add ``bom`` as a dependency and specify the version of the
-SDK to use.
+SDK to use. Find the latest version in the 
+:aws-java-class-root:`AWS SDK for Java 2.x Reference <>`.
 
 .. code-block:: xml
 
@@ -108,7 +109,7 @@ SDK to use.
         <dependency>
           <groupId>software.amazon.awssdk</groupId>
           <artifactId>bom</artifactId>
-          <version>2.3.9</version>
+          <version>2.X.X</version>
           <type>pom</type>
           <scope>import</scope>
         </dependency>
@@ -144,15 +145,16 @@ Importing All SDK Modules (Not Recommended)
 -------------------------------------------
 
 To pull in the *entire* SDK as a dependency, don't use the BOM method. Simply
-declare it in your :file:`pom.xml` as follows.
+declare it in your :file:`pom.xml` as follows. Find the latest version in the 
+:aws-java-class-root:`AWS SDK for Java 2.x Reference <>`.
 
 .. code-block:: xml
 
   <dependencies>
     <dependency>
       <groupId>software.amazon.awssdk</groupId>
-      <artifactId>aws-java-sdk</artifactId>
-      <version>2.3.9</version>
+      <artifactId>aws-sd-java</artifactId>
+      <version>2.X.X</version>
     </dependency>
   </dependencies>
 
