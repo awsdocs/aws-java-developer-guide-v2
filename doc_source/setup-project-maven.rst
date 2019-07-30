@@ -153,7 +153,7 @@ declare it in your :file:`pom.xml` as follows. Find the latest version in the
   <dependencies>
     <dependency>
       <groupId>software.amazon.awssdk</groupId>
-      <artifactId>aws-sd-java</artifactId>
+      <artifactId>aws-sdk-java</artifactId>
       <version>2.X.X</version>
     </dependency>
   </dependencies>
