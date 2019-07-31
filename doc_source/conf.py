@@ -59,7 +59,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'AWS Java Developer Guide'
+project = u'AWS Java Developer Guide v2'
 copyright = u'2018, Amazon Web Services'
 author = u'Amazon Web Services'
 
@@ -68,7 +68,7 @@ author = u'Amazon Web Services'
 # built documents.
 #
 # The short X.Y version.
-version = u'1.0'
+version = u'2.0'
 # The full version, including alpha/beta/rc tags.
 release = u'1.0'
 
