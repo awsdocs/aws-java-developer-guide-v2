@@ -8,11 +8,11 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#########################
-Set Up the |sdk-java-v2|
-#########################
+##########################
+Download the |sdk-java-v2|
+##########################
 
-This topic describes how to set up and use the |sdk-java| in your project.
+This topic describes how to download the |sdk-java| into your project.
 
 Prerequisites
 =============
@@ -26,13 +26,13 @@ To use the |sdk-java|, you must have:
 * AWS credentials (access keys) set in your environment, or use the shared credentials file used by
   the AWS CLI and other SDKs. For more information, see :doc:`setup-credentials`.
 
-
 .. _include-sdk:
 
-Including the SDK in Your Project
-=================================
+Downloading the SDK into Your Project
+=====================================
 
-Depending on your build system or IDE, use one of the following methods:
+Depending on your build system or IDE, use one of the following methods to download the 
+SDK into your project by using Apache Maven or Gradle:
 
 * **Apache Maven** |ndash| If you use |mvnlong|_, you can specify only the SDK components
   you need or the entire SDK (not recommended) as dependencies in your project.
@@ -77,7 +77,6 @@ and installs the SDK in one step. See http://maven.apache.org/ for installation 
         mvn javadoc:javadoc
 
        The documentation is built into the :file:`target/site/apidocs/` directories of each service.
-
 
 .. _java-dg-java-env:
 

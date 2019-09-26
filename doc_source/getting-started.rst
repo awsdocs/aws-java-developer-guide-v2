@@ -19,7 +19,7 @@ This section provides information about how to install, set up, and use the |sdk
    :titlesonly:
 
    signup-create-iam-user
-   Set up the SDK <setup-install>
+   Download the SDK <setup-install>
    Set up AWS Credentials and Region <setup-credentials>
    setup-project-maven
    setup-project-gradle

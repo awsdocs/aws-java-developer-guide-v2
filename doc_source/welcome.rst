@@ -91,6 +91,8 @@ developers:
 
   + :github:`SDK source <aws/aws-sdk-java-v2>`
 
+* The `AWS Code Sample Catalog <https://docs.aws.amazon.com/code-samples/latest/catalog>`_
+
 * `@awsforjava (Twitter) <https://twitter.com/awsforjava>`_
 
 Contributing to the SDK
