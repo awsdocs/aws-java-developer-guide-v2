@@ -127,3 +127,25 @@ object to delete. *The specified bucket and object key must exist, or the servic
    :language: java
 
 See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>` on GitHub.
+
+Copy an Object
+================
+
+Build a :aws-java-class:`CopyObjectRequest <services/s3/model/CopyObjectRequest>`
+and supply a bucket name that the object is coped into, a URL encoded string value, and the key name of the object.
+Use the |s3client|'s :methodname:`copyObject` method, and pass the :aws-java-class:`CopyObjectRequest <services/s3/model/CopyObjectRequest>` object.
+*The specified bucket and object key must exist, or the service will return an error.*
+
+**Imports**
+
+.. literalinclude:: s3.java2.copy_object.import.txt
+   :language: java
+
+**Code**
+
+.. literalinclude:: s3.java2.copy_object.main.txt
+   :dedent: 8
+   :language: java
+
+See the :sdk-examples-java-s3:`complete example <CopyObject.java>` on GitHub.
+
