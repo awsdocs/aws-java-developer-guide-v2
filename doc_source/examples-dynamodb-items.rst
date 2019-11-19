@@ -65,7 +65,7 @@ all of the attributes for that item (Refer to the following example).
 
 **Imports**
 
-.. literalinclude:: dynamoasyn.java2.get_item.import.txt
+.. literalinclude:: dynamodb.java2.get_item.main.txt
    :language: java
 
 
