@@ -78,9 +78,6 @@ all of the attributes for that item (Refer to the following example).
 See the :sdk-examples-java-dynamodbasync:`complete example <DynamoDBAsyncGetItem.java>` on GitHub.
 
 
-.. _dynamodbasync-add-item:
-
-
 Add a New Item to a Table
 =========================
 
