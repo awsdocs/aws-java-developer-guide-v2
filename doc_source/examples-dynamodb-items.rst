@@ -63,6 +63,8 @@ Invoke the DynamoDbAsyncClient object's getItem` method and pass it a
 name and primary key value of the item you want. You can return a java.util.Collection object with
 all of the attributes for that item (Refer to the following example).
 
+See the :sdk-examples-java-dynamodb:`complete example <DynamoDBAsyncGetItem.java>` on GitHub.
+
 Add a New Item to a Table
 =========================
 
