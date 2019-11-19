@@ -65,9 +65,13 @@ all of the attributes for that item (Refer to the following example).
 
 **Imports**
 
-.. literalinclude:: dynamodb.java2.get_item.main.txt
+.. literalinclude:: dynamodb.java2.get_item.import.txt
    :language: java
+**Code**
 
+.. literalinclude:: dynamodb.java2.get_item.main.txt
+   :dedent: 8
+   :language: java
 
 See the :sdk-examples-java-dynamodbasync:`complete example <DynamoDBAsyncGetItem.java>` on GitHub.
 
