@@ -70,7 +70,7 @@ all of the attributes for that item (refer to the following example).
 
 **Code**
 
-.. literalinclude:: dynamoasyc.java2.get_item.main.txt
+.. literalinclude:: dynamodb.java2.get_item.main.txt
    :dedent: 8
    :language: java
 
