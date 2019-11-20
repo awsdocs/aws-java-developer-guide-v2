@@ -62,7 +62,7 @@ Invoke the :methodname:`getItem` method of the |ddbasyncclient| and pass it a
 :aws-java-class:`GetItemRequest <services/dynamodb/model/GetItemRequest>` object with the table
 name and primary key value of the item you want.
 
-You can return a :javase-ref:`Collection <java/util/Collection>`object with
+You can return a :javase-ref:`Collection <java/util/Collection>` instance with
 all of the attributes for that item (refer to the following example).
 
 **Imports**
