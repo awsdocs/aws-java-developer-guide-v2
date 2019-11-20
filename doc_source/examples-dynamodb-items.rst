@@ -58,9 +58,11 @@ See the :sdk-examples-java-dynamodb:`complete example <GetItem.java>` on GitHub.
 Retrieve (Get) an Item from a Table using the Asynchronous client
 =================================================================
 
-Invoke the |ddbasyncclient|'s :methodname:`getItem` method and pass it a
-*GetItemRequest* object with the table
-name and primary key value of the item you want. You can return a *java.util.Collection* object with
+Invoke the :methodname:`getItem` method of the |ddbasyncclient| and pass it a
+:aws-java-class:`GetItemRequest <services/dynamodb/model/GetItemRequest>` object with the table
+name and primary key value of the item you want.
+
+You can return a *java.util.Collection* object with
 all of the attributes for that item (refer to the following example).
 
 **Imports**
