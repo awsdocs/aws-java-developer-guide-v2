@@ -20,14 +20,6 @@ Invoking, Listing, and Deleting Lambda Functions
 
 This section provides examples of programming with the Lambda service client by using the AWS SDK for Java 2.0.
 
-.. include:: common/s3-note-incomplete-upload-policy.txt
-
-.. include:: includes/examples-note.txt
-
-.. contents::
-    :local:
-    :depth: 1
-
 Invoke a Lambda function
 ========================
 
@@ -49,24 +41,20 @@ The following code example demonstrates how to invoke a Lambda function.
 .. literalinclude:: s3.java2.s3_bucket_ops.region.txt
    :language: java
 
-Make a Create Bucket Request. 
-
-.. literalinclude:: s3.java2.s3_bucket_ops.create_bucket.txt
-   :dedent: 8
-   :language: java
-
 See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>` on GitHub.
 
 
 .. _invoke-lambda:
 
-List the Buckets
-================
+List the Lambda functions
+=========================
 
-Build a :aws-java-class:`ListBucketsRequest <services/s3/model/ListBucketsRequest>`.
-Use the |s3client|'s :methodname:`listBuckets` method to retrieve the list of buckets.
-If the request succeeds a :aws-java-class:`ListBucketsResponse <services/s3/model/ListBucketsResponse>`
-is returned. Use this response object to retrieve the list of buckets.
+Build a :aws-java-class:`LambdaClient <services/lambda/LambdaClient>`
+object and invoke its :methodname:`listFunctions` method.
+This method returns a :aws-java-class:`ListFunctionsResponse <services/lambda/model/ListFunctionsResponse> object.
+You can invoke this object's :methodname:`functions` method to return a list of :aws-java-class:`FunctionConfiguration <services/lambda/model/FunctionConfiguration>` objects.
+You can iterate through the list to retrieve information about the functions. For example, the following code example shows you how you can get the function names. 
+
 
 **Imports**
 
