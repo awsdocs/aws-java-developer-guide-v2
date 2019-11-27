@@ -53,7 +53,7 @@ See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>` on GitHub.
 
 .. _list-function:
 
-List the Lambda functions
+List Lambda functions
 =========================
 
 Build a :aws-java-class:`LambdaClient <services/lambda/LambdaClient>`
@@ -81,7 +81,7 @@ See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>` on GitHub.
 .. _delete-function:
 
 Delete a Lambda function
-===============
+========================
 
 Build a :aws-java-class:`LambdaClient <services/lambda/LambdaClient>`
 object and invoke its :methodname:`deleteFunction` method.
