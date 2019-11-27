@@ -51,9 +51,9 @@ List the Lambda functions
 
 Build a :aws-java-class:`LambdaClient <services/lambda/LambdaClient>`
 object and invoke its :methodname:`listFunctions` method.
-This method returns a :aws-java-class:`ListFunctionsResponse <services/lambda/model/ListFunctionsResponse> object.
+This method returns a :aws-java-class:`ListFunctionsResponse <services/lambda/model/ListFunctionsResponse>` object.
 You can invoke this object's :methodname:`functions` method to return a list of :aws-java-class:`FunctionConfiguration <services/lambda/model/FunctionConfiguration>` objects.
-You can iterate through the list to retrieve information about the functions. For example, the following code example shows you how you can get the function names. 
+You can iterate through the list to retrieve information about the functions. For example, the following code example shows you how you can get the function names.
 
 
 **Imports**
