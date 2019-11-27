@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-############################################
+#################################################
 Invoking, Listing, and Deleting Lambda Functions
-############################################
+#################################################
 
 .. meta::
     :description: How to invoke, list, and delete a Lambda function by using the AWS SDK for Java 2.x.
@@ -32,8 +32,10 @@ Invoke a Lambda function
 ========================
 
 You can invoke a Lambda function by creating a :aws-java-class:`LambdaClient <services/lambda/LambdaClient>`
-object and invoking its :methodname:`invoke` method. Use the |s3client| to do additional operations
-such as listing or deleting buckets as shown in later examples.
+object and invoking its :methodname:`invoke` method. Create an :aws-java-class:`InvokeRequest <services/lambda/model/InvokeRequest>`
+object to specify additional information such as the function name and the payload to pass to the Lambda function.
+To pass payload data to a function, create a :aws-java-class:`SdkBytes <amazon/awssdk/core/SdkBytes>`
+object that contains information. For example, in the following code example, notice the JSON data passed to the Lambda function.
 
 **Imports**
 
@@ -42,7 +44,7 @@ such as listing or deleting buckets as shown in later examples.
 
 **Code**
 
-First create an |s3client|.
+The following code example demonstrates how to invoke a Lambda function.
 
 .. literalinclude:: s3.java2.s3_bucket_ops.region.txt
    :language: java
@@ -56,7 +58,7 @@ Make a Create Bucket Request.
 See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>` on GitHub.
 
 
-.. _list-buckets:
+.. _invoke-lambda:
 
 List the Buckets
 ================
