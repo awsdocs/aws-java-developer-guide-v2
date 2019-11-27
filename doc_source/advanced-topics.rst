@@ -36,7 +36,7 @@ For instructions, see the "Proposing new code examples" section in the
    Amazon EC2 Examples <examples-ec2>
    AWS Identity and Access Management (IAM) Examples <examples-iam>
    Amazon Kinesis Examples <examples-kinesis>
-   Amazon Lambda Examples <examples-lambda>
+   Amazon Lambda Examples <lambda-examples>
    Amazon S3 Examples <s3-examples>
    Amazon SQS Examples <sqs-examples>
    Amazon Transcribe Examples <examples-transcribe>
