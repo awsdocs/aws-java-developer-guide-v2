@@ -53,7 +53,7 @@ Build a :aws-java-class:`LambdaClient <services/lambda/LambdaClient>`
 object and invoke its :methodname:`listFunctions` method.
 This method returns a :aws-java-class:`ListFunctionsResponse <services/lambda/model/ListFunctionsResponse>` object.
 You can invoke this object's :methodname:`functions` method to return a list of :aws-java-class:`FunctionConfiguration <services/lambda/model/FunctionConfiguration>` objects.
-You can iterate through the list to retrieve information about the functions. For example, the following code example shows you how you can get the function names.
+You can iterate through the list to retrieve information about the functions. For example, the following Java code example shows how to get each function name.
 
 
 **Imports**
@@ -63,7 +63,7 @@ You can iterate through the list to retrieve information about the functions. Fo
 
 **Code**
 
-First create an |s3client|.
+The following Java code example demonstrates how to retrieve a list of function names.
 
 .. literalinclude:: s3.java2.s3_bucket_ops.region.txt
    :language: java
