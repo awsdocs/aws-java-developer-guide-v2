@@ -34,7 +34,7 @@ Invoke a Lambda function
 You can invoke a Lambda function by creating a :aws-java-class:`LambdaClient <services/lambda/LambdaClient>`
 object and invoking its :methodname:`invoke` method. Create an :aws-java-class:`InvokeRequest <services/lambda/model/InvokeRequest>`
 object to specify additional information such as the function name and the payload to pass to the Lambda function.
-To pass payload data to a function, create a :aws-java-class:`SdkBytes <amazon/awssdk/core/SdkBytes>`
+To pass payload data to a function, create a :aws-java-class:`SdkBytes <core/SdkBytes>`
 object that contains information. For example, in the following code example, notice the JSON data passed to the Lambda function.
 
 **Imports**
