@@ -20,12 +20,19 @@ Invoking, Listing, and Deleting Lambda Functions
 
 This section provides examples of programming with the Lambda service client by using the AWS SDK for Java 2.0.
 
+.. contents::
+    :local:
+    :depth: 1
+
+.. _invoke-function:
 Invoke a Lambda function
 ========================
 
 You can invoke a Lambda function by creating a :aws-java-class:`LambdaClient <services/lambda/LambdaClient>`
 object and invoking its :methodname:`invoke` method. Create an :aws-java-class:`InvokeRequest <services/lambda/model/InvokeRequest>`
-object to specify additional information such as the function name and the payload to pass to the Lambda function.
+object to specify additional information such as the function name and the payload to pass to the Lambda function. Function names
+appear as *arn:aws:lambda:us-west-2:555556330391:function:HelloFunction*. You can retrieve the value by looking at the function in the AWS Console.
+
 To pass payload data to a function, create a :aws-java-class:`SdkBytes <core/SdkBytes>`
 object that contains information. For example, in the following code example, notice the JSON data passed to the Lambda function.
 
@@ -44,7 +51,7 @@ The following code example demonstrates how to invoke a Lambda function.
 See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>` on GitHub.
 
 
-.. _invoke-lambda:
+.. _list-function:
 
 List the Lambda functions
 =========================
@@ -68,34 +75,19 @@ The following Java code example demonstrates how to retrieve a list of function 
 .. literalinclude:: s3.java2.s3_bucket_ops.region.txt
    :language: java
 
-Make a List Buckets Request. 
-
-.. literalinclude:: s3.java2.s3_bucket_ops.list_bucket.txt
-   :dedent: 8
-   :language: java
-
 See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>` on GitHub.
 
 
-.. _delete-bucket:
+.. _delete-function:
 
-Delete a Bucket
+Delete a Lambda function
 ===============
 
-Before you can delete an |S3| bucket, you must ensure that the bucket is empty or
-the service will return an error. If you have a :S3-dg:`versioned bucket <Versioning>`,
-you must also delete any versioned objects that are in the bucket.
-
-.. contents::
-   :local:
-
-Delete Objects in a Bucket
---------------------------
-
-Build a :aws-java-class:`ListObjectsV2Request <services/s3/model/ListObjectsV2Request>`
-and use the |s3client|'s :methodname:`listObjects`
-method to retrieve the list of objects in the bucket. Then use the :methodname:`deleteObject`
-method on each object to delete it.
+Build a :aws-java-class:`LambdaClient <services/lambda/LambdaClient>`
+object and invoke its :methodname:`deleteFunction` method.
+Create a :aws-java-class:`DeleteFunctionRequest <services/lambda/model/DeleteFunctionRequest>`
+object and pass it to the :methodname:`deleteFunction` method. This object contains information such as the name of the function to delete.
+Function names appear as *arn:aws:lambda:us-west-2:555556330391:function:HelloFunction*. You can retrieve the value by looking at the function in the AWS Console.
 
 **Imports**
 
@@ -104,41 +96,11 @@ method on each object to delete it.
 
 **Code**
 
-First create an |s3client|.
+The following Java code example demonstrates how to delete a Lambda function.
 
 .. literalinclude:: s3.java2.s3_bucket_ops.region.txt
    :language: java
 
-
-.. literalinclude:: s3.java2.s3_bucket_ops.delete_bucket.txt
-   :dedent: 8
-   :language: java
-
 See the :sdk-examples-java-s3:`complete example <S3BucketDeletion.java>` on GitHub.
 
-Delete an Empty Bucket
-----------------------
 
-Build a :aws-java-class:`DeleteBucketRequest <services/s3/model/DeleteBucketRequest>`
-with a bucket name and pass it to the |s3client|'s :methodname:`deleteBucket` method.
-
-**Imports**
-
-.. literalinclude:: s3.java2.s3_bucket_ops.import.txt
-   :language: java
-
-**Code**
-
-First create an |s3client|.
-
-.. literalinclude:: s3.java2.s3_bucket_ops.delete_bucket.txt
-   :language: java
-
-
-Delete all objects in the bucket. 
-
-.. literalinclude:: s3.java2.s3_bucket_ops.delete_bucket.txt
-   :dedent: 8
-   :language: java
-
-See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>` on GitHub.
