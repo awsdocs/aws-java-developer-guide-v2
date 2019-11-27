@@ -9,19 +9,16 @@
    limitations under the License.
 
 ############################################
-Creating, Listing, and Deleting |S3| Buckets
+Invoking, Listing, and Deleting Lambda Functions
 ############################################
 
 .. meta::
-    :description: How to create, list, or delete a bucket using the AWS SDK for Java 2.x.
-    :keywords: Amazon Simple Storage Service, Amazon S3, AWS SDK for Java 2.x, S3 code examples,
-               CreateBucketRequest, ListBucketRequest, ListObjectsV2Request
+    :description: How to invoke, list, and delete a Lambda function by using the AWS SDK for Java 2.x.
+    :keywords: Amazon Lambda, AWS SDK for Java 2.x, Lambda code examples,
+               deleteFunction, invoke, listFunctions
 
 
-Every object (file) in |S3| must reside within a *bucket*. A bucket represents a collection (container)
-of objects. Each bucket must have a unique *key* (name). For detailed information
-about buckets and their configuration, see :s3-dg:`Working with Amazon S3 Buckets <UsingBucket>` in
-the |s3-dg|.
+This section provides examples of programming with the Lambda service client by using the AWS SDK for Java 2.0.
 
 .. include:: common/s3-note-incomplete-upload-policy.txt
 
@@ -31,14 +28,11 @@ the |s3-dg|.
     :local:
     :depth: 1
 
-.. _create-bucket:
+Invoke a Lambda function
+========================
 
-Create a Bucket
-===============
-
-Build a :aws-java-class:`CreateBucketRequest <services/s3/model/CreateBucketRequest>`
-and provide a bucket name. Pass it to the |s3client|'s
-:methodname:`createBucket` method. Use the |s3client| to do additional operations
+You can invoke a Lambda function by creating a :aws-java-class:`LambdaClient <services/lambda/LambdaClient>`
+object and invoking its :methodname:`invoke` method. Use the |s3client| to do additional operations
 such as listing or deleting buckets as shown in later examples.
 
 **Imports**
