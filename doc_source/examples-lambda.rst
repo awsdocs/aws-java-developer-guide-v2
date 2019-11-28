@@ -98,7 +98,7 @@ Function names appear as *arn:aws:lambda:us-west-2:555556330391:function:HelloFu
 
 The following Java code example demonstrates how to delete a Lambda function.
 
-.. literalinclude:: lambda.java2.delete.main.txt
+.. literalinclude:: s3.java2.s3_bucket_ops.region.txt
    :language: java
 
 See the :sdk-examples-java-s3:`complete example <S3BucketDeletion.java>` on GitHub.
