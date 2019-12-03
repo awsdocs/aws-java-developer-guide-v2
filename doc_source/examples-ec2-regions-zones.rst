@@ -72,6 +72,29 @@ Then call describeAvailabilityZones() and retrieve results.
 
 See the :sdk-examples-java-ec2:`complete example <DescribeRegionsAndZones.java>` on GitHub.
 
+Describing Accounts
+==================
+
+To describe your account, call the |ec2client|'s :methodname:`describeAccountAttributes`
+method. This method returns a list of :aws-java-class:`AccountAttribute
+<services/ec2/model/AccountAttribute>` objects. You can iterate through the list to retrieve a `
+:aws-java-class:`AccountAttribute <services/ec2/model/AccountAttribute>` object. Using this object, you can
+get your account's attribute values. For example, you can display the value of the *max-instances* attribute.
+
+**Imports**
+
+.. literalinclude:: ec2.java2.describe_region_and_zones.import.txt
+   :language: java
+
+**Code**
+
+.. literalinclude:: ec2.java2.describe_region_and_zones.region.txt
+   :dedent: 8
+   :language: java
+
+See the :sdk-examples-java-ec2:`complete example <DescribeRegionsAndZones.java>` on GitHub.
+
+
 
 More Information
 ================
