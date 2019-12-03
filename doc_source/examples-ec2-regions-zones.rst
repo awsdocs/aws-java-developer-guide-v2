@@ -81,7 +81,7 @@ Invoke this objects :methodname:`accountAttributes` method to get a list of :aws
 <services/ec2/model/AccountAttribute>` objects. You can iterate through the list to retrieve an
 :aws-java-class:`AccountAttribute <services/ec2/model/AccountAttribute>` object.
 
-Using this object, you can
+You can
 get your account's attribute values by invoking the :aws-java-class:`AccountAttribute <services/ec2/model/AccountAttribute>` object's
 :methodname:`attributeValues` method. This method returns a list of :aws-java-class:`AccountAttributeValue
 <services/ec2/model/AccountAttributeValue>` objects. You can iterate through this second list to display the value of attributes (see the following code example).
