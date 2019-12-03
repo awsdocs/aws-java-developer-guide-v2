@@ -73,7 +73,7 @@ Then call describeAvailabilityZones() and retrieve results.
 See the :sdk-examples-java-ec2:`complete example <DescribeRegionsAndZones.java>` on GitHub.
 
 Describing Accounts
-==================  services.ec2.model.DescribeAccountAttributesResponse
+==================
 
 To describe your account, call the |ec2client|'s :methodname:`describeAccountAttributes`
 method. This method returns a :aws-java-class:`DescribeAccountAttributesResponse <services/ec2/model/DescribeAccountAttributesResponse>` object.
