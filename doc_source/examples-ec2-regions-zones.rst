@@ -78,9 +78,13 @@ Describing Accounts
 To describe your account, call the |ec2client|'s :methodname:`describeAccountAttributes`
 method. This method returns a :aws-java-class:`DescribeAccountAttributesResponse <services/ec2/model/DescribeAccountAttributesResponse>` object.
 Invoke this objects :methodname:`accountAttributes` method to get a list of :aws-java-class:`AccountAttribute
-<services/ec2/model/AccountAttribute>` objects. You can iterate through the list to retrieve a `
-:aws-java-class:`AccountAttribute <services/ec2/model/AccountAttribute>` object. Using this object, you can
-get your account's attribute values. For example, you can display the value of the *max-instances* attribute (see the following code example).
+<services/ec2/model/AccountAttribute>` objects. You can iterate through the list to retrieve an
+:aws-java-class:`AccountAttribute <services/ec2/model/AccountAttribute>` object.
+
+Using this object, you can
+get your account's attribute values by invoking the :aws-java-class:`AccountAttribute <services/ec2/model/AccountAttribute>` object's
+:methodname:`attributeValues` method. This method returns a list of :aws-java-class:`AccountAttributeValue
+<services/ec2/model/AccountAttributeValue>` objects. You can iterate through this second list to display the value of attributes (see the following code example).
 
 **Imports**
 
