@@ -38,14 +38,14 @@ object that contains information. For example, in the following code example, no
 
 **Imports**
 
-.. literalinclude:: s3.java2.s3_bucket_ops.import.txt
+.. literalinclude:: lambda.java2.invoke.import.txt
    :language: java
 
 **Code**
 
 The following code example demonstrates how to invoke a Lambda function.
 
-.. literalinclude:: s3.java2.s3_bucket_ops.region.txt
+.. literalinclude:: lambda.java2.invoke.main.txt
    :language: java
 
 See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>` on GitHub.
@@ -65,14 +65,14 @@ You can iterate through the list to retrieve information about the functions. Fo
 
 **Imports**
 
-.. literalinclude:: s3.java2.s3_bucket_ops.import.txt
+.. literalinclude:: lambda.java2.list.import.txt
    :language: java
 
 **Code**
 
 The following Java code example demonstrates how to retrieve a list of function names.
 
-.. literalinclude:: s3.java2.s3_bucket_ops.region.txt
+.. literalinclude:: lambda.java2.list.main.txt
    :language: java
 
 See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>` on GitHub.
@@ -91,7 +91,7 @@ Function names appear as *arn:aws:lambda:us-west-2:555556330391:function:HelloFu
 
 **Imports**
 
-.. literalinclude:: s3.java2.s3_bucket_ops.import.txt
+.. literalinclude:: lambda.java2.delete.import.txt
    :language: java
 
 **Code**
