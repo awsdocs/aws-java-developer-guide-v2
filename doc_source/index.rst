@@ -24,6 +24,7 @@
    Getting Started <getting-started>
    Using the SDK <basics>
    Code Examples <advanced-topics>
+   Security <security>
    document-history
 
 .. include:: about-aws.txt
