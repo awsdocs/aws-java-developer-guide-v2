@@ -38,6 +38,7 @@ For instructions, see the "Proposing new code examples" section in the
    Amazon Kinesis Examples <examples-kinesis>
    Amazon Lambda Examples <lambda-examples>
    Amazon S3 Examples <s3-examples>
+   Amazon S3 Presigned Examples <examples-s3-presign>
    Amazon SQS Examples <sqs-examples>
    Amazon Transcribe Examples <examples-transcribe>
    Pagination Examples <examples-pagination>
