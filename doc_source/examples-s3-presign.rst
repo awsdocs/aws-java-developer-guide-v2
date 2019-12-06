@@ -30,8 +30,6 @@ access to Alice's credentials.
 
 .. _generate-presignedurl:
 
-services.s3.presigner.model.PresignedPutObjectRequest
-
 Generate a presigned URL and upload an object
 =============================================
 
@@ -43,7 +41,7 @@ you can also specify the time in minutes that the bucket can be accessed without
 *signatureDuration* method (as shown in the following code example).
 
 You can use the :aws-java-class:`PresignedPutObjectRequest <services/s3/presigner/model/PresignedPutObjectRequest>` object to
-obtain the URL by invoking it's *url* method.
+obtain the URL by invoking its *url* method.
 
 **Imports**
 
