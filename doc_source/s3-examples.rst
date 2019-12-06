@@ -26,4 +26,4 @@ This section provides examples of programming |S3|_ using the |sdk-java-v2|.
 
     Bucket Operations <examples-s3-buckets>
     Object Operations <examples-s3-objects>
-    Working with Presigned URLS <examples-s3-presign>
+    
