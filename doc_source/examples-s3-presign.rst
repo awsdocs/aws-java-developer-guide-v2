@@ -13,28 +13,25 @@ Working with Amazon S3 Presigned URLs
 ############################################
 
 .. meta::
-    :description: How to create, list, or delete a bucket using the AWS SDK for Java 2.x.
+    :description: How to work with Presigned buckets using the AWS SDK for Java 2.x.
     :keywords: Amazon Simple Storage Service, Amazon S3, AWS SDK for Java 2.x, S3 code examples,
                CreateBucketRequest, ListBucketRequest, ListObjectsV2Request
 
-
-Every object (file) in |S3| must reside within a *bucket*. A bucket represents a collection (container)
-of objects. Each bucket must have a unique *key* (name). For detailed information
-about buckets and their configuration, see :s3-dg:`Working with Amazon S3 Buckets <UsingBucket>` in
-the |s3-dg|.
-
-.. include:: common/s3-note-incomplete-upload-policy.txt
-
-.. include:: includes/examples-note.txt
+You can use a :aws-java-class:`S3Presigner <services/s3/presigner/S3Presigner>` object to sign an S3 *SdkRequest* so that it can
+be executed without requiring any additional authentication on the part of the caller.
+For example, assume Alice has access to an S3 object, and she wants to temporarily share access to that object with Bob.
+Alice can generate a pre-signed :aws-java-class:`GetObjectRequest <services/s3/model/GetObjectRequest>` object
+to secure share with Bob so that he can download the object without requiring
+access to Alice's credentials.
 
 .. contents::
     :local:
     :depth: 1
 
-.. _create-bucket:
+.. _generate-presignedurl:
 
-Create a Bucket
-===============
+Generate a presigned URL and upload an object
+=============================================
 
 Build a :aws-java-class:`CreateBucketRequest <services/s3/model/CreateBucketRequest>`
 and provide a bucket name. Pass it to the |s3client|'s
@@ -62,10 +59,10 @@ Make a Create Bucket Request.
 See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>` on GitHub.
 
 
-.. _list-buckets:
+.. _get-presignedobject:
 
-List the Buckets
-================
+Get a presigned object
+======================
 
 Build a :aws-java-class:`ListBucketsRequest <services/s3/model/ListBucketsRequest>`.
 Use the |s3client|'s :methodname:`listBuckets` method to retrieve the list of buckets.
