@@ -25,6 +25,5 @@ This section provides examples of programming |S3|_ using the |sdk-java-v2|.
     :maxdepth: 1
 
     Bucket Operations <examples-s3-buckets>
-    S3 Presigned URLs <examples-s3-presign>
     Object Operations <examples-s3-objects>
     
