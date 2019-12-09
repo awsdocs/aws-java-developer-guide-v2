@@ -69,10 +69,16 @@ See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>` on GitHub.
 Get a presigned object
 ======================
 
-Build a :aws-java-class:`ListBucketsRequest <services/s3/model/ListBucketsRequest>`.
-Use the |s3client|'s :methodname:`listBuckets` method to retrieve the list of buckets.
-If the request succeeds a :aws-java-class:`ListBucketsResponse <services/s3/model/ListBucketsResponse>`
-is returned. Use this response object to retrieve the list of buckets.
+Build a :aws-java-class:`S3Presigner <services/s3/presigner/S3Presigner>` object that represents the client object.
+Next create a :aws-java-class:`GetObjectRequest <services/s3/model/GetObjectRequest>` object
+and specify the bucket name and key name. In addition, create a
+:aws-java-class:`GetObjectPresignRequest <services/s3/presigner/model/GetObjectPresignRequest>` object that
+can be executed at a later time without requiring additional signing or authentication.
+
+Invoke the aws-java-class:`S3Presigner <services/s3/presigner/S3Presigner>` object's *presignGetObject* method to create a
+:aws-java-class:`PresignedPutObjectRequest <services/s3/presigner/model/PresignedPutObjectRequest>` object. You can invoke this object's
+ *url* method to obtain the URL to use. Once you have the URL, you can use standard HTTP Java logic to read the contents of the bucket, as shown
+in the following Java code example.
 
 **Imports**
 
