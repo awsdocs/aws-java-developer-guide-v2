@@ -77,7 +77,7 @@ can be executed at a later time without requiring additional signing or authenti
 specify the time in minutes that the bucket can be accessed without using AWS credentials by invoking the
 *signatureDuration* method (as shown in the following code example).
 
-Invoke the aws-java-class:`S3Presigner <services/s3/presigner/S3Presigner>` object's *presignGetObject* method to create a
+Invoke the *presignGetObject* method that belongs to the :aws-java-class:`S3Presigner <services/s3/presigner/S3Presigner>` object to create a
 :aws-java-class:`PresignedPutObjectRequest <services/s3/presigner/model/PresignedPutObjectRequest>` object. You can invoke this object's *url* method to obtain the URL to use. Once you have the URL, you can use standard HTTP Java logic to read the contents of the bucket, as shown
 in the following Java code example.
 
