@@ -76,7 +76,8 @@ The following Java code example demonstrates how to retrieve a list of function 
 .. literalinclude:: lambda.java2.list.main.txt
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <ListLambdaFunctions.java>` on GitHub.
+See the complete example on `Github
+<https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/lambda/src/main/java/com/example/lambda/ListLambdaFunctions.java/>`_.
 
 
 .. _delete-function:
@@ -102,4 +103,7 @@ The following Java code demonstrates how to delete a Lambda function.
 .. literalinclude:: lambda.java2.delete.main.txt
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <DeleteFunction.java>` on GitHub.
+See the complete example on `Github
+<https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/lambda/src/main/java/com/example/lambda/DeleteFunction.java/>`_.
+
+
