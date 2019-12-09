@@ -48,7 +48,7 @@ The following code example demonstrates how to invoke a Lambda function.
 .. literalinclude:: lambda.java2.invoke.main.txt
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>` on GitHub.
+See the :sdk-examples-java-s3:`complete example <LambdaInvoke.java>` on GitHub.
 
 
 .. _list-function:
@@ -75,7 +75,7 @@ The following Java code example demonstrates how to retrieve a list of function 
 .. literalinclude:: lambda.java2.list.main.txt
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>` on GitHub.
+See the :sdk-examples-java-s3:`complete example <ListLambdaFunctions.java>` on GitHub.
 
 
 .. _delete-function:
@@ -101,6 +101,4 @@ The following Java code demonstrates how to delete a Lambda function.
 .. literalinclude:: lambda.java2.delete.main.txt
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <S3BucketDeletion.java>` on GitHub.
-
-
+See the :sdk-examples-java-s3:`complete example <DeleteFunction.java>` on GitHub.
