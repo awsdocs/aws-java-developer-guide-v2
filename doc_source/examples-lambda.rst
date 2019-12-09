@@ -48,7 +48,8 @@ The following code example demonstrates how to invoke a Lambda function.
 .. literalinclude:: lambda.java2.invoke.main.txt
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <LambdaInvoke.java>` on GitHub.
+See the complete example on `Github
+<https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/lambda/src/main/java/com/example/lambda/LambdaInvoke.java/>`_.
 
 
 .. _list-function:
