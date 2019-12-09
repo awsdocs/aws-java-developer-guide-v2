@@ -45,23 +45,17 @@ obtain the URL by invoking its *url* method.
 
 **Imports**
 
-.. literalinclude:: s3.java2.s3_bucket_ops.import.txt
+.. literalinclude:: presigned.java2.generatepresignedurl.import.txt
    :language: java
 
 **Code**
 
-First create an |s3client|.
+The following Java code example uploads content to a presigned S3 bucket.
 
-.. literalinclude:: s3.java2.s3_bucket_ops.region.txt
+.. literalinclude:: presigned.java2.generatepresignedurl.main.txt
    :language: java
 
-Make a Create Bucket Request. 
-
-.. literalinclude:: s3.java2.s3_bucket_ops.create_bucket.txt
-   :dedent: 8
-   :language: java
-
-See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>` on GitHub.
+See the :sdk-examples-java-s3:`complete example <GeneratePresignedUrlAndUploadObject.java>` on GitHub.
 
 
 .. _get-presignedobject:
@@ -83,22 +77,18 @@ in the following Java code example.
 
 **Imports**
 
-.. literalinclude:: s3.java2.s3_bucket_ops.import.txt
+.. literalinclude:: presigned.java2.getobjectpresigned.import.txt
    :language: java
 
 **Code**
 
-First create an |s3client|.
+The following Java code examples reads content from a presigned S3 bucket.
 
-.. literalinclude:: s3.java2.s3_bucket_ops.region.txt
+.. literalinclude:: presigned.java2.getobjectpresigned.main.txt
    :language: java
 
-Make a List Buckets Request. 
 
-.. literalinclude:: s3.java2.s3_bucket_ops.list_bucket.txt
-   :dedent: 8
-   :language: java
 
-See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>` on GitHub.
+See the :sdk-examples-java-s3:`complete example <GetObjectPresignedUrl.java>` on GitHub.
 
 
