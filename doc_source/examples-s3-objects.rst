@@ -156,7 +156,7 @@ List Objects
 
 Build a :aws-java-class:`ListObjectsRequest <services/s3/model/ListObjectsRequest>`
 and supply a bucket name. Then invoke the |s3client|'s
-:methodname:`listObjects` method. This method returns a :aws-java-class:`ListObjectsResponse <services/s3/model/ListObjectsResponse>` that contains all of the objects in the bucket. You can 
+:methodname:`listObjects` method and pass the :aws-java-class:`ListObjectsRequest <services/s3/model/ListObjectsRequest>` object. This method returns a :aws-java-class:`ListObjectsResponse <services/s3/model/ListObjectsResponse>` that contains all of the objects in the bucket. You can 
 invoke this object's *contents* method to get a list of objects. You can iterate through this list to display
 the objects, as shown in the following code example. 
 
