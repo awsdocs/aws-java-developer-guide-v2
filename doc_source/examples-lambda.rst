@@ -46,7 +46,7 @@ object that contains information. For example, in the following code example, no
 The following code example demonstrates how to invoke a Lambda function.
 
 .. literalinclude:: lambda.java2.invoke.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the complete example on `Github
@@ -75,7 +75,7 @@ You can iterate through the list to retrieve information about the functions. Fo
 The following Java code example demonstrates how to retrieve a list of function names.
 
 .. literalinclude:: lambda.java2.list.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the complete example on `Github
@@ -103,7 +103,7 @@ Function names appear as *arn:aws:lambda:us-west-2:555556330391:function:HelloFu
 The following Java code demonstrates how to delete a Lambda function.
 
 .. literalinclude:: lambda.java2.delete.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the complete example on `Github
