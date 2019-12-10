@@ -149,3 +149,28 @@ Use the |s3client|'s :methodname:`copyObject` method, and pass the :aws-java-cla
 
 See the :sdk-examples-java-s3:`complete example <CopyObject.java>` on GitHub.
 
+.. _list-object:
+
+List Objects
+================
+
+Build a :aws-java-class:`ListObjectsRequest <services/s3/model/ListObjectsRequest>`
+and supply a bucket name. Then invoke the |s3client|'s
+:methodname:`listObjects` method. This method returns a :aws-java-class:`ListObjectsResponse <services/s3/model/ListObjectsResponse>` that contains all of the objects in the bucket. You can 
+invoke this object's *contents* method to get a list of objects. You can iterate through this list to display
+the objects, as shown in the following code example. 
+
+**Imports**
+
+.. literalinclude:: s3.java2.s3_object_operations.import.txt
+   :language: java
+
+**Code**
+
+.. literalinclude:: s3.java2.s3_object_operations.upload.txt
+   :dedent: 8
+   :language: java
+
+See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>` on GitHub.
+
+
