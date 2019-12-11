@@ -168,7 +168,7 @@ the objects, as shown in the following code example.
 **Code**
 
 .. literalinclude:: s3.java2.list_objects.main.txt
-   :dedent: 3
+   :dedent: 1
    :language: java
 
 See the :sdk-examples-java-s3:`complete example <ListObjects.java>` on GitHub.
