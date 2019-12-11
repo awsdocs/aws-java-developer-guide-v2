@@ -162,15 +162,15 @@ the objects, as shown in the following code example.
 
 **Imports**
 
-.. literalinclude:: s3.java2.s3_object_operations.import.txt
+.. literalinclude:: s3.java2.list_objects.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: s3.java2.s3_object_operations.upload.txt
+.. literalinclude:: s3.java2.list_objects.main.txt
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>` on GitHub.
+See the :sdk-examples-java-s3:`complete example <ListObjects.java>` on GitHub.
 
 
