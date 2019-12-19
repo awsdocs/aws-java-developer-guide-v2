@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-########################
-Using the |sdk-java-v2|
-########################
+##############################
+Using the AWS SDK for Java 2.0
+##############################
 
 .. meta::
    :description: Programming information for the AWS SDK for Java
