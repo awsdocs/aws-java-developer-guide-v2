@@ -44,8 +44,6 @@ feedback are also welcome.
 
   + `S3 Transfer manager <https://github.com/aws/aws-sdk-java-v2/issues/37>`_
 
-  + `S3 URL Presigners <https://github.com/aws/aws-sdk-java-v2/issues/849>`_
-
   + `S3 Encryption Client <https://github.com/aws/aws-sdk-java-v2/issues/34>`_
 
   + `DynamoDB Object Mapper <https://github.com/aws/aws-sdk-java-v2/issues/35>`_
