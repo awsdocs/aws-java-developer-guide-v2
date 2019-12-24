@@ -21,7 +21,7 @@ You can use |mvnlong|_ to configure and build |sdk-java| projects or to build th
 Create a New Maven Package
 ==========================
 
-To create a basic Maven package, open a terminal (command line) window and run the following.
+To create a basic Maven package, open a terminal (command line) window and run the following command.
 
 .. code-block:: sh
 
@@ -35,7 +35,7 @@ with your project name (this becomes the name of the directory for your project)
 
 By default, |mvn| creates a project template for you using the `quickstart
 <http://maven.apache.org/archetypes/maven-archetype-quickstart/>`_ archetype. This creates a Java 1.5 project.
-You must update your application to Java 1.8 to be compatible with |sdk-java-v2|. To update to Java 1.8, add
+You must update your application to Java 1.8 to be compatible with the AWS Java SDK version 2. To update to Java 1.8, add
 the following to your :file:`pom.xml` file.
 
 .. code-block:: xml
@@ -159,6 +159,113 @@ declare it in your :file:`pom.xml` as follows. Find the latest version in the
       <version>2.X.X</version>
     </dependency>
   </dependencies>
+
+Create a JAR file that contains AWS dependencies
+===============================================
+You can create a single JAR file that contains individual SDK modules by using Maven. To create a JAR file, you must setup your POM file correctly.
+First, for each AWS module that you want to include, you must reference it using a dependencies element (see the following example). Next, you have to
+include the *org.apache.maven.plugins* plugin within your POM file as well. Once you setup your POM file, you can use the following command:
+
+(mvn package*
+
+The following POM file builds a single JAR file that contains AWS dependencies:
+
+.. code-block:: xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+   <groupId>localdomain.localhost.tutorial</groupId>
+    <artifactId>java-archive</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>AWS JAR</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+             <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-assembly-plugin</artifactId>
+               <executions>
+               <execution>
+                  <id>create-my-bundle</id>
+                  <phase>package</phase>
+                <goals>
+                <goal>single</goal>
+               </goals>
+            <configuration>
+             <descriptorRefs>
+               <descriptorRef>jar-with-dependencies</descriptorRef>
+            </descriptorRefs>
+        ...
+      </configuration>
+    </execution>
+  </executions>
+</plugin>
+
+        </plugins>
+    </build>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>software.amazon.awssdk</groupId>
+                <artifactId>bom</artifactId>
+                <version>2.5.10</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>ec2</artifactId>
+            <version>2.5.10</version>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>s3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>pinpoint</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>dynamodb</artifactId>
+            <version>2.5.10</version>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>sqs</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/software.amazon.awssdk/netty-nio-client -->
+
+    </dependencies>
+</project>
+
 
 
 Build Your Project
