@@ -168,7 +168,7 @@ include the *org.apache.maven.plugins* plugin within your POM file as well. Once
 
 *mvn package*
 
-The following POM file builds a single JAR file that contains AWS dependencies.
+The following POM file builds a single JAR file that contains AWS dependencies. You can locate the JAR file in the *target* folder after the build completes.
 
 .. code-block:: xml
 
