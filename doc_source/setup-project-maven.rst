@@ -166,11 +166,13 @@ You can create a single JAR file that contains individual SDK modules by using M
 First, for each AWS module that you want to include, you must reference it using a dependencies element (see the following example). Next, you have to
 include the *org.apache.maven.plugins* plugin within your POM file as well. Once you setup your POM file, you can use the following command:
 
-(mvn package*
+*mvn package*
 
 The following POM file builds a single JAR file that contains AWS dependencies:
 
 .. code-block:: xml
+   :linenos:
+
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -180,12 +182,10 @@ The following POM file builds a single JAR file that contains AWS dependencies:
     <artifactId>java-archive</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>AWS JAR</name>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
     </properties>
-
     <build>
         <plugins>
             <plugin>
@@ -211,14 +211,12 @@ The following POM file builds a single JAR file that contains AWS dependencies:
              <descriptorRefs>
                <descriptorRef>jar-with-dependencies</descriptorRef>
             </descriptorRefs>
-        ...
       </configuration>
     </execution>
   </executions>
 </plugin>
-
-        </plugins>
-    </build>
+ </plugins>
+ </build>
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -230,7 +228,6 @@ The following POM file builds a single JAR file that contains AWS dependencies:
             </dependency>
         </dependencies>
     </dependencyManagement>
-
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -260,12 +257,9 @@ The following POM file builds a single JAR file that contains AWS dependencies:
             <groupId>software.amazon.awssdk</groupId>
             <artifactId>sqs</artifactId>
         </dependency>
-
         <!-- https://mvnrepository.com/artifact/software.amazon.awssdk/netty-nio-client -->
-
     </dependencies>
 </project>
-
 
 
 Build Your Project
