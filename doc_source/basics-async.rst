@@ -57,6 +57,26 @@ is done only when the asynchronous call is complete.
 .. literalinclude:: dynamodb.java2.dbasync.main.txt
    :language: java
 
+The following code example shows you how to retrieve an Item from a table by using
+the Asynchronous client. Invoke the :methodname:`getItem` method of the |ddbasyncclient| and pass it a
+:aws-java-class:`GetItemRequest <services/dynamodb/model/GetItemRequest>` object with the table
+name and primary key value of the item you want. This is typically how you pass data that the operation requires.
+In this example, notice that a String value is passed.
+
+**Imports**
+
+.. literalinclude:: dynamoasyn.java2.get_item.import.txt
+   :language: java
+
+**Code**
+
+.. literalinclude:: dynamoasyc.java2.get_item.main.txt
+   :dedent: 8
+   :language: java
+
+See the :sdk-examples-java-dynamodbasync:`complete example <DynamoDBAsyncGetItem.java>` on GitHub.
+
+
 .. _basics-async-streaming:
 
 Streaming Operations
