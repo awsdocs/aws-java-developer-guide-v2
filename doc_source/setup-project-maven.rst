@@ -253,9 +253,8 @@ The following POM file builds a single JAR file that contains AWS dependencies.
          <groupId>software.amazon.awssdk</groupId>
          <artifactId>sqs</artifactId>
       </dependency>
-      <!-- https://mvnrepository.com/artifact/software.amazon.awssdk/netty-nio-client -->
-   </dependencies>
-</project>
+      </dependencies>
+   </project>
 
 
 
