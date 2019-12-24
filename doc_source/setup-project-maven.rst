@@ -173,16 +173,15 @@ The following POM file builds a single JAR file that contains AWS dependencies.
 .. code-block:: xml
    :linenos:
 
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
+   <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-   <groupId>localdomain.localhost.tutorial</groupId>
-    <artifactId>java-archive</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <name>AWS JAR</name>
-</project>
+      <modelVersion>4.0.0</modelVersion>
+      <groupId>localdomain.localhost.tutorial</groupId>
+      <artifactId>java-archive</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <name>AWS JAR</name>
+   </project>
 
 
 
