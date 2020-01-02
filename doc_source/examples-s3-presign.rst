@@ -30,18 +30,18 @@ access to Alice's credentials.
 
 .. _generate-presignedurl:
 
-Generate a presigned URL and upload an object
+Generate a Presigned URL and Upload an Object
 =============================================
 
 Build a :aws-java-class:`S3Presigner <services/s3/presigner/S3Presigner>` object that represents the client object.
 Next create a :aws-java-class:`PresignedPutObjectRequest <services/s3/presigner/model/PresignedPutObjectRequest>` object
 that can be executed at a later time without requiring additional signing or authentication. When you create this object,
 you can specify the bucket name and the key name. In addition,
-you can also specify the time in minutes that the bucket can be accessed without using AWS credentials by invoking the
-*signatureDuration* method (as shown in the following code example).
+you can also specify the time in minutes that the bucket can be accessed without using credentials by invoking the
+``signatureDuration`` method (as shown in the following code example).
 
 You can use the :aws-java-class:`PresignedPutObjectRequest <services/s3/presigner/model/PresignedPutObjectRequest>` object to
-obtain the URL by invoking its *url* method.
+obtain the URL by invoking its ``url`` method.
 
 **Imports**
 
@@ -60,19 +60,20 @@ See the :sdk-examples-java-s3:`complete example <GeneratePresignedUrlAndUploadOb
 
 .. _get-presignedobject:
 
-Get a presigned object
+Get a Presigned Object
 ======================
 
 Build a :aws-java-class:`S3Presigner <services/s3/presigner/S3Presigner>` object that represents the client object.
-Next create a :aws-java-class:`GetObjectRequest <services/s3/model/GetObjectRequest>` object
+Next, create a :aws-java-class:`GetObjectRequest <services/s3/model/GetObjectRequest>` object
 and specify the bucket name and key name. In addition, create a
 :aws-java-class:`GetObjectPresignRequest <services/s3/presigner/model/GetObjectPresignRequest>` object that
 can be executed at a later time without requiring additional signing or authentication. When you create this object, you can
 specify the time in minutes that the bucket can be accessed without using AWS credentials by invoking the
-*signatureDuration* method (as shown in the following code example).
+``signatureDuration`` method (as shown in the following code example).
 
-Invoke the *presignGetObject* method that belongs to the :aws-java-class:`S3Presigner <services/s3/presigner/S3Presigner>` object to create a
-:aws-java-class:`PresignedPutObjectRequest <services/s3/presigner/model/PresignedPutObjectRequest>` object. You can invoke this object's *url* method to obtain the URL to use. Once you have the URL, you can use standard HTTP Java logic to read the contents of the bucket, as shown
+Invoke the ``presignGetObject`` method that belongs to the :aws-java-class:`S3Presigner <services/s3/presigner/S3Presigner>` object to create a
+:aws-java-class:`PresignedPutObjectRequest <services/s3/presigner/model/PresignedPutObjectRequest>` object.
+You can invoke this object's ``url`` method to obtain the URL to use. Once you have the URL, you can use standard HTTP Java logic to read the contents of the bucket, as shown
 in the following Java code example.
 
 **Imports**
