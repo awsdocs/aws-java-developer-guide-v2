@@ -68,7 +68,7 @@ Next, create a :aws-java-class:`GetObjectRequest <services/s3/model/GetObjectReq
 and specify the bucket name and key name. In addition, create a
 :aws-java-class:`GetObjectPresignRequest <services/s3/presigner/model/GetObjectPresignRequest>` object that
 can be executed at a later time without requiring additional signing or authentication. When you create this object, you can
-specify the time in minutes that the bucket can be accessed without using AWS credentials by invoking the
+specify the time in minutes that the bucket can be accessed without using credentials by invoking the
 ``signatureDuration`` method (as shown in the following code example).
 
 Invoke the ``presignGetObject`` method that belongs to the :aws-java-class:`S3Presigner <services/s3/presigner/S3Presigner>` object to create a
@@ -83,7 +83,7 @@ in the following Java code example.
 
 **Code**
 
-The following Java code examples reads content from a presigned S3 bucket.
+The following Java code example reads content from a presigned S3 bucket.
 
 .. literalinclude:: presigned.java2.getobjectpresigned.main.txt
    :language: java
