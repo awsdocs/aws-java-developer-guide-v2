@@ -17,7 +17,7 @@ Working with Amazon S3 Presigned URLs
     :keywords: Amazon Simple Storage Service, Amazon S3, AWS SDK for Java 2.x, S3 code examples,
                CreateBucketRequest, ListBucketRequest, ListObjectsV2Request
 
-You can use a :aws-java-class:`S3Presigner <services/s3/presigner/S3Presigner>` object to sign an S3 ``SdkRequest``
+You can use a :aws-java-class:`S3Presigner <services/s3/presigner/S3Presigner>` object to sign an |S3| ``SdkRequest``
 so that it's executed without requiring authentication on the part of the caller.
 For example, assume Alice has access to an S3 object, and she wants to temporarily share access to that object with Bob.
 Alice can generate a pre-signed :aws-java-class:`GetObjectRequest <services/s3/model/GetObjectRequest>` object
