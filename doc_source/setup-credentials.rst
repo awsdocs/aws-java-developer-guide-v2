@@ -47,6 +47,34 @@ Once you set your AWS credentials using one of these methods, the |sdk-java| loa
 by using the default credential provider chain. For more information about
 working with AWS credentials in your Java applications, see :doc:`credentials`.
 
+
+.. _refresh-credentials:
+Refreshing IMDS credentials
+===========================
+
+The |sdk-java| supports opt-in refreshing IMDS credentials in the background every 1 minute, regardless of the credential expiration time.
+This allows you to refresh credentials more frequently and reduces the chance that not reaching IMDS impacts
+the perceived AWS availability.
+
+.. code-block:: java
+   :linenos:
+
+    1. // Refresh credentials using a background thread, automatically every minute. This will log an error if IMDS is down during
+    2. // a refresh, but your service calls will continue using the cached credentials until the credentials are refreshed
+    3. // again one minute later.
+    4.
+    5. InstanceProfileCredentialsProvider credentials =
+    6.    InstanceProfileCredentialsProvider.builder()
+    7.                                .asyncCredentialUpdateEnabled(true)
+    8.                                  .build();
+    9.
+    10. S3Client client = S3Client.builder()
+    11.                      .credentialsProvider(credentials)
+    12.                      .build();
+    13.
+    14. // This is new: When you are done with the credentials provider, you must close it to release the background thread.
+    15. credentials.close();
+
 .. _setup-credentials-setting-region:
 
 Setting the AWS Region
