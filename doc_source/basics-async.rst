@@ -15,7 +15,7 @@ Asynchronous Programming
 .. meta::
    :description: How asynchronous programming works in the AWS SDK for Java 2.x
 
-The |sdk-java-v2| features truly nonblocking asychronous clients that implement high
+The |sdk-java-v2| features truly nonblocking asynchronous clients that implement high
 concurrency across a few threads. The |sdk-java| 1.11.x has
 asynchronous clients that are wrappers around a thread pool and blocking synchronous clients
 that don't provide the full benefit of nonblocking I/O.
@@ -33,7 +33,7 @@ that allow you to access the response when it's ready.
 Non-Streaming Operations
 ========================
 
-For non-streaming operations, asychronous method calls are similar to synchronous methods.
+For non-streaming operations, asynchronous method calls are similar to synchronous methods.
 However, the asynchronous methods in the |sdk-java| return a
 :javase-ref:`CompletableFuture <java/util/concurrent/CompletableFuture>`
 object that contains the results of the asynchronous operation *in the future*.
@@ -119,10 +119,10 @@ Advanced Operations
 The |sdk-java-v2| uses `Netty <https://netty.io>`_ an asynchronous event-driven network application framework, to 
 handle I/O threads. The |sdk-java-v2| creates an :methodname:`ExecutorService` behind Netty, to complete the futures returned 
 from the HTTP client request through  to the Netty client. This abstraction reduces the risk of an application breaking the async
-process if developers choose to stop or sleep threads. By default, 50 Threads are generated for each asychronous client, 
+process if developers choose to stop or sleep threads. By default, 50 Threads are generated for each asynchronous client,
 and managed in a queue within the :methodname:`ExecutorService`.
 
-Advanced users can specify their thread pool size when creating an asychronous client using the following option when building.
+Advanced users can specify their thread pool size when creating an asynchronous client using the following option when building.
 
 **Code**
 
