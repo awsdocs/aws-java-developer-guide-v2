@@ -44,6 +44,10 @@ SDK into your project by using Apache Maven or Gradle:
 .. note:: Any build system that supports MavenCentral as an artifact source may be used. However we
    will not provide a downloadable zip for the developer preview.
 
+If you are using one the above methods (for example, you are using Maven), then you do not need to download and
+install the AWS JAR files (you can skip the following section). If you intend to build your projects using a different IDE,
+with Apache Ant or by any other means, then download and extract the SDK as shown in the next section.
+
 .. _install-prev-sdk:
 
 Compiling the SDK
