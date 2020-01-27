@@ -39,9 +39,9 @@ your application needs to find for initialization.
 Example: Minimal SDK Startup Time Client Configuration
 ======================================================
 
-The following Java code example shows you how to use a client builder to create a *S3Client* object.have
 .. code-block:: Java
-    Region region = Region.US_WEST_2;
-    S3Client S3 = S3Client.builder()
+
+ Region region = Region.US_WEST_2;
+ 3Client S3 = S3Client.builder()
                 .region(region)
                 .build();
