@@ -145,7 +145,7 @@ You can delete an item that exists in a table by using the |ddbclient|'s
 
 **Imports**
 
-.. literalinclude:: dynamodb.java2.delete_item.import.import.txt
+.. literalinclude:: dynamodb.java2.delete_item.import.txt
    :language: java
 
 **Code**
