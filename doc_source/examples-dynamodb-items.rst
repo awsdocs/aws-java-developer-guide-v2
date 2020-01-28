@@ -131,6 +131,31 @@ update.
 
 See the :sdk-examples-java-dynamodb:`complete example <UpdateItem.java>` on GitHub.
 
+.. _dynamodb-delete-item:
+
+Delete an Existing Item in a Table
+==================================
+
+You can delete an item that exists in a table by using the |ddbclient|'s
+:methodname:`deleteItem` method and providing a table name as well as the primary key value.
+
+.. note:: If the named table doesn't exist for your account and region, or if the item identified by
+   the primary key you passed in doesn't exist, a :aws-java-class:`ResourceNotFoundException
+   <services/dynamodb/model/ResourceNotFoundException>` is thrown.
+
+**Imports**
+
+.. literalinclude:: dynamodb.java2.delete_item.import.import.txt
+   :language: java
+
+**Code**
+
+.. literalinclude:: dynamodb.java2.delete_item.main.txt
+   :dedent: 8
+   :language: java
+
+See the :sdk-examples-java-dynamodb:`complete example <DeleteItem.java>` on GitHub.
+
 
 More Info
 =========
