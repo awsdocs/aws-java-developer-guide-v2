@@ -37,6 +37,13 @@ and the ability to plug in a different HTTP implementation at run time. For more
 the `AWS Blog`_. For guidance on migrating your application from 1.11.x to 2.x, see the
 `migration guide`_.
 
+
+.. _whats_missing:
+
+What's Missing in Version 2.x
+=========================
+
+Not all features and high-level libraries from 1.x are available in 2.x yet. 
 See the Github issues for details about additional features not yet in 2.x. Comments and
 feedback are also welcome.
 
