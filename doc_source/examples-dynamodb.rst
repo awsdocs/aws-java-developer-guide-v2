@@ -16,7 +16,7 @@
    :description: Programming Amazon DynamoDB using the AWS SDK for Java 2.x
    :keywords: AWS SDK for Java 2.x code examples
 
-This section provides examples of programming |ddb|_ using the |sdk-java-v2|.
+This section provides examples that show you how to program |ddb|_ by using the |sdk-java-v2|.
 
 .. include:: includes/dev-preview-async-note.txt
 
