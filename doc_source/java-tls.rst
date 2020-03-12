@@ -32,3 +32,33 @@ To check what TLS version is supported in your JVM, you can use the following co
    System*.out.println(*Arrays*.toString(*SSLContext*.getDefault().getSupportedSSLParameters().getProtocols()));
 
 To see the SSL handshake in action and what version of TLS is used, you can use the system property **javax.net.debug**.
+
+.. code-block:: java
+
+   java app.jar -Djavax.net.debug=ssl
+
+How to set TLS version
+======================
+
+**AWS Java SDK 1.x**
+
+* Apache http client: the SDK always prefers TLS 1.2 if it's supported in the platform.
+
+**AWS Java SDK 2.x**
+
+* ApacheHttpClient: the SDK always prefers TLS 1.2 if it's supported in the platform.
+
+* UrlHttpConnectionClient:
+    * To enforce only tls 1.2, using the system property
+
+.. code-block:: java
+
+   java app.jar -Djdk.tls.client.protocols=TLSv1.2
+
+or in code
+
+.. code-block:: java
+
+   System.setProperty("jdk.tls.client.protocols", "TLSv1.2");
+
+* NettyNioHttpClient: The SDK dependency Netty by default always prefers TLS 1.2 if it's supported in the platform.
