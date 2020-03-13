@@ -56,7 +56,14 @@ When the default credential provider chain attempts to retrieve credentials, it 
 
 #. **Environment variables** |ndash| :envvar:`AWS_ACCESS_KEY_ID` and :envvar:`AWS_SECRET_ACCESS_KEY`.
    The |sdk-java| uses the :aws-java-class:`EnvironmentVariableCredentialsProvider <auth/credentials/EnvironmentVariableCredentialsProvider>`
-   class to load these credentials.
+   class to load these credentials. The following Java code shows how to create a **AmazonDynamoDB** object using Environment variables. 
+   
+   .. code-block:: java
+
+   AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
+                .withRegion(Regions.DEFAULT_REGION)
+                .withCredentials(new EnvironmentVariableCredentialsProvider())
+                .build();
 
 #. **The default credential profiles file** |ndash| The specific location of this file can vary per platform, but is 
    typically located at :file:`~/.aws/credentials`. 
