@@ -50,14 +50,12 @@ Credential Retrieval Order
 
 When the default credential provider chain attempts to retrieve credentials. For example, the following Java code shows how to create a **AmazonDynamoDB** object using Environment variables.
 
-.. code-block:: java
-
-   AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
+AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
                 .withRegion(Regions.DEFAULT_REGION)
                 .withCredentials(new EnvironmentVariableCredentialsProvider())
                 .build();
 
-THe following list shows the order:
+The following list shows the order:
 
 #. **Java system properties** |ndash| :code:`aws.accessKeyId` and :code:`aws.secretAccessKey`.
    The |sdk-java| uses the :aws-java-class:`SystemPropertyCredentialsProvider <auth/credentials/SystemPropertyCredentialsProvider>`
