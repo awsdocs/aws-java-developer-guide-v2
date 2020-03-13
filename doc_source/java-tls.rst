@@ -16,7 +16,7 @@ Java SDK TLS 1.2
    :description: Applies to Java SSL implementation (default SSL implementation in the SDK)Learn how the AWS shared responsibility model applies to data protection in this AWS product or service.
    :keywords:
 
-The following information only applies to Java SSL implementation (default SSL implementation in the SDK). If you are using a different SSL implementation, you need to look at your specific ssl implementation for how to enforce tls versions.
+The following information only applies to Java SSL implementation (default SSL implementation in the SDK). If you are using a different SSL implementation, look at your specific ssl implementation for how to enforce tls versions.
 
 TLS support in Java
 ===================
