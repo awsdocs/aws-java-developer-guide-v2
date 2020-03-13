@@ -48,7 +48,7 @@ The following example creates a new service client that uses the default credent
 Credential Retrieval Order
 --------------------------
 
-When the default credential provider chain attempts to retrieve credentials. For example, the following Java code shows how to create a **AmazonDynamoDB** object using Environment variables.
+When the default credential provider chain attempts to retrieve credentials. For example, the following Java code shows how to create an **AmazonDynamoDB** object using Environment Variables (:code:`EnvironmentVariableCredentialsProvider`).
 
 .. code-block:: java
 
