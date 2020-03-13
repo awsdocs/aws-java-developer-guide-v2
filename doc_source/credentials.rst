@@ -52,7 +52,7 @@ When the default credential provider chain attempts to retrieve credentials. For
 
 .. code-block:: java
 
-AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
+   AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
                 .withRegion(Regions.DEFAULT_REGION)
                 .withCredentials(new EnvironmentVariableCredentialsProvider())
                 .build();
