@@ -48,7 +48,16 @@ The following example creates a new service client that uses the default credent
 Credential Retrieval Order
 --------------------------
 
-When the default credential provider chain attempts to retrieve credentials, it uses the following in the order shown:
+When the default credential provider chain attempts to retrieve credentials. For example, the following Java code shows how to create a **AmazonDynamoDB** object using Environment variables.
+
+.. code-block:: java
+
+   AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
+                .withRegion(Regions.DEFAULT_REGION)
+                .withCredentials(new EnvironmentVariableCredentialsProvider())
+                .build();
+
+THe following list shows the order:
 
 #. **Java system properties** |ndash| :code:`aws.accessKeyId` and :code:`aws.secretAccessKey`.
    The |sdk-java| uses the :aws-java-class:`SystemPropertyCredentialsProvider <auth/credentials/SystemPropertyCredentialsProvider>`
@@ -56,15 +65,8 @@ When the default credential provider chain attempts to retrieve credentials, it 
 
 #. **Environment variables** |ndash| :envvar:`AWS_ACCESS_KEY_ID` and :envvar:`AWS_SECRET_ACCESS_KEY`.
    The |sdk-java| uses the :aws-java-class:`EnvironmentVariableCredentialsProvider <auth/credentials/EnvironmentVariableCredentialsProvider>`
-   class to load these credentials. The following Java code shows how to create a **AmazonDynamoDB** object using Environment variables. 
+   class to load these credentials.  
    
-   .. code-block:: java
-
-   AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                .withRegion(Regions.DEFAULT_REGION)
-                .withCredentials(new EnvironmentVariableCredentialsProvider())
-                .build();
-
 #. **The default credential profiles file** |ndash| The specific location of this file can vary per platform, but is 
    typically located at :file:`~/.aws/credentials`. 
    This file is shared by many of the AWS SDKs and by the AWS CLI. The
