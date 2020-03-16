@@ -16,7 +16,8 @@ Java SDK TLS 1.2
    :description: Applies to Java SSL implementation (default SSL implementation in the SDK)Learn how the AWS shared responsibility model applies to data protection in this AWS product or service.
    :keywords:
 
-The following information only applies to Java SSL implementation (default SSL implementation in the SDK). If you are using a different SSL implementation, look at your specific ssl implementation for how to enforce tls versions.
+The following information only applies to Java SSL implementation (default SSL implementation in the SDK). If you are using a different SSL implementation,
+look at your specific ssl implementation for how to enforce tls versions.
 
 TLS support in Java
 ===================
@@ -48,13 +49,13 @@ How to set TLS version
 * ApacheHttpClient: the SDK always prefers TLS 1.2 if it's supported in the platform.
 
 * UrlHttpConnectionClient:
-    * To enforce only tls 1.2, using the system property
+    * To enforce only tls 1.2, using the system property.
 
 .. code-block:: java
 
    java app.jar -Djdk.tls.client.protocols=TLSv1.2
 
-or in code
+or in code.
 
 .. code-block:: java
 
