@@ -48,7 +48,7 @@ How to set the TLS version
 
 * ApacheHttpClient: The SDK always prefers TLS 1.2, if it's supported in the platform.
 
-* UrlHttpConnectionClient: To enforce only TLS 1.2, you can use the system property.
+* UrlHttpConnectionClient: To enforce only TLS 1.2, you can use the system property command.
 
 .. code-block:: java
 
