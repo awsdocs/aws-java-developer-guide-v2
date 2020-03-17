@@ -42,7 +42,7 @@ How to set the TLS version
 
 **AWS SDK for Java 1.x**
 
-* Apache HTTP client: The SDK always prefers TLS 1.2, if it's supported in the platform.
+* Apache HTTP client: The SDK always prefers TLS 1.2 (if it's supported in the platform).
 
 **AWS SDK for Java 2.x**
 
