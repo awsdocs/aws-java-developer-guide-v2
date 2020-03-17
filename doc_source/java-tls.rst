@@ -56,7 +56,7 @@ How to set the TLS version
 
    java app.jar -Djdk.tls.client.protocols=TLSv1.2
 
-or use this code.
+   - Or use this code.
 
 .. code-block:: java
 
