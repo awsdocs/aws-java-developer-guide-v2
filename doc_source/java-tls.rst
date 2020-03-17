@@ -46,7 +46,7 @@ How to set the TLS version
 
 **AWS SDK for Java 2.x**
 
-* ApacheHttpClient: The SDK always prefers TLS 1.2, if it's supported in the platform.
+* ApacheHttpClient: The SDK always prefers TLS 1.2 (if it's supported in the platform).
 
 * UrlHttpConnectionClient: To enforce only TLS 1.2, you can use this Java command.
 
