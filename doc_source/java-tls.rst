@@ -62,4 +62,4 @@ or use this code.
 
    System.setProperty("jdk.tls.client.protocols", "TLSv1.2");
 
-* NettyNioHttpClient: By default, the SDK dependency Netty has is TLS 1.2 (if it's supported in the platform).
+* NettyNioHttpClient: The SDK dependency for Netty is TLS 1.2 (if it's supported in the platform).
