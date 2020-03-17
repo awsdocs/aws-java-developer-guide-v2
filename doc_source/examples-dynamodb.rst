@@ -28,3 +28,4 @@ This section provides examples that show you how to program |ddb|_ by using the 
 
    examples-dynamodb-tables
    examples-dynamodb-items
+   examples-dynamodb-enhanced
