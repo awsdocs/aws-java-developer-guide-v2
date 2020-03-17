@@ -50,16 +50,16 @@ How to set the TLS version
 
 * UrlHttpConnectionClient:
 
-    - To enforce only TLS 1.2, using the system property.
+    - To enforce only TLS 1.2, you can use the system property.
 
 .. code-block:: java
 
    java app.jar -Djdk.tls.client.protocols=TLSv1.2
 
-or in code.
+   or use this code.
 
 .. code-block:: java
 
    System.setProperty("jdk.tls.client.protocols", "TLSv1.2");
 
-* NettyNioHttpClient: By default, the SDK dependency Netty always prefers TLS 1.2, if it's supported in the platform.
+* NettyNioHttpClient: By default, the SDK dependency Netty has is TLS 1.2 (if it's supported in the platform).
