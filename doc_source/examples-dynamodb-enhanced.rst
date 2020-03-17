@@ -9,7 +9,7 @@
    limitations under the License.
 
 ###########################
-Working with Items in |DDB|
+Working with the DynamoDB Enchanced Client
 ###########################
 
 .. meta::
