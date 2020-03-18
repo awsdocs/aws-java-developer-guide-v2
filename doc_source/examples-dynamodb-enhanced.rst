@@ -9,7 +9,7 @@
    limitations under the License.
 
 ###########################
-Working with the DynamoDB Enchanced Client
+Working with the DynamoDB Enhanced Client
 ###########################
 
 .. meta::
