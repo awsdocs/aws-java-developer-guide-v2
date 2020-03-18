@@ -13,7 +13,7 @@
 #############################################
 
 .. meta::
-   :description: Programming Amazon EC2 using the AWS SDK for Java 2.x
+   :description: Programming Amazon EC2 by using the AWS SDK for Java 2.x
    :keywords: AWS SDK for Java 2.x code examples
 
 This section provides examples of programming |EC2|_ that use the |sdk-java-v2|.
