@@ -132,15 +132,12 @@ You can use the :aws-java-class:`KinesisClient <services/kinesis/KinesisClient>`
 :methodname:`putRecords` method. To successfully invoke this method, create a :aws-java-class:`PutRecordsRequest <services/kinesis/model/PutRecordsRequest>` object. You
 pass the name of the data steam to the :methodname:`streamName` method. Also you must pass the data by using the :data:`putRecords` method (as shown in the following code example).
 
-**Code**
+**Imports**
 
-.. literalinclude:: kinesis.java2.stream_example.custom_subscriber.txt
-   :dedent: 4
-   :language: java
+.. literalinclude:: kinesis.java2.stream_rx_example.import.txt
+  :language: java
 
-You can pass that custom subscriber to the :methodname:`subscribe` method, similarly
-to preview examples. The following code snippet shows this example.
-
+In the following Java code example, notice that **StockTrade** object is used as the data to write to the Kinesis data stream. Before running this example, ensure that you have created the data steam. 
 **Code**
 
 .. literalinclude:: kinesis.java2.stream_example.subscribe.txt
