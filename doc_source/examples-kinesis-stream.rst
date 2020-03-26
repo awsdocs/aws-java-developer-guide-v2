@@ -137,7 +137,8 @@ pass the name of the data steam to the :methodname:`streamName` method. Also you
 .. literalinclude:: kinesis.java2.stream_rx_example.import.txt
   :language: java
 
-In the following Java code example, notice that **StockTrade** object is used as the data to write to the Kinesis data stream. Before running this example, ensure that you have created the data steam. 
+In the following Java code example, notice that **StockTrade** object is used as the data to write to the Kinesis data stream. Before running this example, ensure that you have created the data steam.
+
 **Code**
 
 .. literalinclude:: kinesis.java2.stream_example.subscribe.txt
