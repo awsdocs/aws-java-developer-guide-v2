@@ -126,6 +126,30 @@ to preview examples. The following code snippet shows this example.
 
 See the :sdk-examples-java-kinesis:`complete example <KinesisStreamEx.java>` on GitHub.
 
+Write data records into a Kinesis data stream
+=============================================
+You can use the :aws-java-class:`KinesisClient <services/kinesis/KinesisClient>` object to write data records into a Kinesis data stream by using the
+:methodname:`putRecords` method. To successfully invoke this method, create a :aws-java-class:`PutRecordsRequest <services/kinesis/model/PutRecordsRequest>` object. You
+pass the name of the data steam to the :methodname:`streamName` method. Also you must pass the data by using the :data:`putRecords` method (as shown in the following code example).
+
+**Code**
+
+.. literalinclude:: kinesis.java2.stream_example.custom_subscriber.txt
+   :dedent: 4
+   :language: java
+
+You can pass that custom subscriber to the :methodname:`subscribe` method, similarly
+to preview examples. The following code snippet shows this example.
+
+**Code**
+
+.. literalinclude:: kinesis.java2.stream_example.subscribe.txt
+   :dedent: 4
+   :language: java
+
+See the :sdk-examples-java-kinesis:`complete example <KinesisStreamEx.java>` on GitHub.
+
+
 Use a Third-Party Library
 ==========================
 
