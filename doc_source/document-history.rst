@@ -16,6 +16,9 @@ This topic describes important changes to the |sdk-java-dg| over the course of i
 
 **This documentation was built on:** |today|
 
+Mar 19, 2020
+   Added TLS 1.2 to security section.
+
 Aug 2, 2018
    Added Kinesis stream examples.
 
