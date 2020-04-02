@@ -80,39 +80,9 @@ in each batch as needed. To queue up changes to a multiple tables, specify a dif
 
 See the :sdk-examples-java-dynamodb:`complete example <BatchWriteItems.java>` on GitHub.
 
-.. _dynamodb-enhanced-batchitems:
-
-Batch create (put) and delete items
-===================================
-
-You can batch together a series of put requests
-(:aws-java-class:`PutItemEnhancedRequest <services/enhanced/dynamodb/model/PutItemEnhancedRequest>`) and delete requests
-(:aws-java-class:`DeleteItemEnhancedRequest <services/enhanced/dynamodb/model/DeleteItemEnhancedRequest>`)
-to one or more DynamoDB tables, and then send all of the changes in a single request.
-
-In this code snippet, a
-:aws-java-class:`DynamoDbTable <services/enhanced/dynamodb/DynamoDbTable>` is created, two items are queued up in separate batches, and then the items are batch-written in a single call.
-Include multiple entries of :methodname:`addDeleteItem()` and :methodname:`addPutItem()`
-(:aws-java-class:`part of WriteBatch.Builder <services/enhanced/dynamodb/model/WriteBatch>`)
-in each batch as needed. To queue up changes to a multiple tables, specify a different 
-:aws-java-class:`DynamoDbTable <services/enhanced/dynamodb/DynamoDbTable>` object in :methodname:`mappedTableResource()` and a different class in :methodname:`build()` for each.
-
-**Imports**
-
-.. literalinclude:: dynamodb.java2.enhanced.batchitems.import.txt
-   :language: java
-
-**Code**
-
-.. literalinclude:: dynamodb.java2.enhanced.batchitems.main.txt
-   :dedent: 8
-   :language: java
-
-See the :sdk-examples-java-dynamodb:`complete example <BatchWriteItems.java>` on GitHub.
-
 
 More info
 =========
 
-* :ddb-dg:`Guidelines for Working with items <GuidelinesForitems>` in the |ddb-dg|
-* :ddb-dg:`Working with items in DynamoDB <WorkingWithitems>` in the |ddb-dg|
+* :ddb-dg:`Guidelines for Working with items <GuidelinesForitems>` in the |DDB|
+* :ddb-dg:`Working with items in DynamoDB <WorkingWithitems>` in the |DDB|
