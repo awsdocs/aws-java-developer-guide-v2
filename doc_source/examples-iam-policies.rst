@@ -75,7 +75,7 @@ You can attach a policy to an |IAM| :iam-ug:`role <id_roles>` by calling the |ia
 
 **Code**
    
-.. literalinclude:: iam.java2.attach_role_policy.attach.txt
+.. literalinclude:: iam.java2.attach_role_policy.main.txt
    :dedent: 8
    :language: java
 
