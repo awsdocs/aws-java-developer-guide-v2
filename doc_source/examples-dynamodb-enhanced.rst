@@ -82,7 +82,7 @@ in each batch as needed. To queue up changes to a different table, add another i
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-enhanced-dynamodb:`complete example <BatchWriteItems.java>` on GitHub.
+See the :sdk-examples-java-dynamodb:`complete example <BatchWriteItems.java>` on GitHub.
 
 
 .. _dynamodb-enhanced-queryfilter:
@@ -105,7 +105,7 @@ TODO
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-enhanced-dynamodb:`complete example <QueryRecordsWithFilter.java>` on GitHub.
+See the :sdk-examples-java-dynamodb:`complete example <QueryRecordsWithFilter.java>` on GitHub.
 
 
 .. _dynamodb-enhanced-scan:
@@ -126,7 +126,7 @@ TODO
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-enhanced-dynamodb:`complete example <ScanRecords.java>` on GitHub.
+See the :sdk-examples-java-dynamodb:`complete example <ScanRecords.java>` on GitHub.
 
 
 More info
