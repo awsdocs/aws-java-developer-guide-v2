@@ -14,34 +14,38 @@ Using the SDK with Gradle
 
 To use the |sdk-java| in your Gradle_ project, import the SDK's Maven Bill of Materials (BOM) into the build file to manage SDK dependencies for your project.
 
+Be sure to replace *2.X.X* in the build file examples below with a valid version of the AWS SDK for Java v2. Find the latest version in the 
+:aws-java-class-root:`AWS SDK for Java 2.x Reference <>`.
+
+
 .. topic:: To configure the SDK for Gradle 5.0 or later
 
     
-    #. Add the BOM to the *dependencyManagement* section of the file.
+    #. Add the BOM to the *dependencies* section of the file.
 
        .. code-block:: groovy
 
           dependencies {
-             implementation platform('software.amazon.awssdk:bom:2.5.29')
+            implementation platform('software.amazon.awssdk:bom:2.X.X')
 
-             // Declare SDK dependencies without version
-             ...
-         } 
+            // Declare individual SDK dependencies without version
+            ...
+          } 
 
 
-    #. Specify the SDK modules you want to use in the *dependencies* section.
+    #. Specify the SDK modules you want to use in the *dependencies* section. For example, the following includes a dependency for Amazon Kinesis.
 
        .. code-block:: groovy
 
           dependencies {
-              implementation 'software.amazon.awssdk:kinesis'
-              testCompile group: 'junit', name: 'junit', version: '4.11'
+            implementation 'software.amazon.awssdk:kinesis'
+            testCompile group: 'junit', name: 'junit', version: '4.11'
           }
 
 Gradle automatically resolves the correct version of your SDK dependencies using the information
 from the BOM.
 
-Here's the complete :file:`build.gradle` file:
+Here's the complete :file:`build.gradle` file for this example:
 
 .. code-block:: groovy
 
@@ -56,12 +60,14 @@ Here's the complete :file:`build.gradle` file:
      mavenCentral()
    }
 
-  dependencies {
-    implementation platform('software.amazon.awssdk:bom:2.5.29')
-    implementation 'software.amazon.awssdk:kinesis'
-    testImplementation group: 'junit', name: 'junit', version: '4.11'
+   dependencies {
+     implementation platform('software.amazon.awssdk:bom:2.X.X')
+     implementation 'software.amazon.awssdk:kinesis'
+     testImplementation group: 'junit', name: 'junit', version: '4.11'
 
    }
 
-.. note:: For more detail about specifying SDK dependencies using the BOM, see
-   :doc:`setup-project-maven`.
+.. note:: Replace the dependency for Kinesis above with the dependency or dependencies of the service SDK(s) you will be using in your project. The modules (dependencies) that are managed by the |sdk-java| BOM are listed on Maven Central (https://mvnrepository.com/artifact/software.amazon.awssdk/bom).
+
+For more detail about specifying SDK dependencies using the BOM, see
+:doc:`setup-project-maven`.
