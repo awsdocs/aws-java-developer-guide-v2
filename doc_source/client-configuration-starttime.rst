@@ -42,6 +42,6 @@ Example: Minimal SDK Startup Time Client Configuration
 .. code-block:: Java
 
  Region region = Region.US_WEST_2;
- 3Client S3 = S3Client.builder()
+ S3Client S3 = S3Client.builder()
                 .region(region)
                 .build();
