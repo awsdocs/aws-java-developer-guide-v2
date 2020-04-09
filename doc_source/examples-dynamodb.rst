@@ -18,8 +18,6 @@
 
 This section provides examples that show you how to program |ddb|_ by using the |sdk-java-v2|.
 
-.. include:: includes/dev-preview-async-note.txt
-
 .. include:: includes/complete-examples-note.txt
 
 .. toctree::
