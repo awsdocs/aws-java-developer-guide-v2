@@ -68,7 +68,7 @@ See the code snippet below for an example of how to do this.
    :dedent: 4
    :language: java
 
-See the :sdk-examples-java-iam:`complete example <EnhancedPutItem.java>` on GitHub.
+See the :sdk-examples-java-dynamodb:`complete example <EnhancedPutItem.java>` on GitHub.
 
 
 
@@ -97,7 +97,7 @@ For example, the following code snippet demonstrates one way to use the enhanced
    :dedent: 7
    :language: java
 
-See the :sdk-examples-java-iam:`complete example <EnhancedGetItem.java>` on GitHub.
+See the :sdk-examples-java-dynamodb:`complete example <EnhancedGetItem.java>` on GitHub.
 
 
 .. _dynamodb-enhanced-mapper-batchitems:
@@ -127,7 +127,7 @@ in each batch, as needed. To queue up changes to a different table, add another 
    :dedent: 8
    :language: java
 
-See the :sdk-examples-java-iam:`complete example <EnhancedBatchWriteItems.java>` on GitHub.
+See the :sdk-examples-java-dynamodb:`complete example <EnhancedBatchWriteItems.java>` on GitHub.
 
 
 .. _dynamodb-enhanced-mapper-queryfilter:
@@ -157,7 +157,7 @@ In the following code snippet, you build a filter by first defining the value or
    :dedent: 4
    :language: java
 
-See the :sdk-examples-java-iam:`complete example <EnhancedQueryRecordsWithFilter.java>` on GitHub.
+See the :sdk-examples-java-dynamodb:`complete example <EnhancedQueryRecordsWithFilter.java>` on GitHub.
 
 
 .. _dynamodb-enhanced-mapper-scan:
@@ -181,7 +181,7 @@ snippet prints out the ID value of each item in the **Record** table.
    :dedent: 4
    :language: java
 
-See the :sdk-examples-java-iam:`complete example <EnhancedScanRecords.java>` on GitHub.
+See the :sdk-examples-java-dynamodb:`complete example <EnhancedScanRecords.java>` on GitHub.
 
 
 For more information, see :ddb-dg:`Working with items in DynamoDB <WorkingWithItems>` in the |ddb-dg|.
