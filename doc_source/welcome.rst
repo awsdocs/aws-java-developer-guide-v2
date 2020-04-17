@@ -37,7 +37,12 @@ and the ability to plug in a different HTTP implementation at run time. For more
 the `AWS Blog`_. For guidance on migrating your application from 1.11.x to 2.x, see the
 `migration guide`_.
 
-See the Github issues for details about additional features not yet in 2.x. Comments and
+.. _features_notyet:
+
+Features Not Yet in the |sdk-java-v2|
+=========================
+
+See the following Github issues for details about additional features not yet in 2.x. Comments and
 feedback are also welcome.
 
 * High-level libraries
@@ -45,8 +50,6 @@ feedback are also welcome.
   + `S3 Transfer manager <https://github.com/aws/aws-sdk-java-v2/issues/37>`_
 
   + `S3 Encryption Client <https://github.com/aws/aws-sdk-java-v2/issues/34>`_
-
-  + `DynamoDB Object Mapper <https://github.com/aws/aws-sdk-java-v2/issues/35>`_
 
   + `DynamoDB document APIs <https://github.com/aws/aws-sdk-java-v2/issues/36>`_
 
