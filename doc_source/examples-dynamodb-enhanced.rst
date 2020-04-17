@@ -39,20 +39,10 @@ an existing :aws-java-class:`DynamoDbClient <services/dynamodb/DynamoDbClient>` 
     createDynamoDBTable(enhancedClient);
 
 
-.. _dynamodb-enhanced-mapper-before:
-
-Prerequisite
-===================================
-
-Before you can use the examples in this topic, first run the
-:sdk-examples-java-dynamodb:`CreateTable.java <CreateTable.java>` example. This
-creates a |DDB| table named **Record** that the remaining examples use.
-
-
 
 .. _dynamodb-enhanced-mapper-beantable:
 
-Create a table schema from a bean
+Create a table using the enhanced client
 ===================================
 
 To easily create a
@@ -69,16 +59,16 @@ See the code snippet below for an example of how to do this.
 
 **Imports**
 
-.. literalinclude:: dynamodb.java2.enhanced.dbbean.import.txt
+.. literalinclude:: dynamodb.java2.mapping.putitem.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: dynamodb.java2.enhanced.dbbean.main.txt
+.. literalinclude:: dynamodb.java2.mapping.putitem.main.txt
    :dedent: 4
    :language: java
 
-See the `complete example <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/dynamodb/src/main/java/com/example/enhanced/dynamodb/DynamoDbBeanExample.java>`_ on GitHub.
+See the :sdk-examples-java-iam:`complete example <EnhancedPutItem.java>` on GitHub.
 
 
 
@@ -98,16 +88,16 @@ For example, the following code snippet demonstrates one way to use the enhanced
 
 **Imports**
 
-.. literalinclude:: dynamodb.java2.enhanced_getitem.import.txt
+.. literalinclude:: dynamodb.java2.mapping.getitem.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: dynamodb.java2.enhanced_getitem.main.txt
+.. literalinclude:: dynamodb.java2.mapping.getitem.main.txt
    :dedent: 7
    :language: java
 
-See the `complete example <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/dynamodb/src/main/java/com/example/enhanced/dynamodb/DynamoDBMappingGetItem.java>`_ on GitHub.
+See the :sdk-examples-java-iam:`complete example <EnhancedGetItem.java>` on GitHub.
 
 
 .. _dynamodb-enhanced-mapper-batchitems:
@@ -128,16 +118,16 @@ in each batch, as needed. To queue up changes to a different table, add another 
 
 **Imports**
 
-.. literalinclude:: dynamodb.java2.enhanced_batchitems.import.txt
+.. literalinclude:: dynamodb.java2.mapping.batchitems.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: dynamodb.java2.enhanced_batchitems.main.txt
+.. literalinclude:: dynamodb.java2.mapping.batchitems.main.txt
    :dedent: 8
    :language: java
 
-See the `complete example <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/dynamodb/src/main/java/com/example/enhanced/dynamodb/BatchWriteItems.java>`_ on GitHub.
+See the :sdk-examples-java-iam:`complete example <EnhancedBatchWriteItems.java>` on GitHub.
 
 
 .. _dynamodb-enhanced-mapper-queryfilter:
@@ -153,19 +143,21 @@ In the following code snippet, you build a filter by first defining the value or
 :aws-java-class:`QueryConditional <enhanced/dynamodb/model/QueryConditional>` object to specify the primary key to match against in the query, and then execute the query on your 
 :aws-java-class:`DynamoDbTable <enhanced/dynamodb/DynamoDbTable>` object.
 
+.. note:: The :aws-java-class:`QueryConditional <enhanced/dynamodb/model/QueryConditional>` interface has several methods you can use to build your queries, including common conditional statements like greater than, less than, and in between.
+
 
 **Imports**
 
-.. literalinclude:: dynamodb.java2.enhanced_queryfilter.import.txt
+.. literalinclude:: dynamodb.java2.mapping.queryfilter.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: dynamodb.java2.enhanced_queryfilter.main.txt
+.. literalinclude:: dynamodb.java2.mapping.queryfilter.main.txt
    :dedent: 4
    :language: java
 
-See the `complete example <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/dynamodb/src/main/java/com/example/enhanced/dynamodb/QueryRecordsWithFilter.java>`_ on GitHub.
+See the :sdk-examples-java-iam:`complete example <EnhancedQueryRecordsWithFilter.java>` on GitHub.
 
 
 .. _dynamodb-enhanced-mapper-scan:
@@ -180,16 +172,16 @@ snippet prints out the ID value of each item in the **Record** table.
 
 **Imports**
 
-.. literalinclude:: dynamodb.java2.enhanced_scan.import.txt
+.. literalinclude:: dynamodb.java2.mapping.scan.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: dynamodb.java2.enhanced_scan.main.txt
+.. literalinclude:: dynamodb.java2.mapping.scan.main.txt
    :dedent: 4
    :language: java
 
-See the `complete example <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/dynamodb/src/main/java/com/example/enhanced/dynamodb/ScanRecords.java>`_ on GitHub.
+See the :sdk-examples-java-iam:`complete example <EnhancedScanRecords.java>` on GitHub.
 
 
 For more information, see :ddb-dg:`Working with items in DynamoDB <WorkingWithItems>` in the |ddb-dg|.
