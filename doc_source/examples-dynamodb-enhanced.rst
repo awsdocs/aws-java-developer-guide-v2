@@ -94,7 +94,7 @@ For example, the following code snippet demonstrates one way to use the enhanced
 **Code**
 
 .. literalinclude:: dynamodb.java2.mapping.getitem.main.txt
-   :dedent: 7
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-dynamodb:`complete example <EnhancedGetItem.java>` on GitHub.
@@ -124,7 +124,7 @@ in each batch, as needed. To queue up changes to a different table, add another 
 **Code**
 
 .. literalinclude:: dynamodb.java2.mapping.batchitems.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-dynamodb:`complete example <EnhancedBatchWriteItems.java>` on GitHub.
