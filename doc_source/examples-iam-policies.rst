@@ -35,14 +35,6 @@ To create a new policy, provide the policy's name and a JSON-formatted policy do
 .. literalinclude:: iam.java2.create_policy.main.txt
    :dedent: 8
    :language: java
-
-|iam| policy documents are JSON strings with a :iam-ug:`well-documented syntax
-<reference_policies_grammar>`. Here is an example that provides access to make particular requests
-to |ddb|.
-
-.. literalinclude:: iam.java2.create_policy.policy_document.txt
-   :dedent: 8
-   :language: java
    
 See the :sdk-examples-java-iam:`complete example <CreatePolicy.java>` on GitHub.
 
@@ -82,12 +74,8 @@ You can attach a policy to an |IAM| :iam-ug:`role <id_roles>` by calling the |ia
    :language: java
 
 **Code**
-
-.. literalinclude:: iam.java2.attach_role_policy.client.txt
-   :dedent: 8
-   :language: java
    
-.. literalinclude:: iam.java2.attach_role_policy.attach.txt
+.. literalinclude:: iam.java2.attach_role_policy.main.txt
    :dedent: 8
    :language: java
 

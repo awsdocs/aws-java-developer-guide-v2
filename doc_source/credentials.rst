@@ -48,7 +48,17 @@ The following example creates a new service client that uses the default credent
 Credential Retrieval Order
 --------------------------
 
-When the default credential provider chain attempts to retrieve credentials, it uses the following in the order shown:
+You can use a supported credential retrieval technique to retrieve credentials required to perform AWS operations. For example, the following Java code shows how to create a **DynamoDbClient** object by using an **EnvironmentVariableCredentialsProvider** object.
+
+.. code-block:: java
+
+    Region region = Region.US_WEST_2;
+    DynamoDbClient ddb = DynamoDbClient.builder()
+                .region(region)
+                .credentialsProvider(EnvironmentVariableCredentialsProvider.create())
+                .build();
+
+The following list shows the supported credential retrieval techniques:
 
 #. **Java system properties** |ndash| :code:`aws.accessKeyId` and :code:`aws.secretAccessKey`.
    The |sdk-java| uses the :aws-java-class:`SystemPropertyCredentialsProvider <auth/credentials/SystemPropertyCredentialsProvider>`
@@ -56,8 +66,8 @@ When the default credential provider chain attempts to retrieve credentials, it 
 
 #. **Environment variables** |ndash| :envvar:`AWS_ACCESS_KEY_ID` and :envvar:`AWS_SECRET_ACCESS_KEY`.
    The |sdk-java| uses the :aws-java-class:`EnvironmentVariableCredentialsProvider <auth/credentials/EnvironmentVariableCredentialsProvider>`
-   class to load these credentials.
-
+   class to load these credentials.  
+   
 #. **The default credential profiles file** |ndash| The specific location of this file can vary per platform, but is 
    typically located at :file:`~/.aws/credentials`. 
    This file is shared by many of the AWS SDKs and by the AWS CLI. The

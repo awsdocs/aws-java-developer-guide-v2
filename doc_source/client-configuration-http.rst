@@ -29,9 +29,14 @@ Add a dependency on the :code:`netty-nio-client` in your POM to use the
 
 **POM Entry**
 
-.. literalinclude:: example_code/kinesis/pom.xml
-   :lines: 20-24
-   :language: xml
+.. code-block:: java
+
+   <dependency>
+      <artifactId>netty-nio-client</artifactId>
+      <groupId>software.amazon.awssdk</groupId>
+      <version>2.0.0</version>
+   </dependency>
+
 
 
 Maximum Connections
