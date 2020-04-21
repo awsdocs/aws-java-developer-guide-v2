@@ -9,7 +9,7 @@
    limitations under the License.
 
 ###########################
-Use the enhanced client to map items in |DDB|
+Map items in |DDB| tables
 ###########################
 
 .. meta::
@@ -81,7 +81,6 @@ To get an item from a |DDB| table, create a
 :aws-java-class:`DynamoDbTable <enhanced/dynamodb/DynamoDbTable>` object and call :methodname:`getItem()` with a 
 :aws-java-class:`GetItemEnhancedRequest <enhanced/dynamodb/model/GetItemEnhancedRequest>` object
 to get the actual item.
-This gives you access to key-value pairs associated with the item.
 
 For example, the following code snippet demonstrates one way to use the enhanced client to get information from an item in a |DDB| table.
 
