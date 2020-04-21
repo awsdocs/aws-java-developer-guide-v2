@@ -37,6 +37,7 @@ and the ability to plug in a different HTTP implementation at run time. For more
 the `AWS Blog`_. For guidance on migrating your application from 1.11.x to 2.x, see the
 `migration guide`_.
 
+
 .. _features_notyet:
 
 Features Not Yet in the |sdk-java-v2|
