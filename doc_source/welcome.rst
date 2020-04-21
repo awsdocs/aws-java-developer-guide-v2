@@ -66,15 +66,6 @@ feedback are also welcome.
 * `Progress Listeners <https://github.com/aws/aws-sdk-java-v2/issues/25>`_
 
 
-.. _1.0-support:
-
-Support for 1.x
-===============
-
-We are not dropping support for the 1.x versions of the AWS SDK for Java currently.
-As we get closer to the final production release, we will share a detailed plan for continued
-1.x support, similar to how we rolled out major versions of other AWS SDKs.
-
 Additional Resources
 ====================
 
