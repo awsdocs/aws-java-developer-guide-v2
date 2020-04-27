@@ -30,4 +30,5 @@ to all services you might use with the SDK.
    basics-http2
    java-dg-exceptions
    java-dg-logging
+   java-dg-jvm-ttl
    java-dg-roles
