@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -11,6 +11,10 @@
 ##########################
 Download the |sdk-java-v2|
 ##########################
+
+.. meta::
+   :description: How to download the AWS SDK for Java v2
+   :keywords: AWS SDK for Java, v2, install, download, setup
 
 This topic describes how to download the |sdk-java| into your project.
 
@@ -41,8 +45,7 @@ SDK into your project by using Apache Maven or Gradle:
 * **Gradle** |ndash| If you use Gradle_, you can import the Maven Bill of Materials (BOM) to your
   Gradle project to automatically manage SDK dependencies. See :doc:`setup-project-gradle`.
 
-.. note:: Any build system that supports MavenCentral as an artifact source may be used. However we
-   will not provide a downloadable zip for the developer preview.
+.. note:: Any build system that supports MavenCentral as an artifact source may be used. 
 
 If you are using one the above methods (for example, you are using Maven), then you do not need to download and
 install the AWS JAR files (you can skip the following section). If you intend to build your projects using a different IDE,
