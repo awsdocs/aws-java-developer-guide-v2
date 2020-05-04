@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -9,265 +9,221 @@
    limitations under the License.
 
 ###############################
-Using the SDK with Apache Maven
+Use the SDK with Apache Maven
 ###############################
 
-You can use |mvnlong|_ to configure and build |sdk-java| projects or to build the SDK itself.
+You can use |mvnlong|_ to configure and build |sdk-java| projects, or to build the SDK itself.
+
+.. note:: The |sdk-java| requires Java *8.0 or later*. You can download the latest Java SE Development Kit 
+   software from http://www.oracle.com/technetwork/java/javase/downloads/.
+   The |sdk-java| also works with `OpenJDK <https://openjdk.java.net/>`_ and |JDKlong| a distribution of the Open Java Development Kit
+   (OpenJDK). Download the latest OpenJDK version from https://openjdk.java.net/install/index.html. Download the latest |JDKlong8| or
+   |JDKlong11| version from https://aws.amazon.com/corretto/.
 
 .. note:: You must have Maven installed to use the guidance in this topic. If it isn't already
    installed, visit http://maven.apache.org/ to download and install it.
 
 
-Create a New Maven Package
+.. _create-maven-project:
+
+Create a new Maven project
 ==========================
 
-To create a basic Maven package, open a terminal (command line) window and run the following command.
+To create a new Maven project from the command line, open a terminal or command prompt window,
+type or paste the following command, then press Enter or Return:
 
 .. code-block:: sh
 
    mvn -B archetype:generate \
-     -DarchetypeGroupId=org.apache.maven.archetypes \
-     -DgroupId=org.example.basicapp \
+     -DarchetypeGroupId=software.amazon.awssdk \
+     -DarchetypeArtifactId=archetype-lambda -Dservice=S3 -Dregion=US_WEST_2 \
+     -DgroupId=com.example.myapp \
      -DartifactId=myapp
 
-Replace *org.example.basicapp* with the full package namespace of your application. Replace *myapp*
-with your project name (this becomes the name of the directory for your project).
+This command creates a new Maven project using the AWS Lambda project archetype. This project archetype is preconfigured
+to compile with Java SE 8 and includes a dependency to the Java SDK.
 
-By default, |mvn| creates a project template for you using the `quickstart
-<http://maven.apache.org/archetypes/maven-archetype-quickstart/>`_ archetype. This creates a Java 1.5 project.
-You must update your application to Java 1.8 to be compatible with the AWS Java SDK version 2. To update to Java 1.8, add
-the following to your :file:`pom.xml` file.
+.. note:: Replace *com.example.myapp* with the full package namespace of your application. Also replace *myapp*
+   with your project name - this becomes the name of the directory for your project.
 
-.. code-block:: xml
-
-   <build>
-     <plugins>
-       <plugin>
-         <groupId>org.apache.maven.plugins</groupId>
-         <artifactId>maven-compiler-plugin</artifactId>
-         <configuration>
-            <source>1.8</source>
-            <target>1.8</target>
-         </configuration>
-       </plugin>
-     </plugins>
-   </build>
+For more information about creating and configuring |mvn| projects, see the
+`Maven Getting Started Guide <https://maven.apache.org/guides/getting-started/>`_.
 
 
-You can choose a particular archetype to use by adding the ``-DarchetypeArtifactId`` argument
-to the ``archetype:generate`` command. To skip step to update the :file:`pom.xml` file, you can use the
-following archetype that creates a Java 1.8 project from the start.
 
-.. code-block:: sh
-   :emphasize-lines: 3
+.. _configure-maven-compiler:
 
-   mvn archetype:generate -B \
-      -DarchetypeGroupId=pl.org.miki \
-      -DarchetypeArtifactId=java8-quickstart-archetype \
-      -DarchetypeVersion=1.0.0 \
-      -DgroupId=com.example \
-      -DartifactId=sdk-sandbox \
-      -Dversion=1.0 \
-      -Dpackage=com.example
-
-There are more archetypes available. See `Maven Archetypes
-<https://maven.apache.org/archetypes/index.html>`_ for a list of archetypes packaged with
-|mvn|.
-
-.. tip:: For much more information about creating and configuring |mvn| projects, see the
-   `Maven Getting Started Guide <https://maven.apache.org/guides/getting-started/>`_.
-
-
-.. _configuring-maven:
-
-Configure the SDK as a Maven Dependency
+Configure the Java compiler for Maven
 =======================================
 
-To use the |sdk-java| in your project, you need to declare it as a dependency in your project's
-:file:`pom.xml` file. You can import :ref:`individual components <configuring-maven-individual-components>`
-or the :ref:`entire SDK <configuring-maven-entire-sdk>`. We strongly recommend
-that you pull in only the components you need instead of the entire SDK.
+If you created your project using the AWS Lambda project archetype as detailed above, this is already done for you.
 
-.. _configuring-maven-individual-components:
-
-Specifying Individual SDK Modules (Recommended)
------------------------------------------------
-
-To select individual SDK modules, use the |sdk-java| bill of materials (BOM) for Maven. This
-ensures that the modules you specify use the same version of the SDK, and that they're compatible with
-each other.
-
-To use the BOM, add a :code-xml:`<dependencyManagement>` section to your application's
-:file:`pom.xml` file. Add ``bom`` as a dependency and specify the version of the
-SDK to use. Find the latest version in the 
-:aws-java-class-root:`AWS SDK for Java 2.x Reference <>`.
+To verify that this configuration is present, start by opening the :file:`pom.xml` file from the project folder you
+created (e.g. "myapp") when you executed the above command. Look on lines 11 and 12 to see the Java compiler
+version setting for this Maven project, as well as the required inclusion of the Maven compiler plugin on lines 71-75.
 
 .. code-block:: xml
 
-    <dependencyManagement>
-      <dependencies>
-        <dependency>
-          <groupId>software.amazon.awssdk</groupId>
-          <artifactId>bom</artifactId>
-          <version>2.X.X</version>
-          <type>pom</type>
-          <scope>import</scope>
-        </dependency>
-      </dependencies>
-    </dependencyManagement>
+   <project>
+       <properties>
+           <maven.compiler.source>1.8</maven.compiler.source>
+           <maven.compiler.target>1.8</maven.compiler.target>
+       </properties>
+       <build>
+           <plugins>
+               <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-compiler-plugin</artifactId>
+                   <version>${maven.compiler.plugin.version}</version>
+               </plugin>
+           </plugins>
+       </build>
+   </project>
 
-To view the latest version of the |sdk-java| BOM that is available on Maven Central, see
-https://mvnrepository.com/artifact/software.amazon.awssdk/bom. This page also shows
-the modules (dependencies) that are managed by the BOM that you can include within the
-:code-xml:`<dependencies>` section of your project's :file:`pom.xml` file.
 
-You can now select individual modules from the SDK that you use to your application. Because you
-already declared the SDK version in the BOM, you don't need to specify the version number for each
-component.
+If you create your project with a different archetype or using another method, you must ensure that the Maven
+compiler plugin is part of the build and that its source and target properties are both set to "1.8" in the :file:`pom.xml` file.
 
-.. code-block:: xml
+See the above snippet for one way to configure these required settings.
 
-    <dependencies>
-      <dependency>
-        <groupId>software.amazon.awssdk</groupId>
-        <artifactId>kinesis</artifactId>
-      </dependency>
-      <dependency>
-        <groupId>software.amazon.awssdk</groupId>
-        <artifactId>dynamodb</artifactId>
-      </dependency>
-    </dependencies>
-
-You can also refer to the *AWS Code Catalog* to learn what dependencies to use for a given AWS service. Refer to the POM file under a specific service example.
-For example, if you are interested in the dependencies for the AWS S3 service, see the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>` on GitHub. (Look at the pom under /java2/example_code/s3).
-
-.. _configuring-maven-entire-sdk:
-
-Importing All SDK Modules (Not Recommended)
--------------------------------------------
-
-To pull in the *entire* SDK as a dependency, don't use the BOM method. Simply
-declare it in your :file:`pom.xml` as follows. Find the latest version in the 
-:aws-java-class-root:`AWS SDK for Java 2.x Reference <>`.
+Alternatively, you can configure the compiler configuration inline with the plugin declaration, as below:
 
 .. code-block:: xml
 
-  <dependencies>
-    <dependency>
-      <groupId>software.amazon.awssdk</groupId>
-      <artifactId>aws-sdk-java</artifactId>
-      <version>2.X.X</version>
-    </dependency>
-  </dependencies>
-
-Create a JAR file that contains AWS dependencies
-===============================================
-You can create a single JAR file that contains individual SDK modules by using Maven. To create a JAR file, you must setup your POM file correctly.
-First, for each AWS module that you want to include, you must reference it using a dependencies element (see the following example). Next, you have to
-include the *org.apache.maven.plugins* plugin within your POM file as well. Once you setup your POM file, you can use the following command:
-
-*mvn package*
-
-The following POM file builds a single JAR file that contains AWS dependencies. You can locate the JAR file in the *target* folder after the build completes.
-
-.. code-block:: xml
-
-   <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-   <modelVersion>4.0.0</modelVersion>
-   <groupId>localdomain.localhost.tutorial</groupId>
-   <artifactId>java-archive</artifactId>
-   <version>1.0-SNAPSHOT</version>
-   <name>AWS JAR</name>
-   <properties>
-      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <java.version>1.8</java.version>
-   </properties>
-   <build>
-      <plugins>
-         <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.1</version>
-            <configuration>
-               <source>${java.version}</source>
-               <target>${java.version}</target>
-            </configuration>
-         </plugin>
-         <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-assembly-plugin</artifactId>
-            <executions>
-               <execution>
-                  <id>create-my-bundle</id>
-                  <phase>package</phase>
-                  <goals>
-                     <goal>single</goal>
-                  </goals>
-                  <configuration>
-                     <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                     </descriptorRefs>
-                  </configuration>
-               </execution>
-            </executions>
-         </plugin>
-      </plugins>
-   </build>
-   <dependencyManagement>
-      <dependencies>
-         <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>bom</artifactId>
-            <version>2.5.10</version>
-            <type>pom</type>
-            <scope>import</scope>
-         </dependency>
-      </dependencies>
-   </dependencyManagement>
-   <dependencies>
-      <dependency>
-         <groupId>junit</groupId>
-         <artifactId>junit</artifactId>
-         <version>4.11</version>
-         <scope>test</scope>
-      </dependency>
-      <dependency>
-         <groupId>software.amazon.awssdk</groupId>
-         <artifactId>ec2</artifactId>
-         <version>2.5.10</version>
-      </dependency>
-      <dependency>
-         <groupId>software.amazon.awssdk</groupId>
-         <artifactId>s3</artifactId>
-      </dependency>
-      <dependency>
-         <groupId>software.amazon.awssdk</groupId>
-         <artifactId>pinpoint</artifactId>
-      </dependency>
-      <dependency>
-         <groupId>software.amazon.awssdk</groupId>
-         <artifactId>dynamodb</artifactId>
-         <version>2.5.10</version>
-      </dependency>
-      <dependency>
-         <groupId>software.amazon.awssdk</groupId>
-         <artifactId>sqs</artifactId>
-      </dependency>
-      </dependencies>
+   <project>
+       <build>
+           <plugins>
+               <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-compiler-plugin</artifactId>
+                   <configuration>
+                       <source>1.8</source>
+                       <target>1.8</target>
+                   </configuration>
+               </plugin>
+           </plugins>
+       </build>
    </project>
 
 
 
 
+.. _sdk-as-dependency:
+
+Declare the SDK as a dependency
+=======================================
+
+To use the |sdk-java| in your project, you need to declare it as a dependency in your project's
+:file:`pom.xml` file.
+
+If you created your project using the AWS Lambda project archetype as detailed above, the SDK is already configured
+as a dependency in your project. It is recommended that you update this configuration to reference the latest version
+of the AWS SDK for Java. To do so, open the :file:`pom.xml` file and change the 'aws.java.sdk.version' property
+(on line 16) to the latest version. See this example for a reference:
+
+.. code-block:: xml
+
+   <project>
+       <properties>
+           <aws.java.sdk.version>2.13.7</aws.java.sdk.version>
+       </properties>
+   </project>
+
+Find the latest version of the |sdk-java| in the :aws-java-class-root:`AWS SDK for Java 2.x Reference <>`.
+
+If you created your Maven project a different way, configure the latest version of the SDK for your project by
+ensuring that the :file:`pom.xml` file contains the following:
+
+.. code-block:: xml
+
+   <project>
+       <dependencyManagement>
+           <dependencies>
+               <dependency>
+                   <groupId>software.amazon.awssdk</groupId>
+                   <artifactId>bom</artifactId>
+                   <version>2.X.X</version>
+                   <type>pom</type>
+                   <scope>import</scope>
+               </dependency>
+           </dependencies>
+       </dependencyManagement>
+   </project>
+
+.. note:: Replace *2.X.X* in the :file:`pom.xml` file with a valid version of the AWS SDK for Java v2. 
 
 
-Build Your Project
-==================
+.. _modules-dependencies:
 
-Once you set up your project, you can build it using Maven's ``package`` command.
+Set dependencies for SDK modules
+=======================================
 
-::
+Now that you have the SDK configured, you can add dependencies for one or more of the |sdk-java| modules to use in your project.
 
- mvn package
+Although you can specify the version number for each component, you don't need to because you already declared the SDK version in the 
+dependencyManagement section. To load a custom version of a given module, specify a version number for its dependency.
 
-This creates your :file:`.jar` file in the :file:`target` directory.
+If you created your project using the AWS Lambda project archetype as detailed above, your project is already configured with multiple
+dependencies, including for AWS Lambda and Amazon DynamoDB as seen below.
+
+.. code-block:: xml
+
+   <project>
+       <dependencies>
+           <dependency>
+               <groupId>software.amazon.awssdk</groupId>
+               <artifactId>dynamodb</artifactId>
+           </dependency>
+           <dependency>
+               <groupId>com.amazonaws</groupId>
+               <artifactId>aws-lambda-java-core</artifactId>
+               <version>1.2.0</version>
+           </dependency>
+       </dependencies>
+   </project>
+
+Add the modules to your project for the AWS service and features you need for your project. The modules (dependencies)
+that are managed by the |sdk-java| BOM are listed on Maven central repository (https://mvnrepository.com/artifact/software.amazon.awssdk/bom/latest).
+
+.. tip:: You can look at the :file:`pom.xml` file from a code example to determine which dependencies you need for your project. For example,
+   if you are interested in the dependencies for the |S3| service, see :sdk-examples-java-s3:`this example <S3ObjectOperations.java>` from the 
+   `AWS Code Examples Repository <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2>`_ on GitHub. (Look for the :file:`pom.xml` file file under 
+   `/java2/example_code/s3 <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/s3/pom.xml>`_.)
+
+ 
+Build the entire SDK into your project
+--------------------------------------
+
+To optimize your application, we strongly recommend that you pull in only the components you need instead of the entire SDK.
+However, if you want to build the entire |sdk-java| into your project, declare it in your :file:`pom.xml` file as follows:
+
+.. code-block:: xml
+
+   <project>
+       <dependencies>
+           <dependency>
+               <groupId>software.amazon.awssdk</groupId>
+               <artifactId>aws-sdk-java</artifactId>
+               <version>2.X.X</version>
+           </dependency>
+       </dependencies>
+   </project>
+ 
+
+
+.. _build-project:
+
+Build your project
+=======================================
+
+Once you have the :file:`pom.xml` file configured, you can use Maven to build your project.
+
+To build your Maven project from the command line, open a terminal or command prompt window,
+navigate to your project directory (e.g. :file:`myapp`), type or paste the following command, then press Enter or Return:
+
+.. code-block:: sh
+
+   mvn package
+
+This creates a single :file:`.jar` file in the :file:`target` directory (e.g. :file:`myapp/target`). This JAR contains all of the SDK modules you specified as dependencies in your :file:`pom.xml` file.
+
