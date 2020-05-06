@@ -108,12 +108,12 @@ Then call the |sqsclient|'s :methodname:`deleteQueue` method.
 
 **Imports**
 
-.. literalinclude:: sqs.java2.sqs_example.import.txt
+.. literalinclude:: sqs.java2.sqs_example.delete_queue.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: sqs.java2.sqs_example.delete_message.txt
+.. literalinclude:: sqs.java2.sqs_example.delete_queue.txt
    :dedent: 8
    :language: java
 
