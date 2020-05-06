@@ -32,28 +32,27 @@ regulations. If your use of an AWS service is subject to compliance with
 standards such as HIPAA, PCI, or FedRAMP, AWS provides resources to
 help:
 
-  + `Security and Compliance Quick Start
-Guides <https://aws.amazon.com/quickstart/?quickstart-all.sort-by=item.additionalFields.updateDate&quickstart-all.sort-order=desc&awsf.quickstart-homepage-filter=categories%23security-identity-compliance>`__
-– Deployment guides that discuss architectural considerations and
-provide steps for deploying security-focused and compliance-focused
-baseline environments on AWS.
+  + `Security and Compliance Quick Start Guides
+    <https://aws.amazon.com/quickstart/?quickstart-all.sort-by=item.additionalFields.updateDate&quickstart-all.sort-order=desc&awsf.quickstart-homepage-filter=categories%23security-identity-compliance>`__
+    – Deployment guides that discuss architectural considerations and provide steps for
+    deploying security-focused and compliance-focused baseline environments on AWS.
+    
 
-  + `Architecting for HIPAA Security and
-Compliance
-Whitepaper <https://d0.awsstatic.com/whitepapers/compliance/AWS_HIPAA_Compliance_Whitepaper.pdf>`__
-– A whitepaper that describes how companies can use AWS to create
-HIPAA-compliant applications.
+  + `Architecting for HIPAA Security and Compliance Whitepaper
+    <https://d0.awsstatic.com/whitepapers/compliance/AWS_HIPAA_Compliance_Whitepaper.pdf>`__
+    – A whitepaper that describes how companies can use AWS to create
+    HIPAA-compliant applications.
+    
 
-  + `AWS Compliance
-Resources <https://aws.amazon.com/compliance/resources/>`__ – A
-collection of workbooks and guides that might apply to your industry and
-location.
+  + `AWS Compliance Resources <https://aws.amazon.com/compliance/resources/>`__
+    – A collection of workbooks and guides that might apply to your industry and
+    location.
+    
 
-  + `AWS Config <https://aws.amazon.com/config/>`__ – A service
-that assesses how well your resource configurations comply with internal
-practices, industry guidelines, and regulations.
+  + `AWS Config <https://aws.amazon.com/config/>`__ – A service that assesses how well your
+    resource configurations comply with internal practices, industry guidelines, and regulations.
+    
 
-  + `AWS Security
-Hub <https://aws.amazon.com/security-hub/>`__ – A comprehensive view of
-your security state within AWS that helps you check your compliance with
-security industry standards and best practices.
+  + `AWS Security Hub <https://aws.amazon.com/security-hub/>`__ – A comprehensive view of
+    your security state within AWS that helps you check your compliance with
+    security industry standards and best practices.
