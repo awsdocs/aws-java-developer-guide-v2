@@ -18,10 +18,13 @@
 .. |sdk-java-github-v1| replace:: AWS SDK for Java 1.x (GitHub)
 .. _sdk-java-github-v1: https://github.com/aws/aws-sdk-java
 
+.. |javav2s3pom| replace:: /java2/example_code/s3
+.. _javav2s3pom: https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/s3/pom.xml
+
 .. |mvn| replace:: Maven
 .. |mvnlong| replace:: Apache |mvn|
 
-.. _Gradle: https://gradle.com/
+.. _Gradle: https://gradle.org/
 .. _Maven: https://maven.apache.org/
 .. _mvn: Maven_
 .. _mvnlong: Maven_
