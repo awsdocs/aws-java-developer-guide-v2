@@ -8,18 +8,22 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#########################
-Using the SDK with Gradle
-#########################
+#######################
+Use the SDK with Gradle
+#######################
 
 .. meta::
    :description:  How to use Gradle to set up your AWS SDK for Java v2 project
    :keywords: AWS SDK for Java, v2, Gradle, BOM, install, download, setup
 
 
-To manage SDK dependencies for your Gradle_ project, import the Maven bill of materials (BOM) for the |sdk-java| into the :file:`build.gradle` file.
+You can use Gradle_ to configure and build AWS SDK for Java projects.
 
-.. note:: In the following examples, replace *2.X.X* in the :file:`build.gradle` file with a valid version of the AWS SDK for Java v2. Find the latest version in the 
+To manage SDK dependencies for your Gradle project, import the Maven bill of materials (BOM) for
+the |sdk-java| into the :file:`build.gradle` file.
+
+.. note:: In the following examples, replace *2.X.X* in the :file:`build.gradle` file with a valid
+          version of the AWS SDK for Java v2. Find the latest version in the
           :aws-java-class-root:`AWS SDK for Java 2.x Reference <>`.
 
 .. topic:: To configure the |sdk-java| for Gradle version 5.0 or later
@@ -37,7 +41,8 @@ To manage SDK dependencies for your Gradle_ project, import the Maven bill of ma
           } 
           
 
-    #. Specify the SDK modules to use in the `dependencies` section. For example, the following includes a dependency for |AKlong|.
+    #. Specify the SDK modules to use in the `dependencies` section. For example, the following
+       includes a dependency for |AKlong|.
 
        .. code-block:: groovy
 
@@ -49,9 +54,11 @@ To manage SDK dependencies for your Gradle_ project, import the Maven bill of ma
           }
           
 
-Gradle automatically resolves the correct version of your SDK dependencies by using the information from the BOM.
+Gradle automatically resolves the correct version of your SDK dependencies by using the information
+from the BOM.
 
-The following is an example of a complete :file:`build.gradle` file that includes a dependency for |AK|.
+The following is an example of a complete :file:`build.gradle` file that includes a dependency for
+|AK|.
 
 .. code-block:: groovy
 
@@ -73,7 +80,10 @@ The following is an example of a complete :file:`build.gradle` file that include
    }
    
 
-.. note:: In the previous example, replace the dependency for |AK| with the dependencies of the AWS services you will use in your project. The modules (dependencies) that are managed by the |sdk-java| BOM are listed on Maven central repository (https://mvnrepository.com/artifact/software.amazon.awssdk/bom/latest).
+.. note:: In the previous example, replace the dependency for |AK| with the dependencies of the AWS
+          services you will use in your project. The modules (dependencies) that are managed by the
+          |sdk-java| BOM are listed on Maven central repository
+          (https://mvnrepository.com/artifact/software.amazon.awssdk/bom/latest).
 
 For more information about specifying SDK dependencies by using the BOM, see
 :doc:`setup-project-maven`.
