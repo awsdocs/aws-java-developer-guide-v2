@@ -17,9 +17,9 @@
 .. _AWS Blog: https://aws.amazon.com/blogs/developer/aws-sdk-for-java-2-0-developer-preview/
 .. _migration guide: https://docs.aws.amazon.com/sdk-for-java/v2/migration-guide/what-is-java-migration.html
 
-#####################################
+#############################
 |sdk-java-v2| Developer Guide
-#####################################
+#############################
 
 The |sdk-java| provides a Java API for |AWSlong|. Using the SDK, you can easily build Java
 applications that work with |S3|, |EC2|, |DDB|, and more. We regularly add support for new services
@@ -28,8 +28,8 @@ view the `change log`_.
 
 .. _whats_new:
 
-What's New in Version 2.x
-=========================
+What's new in version 2
+=======================
 
 The |sdk-java-v2| is a major rewrite of the version 1.x code base. It's built on top of
 Java 8+ and adds several frequently requested features. These include support for non-blocking I/O
@@ -40,8 +40,8 @@ the `AWS Blog`_. For guidance on migrating your application from 1.11.x to 2.x, 
 
 .. _features_notyet:
 
-Features Not Yet in the |sdk-java-v2|
-=========================
+Features not yet in the |sdk-java-v2|
+=====================================
 
 See the following Github issues for details about additional features not yet in 2.x. Comments and
 feedback are also welcome.
@@ -66,7 +66,7 @@ feedback are also welcome.
 * `Progress Listeners <https://github.com/aws/aws-sdk-java-v2/issues/25>`_
 
 
-Additional Resources
+Additional resources
 ====================
 
 In addition to this guide, the following are valuable online resources for |sdk-java|
@@ -110,7 +110,7 @@ Developers can also contribute feedback through the following channels:
 
 .. _eclipse-support:
 
-Eclipse IDE Support
+Eclipse IDE support
 ===================
 
 The |tke| doesn't currently support the |sdk-java-v2|. To use the |tke| with
@@ -118,7 +118,7 @@ the |sdk-java-v2|, you should use Maven tools in Eclipse to add a dependency on 
 
 .. _android-support:
 
-Developing AWS Applications for Android
+Developing AWS applications for Android
 =======================================
 
 If you're an Android developer, |AWSlong| publishes an SDK made specifically for Android
