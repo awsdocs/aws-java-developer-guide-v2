@@ -33,7 +33,7 @@ method using a :aws-java-class:`CreateUserRequest
 **Code**
 
 .. literalinclude:: iam.java2.create_user.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-iam:`complete example <CreateUser.java>` on GitHub.
@@ -62,7 +62,7 @@ the new request.
 **Code**
 
 .. literalinclude:: iam.java2.list_users.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-iam:`complete example <ListUsers.java>` on GitHub.
@@ -83,7 +83,7 @@ that you can use to change the user's *name* or *path*.
 **Code**
 
 .. literalinclude:: iam.java2.update_user.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-iam:`complete example <UpdateUser.java>` on GitHub.
@@ -104,7 +104,7 @@ with the user name to delete.
 **Code**
 
 .. literalinclude:: iam.java2.delete_user.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-iam:`complete example <DeleteUser.java>` on GitHub.
