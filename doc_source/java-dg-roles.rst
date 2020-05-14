@@ -29,7 +29,7 @@ Default Provider Chain and |EC2| Instance Profiles
 If your application creates an AWS client using the ``create`` method, the client searches
 for credentials using the :emphasis:`default credentials provider chain`, in the following order:
 
-1. In the Java system properties: :code:`aws.accessKeyId` and :code:`aws.secretKey`.
+1. In the Java system properties: :code:`aws.accessKeyId` and :code:`aws.secretAccessKey`.
 
 2. In system environment variables: :code:`AWS_ACCESS_KEY_ID` and :code:`AWS_SECRET_ACCESS_KEY`.
 
