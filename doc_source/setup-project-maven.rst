@@ -41,7 +41,7 @@ enter or paste the following command, and then press Enter or Return.
 
    mvn -B archetype:generate \
      -DarchetypeGroupId=software.amazon.awssdk \
-     -DarchetypeArtifactId=archetype-lambda -Dservice=S3 -Dregion=US_WEST_2 \
+     -DarchetypeArtifactId=archetype-lambda -Dservice=s3 -Dregion=US_WEST_2 \
      -DgroupId=com.example.myapp \
      -DartifactId=myapp
 
