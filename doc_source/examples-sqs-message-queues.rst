@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#################################
-Working with |SQS| Message Queues
-#################################
+##############################
+Work with |SQS| message queues
+##############################
 
 .. meta::
    :description: How to create, list, delete, and get an Amazon SQS queue's URL.
@@ -28,7 +28,7 @@ This topic describes how to create, list, delete, and get the URL of an |sqs| qu
 
 .. _sqs-create-queue:
 
-Create a Queue
+Create a queue
 ==============
 
 Use the |sqsclient|'s :methodname:`createQueue` method, and provide a
@@ -51,7 +51,7 @@ See the :sdk-examples-java-sqs:`complete sample <SQSExample.java>` on GitHub.
 
 .. _sqs-list-queues:
 
-List Queues
+List queues
 ===========
 
 To list the |SQS| queues for your account, call the |sqsclient|'s :methodname:`listQueues`
@@ -77,7 +77,7 @@ See the :sdk-examples-java-sqs:`complete sample <SQSExample.java>` on GitHub.
 
 .. _sqs-get-queue-url:
 
-Get the URL for a Queue
+Get the URL for a queue
 =======================
 
 Call the |sqsclient|'s :methodname:`getQueueUrl` method.
@@ -99,7 +99,7 @@ See the :sdk-examples-java-sqs:`complete sample <SQSExample.java>` on GitHub.
 
 .. _sqs-delete-queue:
 
-Delete a Queue
+Delete a queue
 ==============
 
 Provide the queue's :ref:`URL <sqs-get-queue-url>` to the
@@ -114,13 +114,13 @@ Then call the |sqsclient|'s :methodname:`deleteQueue` method.
 **Code**
 
 .. literalinclude:: sqs.java2.sqs_example.delete_queue.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-sqs:`complete sample <SQSExample.java>` on GitHub.
 
-More Info
-=========
+More information
+================
 
 * :sqs-dg:`How Amazon SQS Queues Work <sqs-how-it-works>` in the |sqs-dg|
 * :sqs-api:`CreateQueue` in the |sqs-api|

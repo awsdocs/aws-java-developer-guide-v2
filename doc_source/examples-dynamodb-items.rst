@@ -54,7 +54,7 @@ with the item.
 See the :sdk-examples-java-dynamodb:`complete example <GetItem.java>` on GitHub.
 
 
-.. _dynamodb-add-item:
+.. _dynamodb-get-item:
 
 Retrieve (get) an item from a table using the asynchronous client
 =================================================================
@@ -74,7 +74,7 @@ all of the attributes for that item (refer to the following example).
 **Code**
 
 .. literalinclude:: dynamoasyc.java2.get_item.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-dynamodbasync:`complete example <DynamoDBAsyncGetItem.java>` on GitHub.

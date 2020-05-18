@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-###########################
-Using Alarm Actions in |CW|
-###########################
+#########################
+Use alarm actions in |CW|
+#########################
 
 .. meta::
    :description: How to enable or disable alarm actions for Amazon Cloudwatch with the AWS SDK for
@@ -25,7 +25,7 @@ terminating, rebooting, or recovering |ec2| instances.
    :methodname:`alarmActions` method when :doc:`creating an alarm <examples-cloudwatch-create-alarms>`.
 
 
-Enable Alarm Actions
+Enable alarm actions
 ====================
 
 To enable alarm actions for a |cw| alarm, call the |cwclient|'s :methodname:`enableAlarmActions`
@@ -41,12 +41,12 @@ actions you want to enable.
 **Code**
 
 .. literalinclude:: cloudwatch.java2.enable_alarm_actions.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-cloudwatch:`complete example <EnableAlarmActions.java>` on GitHub.
 
-Disable Alarm Actions
+Disable alarm actions
 =====================
 
 To disable alarm actions for a |cw| alarm, call the |cwclient|'s :methodname:`disableAlarmActions`
@@ -62,12 +62,12 @@ actions you want to disable.
 **Code**
 
 .. literalinclude:: cloudwatch.java2.disable_alarm_actions.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-cloudwatch:`complete example <DisableAlarmActions.java>` on GitHub.
 
-More Information
+More information
 ================
 
 * :cw-ug:`Create Alarms to Stop, Terminate, Reboot, or Recover an Instance <UsingAlarmActions>` in
