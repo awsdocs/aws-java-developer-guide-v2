@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -8,33 +8,35 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#################################################
-Invoking, Listing, and Deleting Lambda Functions
-#################################################
+############################################
+Invoke, list, and delete |LAMlong| functions
+############################################
 
 .. meta::
     :description: How to invoke, list, and delete a Lambda function by using the AWS SDK for Java 2.x.
-    :keywords: Amazon Lambda, AWS SDK for Java 2.x, Lambda code examples,
+    :keywords: AWS Lambda, AWS SDK for Java 2.x, Lambda code examples,
                deleteFunction, invoke, listFunctions
 
 
-This section provides examples of programming with the Lambda service client by using the AWS SDK for Java 2.0.
+This section provides examples of programming with the |LAM| service client by using the AWS SDK for Java 2.0.
 
 .. contents::
     :local:
     :depth: 1
 
+
 .. _invoke-function:
-Invoke a Lambda function
+
+Invoke a |LAM| function
 ========================
 
-You can invoke a Lambda function by creating a :aws-java-class:`LambdaClient <services/lambda/LambdaClient>`
+You can invoke a |LAM| function by creating a :aws-java-class:`LambdaClient <services/lambda/LambdaClient>`
 object and invoking its :methodname:`invoke` method. Create an :aws-java-class:`InvokeRequest <services/lambda/model/InvokeRequest>`
-object to specify additional information such as the function name and the payload to pass to the Lambda function. Function names
+object to specify additional information such as the function name and the payload to pass to the |LAM| function. Function names
 appear as *arn:aws:lambda:us-west-2:555556330391:function:HelloFunction*. You can retrieve the value by looking at the function in the AWS Console.
 
 To pass payload data to a function, create a :aws-java-class:`SdkBytes <core/SdkBytes>`
-object that contains information. For example, in the following code example, notice the JSON data passed to the Lambda function.
+object that contains information. For example, in the following code example, notice the JSON data passed to the |LAM| function.
 
 **Imports**
 
@@ -43,20 +45,19 @@ object that contains information. For example, in the following code example, no
 
 **Code**
 
-The following code example demonstrates how to invoke a Lambda function.
+The following code example demonstrates how to invoke a |LAM| function.
 
 .. literalinclude:: lambda.java2.invoke.main.txt
    :dedent: 4
    :language: java
 
-See the complete example on `Github
-<https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/lambda/src/main/java/com/example/lambda/LambdaInvoke.java/>`_.
+See the :sdk-examples-java-lambda:`complete example <LambdaInvoke.java>` on GitHub.
 
 
 .. _list-function:
 
-List Lambda functions
-=========================
+List |LAM| functions
+====================
 
 Build a :aws-java-class:`LambdaClient <services/lambda/LambdaClient>`
 object and invoke its :methodname:`listFunctions` method.
@@ -78,14 +79,13 @@ The following Java code example demonstrates how to retrieve a list of function 
    :dedent: 4
    :language: java
 
-See the complete example on `Github
-<https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/lambda/src/main/java/com/example/lambda/ListLambdaFunctions.java/>`_.
+See the :sdk-examples-java-lambda:`complete example <ListLambdaFunctions.java>` on GitHub.
 
 
 .. _delete-function:
 
-Delete a Lambda function
-========================
+Delete a |LAM| function
+=======================
 
 Build a :aws-java-class:`LambdaClient <services/lambda/LambdaClient>`
 object and invoke its :methodname:`deleteFunction` method.
@@ -106,7 +106,6 @@ The following Java code demonstrates how to delete a Lambda function.
    :dedent: 4
    :language: java
 
-See the complete example on `Github
-<https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/lambda/src/main/java/com/example/lambda/DeleteFunction.java/>`_.
+See the :sdk-examples-java-lambda:`complete example <DeleteFunction.java>` on GitHub.
 
 

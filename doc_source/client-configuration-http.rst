@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-##############################
-HTTP Transport Configuration
-##############################
+############################
+HTTP transport configuration
+############################
 
 .. meta::
    :description: How to change max concurrency configuration by using the AWS SDK for Java.
@@ -20,7 +20,8 @@ You can use the
 for asynchronous clients or the
 :aws-java-class:`ApacheHttpClient <http/apache/ApacheHttpClient>` for synchronous clients
 to set HTTP transport settings. For a full list of options you can set with these clients,
-see the :aws-java-class-root:`AWS SDK for Java 2.x Reference <>`.
+see the
+:aws-java-class-root:`AWS SDK for Java API Reference version 2.x<>`.
 
 .. note:: For more information about Apache HTTPClient, see `HttpClient Overview <https://hc.apache.org/httpcomponents-client-4.5.x/index.html>`_.
 
@@ -39,8 +40,8 @@ Add a dependency on the :code:`netty-nio-client` in your POM to use the
 
 
 
-Maximum Connections
-============================
+Maximum connections
+===================
 
 You can set the maximum allowed number of open HTTP connections by using the
 :methodname:`maxConcurrency` method. The :methodname:`maxPendingConnectionAcquires`

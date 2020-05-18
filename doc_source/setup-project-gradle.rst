@@ -24,7 +24,7 @@ the |sdk-java| into the :file:`build.gradle` file.
 
 .. note:: In the following examples, replace *2.X.X* in the :file:`build.gradle` file with a valid
           version of the AWS SDK for Java v2. Find the latest version in the
-          :aws-java-class-root:`AWS SDK for Java 2.x Reference <>`.
+          :aws-java-class-root:`AWS SDK for Java API Reference version 2.x<>`.
 
 .. topic:: To configure the |sdk-java| for Gradle version 5.0 or later
     

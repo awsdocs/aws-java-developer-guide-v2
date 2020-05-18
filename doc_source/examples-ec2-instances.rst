@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-########################
-Managing |EC2| Instances
-########################
+######################
+Manage |EC2| instances
+######################
 
 .. meta::
    :description: How to create, start, stop, reboot, list and monitor EC2 instances using the AWS
@@ -19,8 +19,8 @@ Managing |EC2| Instances
               instance, reboot instance, monitor instance, list instances, describe instances
 
 
-Creating an Instance
-====================
+Create an instance
+==================
 
 Create a new |EC2| instance by calling the |ec2client|'s :methodname:`runInstances` method,
 providing it with a :aws-java-class:`RunInstancesRequest <services/ec2/model/RunInstancesRequest>`
@@ -35,14 +35,14 @@ containing the :ec2-ug:`Amazon Machine Image (AMI) <AMIs>` to use and an :ec2-ug
 **Code**
 
 .. literalinclude:: ec2.java2.create_instance.main.txt
-   :dedent: 8
+   :dedent: 3
    :language: java
 
 See the :sdk-examples-java-ec2:`complete example <CreateInstance.java>` on GitHub.
 
 
-Starting an Instance
-====================
+Start an instance
+=================
 
 To start an |EC2| instance, call the |ec2client|'s :methodname:`startInstances` method, providing it
 with a :aws-java-class:`StartInstancesRequest <services/ec2/model/StartInstancesRequest>` containing
@@ -56,14 +56,14 @@ the ID of the instance to start.
 **Code**
 
 .. literalinclude:: ec2.java2.start_stop_instance.start.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-ec2:`complete example <StartStopInstance.java>` on GitHub.
 
 
-Stopping an Instance
-====================
+Stop an instance
+================
 
 To stop an |EC2| instance, call the |ec2client|'s :methodname:`stopInstances` method, providing it
 with a :aws-java-class:`StopInstancesRequest <services/ec2/model/StopInstancesRequest>` containing
@@ -77,14 +77,14 @@ the ID of the instance to stop.
 **Code**
 
 .. literalinclude:: ec2.java2.start_stop_instance.stop.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-ec2:`complete example <StartStopInstance.java>` on GitHub.
 
 
-Rebooting an Instance
-=====================
+Reboot an instance
+==================
 
 To reboot an |EC2| instance, call the |ec2client|'s :methodname:`rebootInstances` method, providing it
 with a :aws-java-class:`RebootInstancesRequest <services/ec2/model/RebootInstancesRequest>` containing
@@ -98,14 +98,14 @@ the ID of the instance to reboot.
 **Code**
 
 .. literalinclude:: ec2.java2.reboot_instance.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-ec2:`complete example <RebootInstance.java>` on GitHub.
 
 
-Describing Instances
-====================
+Describe instances
+==================
 
 To list your instances, create a :aws-java-class:`DescribeInstancesRequest
 <services/ec2/model/DescribeInstancesRequest>` and call the |ec2client|'s
@@ -127,7 +127,7 @@ the :classname:`DescribeInstancesResponse` class' :methodname:`reservations` met
 **Code**
 
 .. literalinclude:: ec2.java2.describe_instances.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 Results are paged; you can get further results by passing the value returned from the result
@@ -138,8 +138,8 @@ object's :methodname:`nextToken` method to a new request object's
 See the :sdk-examples-java-ec2:`complete example <DescribeInstances.java>` on GitHub.
 
 
-Monitoring an Instance
-======================
+Monitor an instance
+===================
 
 You can monitor various aspects of your |EC2| instances, such as CPU and network utilization,
 available memory, and disk space remaining. To learn more about instance monitoring, see
@@ -163,8 +163,8 @@ the |ec2client|'s :methodname:`monitorInstances` method.
 See the :sdk-examples-java-ec2:`complete example <MonitorInstance.java>` on GitHub.
 
 
-Stopping Instance Monitoring
-============================
+Stop instance monitoring
+========================
 
 To stop monitoring an instance, create an :aws-java-class:`UnmonitorInstancesRequest
 <services/ec2/model/UnmonitorInstancesRequest>` with the ID of the instance to stop monitoring, and
@@ -184,7 +184,7 @@ pass it to the |ec2client|'s :methodname:`unmonitorInstances` method.
 See the :sdk-examples-java-ec2:`complete example <MonitorInstance.java>` on GitHub.
 
 
-More Information
+More information
 ================
 
 * :ec2-api:`RunInstances` in the |ec2-api|

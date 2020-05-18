@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-######################################
-Working with |IAM| Server Certificates
-######################################
+###################################
+Work with |IAM| server certificates
+###################################
 
 .. meta::
    :description: How to get, list, update and delete IAM server certificates.
@@ -29,8 +29,8 @@ certificate renewals for you. Certificates provided by |acm| are free. For more 
 |acm| , see the |acm-ug|_.
 
 
-Getting a Server Certificate
-============================
+Get a server certificate
+========================
 
 You can retrieve a server certificate by calling the |iamclient|'s
 :methodname:`getServerCertificate` method, passing it a :aws-java-class:`GetServerCertificateRequest
@@ -44,14 +44,14 @@ You can retrieve a server certificate by calling the |iamclient|'s
 **Code**
 
 .. literalinclude:: iam.java2.get_server_certificate.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-iam:`complete example <GetServerCertificate.java>` on GitHub.
 
 
-Listing Server Certificates
-===========================
+List server certificates
+========================
 
 To list your server certificates, call the |iamclient|'s :methodname:`listServerCertificates` method
 with a :aws-java-class:`ListServerCertificatesRequest
@@ -79,14 +79,14 @@ call :methodname:`listServerCertificates` again to get the next batch of results
 **Code**
 
 .. literalinclude:: iam.java2.list_server_certificates.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-iam:`complete example <ListServerCertificates.java>` on GitHub.
 
 
-Updating a Server Certificate
-=============================
+Update a server certificate
+===========================
 
 You can update a server certificate's name or path by calling the |iamclient|'s
 :methodname:`updateServerCertificate` method. It takes a
@@ -102,14 +102,14 @@ certificate's current name and either a new name or new path to use.
 **Code**
 
 .. literalinclude:: iam.java2.update_server_certificate.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-iam:`complete example <UpdateServerCertificate.java>` on GitHub.
 
 
-Deleting a Server Certificate
-=============================
+Delete a server certificate
+===========================
 
 To delete a server certificate, call the |iamclient|'s :methodname:`deleteServerCertificate` method
 with a :aws-java-class:`DeleteServerCertificateRequest
@@ -124,13 +124,13 @@ name.
 **Code**
 
 .. literalinclude:: iam.java2.delete_server_certificate.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-iam:`complete example <DeleteServerCertificate.java>` on GitHub.
 
 
-More Information
+More information
 ================
 
 * :iam-ug:`Working with Server Certificates <id_credentials_server-certs>` in the |iam-ug|

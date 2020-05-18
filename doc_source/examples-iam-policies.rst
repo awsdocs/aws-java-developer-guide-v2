@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-###########################
-Working with |IAM| Policies
-###########################
+########################
+Work with |IAM| policies
+########################
 
 .. meta::
    :description: How to create, attach and detach policies to IAM roles.
@@ -18,8 +18,8 @@ Working with |IAM| Policies
               GetPolicyRequest, ListAttachedRolePoliciesRequest, DetachRolePolicyRequest
 
 
-Creating a Policy
-=================
+Create a policy
+===============
 
 To create a new policy, provide the policy's name and a JSON-formatted policy document in a
 :aws-java-class:`CreatePolicyRequest <services/iam/model/CreatePolicyRequest>` to the
@@ -33,14 +33,14 @@ To create a new policy, provide the policy's name and a JSON-formatted policy do
 **Code**
 
 .. literalinclude:: iam.java2.create_policy.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
    
 See the :sdk-examples-java-iam:`complete example <CreatePolicy.java>` on GitHub.
 
 
-Getting a Policy
-================
+Get a policy
+============
 
 To retrieve an existing policy, call the |iamclient|'s :methodname:`getPolicy` method, providing the
 policy's ARN within a :aws-java-class:`GetPolicyRequest
@@ -54,14 +54,14 @@ policy's ARN within a :aws-java-class:`GetPolicyRequest
 **Code**
 
 .. literalinclude:: iam.java2.get_policy.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-iam:`complete example <GetPolicy.java>` on GitHub.
 
 
-Attaching a Role Policy
-=======================
+Attach a role policy
+====================
 
 You can attach a policy to an |IAM| :iam-ug:`role <id_roles>` by calling the |iamclient|'s
 :methodname:`attachRolePolicy` method, providing it with the role name and policy ARN in an
@@ -76,14 +76,14 @@ You can attach a policy to an |IAM| :iam-ug:`role <id_roles>` by calling the |ia
 **Code**
    
 .. literalinclude:: iam.java2.attach_role_policy.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-iam:`complete example <AttachRolePolicy.java>` on GitHub.
 
 
-Listing Attached Role Policies
-==============================
+List attached role policies
+===========================
 
 List attached policies on a role by calling the |iamclient|'s :methodname:`listAttachedRolePolicies`
 method. It takes a :aws-java-class:`ListAttachedRolePoliciesRequest
@@ -107,14 +107,14 @@ call :methodname:`listAttachedRolePolicies` again to get the next batch of resul
 **Code**
 
 .. literalinclude:: iam.java2.attach_role_policy.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-iam:`complete example <AttachRolePolicy.java>` on GitHub.
 
 
-Detaching a Role Policy
-=======================
+Detach a role policy
+====================
 
 To detach a policy from a role, call the |iamclient|'s :methodname:`detachRolePolicy` method,
 providing it with the role name and policy ARN in a :aws-java-class:`DetachRolePolicyRequest
@@ -128,13 +128,13 @@ providing it with the role name and policy ARN in a :aws-java-class:`DetachRoleP
 **Code**
 
 .. literalinclude:: iam.java2.detach_role_policy.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-iam:`complete example <DetachRolePolicy.java>` on GitHub.
 
 
-More Information
+More information
 ================
 
 * :iam-ug:`Overview of IAM Policies <access_policies>` in the |iam-ug|.

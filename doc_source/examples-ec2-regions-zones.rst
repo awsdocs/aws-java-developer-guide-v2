@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-####################################
-Using Regions and Availability Zones
-####################################
+##################################
+Use regions and availability zones
+##################################
 
 .. meta::
    :description: How to list EC2 regions and availability zones using the AWS SDK for Java 2.x.
@@ -18,8 +18,8 @@ Using Regions and Availability Zones
               zones, describe availability zones
 
 
-Describing Regions
-==================
+Describe regions
+================
 
 To list the Regions available to your account, call the |ec2client|'s :methodname:`describeRegions`
 method. It returns a :aws-java-class:`DescribeRegionsResponse
@@ -41,8 +41,8 @@ each Region.
 See the :sdk-examples-java-ec2:`complete example <DescribeRegionsAndZones.java>` on GitHub.
 
 
-Describing Availability Zones
-=============================
+Describe availability zones
+===========================
 
 To list each Availability Zone available to your account, call the |ec2client|'s
 :methodname:`describeAvailabilityZones` method. It returns a
@@ -72,8 +72,8 @@ Then call describeAvailabilityZones() and retrieve results.
 
 See the :sdk-examples-java-ec2:`complete example <DescribeRegionsAndZones.java>` on GitHub.
 
-Describing Accounts
-==================
+Describe accounts
+=================
 
 To describe your account, call the |ec2client|'s :methodname:`describeAccountAttributes`
 method. This method returns a :aws-java-class:`DescribeAccountAttributesResponse <services/ec2/model/DescribeAccountAttributesResponse>` object.
@@ -101,7 +101,7 @@ See the :sdk-examples-java-ec2:`complete example <DescribeRegionsAndZones.java>`
 
 
 
-More Information
+More information
 ================
 
 * :ec2-ug:`Regions and Availability Zones <using-regions-availability-zones>` in the |ec2-ug|

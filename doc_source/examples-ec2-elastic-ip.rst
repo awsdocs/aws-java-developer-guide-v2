@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-###################################
-Using Elastic IP Addresses in |EC2|
-###################################
+#################################
+Use elastic IP addresses in |EC2|
+#################################
 
 .. meta::
    :description: How to allocate, use, list, and release Elastic IP addresses for EC2 instances with
@@ -19,8 +19,8 @@ Using Elastic IP Addresses in |EC2|
               assign address, associate address, list addresses
 
 
-Allocating an Elastic IP Address
-================================
+Allocate an elastic IP address
+==============================
 
 To use an Elastic IP address, you first allocate one to your account, and then associate it with
 your instance or a network interface.
@@ -43,14 +43,14 @@ method.
 **Code**
 
 .. literalinclude:: ec2.java2.allocate_address.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-ec2:`complete example <AllocateAddress.java>` on GitHub.
 
 
-Describing Elastic IP Addresses
-===============================
+Describe elastic IP addresses
+=============================
 
 To list the Elastic IP addresses assigned to your account, call the |ec2client|'s
 :methodname:`describeAddresses` method. It returns a :aws-java-class:`DescribeAddressesResponse
@@ -66,14 +66,14 @@ addresses on your account.
 **Code**
 
 .. literalinclude:: ec2.java2.describe_addresses.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-ec2:`complete example <DescribeAddresses.java>` on GitHub.
 
 
-Releasing an Elastic IP Address
-===============================
+Release an elastic IP address
+=============================
 
 To release an Elastic IP address, call the |ec2client|'s :methodname:`releaseAddress` method,
 passing it a :aws-java-class:`ReleaseAddressRequest <services/ec2/model/ReleaseAddressRequest>`
@@ -87,7 +87,7 @@ containing the allocation ID of the Elastic IP address you want to release.
 **Code**
 
 .. literalinclude:: ec2.java2.release_instance.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 After you release an Elastic IP address, it is released to the AWS IP address pool and might be
@@ -106,7 +106,7 @@ the Elastic IP address before you try to release it. Otherwise, |EC2| returns an
 See the :sdk-examples-java-ec2:`complete example <ReleaseAddress.java>` on GitHub.
 
 
-More Information
+More information
 ================
 
 * :ec2-ug:`Elastic IP Addresses <elastic-ip-addresses-eip>` in the |ec2-ug|

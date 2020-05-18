@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -8,16 +8,16 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-########################
-Working with |CW| Alarms
-########################
+#####################
+Work with |CW| alarms
+#####################
 
 .. meta::
    :description: How to create, list, and delete alarms in Amazon CloudWatch using the AWS SDK for
                  Java 2.x
    :keywords: create alarm, delete alarm, list alarms, metric alarms, AWS SDK for Java 2.x, example code
 
-Create an Alarm
+Create an alarm
 ===============
 
 To create an alarm based on a |cw| metric, call the |cwclient|'s :methodname:`putMetricAlarm` method
@@ -32,12 +32,12 @@ filled with the alarm conditions.
 **Code**
 
 .. literalinclude:: cloudwatch.java2.put_metric_alarm.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-cloudwatch:`complete example <PutMetricAlarm.java>` on GitHub.
 
-List Alarms
+List alarms
 ===========
 
 To list the |cw| alarms that you have created, call the |cwclient|'s :methodname:`describeAlarms`
@@ -53,7 +53,7 @@ method with a :aws-java-class:`DescribeAlarmsRequest
 **Code**
 
 .. literalinclude:: cloudwatch.java2.describe_alarms.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 The list of alarms can be obtained by calling :methodname:`MetricAlarms` on the
@@ -69,7 +69,7 @@ call the :methodname:`describeAlarms` method again with the new request.
 
 See the :sdk-examples-java-cloudwatch:`complete example <DescribeAlarms.java>` on GitHub.
 
-Delete Alarms
+Delete alarms
 =============
 
 To delete |cw| alarms, call the |cwclient|'s :methodname:`deleteAlarms` method with a
@@ -85,13 +85,13 @@ or more names of alarms that you want to delete.
 **Code**
 
 .. literalinclude:: cloudwatch.java2.delete_metrics.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 
 See the :sdk-examples-java-cloudwatch:`complete example <DeleteAlarm.java>` on GitHub.
 
-More Information
+More information
 ================
 
 * :cw-ug:`Creating Amazon CloudWatch Alarms <AlarmThatSendsEmail>` in the |cw-ug|

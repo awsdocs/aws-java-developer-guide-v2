@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#######################################
-Performing Operations on an |S3| Object
-#######################################
+######################
+Work with |S3| objects
+######################
 
 .. meta::
     :description: How to list, upload, download or delete objects in an Amazon
@@ -33,7 +33,7 @@ An |S3| object represents a file or collection of data. Every object must be con
 
 .. _upload-object:
 
-Upload an Object
+Upload an object
 ================
 
 Build a :aws-java-class:`PutObjectRequest <services/s3/model/PutObjectRequest>`
@@ -57,7 +57,7 @@ See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>` on Gi
 
 .. _list-objects:
 
-Upload Objects in Multiple Parts
+Upload objects in multiple parts
 ================================
 
 Use the |s3client|'s :methodname:`createMultipartUpload`
@@ -80,7 +80,7 @@ See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>` on Gi
 
 .. _download-object:
 
-Download an Object
+Download an object
 ==================
 
 Build a :aws-java-class:`GetObjectRequest <services/s3/model/GetObjectRequest>`
@@ -107,7 +107,7 @@ See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>` on Gi
 
 .. _delete-object:
 
-Delete an Object
+Delete an object
 ================
 
 Build a :aws-java-class:`DeleteObjectRequest <services/s3/model/DeleteObjectRequest>`
@@ -128,8 +128,8 @@ object to delete. *The specified bucket and object key must exist, or the servic
 
 See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>` on GitHub.
 
-Copy an Object
-================
+Copy an object
+==============
 
 Build a :aws-java-class:`CopyObjectRequest <services/s3/model/CopyObjectRequest>`
 and supply a bucket name that the object is coped into, a URL encoded string value (see the URLEncoder.encode method), and the key name of the object.
@@ -144,15 +144,15 @@ Use the |s3client|'s :methodname:`copyObject` method, and pass the :aws-java-cla
 **Code**
 
 .. literalinclude:: s3.java2.copy_object.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-s3:`complete example <CopyObject.java>` on GitHub.
 
 .. _list-object:
 
-List Objects
-================
+List objects
+============
 
 Build a :aws-java-class:`ListObjectsRequest <services/s3/model/ListObjectsRequest>`
 and supply the bucket name. Then invoke the |s3client|'s
@@ -168,7 +168,7 @@ the objects, as shown in the following code example.
 **Code**
 
 .. literalinclude:: s3.java2.list_objects.main.txt
-   :dedent: 0
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-s3:`complete example <ListObjects.java>` on GitHub.

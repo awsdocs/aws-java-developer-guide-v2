@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-############################
-Working with Tables in |DDB|
-############################
+#########################
+Work with tables in |DDB|
+#########################
 
 .. meta::
    :description: How to create, describe, modify (update) and delete Amazon DynamoDB tables.
@@ -47,7 +47,7 @@ For each table, you must define:
 
 .. _dynamodb-create-table:
 
-Create a Table
+Create a table
 ==============
 
 Use the |ddbclient|'s
@@ -69,7 +69,7 @@ must also supply initial provisioned throughput values and a table name.
 
 .. _dynamodb-create-table-simple:
 
-Create a Table with a Simple Primary Key
+Create a table with a simple primary key
 ----------------------------------------
 
 This code creates a table with a simple primary key ("Name").
@@ -77,15 +77,15 @@ This code creates a table with a simple primary key ("Name").
 **Code**
 
 .. literalinclude:: dynamodb.java2.create_table.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-dynamodb:`complete example <CreateTable.java>` on GitHub.
 
 .. _dynamodb-create-table-composite:
 
-Create a Table with a Composite Primary Key
----------------------------------------------
+Create a table with a composite primary key
+-------------------------------------------
 
 Add another
 :aws-java-class:`AttributeDefinition <services/dynamodb/model/AttributeDefinition>` and
@@ -100,14 +100,14 @@ Add another
 **Code**
 
 .. literalinclude:: dynamodb.java2.create_table_composite_key.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-dynamodb:`complete example <CreateTableCompositeKey.java>` on GitHub.
 
 .. _dynamodb-list-tables:
 
-List Tables
+List tables
 ===========
 
 You can list the tables in a particular region by calling the |ddbclient|'s
@@ -125,7 +125,7 @@ You can list the tables in a particular region by calling the |ddbclient|'s
 **Code**
 
 .. literalinclude:: dynamodb.java2.list_tables.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 By default, up to 100 tables are returned per call |mdash| use
@@ -138,7 +138,7 @@ See the :sdk-examples-java-dynamodb:`complete example <ListTables.java>` on GitH
 
 .. _dynamodb-describe-table:
 
-Describe (Get Information about) a Table
+Describe (get information about) a table
 ========================================
 
 Call the |ddbclient|'s :methodname:`describeTable` method.
@@ -155,7 +155,7 @@ Call the |ddbclient|'s :methodname:`describeTable` method.
 **Code**
 
 .. literalinclude:: dynamodb.java2.describe_table.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-dynamodb:`complete example <DescribeTable.java>` on GitHub.
@@ -163,7 +163,7 @@ See the :sdk-examples-java-dynamodb:`complete example <DescribeTable.java>` on G
 
 .. _dynamodb-update-table:
 
-Modify (Update) a Table
+Modify (update) a table
 =======================
 
 You can modify your table's provisioned throughput values at any time by calling the
@@ -182,7 +182,7 @@ method.
 **Code**
 
 .. literalinclude:: dynamodb.java2.update_table.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-dynamodb:`complete example <UpdateTable.java>` on GitHub.
@@ -190,7 +190,7 @@ See the :sdk-examples-java-dynamodb:`complete example <UpdateTable.java>` on Git
 
 .. _dynamodb-delete-table:
 
-Delete a Table
+Delete a table
 ==============
 
 Call the |ddbclient|'s
@@ -208,13 +208,13 @@ Call the |ddbclient|'s
 **Code**
 
 .. literalinclude:: dynamodb.java2.delete_table.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-dynamodb:`complete example <DeleteTable.java>` on GitHub.
 
-More Info
-=========
+More information
+================
 
 * :ddb-dg:`Guidelines for Working with Tables <GuidelinesForTables>` in the |ddb-dg|
 * :ddb-dg:`Working with Tables in DynamoDB <WorkingWithTables>` in the |ddb-dg|

@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-###########################
-Using |IAM| Account Aliases
-###########################
+#########################
+Use |IAM| account aliases
+#########################
 
 .. meta::
    :description: How to create, list and delete AWS account aliases.
@@ -24,8 +24,8 @@ instead of your AWS account ID, you can create an alias for your AWS account.
 .. note:: AWS supports exactly one account alias per account.
 
 
-Creating an Account Alias
-=========================
+Create an account alias
+=======================
 
 To create an account alias, call the |iamclient|'s :methodname:`createAccountAlias` method with a
 :aws-java-class:`CreateAccountAliasRequest
@@ -39,14 +39,14 @@ To create an account alias, call the |iamclient|'s :methodname:`createAccountAli
 **Code**
 
 .. literalinclude:: iam.java2.create_account_alias.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-iam:`complete example <CreateAccountAlias.java>` on GitHub.
 
 
-Listing Account Aliases
-=======================
+List account aliases
+====================
 
 To list your account's alias, if any, call the |iamclient|'s :methodname:`listAccountAliases`
 method.
@@ -66,14 +66,14 @@ method.
 **Code**
 
 .. literalinclude:: iam.java2.list_account_aliases.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 see the :sdk-examples-java-iam:`complete example <ListAccountAliases.java>` on GitHub.
 
 
-Deleting an account alias
-=========================
+Delete an account alias
+=======================
 
 To delete your account's alias, call the |iamclient|'s :methodname:`deleteAccountAlias` method. When
 deleting an account alias, you must supply its name using a
@@ -88,12 +88,12 @@ deleting an account alias, you must supply its name using a
 **Code**
 
 .. literalinclude:: iam.java2.delete_account_alias.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-iam:`complete example <DeleteAccountAlias.java>` on GitHub.
 
-More Information
+More information
 ================
 
 * :iam-ug:`Your AWS Account ID and Its Alias <console_account-alias>` in the |iam-ug|

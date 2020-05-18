@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#############################
-Publishing Custom Metric Data
-#############################
+##########################
+Publish custom metric data
+##########################
 
 .. meta::
    :description: How to publish your own custom metric data to Amazon Cloudwatch using the AWS SDK
@@ -22,7 +22,7 @@ A number of AWS services publish :cw-ug:`their own metrics <aws-namespaces>` in 
 with "AWS/" You can also publish custom metric data using your own namespace (as long as it doesn't
 begin with "AWS/").
 
-Publish Custom Metric Data
+Publish custom metric data
 ==========================
 
 To publish your own metric data, call the |cwclient|'s :methodname:`putMetricData` method with a
@@ -42,12 +42,12 @@ information about the data point itself in a :aws-java-class:`MetricDatum
 **Code**
 
 .. literalinclude:: cloudwatch.java2.put_metric_data.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-cloudwatch:`complete example <PutMetricData.java>` on GitHub.
 
-More Information
+More information
 ================
 
 * :cw-ug:`Using Amazon CloudWatch Metrics <working_with_metrics>` in the |cw-ug|.

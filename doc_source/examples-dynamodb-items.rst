@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-###########################
-Working with Items in |DDB|
-###########################
+########################
+Work with items in |DDB|
+########################
 
 .. meta::
    :description: How to retrieve (get), add, and update items in Amazon DynamoDB tables.
@@ -21,9 +21,10 @@ In |ddb|, an item is a collection of *attributes*, each of which has a *name* an
 attribute value can be a scalar, set, or document type. For more information, see :ddb-dg:`Naming
 Rules and Data Types <HowItWorks.NamingRulesDataTypes>` in the |ddb-dg|.
 
+
 .. _dynamodb-get-item:
 
-Retrieve (Get) an Item from a Table
+Retrieve (get) an item from a table
 ===================================
 
 Call the |ddbclient|'s :methodname:`getItem` method and pass it a
@@ -47,7 +48,7 @@ with the item.
 **Code**
 
 .. literalinclude:: dynamodb.java2.get_item.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-dynamodb:`complete example <GetItem.java>` on GitHub.
@@ -55,7 +56,7 @@ See the :sdk-examples-java-dynamodb:`complete example <GetItem.java>` on GitHub.
 
 .. _dynamodb-add-item:
 
-Retrieve (Get) an Item from a Table using the Asynchronous client
+Retrieve (get) an item from a table using the asynchronous client
 =================================================================
 
 Invoke the :methodname:`getItem` method of the |ddbasyncclient| and pass it a
@@ -80,7 +81,7 @@ See the :sdk-examples-java-dynamodbasync:`complete example <DynamoDBAsyncGetItem
 
 .. _dynamodb-add-item:
 
-Add a New Item to a Table
+Add a new item to a table
 =========================
 
 Create a :javase-ref:`Map <java/util/Map>` of key-value pairs that
@@ -99,7 +100,7 @@ item identified by the primary key already exists, its fields are *updated* by t
 **Code**
 
 .. literalinclude:: dynamodb.java2.put_item.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-dynamodb:`complete example <PutItem.java>` on GitHub.
@@ -107,7 +108,7 @@ See the :sdk-examples-java-dynamodb:`complete example <PutItem.java>` on GitHub.
 
 .. _dynamodb-update-item:
 
-Update an Existing Item in a Table
+Update an existing item in a table
 ==================================
 
 You can update an attribute for an item that already exists in a table by using the |ddbclient|'s
@@ -126,14 +127,14 @@ update.
 **Code**
 
 .. literalinclude:: dynamodb.java2.update_item.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-dynamodb:`complete example <UpdateItem.java>` on GitHub.
 
 .. _dynamodb-delete-item:
 
-Delete an Existing Item in a Table
+Delete an existing item in a table
 ==================================
 
 You can delete an item that exists in a table by using the |ddbclient|'s
@@ -151,14 +152,14 @@ You can delete an item that exists in a table by using the |ddbclient|'s
 **Code**
 
 .. literalinclude:: dynamodb.java2.delete_item.main.txt
-   :dedent: 8
+   :dedent: 2
    :language: java
 
 See the :sdk-examples-java-dynamodb:`complete example <DeleteItem.java>` on GitHub.
 
 
-More Info
-=========
+More information
+================
 
 * :ddb-dg:`Guidelines for Working with Items <GuidelinesForItems>` in the |ddb-dg|
 * :ddb-dg:`Working with Items in DynamoDB <WorkingWithItems>` in the |ddb-dg|

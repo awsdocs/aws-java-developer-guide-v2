@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -9,7 +9,7 @@
    limitations under the License.
 
 #################################################
-Set Up AWS Credentials and Region for Development
+Set up AWS credentials and region for development
 #################################################
 
 .. meta::
@@ -33,8 +33,8 @@ or if you're using the Eclipse IDE for development, see the following topics ins
 
 .. _setup-credentials-setting:
 
-Setting AWS Credentials
-=======================
+Set AWS credentials
+===================
 
 You can set your credentials for use by the |sdk-java| in several ways. However, these are
 the recommended approaches:
@@ -49,8 +49,8 @@ working with AWS credentials in your Java applications, see :doc:`credentials`.
 
 
 .. _refresh-credentials:
-Refreshing IMDS credentials
-===========================
+Refresh IMDS credentials
+========================
 
 The |sdk-java| supports opt-in refreshing IMDS credentials in the background every 1 minute, regardless of the credential expiration time.
 This allows you to refresh credentials more frequently and reduces the chance that not reaching IMDS impacts
@@ -75,10 +75,11 @@ the perceived AWS availability.
     14. // This is new: When you are done with the credentials provider, you must close it to release the background thread.
     15. credentials.close();
 
+
 .. _setup-credentials-setting-region:
 
-Setting the AWS Region
-======================
+Set the AWS region
+==================
 
 You should set a default AWS Region to use for accessing AWS services with the |sdk-java|. For the best
 network performance, choose a region that's geographically close

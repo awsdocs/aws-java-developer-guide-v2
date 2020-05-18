@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-##########################
-Managing |IAM| Access Keys
-##########################
+########################
+Manage |IAM| access keys
+########################
 
 .. meta::
    :description: How to manage IAM access keys with the AWS SDK for Java 2.x.
@@ -19,8 +19,8 @@ Managing |IAM| Access Keys
               GetAccessKeyLastUsedRequest
 
 
-Creating an Access Key
-======================
+Create an access key
+====================
 
 To create an |IAM| access key, call the |iamclient|'s :methodname:`createAccessKey` method with a
 :aws-java-class:`CreateAccessKeyRequest <services/iam/model/CreateAccessKeyRequest>`
@@ -37,14 +37,14 @@ object.
 **Code**
 
 .. literalinclude:: iam.java2.create_access_key.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-iam:`complete example <CreateAccessKey.java>` on GitHub.
 
 
-Listing Access Keys
-===================
+List access keys
+================
 
 To list the access keys for a given user, create a :aws-java-class:`ListAccessKeysRequest
 <services/iam/model/ListAccessKeysRequest>` object that contains the user name to
@@ -61,7 +61,7 @@ list keys for, and pass it to the |iamclient|'s :methodname:`listAccessKeys` met
 **Code**
 
 .. literalinclude:: iam.java2.list_access_keys.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 The results of :methodname:`listAccessKeys` are paged (with a default maximum of 100 records per
@@ -75,8 +75,8 @@ invocation of :methodname:`listAccessKeys`.
 See the :sdk-examples-java-iam:`complete example <ListAccessKeys.java>` on GitHub.
 
 
-Retrieving an Access Key's Last Used Time
-=========================================
+Retrieve an access key's last used time
+=======================================
 
 To get the time an access key was last used, call the |iamclient|'s
 :methodname:`getAccessKeyLastUsed` method with the access key's ID (which can be passed in using a
@@ -95,7 +95,7 @@ used time.
 **Code**
 
 .. literalinclude:: iam.java2.access_key_last_used.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-iam:`complete example <AccessKeyLastUsed.java>` on GitHub.
@@ -103,8 +103,8 @@ See the :sdk-examples-java-iam:`complete example <AccessKeyLastUsed.java>` on Gi
 
 .. _iam-access-keys-update:
 
-Activating or Deactivating Access Keys
-======================================
+Activate or deactivate access keys
+==================================
 
 You can activate or deactivate an access key by creating an :aws-java-class:`UpdateAccessKeyRequest
 <services/iam/model/UpdateAccessKeyRequest>` object, providing the access key ID,
@@ -120,14 +120,14 @@ then passing the request object to the
 **Code**
 
 .. literalinclude:: iam.java2.update_access_key.main.txt
-   :dedent: 8
+   :dedent: 7
    :language: java
 
 See the :sdk-examples-java-iam:`complete example <UpdateAccessKey.java>` on GitHub.
 
 
-Deleting an Access Key
-======================
+Delete an access key
+====================
 
 To permanently delete an access key, call the |iamclient|'s :methodname:`deleteKey` method,
 providing it with a :aws-java-class:`DeleteAccessKeyRequest
@@ -146,13 +146,13 @@ username.
 **Code**
 
 .. literalinclude:: iam.java2.delete_access_key.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
    
 See the :sdk-examples-java-iam:`complete example <DeleteAccessKey.java>` on GitHub.
 
 
-More Information
+More information
 ================
 
 * :iam-api:`CreateAccessKey` in the |iam-api|

@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-######################
-Sending Events to |CW|
-######################
+###################
+Send events to |CW|
+###################
 
 .. meta::
    :description: How to add events, rules and rule targets for Amazon Cloudwatch using the AWS SDK
@@ -19,7 +19,7 @@ Sending Events to |CW|
 
 .. include:: common/desc-cloudwatch-events.txt
 
-Add Events
+Add events
 ==========
 
 To add custom |cw| events, call the |cweclient|'s :methodname:`putEvents` method with a
@@ -39,12 +39,12 @@ resources associated with the event, and so on.
 **Code**
 
 .. literalinclude:: cloudwatch.java2.put_events.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-cloudwatch:`complete example <PutEvents.java>` on GitHub.
 
-Add Rules
+Add rules
 =========
 
 To create or update a rule, call the |cweclient|'s :methodname:`putRule` method with a
@@ -61,12 +61,12 @@ expression <ScheduledEvents>` that describes how often the rule is run.
 **Code**
 
 .. literalinclude:: cloudwatch.java2.put_rule.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-cloudwatch:`complete example <PutRule.java>` on GitHub.
 
-Add Targets
+Add targets
 ===========
 
 Targets are the resources that are invoked when a rule is triggered. Example targets include |ec2|
@@ -84,12 +84,12 @@ the rule to update and a list of targets to add to the rule.
 **Code**
 
 .. literalinclude:: cloudwatch.java2.put_targets.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-cloudwatch:`complete example <PutTargets.java>` on GitHub.
 
-More Information
+More information
 ================
 
 * :cwe-ug:`Adding Events with PutEvents <AddEventsPutEvents>` in the |cwe-ug|

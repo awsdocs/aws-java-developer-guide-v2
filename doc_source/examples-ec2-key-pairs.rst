@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-############################
-Working with |EC2| Key Pairs
-############################
+#########################
+Work with |EC2| key pairs
+#########################
 
 .. meta::
    :description: How to create, list and delete EC2 key pairs using the AWS SDK for Java 2.x.
@@ -18,8 +18,8 @@ Working with |EC2| Key Pairs
               key pair
 
 
-Creating a Key Pair
-===================
+Create a key pair
+=================
 
 To create a key pair, call the |ec2client|'s :methodname:`createKeyPair` method with a
 :aws-java-class:`CreateKeyPairRequest <services/ec2/model/CreateKeyPairRequest>` that contains the
@@ -33,14 +33,14 @@ key's name.
 **Code**
 
 .. literalinclude:: ec2.java2.create_key_pair.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-ec2:`complete example <CreateKeyPair.java>` on GitHub.
 
 
-Describing Key Pairs
-====================
+Describe key pairs
+==================
 
 To list your key pairs or to get information about them, call the |ec2client|'s
 :methodname:`describeKeyPairs` method. It returns a :aws-java-class:`DescribeKeyPairsResponse
@@ -56,15 +56,15 @@ calling its :methodname:`keyPairs` method, which returns a list of :aws-java-cla
 **Code**
 
 .. literalinclude:: ec2.java2.describe_key_pairs.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 
 See the :sdk-examples-java-ec2:`complete example <DescribeKeyPairs.java>` on GitHub.
 
 
-Deleting a Key Pair
-===================
+Delete a key pair
+=================
 
 To delete a key pair, call the |ec2client|'s :methodname:`deleteKeyPair` method, passing it a
 :aws-java-class:`DeleteKeyPairRequest <services/ec2/model/DeleteKeyPairRequest>` that contains the
@@ -78,13 +78,13 @@ name of the key pair to delete.
 **Code**
 
 .. literalinclude:: ec2.java2.delete_key_pair.main.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-ec2:`complete example <DeleteKeyPair.java>` on GitHub.
 
 
-More Information
+More information
 ================
 
 * :ec2-ug:`Amazon EC2 Key Pairs <ec2-key-pairs>` in the |ec2-ug|
