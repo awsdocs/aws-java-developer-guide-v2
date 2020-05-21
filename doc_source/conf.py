@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License").  You may not
 # use this file except in compliance with the License.  A copy of the License
@@ -403,8 +403,19 @@ for svc in [
         'glacier',
         'swf',
         'workdocs',
-        'kinesis'
+        'kinesis',
+        'cognito',
+        'sns',
+        'pinpoint',
+        'lambda'
     ]:
     extlinks['sdk-examples-java-%s' % svc] = (samples_url +
         'blob/master/javav2/example_code/{svc}/src/main/java/com/example/{svc}/'.format(svc=svc) +
         '%s', '')
+
+for svc in [
+        'transcribe'
+    ]:
+    extlinks['sdk-examples-java-%s' % svc] = (samples_url +
+            'blob/master/javav2/example_code/{svc}/src/main/java/com/amazonaws/{svc}/'.format(svc=svc) +
+            '%s', '')
