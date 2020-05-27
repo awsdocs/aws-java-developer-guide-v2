@@ -32,13 +32,16 @@ For instructions, see the "Proposing new code examples" section in the
    :maxdepth: 1
 
    Amazon CloudWatch Examples <examples-cloudwatch>
+   Amazon Cognito Examples <examples-cognito>
    Amazon DynamoDB Examples <examples-dynamodb>
    Amazon EC2 Examples <examples-ec2>
    AWS Identity and Access Management (IAM) Examples <examples-iam>
    Amazon Kinesis Examples <examples-kinesis>
    Amazon Lambda Examples <lambda-examples>
+   Amazon Pinpoint Examples <examples-pinpoint>
    Amazon S3 Examples <s3-examples>
    Amazon S3 Presigned Examples <examples-s3-presign>
+   Amazon SNS Examples <examples-simple-notification-service>
    Amazon SQS Examples <sqs-examples>
    Amazon Transcribe Examples <examples-transcribe>
    Pagination Examples <examples-pagination>
