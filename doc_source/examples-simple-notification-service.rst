@@ -28,138 +28,121 @@ Create a new topic
 ==================
 
 A **topic** is a logical grouping of communication channels that defines to which systems a message
-is sent. For example, fanning out a message to AWS Lambda and an HTTP webhook. You send messages to
-SNS and then they are distributed to the channels defined in the topic, making the messages
+is sent. For example, fanning out a message to |LAMlong| and an HTTP webhook. You send messages to
+|SNS| and then they are distributed to the channels defined in the topic, making the messages
 available to subscribers.
 
-To create a topic, first build a CreateTopicRequest object with the name of the topic set using the
-*.name()* method in the builder. Then, send the request object to SNS using SnsClientâ€™s
-*.createTopic()* method. You can capture the result of this request as a CreateTopicResponse object,
-as demonstrated in the code snippet below.
+To create a topic, first build a
+:aws-java-class:`CreateTopicRequest <services/sns/model/CreateTopicRequest>` object with the name
+of the topic set using the :methodname:`name()` method in the builder. Then, send the request
+object to |SNS| using :aws-java-class:`SnsClient <services/sns/SnsClient>`â€™s
+:methodname:`createTopic()` method. You can capture the result of this request as a
+:aws-java-class:`CreateTopicResponse <services/sns/model/CreateTopicResponse>` object, as
+demonstrated in the code snippet below.
 
 **Imports**
 
-.. literalinclude:: cognito.java2.create_user_pool.import.txt
+.. literalinclude:: sns.java2.CreateTopic.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: cognito.java2.create_user_pool.main.txt
+.. literalinclude:: sns.java2.CreateTopic.main.txt
    :dedent: 4
    :language: java
 
-See the :sdk-examples-java-cognito:`complete example <CreateUserPool.java>` on GitHub.
+See the :sdk-examples-java-sns:`complete example <CreateTopic.java>` on GitHub.
 
-Complete Example:
-https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/sns/src/main/java/com/example/sns/CreateTopic.java
+
+.. _sns-crelistate-topics:
 
 List your SNS topics
 ====================
 
-To retrieve a list of your existing SNS topics, build a ListTopicsRequest object. Then, send the
-request object to SNS using SnsClient’s *.listTopics()* method. You must capture the result of this
-request as a ListTopicsResponse object.
+To retrieve a list of your existing |SNS| topics, build a
+:aws-java-class:`ListTopicsRequest <services/sns/model/ListTopicsRequest>` object. Then, send the
+request object to |SNS| using :classname:`SnsClient`’s :methodname:`listTopics()` method. You can
+capture the result of this request as a
+:aws-java-class:`ListTopicsResponse <services/sns/model/ListTopicsResponse>` object.
 
-The code snippet below will print out the HTTP status code of the request along with a list of ARNs
-for your SNS topics.
+The code snippet below will print out the HTTP status code of the request along with a list of
+:code:`ARN`s for your |SNS| topics.
 
-::
+**Imports**
 
-       public static void listSNSTopics(SnsClient snsClient) {
+.. literalinclude:: sns.java2.ListTopics.import.txt
+   :language: java
 
+**Code**
 
-           try {
-               ListTopicsRequest request = ListTopicsRequest.builder()
-                       .build();
+.. literalinclude:: sns.java2.ListTopics.main.txt
+   :dedent: 4
+   :language: java
 
-
-               ListTopicsResponse result = snsClient.listTopics(request);
-               System.out.println("Status was " + result.sdkHttpResponse().statusCode() + "\n\nTopics\n\n" + result.topics());
-
-
-       } catch (SnsException e) {
+See the :sdk-examples-java-sns:`complete example <ListTopics.java>` on GitHub.
 
 
-           System.err.println(e.awsErrorDetails().errorMessage());
-           System.exit(1);
-       }
-
-Complete example:
-https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/sns/src/main/java/com/example/sns/ListTopics.java
+.. _sns-subscribe-endpoint-topic:
 
 Subscribe an endpoint to a topic
 ================================
 
 Once you have a topic created, you can configure which communication channels will be endpoints for
-that topic. These endpoints are where the messages will be distributed after being received by SNS.
+that topic. Messages are distributed to these endpoints after being received by |SNS|.
 
 To configure a communication channel as an endpoint for a topic, subscribe that endpoint to the
-topic. To start, build a SubscribeRequest object. Specify the communication channel (e.g. “lambda”
-or “email”) as the *.protocol()*, set the *.endpoint()* to the relevant output location (e.g. the
-ARN of a Lamdba function or an email address), and set the ARN of the topic to which you wish to
-subscribe as the *.topicArn()*. Then, send the request object to SNS using SnsClient’s
-*.subscribe()* method. You can capture the result of this request as a SubscribeResponse object.
+topic. To start, build a:aws-java-class:`SubscribeRequest <services/sns/model/SubscribeRequest>`
+object. Specify the communication channel (for example, :code:`lambda` or :code:`email`) as the
+:methodname:`protocol()`, set the :method:`endpoint()` to the relevant output location (for
+example, the :code:`ARN` of a |LAM| function or an email address), and set the :code:`ARN` of the
+topic to which you wish to subscribe as the :methodname:`topicArn()`. Then, send the request object
+to SNS using :classname:`SnsClient`’s :methodname:`subscribe()` method. You can capture the result
+of this request as a :aws-java-class:`SubscribeResponse <services/sns/model/SubscribeResponse>`
+object.
 
-For example, the following code snippet shows how to subscribe an email address to a topic.
+The following code snippet shows how to subscribe an email address to a topic.
 
-::
+**Imports**
 
-       public static void subEmail(SnsClient snsClient, String topicArn, String email) {
+.. literalinclude:: sns.java2.SubscribeEmail.import.txt
+   :language: java
 
+**Code**
 
-           try {
-               SubscribeRequest request = SubscribeRequest.builder()
-                   .protocol("email")
-                   .endpoint(email)
-                   .returnSubscriptionArn(true)
-                   .topicArn(topicArn)
-                   .build();
+.. literalinclude:: sns.java2.SubscribeEmail.main.txt
+   :dedent: 4
+   :language: java
 
-
-               SubscribeResponse result = snsClient.subscribe(request);
-               System.out.println("Subscription ARN: " + result.subscriptionArn() + "\n\n Status was " + result.sdkHttpResponse().statusCode());
+See the :sdk-examples-java-sns:`complete example <SubscribeEmail.java>` on GitHub.
 
 
-           } catch (SnsException e) {
-               System.err.println(e.awsErrorDetails().errorMessage());
-               System.exit(1);
-           }
-
-Complete example:
-https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/sns/src/main/java/com/example/sns/SubscribeEmail.java
+.. _sns-publish-message-topic:
 
 Publish a message to a topic
 ============================
 
 Once you have a topic and one or more endpoints configured for it, you can publish a message to the
-topic. To start, build a PublishRequest object. Specify the message to send as the *.message()* and
-set the ARN of the topic to send the message to as the *.topicArn()*. Then, send the request object
-to SNS using SnsClient’s *.publish()* method. You can capture the result of this request as a
-PublishResponse object.
+topic. To start, build a :aws-java-class:`PublishRequest <services/sns/model/PublishRequest>`
+object. Specify the :methodname:`message()` to send and the :code:`ARN` of the topic
+to which to send (:methodname:`topicArn()`). Then, send the request object to |SNS| using
+:classname:`SnsClient`’s :methodname:`publish()` method. You can capture the result of this request
+as a :aws-java-class:`PublishResponse <services/sns/model/PublishResponse>` object.
 
-::
+**Imports**
 
-       public static void pubTopic(SnsClient snsClient, String message, String topicArn) {
+.. literalinclude:: sns.java2.PublishTopic.import.txt
+   :language: java
 
+**Code**
 
-           try {
-               PublishRequest request = PublishRequest.builder()
-                   .message(message)
-                   .topicArn(topicArn)
-                   .build();
+.. literalinclude:: sns.java2.PublishTopic.main.txt
+   :dedent: 4
+   :language: java
 
-
-               PublishResponse result = snsClient.publish(request);
-               System.out.println(result.messageId() + " Message sent. Status was " + result.sdkHttpResponse().statusCode());
+See the :sdk-examples-java-sns:`complete example <PublishTopic.java>` on GitHub.
 
 
-            } catch (SnsException e) {
-               System.err.println(e.awsErrorDetails().errorMessage());
-                 System.exit(1);
-            }
-
-Complete example:
-https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/sns/src/main/java/com/example/sns/PublishTopic.java
+.. _sns-unsubscribe-endpoint-topic:
 
 Unsubscribe an endpoint from a topic
 ====================================
@@ -169,65 +152,51 @@ topic itself will continue to exist and distribute messages to any other endpoin
 that topic.
 
 To remove a communication channel as an endpoint for a topic, unsubscribe that endpoint from the
-topic. To start, build a UnsubscribeRequest object and set the ARN of the topic you wish to
-unsubscribe from as the *.subscriptionArn()*. Then, send the request object to SNS using SnsClient’s
-*.unsubscribe()* method. You can capture the result of this request as a UnsubscribeResponse object.
+topic. To start, build an
+:aws-java-class:`UnsubscribeRequest <services/sns/model/UnsubscribeRequest>` object and set the
+:code:`ARN` of the topic you wish to unsubscribe from as the :methodname:`subscriptionArn()`. Then,
+send the request object to SNS using :classname:`SnsClient`’s :methodname:`unsubscribe()` method.
+You can capture the result of this request as an
+:aws-java-class:`UnsubscribeResponse <services/sns/model/UnsubscribeResponse>` object.
 
-::
+**Imports**
 
-       public static void unSub(SnsClient snsClient, String subscriptionToken) {
+.. literalinclude:: sns.java2.Unsubscribe.import.txt
+   :language: java
 
+**Code**
 
-           try {
-               UnsubscribeRequest request = UnsubscribeRequest.builder()
-                   .subscriptionArn(subscriptionToken)
-                   .build();
+.. literalinclude:: sns.java2.Unsubscribe.main.txt
+   :dedent: 4
+   :language: java
 
-
-               UnsubscribeResponse result = snsClient.unsubscribe(request);
-
-
-               System.out.println("\n\nStatus was " + result.sdkHttpResponse().statusCode()
-                   + "\n\nSubscription was removed for " + request.subscriptionArn());
+See the :sdk-examples-java-sns:`complete example <Unsubscribe.java>` on GitHub.
 
 
-           } catch (SnsException e) {
-               System.err.println(e.awsErrorDetails().errorMessage());
-               System.exit(1);
-           }
-
-Complete example:
-https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/sns/src/main/java/com/example/sns/Unsubscribe.java
+.. _sns-delete-topic:
 
 Delete a topic
 ==============
 
-To delete an SNS topic, first build a DeleteTopicRequest object with the ARN of the topic set as the
-*.topicArn()* method in the builder. Then, send the request object to SNS using SnsClient’s
-*.deleteTopic()* method. You can capture the result of this request as a DeleteTopicResponse object,
-as demonstrated in the code snippet below.
+To delete an |SNS| topic, first build a
+:aws-java-class:`DeleteTopicRequest <services/sns/model/DeleteTopicRequest>` object with the
+:code:`ARN` of the topic set as the :methodname:`topicArn()` method in the builder. Then, send the
+request object to |SNS| using :classname:`SnsClient`’s :methodname:`deleteTopic()` method. You can
+capture the result of this request as a
+:aws-java-class:`DeleteTopicResponse <services/sns/model/DeleteTopicResponse>` object, as
+demonstrated in the code snippet below.
 
-::
+**Imports**
 
-       public static void deleteSNSTopic(SnsClient snsClient, String topicArn ) {
+.. literalinclude:: sns.java2.DeleteTopic.import.txt
+   :language: java
 
+**Code**
 
-           try {
-               DeleteTopicRequest request = DeleteTopicRequest.builder()
-                   .topicArn(topicArn)
-                   .build();
+.. literalinclude:: sns.java2.DeleteTopic.main.txt
+   :dedent: 4
+   :language: java
 
+See the :sdk-examples-java-sns:`complete example <DeleteTopic.java>` on GitHub.
 
-               DeleteTopicResponse result = snsClient.deleteTopic(request);
-               System.out.println("\n\nStatus was " + result.sdkHttpResponse().statusCode());
-
-
-           } catch (SnsException e) {
-               System.err.println(e.awsErrorDetails().errorMessage());
-               System.exit(1);
-           }
-
-Complete example:
-https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/sns/src/main/java/com/example/sns/DeleteTopic.java
-
-
+For more information, see the |SNS-dg|_.
