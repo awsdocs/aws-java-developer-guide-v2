@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -8,16 +8,39 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#######################################################
-SDK Startup Time Performance Improvement Configuration
-#######################################################
+#############################################
+Optimize cold start performance for |LAMlong|
+#############################################
 
 .. meta::
-   :description: How to minimize SDK Startup Time using the AWS SDK for Java.
+   :description: How to minimize SDK startup time when using AWS SDK for Java with AWS Lambda.
+   :keywords: AWS for Java SDK, lambda, startup, coldstart, functions, HTTP, client, performance
 
-Among the improvements in the |sdk-java-v2| is the SDK startup time for Java functions in
+Among the improvements in the |sdk-java-v2| is the SDK cold startup time for Java functions in
 |lam|. This is the time it takes for a Java |lam| function to start up and respond to its
 first request.
+
+the SDK v2 inclues signifiatn improvments to cold start times for Java running in a Lambda function.
+
+Some fo the changes:
+jackson-jr
+java.time
+Slf4j
+
+
+What you can do:
+In your client builder, specify a region, use Environment Variable credentials provider, and specify UrlConnectionClient as the httpClient.
+
+- The region lookup process (https://docs.aws.amazon.com/sdk-for-java/v2/developer-guide/java-dg-region-selection.html#default-region-provider-chain)
+  for the SDK takes time. By specifying a region, you can save up to 80ms of initialization time.
+
+- The process the SDK uses to look for credentials 
+	
+- Instantiation time for JDK's UrlConnection library much lower than Apache HTTP Client or Netty.
+
+
+
+
 
 Version 2.x includes three changes that contribute to this improvement:
 
@@ -36,12 +59,13 @@ your application needs to find for initialization.
   By specifying these values, you are losing some portability of your code.
   For example, by specifying an |AWS| Region, the code will not run in other Regions without modification.
 
-Example: Minimal SDK Startup Time Client Configuration
-======================================================
+Example client configuration
+============================
 
 .. code-block:: Java
 
- Region region = Region.US_WEST_2;
- S3Client S3 = S3Client.builder()
-                .region(region)
+   S3Client client = S3Client.builder()
+                .region(Region.US_WEST_2)
+                .credentialsProvider(EnvironmentVariableCredentialsProvider.create())
+                .httpClient(UrlConnectionHttpClient.builder().build())
                 .build();

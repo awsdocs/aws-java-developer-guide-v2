@@ -1,13 +1,35 @@
-Using DynamoDB Object Mapping within a Spring Boot application
-==============================================================
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
-You can develop a data submission application by using Amazon DynamoDB,
-Amazon Simple Notification Service (Amazon SNS), AWS Elastic Beanstalk,
-and Spring Boot. This application uses the
+   This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
+   International License (the "License"). You may not use this file except in compliance with the
+   License. A copy of the License is located at http://creativecommons.org/licenses/by-nc-sa/4.0/.
+
+   This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+   either express or implied. See the License for the specific language governing permissions and
+   limitations under the License.
+
+########################
+Build a data submission app with DynamoDB and Amazon SNS
+########################
+
+.. meta::
+   :description: How to use Slf4j with the AWS SDK for Java.
+   :keywords: logging, slf4j, AWS SDK for Java 2.x
+
+
+Introduction
+============
+
+You can develop a Spring Boot application that uses Amazon DynamoDB
+to store form submissions and uses Amazon Simple Notification Service
+(Amazon SNS) to notify someone via SMS of new form submissions. You
+can then deploy the app to Amazon Elastic Beanstalk.
+
+This application uses the
 **software.amazon.awssdk.enhanced.dynamodb.DynamoDbEnhancedClient** to
 store data within a DynamoDB table. After the DynamoDB table is updated,
-the application uses Amazon SNS to send a text message to notify a user.
-This application also uses Spring Boot APIs to build a model, views, and
+the application uses Amazon SNS to send an SMS text message to notify a user.
+This application also uses Spring Boot APIs to build a model, a view, and
 a controller.
 
 The DynamoDB enhanced client lets you map your client-side classes to
@@ -24,33 +46,22 @@ client enables you to do the following:
 <X-REF TO Java 2 DEV Guide>.
 
 The following shows the application you’ll create.
+<IMAGE>
+
+When you choose **Submit**, the data is submitted to a Spring controller
+and then persisted into a DynamoDB table named **Greeting**.
+
+The following is the **Greeting** table.
+<IMAGE>
 
 
-When you choose **Submit**, the data is submitted to a Spring Controller
-and persisted into a DynamoDB table named **Greeting**. Then a text
-message is sent to a user. The following is the **Greeting** table.
-
-
-After the table is updated with a new item, a text message is sent to
-notify a mobile user.
-
-
-This document guides you through creating an AWS application that uses
-Spring Boot. After you develop the application, you’ll learn how to
-deploy it to Elastic Beanstalk.
-
-Prerequisites
--------------
-
-To create the application, you need the following items in your
-development environment:
-
--  An AWS account
--  A Java IDE (this example uses IntelliJ)
--  Java 1.8 SDK and Maven
+After the table is updated with a new item, an SMS text
+message is then sent to a number of your choice to notify that person of
+the new submission.
 
 The following figure shows the project that’s created. |AWS Blog
 Application|
+<IMAGE>
 
 **Cost to complete:** The AWS services you’ll use in this example are
 part of the AWS Free Tier.
@@ -69,6 +80,19 @@ longer charged.
 -  Package the **Greetings** application into a JAR file
 -  Set up the DynamoDB table
 -  Deploy the **Greetings** application to Elastic Beanstalk
+
+Prerequisites
+=============
+
+To create the application, you need the following items in your
+development environment:
+
+ + An AWS account, an IAM user with appropriate permissons, and your credentials configured
+ + A Java IDE (this example uses IntelliJ)
+ + JDK 1.8
+ + Maven
+
+
 
 Create an IntelliJ project named Greetings
 ------------------------------------------
