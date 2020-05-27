@@ -35,7 +35,7 @@ available to subscribers.
 To create a topic, first build a
 :aws-java-class:`CreateTopicRequest <services/sns/model/CreateTopicRequest>` object with the name
 of the topic set using the :methodname:`name()` method in the builder. Then, send the request
-object to |SNS| using :aws-java-class:`SnsClient <services/sns/SnsClient>`â€™s
+object to |SNS| using :aws-java-class:`SnsClient <services/sns/SnsClient>`'s
 :methodname:`createTopic()` method. You can capture the result of this request as a
 :aws-java-class:`CreateTopicResponse <services/sns/model/CreateTopicResponse>` object, as
 demonstrated in the code snippet below.
@@ -91,7 +91,7 @@ Once you have a topic created, you can configure which communication channels wi
 that topic. Messages are distributed to these endpoints after being received by |SNS|.
 
 To configure a communication channel as an endpoint for a topic, subscribe that endpoint to the
-topic. To start, build a:aws-java-class:`SubscribeRequest <services/sns/model/SubscribeRequest>`
+topic. To start, build a: aws-java-class:`SubscribeRequest <services/sns/model/SubscribeRequest>`
 object. Specify the communication channel (for example, :code:`lambda` or :code:`email`) as the
 :methodname:`protocol()`, set the :method:`endpoint()` to the relevant output location (for
 example, the :code:`ARN` of a |LAM| function or an email address), and set the :code:`ARN` of the

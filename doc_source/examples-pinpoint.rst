@@ -159,7 +159,7 @@ To list the segments associated with a particular project, start by building a
 :aws-java-class:`GetSegmentsResponse <services/pinpoint/model/GetSegmentsResponse>` object.
 Finally, instantiate a :javase-ref:`List <java/util/List>` object upcasted to the
 :aws-java-class:`SegmentResponse <services/pinpoint/model/SegmentResponse>` class, then call
-:classname:`GetSegmentsResponse`â€™s :methodname:`segmentsResponse().item()` as demonstrated in the
+:classname:`GetSegmentsResponse`'s :methodname:`segmentsResponse().item()` as demonstrated in the
 code snippet below. From there, you can iterate through the results.
 
 **Imports**
@@ -186,7 +186,7 @@ those customers.
 
 To create a campaign, first build all of the settings you want for this campaign. In the following
 code snippet, for example, the campaign will start start immediately because the
-:aws-java-class:`Schedule <services/pinpoint/model/Schedule>`â€™s :methodname:`startTime()` is to
+:aws-java-class:`Schedule <services/pinpoint/model/Schedule>`'s :methodname:`startTime()` is to
 :code:`IMMEDIATE`. To set it to start at a specific time in the future instead, specify a time in
 ISO 8601 format.
 
@@ -196,7 +196,7 @@ ISO 8601 format.
 
 Once you have your campaign configuration defined, build them into a
 :aws-java-class:`WriteCampaignRequest <services/pinpoint/model/WriteCampaignRequest>` object. None
-of the methods of the :classname:`WriteCampaignRequest`.:methodname:`builder()` are required;
+of the methods of the :classname:`WriteCampaignRequest`'s :methodname:`builder()` are required;
 however, you do need to include any of the configuration settings
 (:aws-java-class:`MessageConfiguration <services/pinpoint/model/MessageConfiguration>`) that you
 set for the campaign. It is also recommended to include a :methodname:`name` and a
