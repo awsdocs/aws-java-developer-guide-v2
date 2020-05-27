@@ -8,18 +8,21 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-###################
-Amazon SNS Examples
-###################
+##############
+|SNS| examples
+##############
 
 .. meta::
    :description: How to use the AWS SDK for Java to work with Amazon Simple Notification Service (SNS).
    :keywords: AWS for Java SDK code examples, SNS, topic, create, list, endpoint, subscribe,
               publish, message, unsubscribe
 
-With SNS, you can easily push real-time notification messages from your applications to subscribers
+With |SNS|, you can easily push real-time notification messages from your applications to subscribers
 over multiple communication channels. This article describes how to perform some of the basic
 functions of SNS.
+
+
+.. _sns-create-topic:
 
 Create a new topic
 ==================
@@ -30,31 +33,22 @@ SNS and then they are distributed to the channels defined in the topic, making t
 available to subscribers.
 
 To create a topic, first build a CreateTopicRequest object with the name of the topic set using the
-*.name()* method in the builder. Then, send the request object to SNS using SnsClient’s
+*.name()* method in the builder. Then, send the request object to SNS using SnsClientâ€™s
 *.createTopic()* method. You can capture the result of this request as a CreateTopicResponse object,
 as demonstrated in the code snippet below.
 
-::
+**Imports**
 
-       public static String createSNSTopic(SnsClient snsClient, String topicName ) {
+.. literalinclude:: cognito.java2.create_user_pool.import.txt
+   :language: java
 
+**Code**
 
-           CreateTopicResponse result = null;
-           try {
-               CreateTopicRequest request = CreateTopicRequest.builder()
-                       .name(topicName)
-                       .build();
+.. literalinclude:: cognito.java2.create_user_pool.main.txt
+   :dedent: 4
+   :language: java
 
-
-               result = snsClient.createTopic(request);
-               return result.topicArn();
-           } catch (SnsException e) {
-
-
-               System.err.println(e.awsErrorDetails().errorMessage());
-               System.exit(1);
-           }
-           return "";
+See the :sdk-examples-java-cognito:`complete example <CreateUserPool.java>` on GitHub.
 
 Complete Example:
 https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/sns/src/main/java/com/example/sns/CreateTopic.java

@@ -13,7 +13,7 @@
 ##############
 
 .. meta::
-   :description: How to use the AWS SDK for Java to work with |COG|.
+   :description: How to use the AWS SDK for Java to work with Amazon Cognito.
    :keywords: AWS for Java SDK code examples, cognito, user, pool, app, client, identity, IdP,
               provider, credentials
 
@@ -27,20 +27,26 @@ examples here demonstrate some of the basic functionality of Cognito.
 Create a user pool
 ==================
 
-A user pool is a directory of users that you can configure for your web or mobile app. To create a
-user pool, start by building a CreateUserPoolRequest with the name of the user pool as the value of
-its poolName(). Call the createUserPool() method of your CognitoIdentityProviderClient, passing in
-the CreateUserPoolRequest. You can capture the result of this request as a CreateUserPoolResponse
+A user pool is a directory of users that you can configure for your web or mobile app.
+
+To create a user pool, start by building a
+:aws-java-class:`CreateUserPoolRequest <services/cognitoidentityprovider/model/CreateUserPoolRequest>`
+object with the name of the user pool as the value of its :methodname:`poolName()`. Call the
+:methodname:`createUserPool()` method of your
+:aws-java-class:`CreateUserPoolRequest <services/cognitoidentityprovider/CognitoIdentityProviderClient>`,
+passing in the :classname:`CreateUserPoolRequest` object. You can capture the result of this
+request as a
+:aws-java-class:`CreateUserPoolResponse <services/cognitoidentityprovider/model/CreateUserPoolResponse>`
 object, as demonstrated in the code snippet below.
 
 **Imports**
 
-.. literalinclude:: dynamodb.java2.mapping.putitem.import.txt
+.. literalinclude:: cognito.java2.create_user_pool.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: dynamodb.java2.mapping.putitem.main.txt
+.. literalinclude:: cognito.java2.create_user_pool.main.txt
    :dedent: 4
    :language: java
 
@@ -52,21 +58,25 @@ See the :sdk-examples-java-cognito:`complete example <CreateUserPool.java>` on G
 List users from a user pool
 ===========================
 
-To list users from your user pools, start by building a ListUserPoolsRequest with the number of
-maximum results as the value of its maxResults(). Call the listUserPools() method of your
-CognitoIdentityProviderClient, passing in the ListUserPoolsRequest. You can capture the result of
-this request as a ListUserPoolsResponse object, as demonstrated in the code snippet below. Create a
-UserPoolDescriptionType object to easily iterate over the results and pull out the attributes of
-each user.
+To list users from your user pools, start by building a
+:aws-java-class:`ListUserPoolsRequest <services/cognitoidentityprovider/model/ListUserPoolsRequest>`
+object with the number of maximum results as the value of its :methodname:`maxResults()`.
+Call the :methodname:`listUserPools()` method of your
+:classname:`CognitoIdentityProviderClient`, passing in the :classname:`ListUserPoolsRequest`
+object. You can capture the result of this request as a
+:aws-java-class:`ListUserPoolsResponse <services/cognitoidentityprovider/model/ListUserPoolsResponse>`
+object, as demonstrated in the code snippet below. Create a
+:aws-java-class:`UserPoolDescriptionType <services/cognitoidentityprovider/model/UserPoolDescriptionType>`
+object to easily iterate over the results and pull out the attributes of each user.
 
 **Imports**
 
-.. literalinclude:: dynamodb.java2.mapping.putitem.import.txt
+.. literalinclude:: cognito.java2.ListUserPools.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: dynamodb.java2.mapping.putitem.main.txt
+.. literalinclude:: cognito.java2.ListUserPools.main.txt
    :dedent: 4
    :language: java
 
@@ -78,21 +88,25 @@ See the :sdk-examples-java-cognito:`complete example <ListUserPools.java>` on Gi
 Create an identity pool
 =======================
 
-An identity pool is a container that organizes the IDs from your external identity provider, keeping
-a unique identifier for each user. To create an identity pool, start by building a
-CreateIdentityPoolRequest with the name of the user pool as the value of its identityPoolName() and
-set allowUnauthenticatedIdentities() to true or false. Call the createIdentityPool() method of your
-CognitoIdentityClient, passing in the CreateIdentityPoolRequest. You can capture the result of this
-request as a CreateIdentityPoolResponse object, as demonstrated in the code snippet below.
+An identity pool is a container that organizes the IDs from your external identity provider,
+keeping a unique identifier for each user. To create an identity pool, start by building a
+:aws-java-class:`CreateIdentityPoolRequest <services/cognitoidentity/model/CreateIdentityPoolRequest>`
+with the name of the user pool as the value of its :methodname:`identityPoolName()` and set
+:methodname:`allowUnauthenticatedIdentities()` to :code:`true` or :code:`false`. Call the
+:methodname:`createIdentityPool()` method of your :classname:`CognitoIdentityClient` object,
+passing in the :classname:`CreateIdentityPoolRequest` object. You can capture the result of this
+request as a
+:aws-java-class:`CreateIdentityPoolResponse <services/cognitoidentity/model/CreateIdentityPoolResponse>`
+object, as demonstrated in the code snippet below.
 
 **Imports**
 
-.. literalinclude:: dynamodb.java2.mapping.putitem.import.txt
+.. literalinclude:: cognito.java2.create_identity_pool.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: dynamodb.java2.mapping.putitem.main.txt
+.. literalinclude:: cognito.java2.create_identity_pool.main.txt
    :dedent: 4
    :language: java
 
@@ -105,20 +119,24 @@ Add an app client
 =================
 
 To enable the hosted web sign up/sign in UI for your app, create an app client. To create an app
-client, start by building a CreateUserPoolClientRequest with the name of the client as the value of
-its clientName() and set userPoolId() to the ID of the user pool to which you want to attach this
-app client. Call the createUserPoolClient() method of your CognitoIdentityProviderClient, passing in
-the CreateUserPoolClientRequest. You can capture the result of this request as a
-CreateUserPoolClientResponse object, as demonstrated in the code snippet below.
+client, start by building a
+:aws-java-class:`CreateUserPoolClientRequest <services/cognitoidentityprovider/model/CreateUserPoolClientRequest>`
+object with the name of the client as the value of its :methodname:`clientName()` and set
+:methodname:`userPoolId()` to the ID of the user pool to which you want to attach this
+app client. Call the :methodname:`createUserPoolClient()` method of your
+:classname:`CognitoIdentityProviderClient`, passing in the :classname:`CreateUserPoolClientRequest`
+object. You can capture the result of this request as a
+:aws-java-class:`CreateUserPoolClientResponse <services/cognitoidentityprovider/model/CreateUserPoolClientResponse>`
+object, as demonstrated in the code snippet below.
 
 **Imports**
 
-.. literalinclude:: dynamodb.java2.mapping.putitem.import.txt
+.. literalinclude:: cognito.java2.user_pool.create_user_pool_client.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: dynamodb.java2.mapping.putitem.main.txt
+.. literalinclude:: cognito.java2.user_pool.create_user_pool_client.main.txt
    :dedent: 4
    :language: java
 
@@ -131,22 +149,25 @@ Add a third-party identity provider
 ===================================
 
 Adding an external identity provider (IdP) enables your users to log into your app using that
-service’s login mechanism. To add a third-party IdP, start by building a UpdateIdentityPoolRequest
-with the name of the identity pool as the value of its identityPoolName(), set
-allowUnauthenticatedIdentities() to true or false, specify the identiyPooolId(), and define which
-login providers will be supported with supportedLoginProviders(). Call the updateIdentityPool()
-method of your CognitoIdentityClient, passing in the UpdateIdentityPoolRequest. You can capture the
-result of this request as a UpdateIdentityPoolResponse object, as demonstrated in the code snippet
-below.
+service’s login mechanism. To add a third-party IdP, start by building an
+:aws-java-class:`UpdateIdentityPoolRequest <services/cognitoidentity/model/UpdateIdentityPoolRequest>`
+object with the name of the identity pool as the value of its :methodname:`identityPoolName()`,
+set :methodname:`allowUnauthenticatedIdentities()` to :code:`true` or :code:`false`, specify the
+:methodname:`identiyPooolId()`, and define which login providers will be supported with
+:methodname:`supportedLoginProviders()`. Call the :methodname:`updateIdentityPool()`
+method of your :classname:`CognitoIdentityClient`, passing in the
+:classname:`UpdateIdentityPoolRequest` object. You can capture the result of this request as an
+:aws-java-class:`UpdateIdentityPoolResponse <services/cognitoidentity/model/UpdateIdentityPoolResponse>`
+object, as demonstrated in the code snippet below.
 
 **Imports**
 
-.. literalinclude:: dynamodb.java2.mapping.putitem.import.txt
+.. literalinclude:: cognito.java2.add_login_provider.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: dynamodb.java2.mapping.putitem.main.txt
+.. literalinclude:: cognito.java2.add_login_provider.main.txt
    :dedent: 4
    :language: java
 
@@ -159,19 +180,22 @@ Get credentials for an ID
 =========================
 
 To get the credentials for an identity in an identity pool, first build a
-GetCredentialsForIdentityRequest with the identity pool ID as the value of its identityId(). Call
-the getCredentialsForIdentity() method of your CognitoIdentityClient, passing in the
-GetCredentialsForIdentityRequest. You can capture the result of this request as a
-GetCredentialsForIdentityResponse object, as demonstrated in the code snippet below.
+:aws-java-class:`GetCredentialsForIdentityRequest <services/cognitoidentity/model/GetCredentialsForIdentityRequest>`
+with the identity pool ID as the value of its :methodname:`identityId()`. Call the
+:methodname:`getCredentialsForIdentity()` method of your :classname:`CognitoIdentityClient`,
+passing in the :classname:`GetCredentialsForIdentityRequest`. You can capture the result of this
+request as a
+:aws-java-class:`GetCredentialsForIdentityResponse <services/cognitoidentity/model/GetCredentialsForIdentityResponse>`
+object, as demonstrated in the code snippet below.
 
 **Imports**
 
-.. literalinclude:: dynamodb.java2.mapping.putitem.import.txt
+.. literalinclude:: cognito.java2.GetIdentityCredentials.import.txt
    :language: java
 
 **Code**
 
-.. literalinclude:: dynamodb.java2.mapping.putitem.main.txt
+.. literalinclude:: cognito.java2.GetIdentityCredentials.main.txt
    :dedent: 4
    :language: java
 
