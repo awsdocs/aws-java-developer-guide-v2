@@ -91,7 +91,7 @@ Once you have a topic created, you can configure which communication channels wi
 that topic. Messages are distributed to these endpoints after being received by |SNS|.
 
 To configure a communication channel as an endpoint for a topic, subscribe that endpoint to the
-topic. To start, build a: aws-java-class:`SubscribeRequest <services/sns/model/SubscribeRequest>`
+topic. To start, build a :aws-java-class:`SubscribeRequest <services/sns/model/SubscribeRequest>`
 object. Specify the communication channel (for example, :code:`lambda` or :code:`email`) as the
 :methodname:`protocol()`, set the :method:`endpoint()` to the relevant output location (for
 example, the :code:`ARN` of a |LAM| function or an email address), and set the :code:`ARN` of the
