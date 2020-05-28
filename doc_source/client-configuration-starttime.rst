@@ -20,44 +20,37 @@ Among the improvements in the |sdk-java-v2| is the SDK cold startup time for Jav
 |lam|. This is the time it takes for a Java |lam| function to start up and respond to its
 first request.
 
-the SDK v2 inclues signifiatn improvments to cold start times for Java running in a Lambda function.
+Version 2.x includes three primary changes that contribute to this improvement:
 
-Some fo the changes:
-jackson-jr
-java.time
-Slf4j
+* Use of `jackson-jr <https://github.com/FasterXML/jackson-jr>`_, which is a serialization library
+  that improves initialization time.
 
+* Use of the :javase-ref:`java.time <java/time>` libraries for date and time objects.
 
-What you can do:
-In your client builder, specify a region, use Environment Variable credentials provider, and specify UrlConnectionClient as the httpClient.
-
-- The region lookup process (https://docs.aws.amazon.com/sdk-for-java/v2/developer-guide/java-dg-region-selection.html#default-region-provider-chain)
-  for the SDK takes time. By specifying a region, you can save up to 80ms of initialization time.
-
-- The process the SDK uses to look for credentials 
-	
-- Instantiation time for JDK's UrlConnection library much lower than Apache HTTP Client or Netty.
-
-
-
-
-
-Version 2.x includes three changes that contribute to this improvement:
-
-* Use of `jackson-jr <https://github.com/FasterXML/jackson-jr>`_, which is
-  a serialization library that improves initialization time.
-
-* Use of the java.time.libraries for date and time objects.
-
-* Switch to `Slf4j <https://www.slf4j.org/>`_ for a logging facade.
+* Use of `Slf4j <https://www.slf4j.org/>`_ for a logging facade.
 
 You can gain additional SDK startup time improvement by setting specific configuration values on
 the client builder. They each save some time at startup by reducing the amount of information
 your application needs to find for initialization.
 
-.. note::
-  By specifying these values, you are losing some portability of your code.
-  For example, by specifying an |AWS| Region, the code will not run in other Regions without modification.
+In your client builder, specify a region, use Environment Variable credentials provider, and
+specify UrlConnectionClient as the httpClient. See the code snippet below for an example.
+
+* `The region lookup process <https://docs.aws.amazon.com/sdk-for-java/v2/developer-guide/java-dg-region-selection.html#default-region-provider-chain>`_
+  for the SDK takes time. By specifying a region, you can save up to 80ms of initialization time.
+
+  .. note:: By specifying an |AWS| region, the code will not run in other regions without modification.
+
+* The process the SDK uses to look for credentials can take up to 90ms. By using the
+  :aws-java-class:`EnvironmentVariableCredentialsProvider <auth/credentials/EnvironmentVariableCredentialsProvider>`
+
+  .. note:: Using this credentials provider enables the code to be used in |LAM| functions, but may
+            not work on |EC2| or other systems.
+	
+* Instantiation time for JDK's :javase-ref:`URLConnection <java/net/URLConnection>` library is much
+  lower than Apache HTTP Client or Netty. You can save up to 1 second by using this HTTP client.
+
+
 
 Example client configuration
 ============================
