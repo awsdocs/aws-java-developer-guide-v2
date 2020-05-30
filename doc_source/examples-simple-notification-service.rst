@@ -18,27 +18,27 @@
               publish, message, unsubscribe
 
 With |SNS|, you can easily push real-time notification messages from your applications to subscribers
-over multiple communication channels. This article describes how to perform some of the basic
+over multiple communication channels. This topic describes how to perform some of the basic
 functions of SNS.
 
 
 .. _sns-create-topic:
 
-Create a new topic
-==================
+Create a topic
+==============
 
-A **topic** is a logical grouping of communication channels that defines to which systems a message
-is sent. For example, fanning out a message to |LAMlong| and an HTTP webhook. You send messages to
-|SNS| and then they are distributed to the channels defined in the topic, making the messages
+A **topic** is a logical grouping of communication channels that defines which systems to send a message
+to, for example, fanning out a message to |LAMlong| and an HTTP webhook. You send messages to
+|SNS|, then they're distributed to the channels defined in the topic. This makes the messages
 available to subscribers.
 
 To create a topic, first build a
-:aws-java-class:`CreateTopicRequest <services/sns/model/CreateTopicRequest>` object with the name
+:aws-java-class:`CreateTopicRequest <services/sns/model/CreateTopicRequest>` object, with the name
 of the topic set using the :methodname:`name()` method in the builder. Then, send the request
-object to |SNS| using :aws-java-class:`SnsClient <services/sns/SnsClient>`'s
-:methodname:`createTopic()` method. You can capture the result of this request as a
+object to |SNS| by using the :methodname:`createTopic()` method of the :aws-java-class:`SnsClient <services/sns/SnsClient>`. 
+You can capture the result of this request as a
 :aws-java-class:`CreateTopicResponse <services/sns/model/CreateTopicResponse>` object, as
-demonstrated in the code snippet below.
+demonstrated in the following code snippet.
 
 **Imports**
 
@@ -61,12 +61,12 @@ List your SNS topics
 
 To retrieve a list of your existing |SNS| topics, build a
 :aws-java-class:`ListTopicsRequest <services/sns/model/ListTopicsRequest>` object. Then, send the
-request object to |SNS| using :classname:`SnsClient`’s :methodname:`listTopics()` method. You can
+request object to |SNS| by using the :methodname:`listTopics()` method of the :classname:`SnsClient`. You can
 capture the result of this request as a
 :aws-java-class:`ListTopicsResponse <services/sns/model/ListTopicsResponse>` object.
 
-The code snippet below will print out the HTTP status code of the request along with a list of
-:code:`ARN`s for your |SNS| topics.
+The following code snippet prints out the HTTP status code of the request and a list of
+Amazon Resource Names (ARNs) for your |SNS| topics.
 
 **Imports**
 
@@ -87,16 +87,16 @@ See the :sdk-examples-java-sns:`complete example <ListTopics.java>` on GitHub.
 Subscribe an endpoint to a topic
 ================================
 
-Once you have a topic created, you can configure which communication channels will be endpoints for
-that topic. Messages are distributed to these endpoints after being received by |SNS|.
+After you create a topic, you can configure which communication channels will be endpoints for
+that topic. Messages are distributed to these endpoints after |SNS| receives them.
 
 To configure a communication channel as an endpoint for a topic, subscribe that endpoint to the
 topic. To start, build a :aws-java-class:`SubscribeRequest <services/sns/model/SubscribeRequest>`
 object. Specify the communication channel (for example, :code:`lambda` or :code:`email`) as the
-:methodname:`protocol()`, set the :method:`endpoint()` to the relevant output location (for
-example, the :code:`ARN` of a |LAM| function or an email address), and set the :code:`ARN` of the
-topic to which you wish to subscribe as the :methodname:`topicArn()`. Then, send the request object
-to SNS using :classname:`SnsClient`’s :methodname:`subscribe()` method. You can capture the result
+:methodname:`protocol()`. Set the :methodname:`endpoint()` to the relevant output location (for
+example, the ARN of a |LAM| function or an email address), and then set the ARN of the
+topic to which you want to subscribe as the :methodname:`topicArn()`. Send the request object
+to SNS by using the :methodname:`subscribe()` method of the :classname:`SnsClient`. You can capture the result
 of this request as a :aws-java-class:`SubscribeResponse <services/sns/model/SubscribeResponse>`
 object.
 
@@ -121,11 +121,11 @@ See the :sdk-examples-java-sns:`complete example <SubscribeEmail.java>` on GitHu
 Publish a message to a topic
 ============================
 
-Once you have a topic and one or more endpoints configured for it, you can publish a message to the
-topic. To start, build a :aws-java-class:`PublishRequest <services/sns/model/PublishRequest>`
-object. Specify the :methodname:`message()` to send and the :code:`ARN` of the topic
-to which to send (:methodname:`topicArn()`). Then, send the request object to |SNS| using
-:classname:`SnsClient`’s :methodname:`publish()` method. You can capture the result of this request
+After you have a topic and one or more endpoints configured for it, you can publish a message to
+it. To start, build a :aws-java-class:`PublishRequest <services/sns/model/PublishRequest>`
+object. Specify the :methodname:`message()` to send, and the ARN of the topic (:methodname:`topicArn()`)
+to send it to. Then, send the request object to |SNS| by using
+the :methodname:`publish()` method of the :classname:`SnsClient`. You can capture the result of this request
 as a :aws-java-class:`PublishResponse <services/sns/model/PublishResponse>` object.
 
 **Imports**
@@ -147,15 +147,15 @@ See the :sdk-examples-java-sns:`complete example <PublishTopic.java>` on GitHub.
 Unsubscribe an endpoint from a topic
 ====================================
 
-You can remove the communication channels configured as endpoints for a topic. After doing so, the
-topic itself will continue to exist and distribute messages to any other endpoints configured for
+You can remove the communication channels configured as endpoints for a topic. After doing that, the
+topic itself continues to exist and distribute messages to any other endpoints configured for
 that topic.
 
 To remove a communication channel as an endpoint for a topic, unsubscribe that endpoint from the
 topic. To start, build an
 :aws-java-class:`UnsubscribeRequest <services/sns/model/UnsubscribeRequest>` object and set the
-:code:`ARN` of the topic you wish to unsubscribe from as the :methodname:`subscriptionArn()`. Then,
-send the request object to SNS using :classname:`SnsClient`’s :methodname:`unsubscribe()` method.
+ARN of the topic you want to unsubscribe from as the :methodname:`subscriptionArn()`. Then
+send the request object to SNS by using the :methodname:`unsubscribe()` method of the :classname:`SnsClient`.
 You can capture the result of this request as an
 :aws-java-class:`UnsubscribeResponse <services/sns/model/UnsubscribeResponse>` object.
 
@@ -180,11 +180,11 @@ Delete a topic
 
 To delete an |SNS| topic, first build a
 :aws-java-class:`DeleteTopicRequest <services/sns/model/DeleteTopicRequest>` object with the
-:code:`ARN` of the topic set as the :methodname:`topicArn()` method in the builder. Then, send the
-request object to |SNS| using :classname:`SnsClient`’s :methodname:`deleteTopic()` method. You can
+ARN of the topic set as the :methodname:`topicArn()` method in the builder. Then send the
+request object to |SNS| by using the :methodname:`deleteTopic()` method of the :classname:`SnsClient`. You can
 capture the result of this request as a
 :aws-java-class:`DeleteTopicResponse <services/sns/model/DeleteTopicResponse>` object, as
-demonstrated in the code snippet below.
+demonstrated in the following code snippet.
 
 **Imports**
 

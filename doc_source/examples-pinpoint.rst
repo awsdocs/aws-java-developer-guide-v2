@@ -15,7 +15,7 @@
 .. meta::
    :description: How to use the AWS SDK for Java to work with |PINlong|.
    :keywords: AWS for Java SDK code examples, pinpoint, project, application, app, segment,
-              dynamic, static, campaign, send, message
+              dynamic, static, campaign, send message
 
 
 You can use |PINlong| to send relevant, personalized messages to your customers via multiple
@@ -27,19 +27,19 @@ communication channels, such as push notifications, SMS, and email.
 Create a project
 ================
 
-A project (or application) in |PIN| is a collection of settings, customer data, segments, and
+A project (or application) in |PINlong| is a collection of settings, customer data, segments, and
 campaigns.
 
 To create a project, start by building a 
 :aws-java-class:`CreateApplicationRequest <services/pinpoint/model/CreateApplicationRequest>`
-object with the name of the project as the value of its :method:`name()`. Then build a
+object with the name of the project as the value of its :methodname:`name()`. Then build a
 :aws-java-class:`CreateAppRequest <services/pinpoint/model/CreateAppRequest>`
 object, passing in the :classname:`CreateApplicationRequest` object as the value of its
-:methodname:`createApplicationRequest()`. Call the :methodname:`createApp()` method of your
+:methodname:`createApplicationRequest()` method. Call the :methodname:`createApp()` method of your
 :aws-java-class:`PinpointClient <services/pinpoint/PinpointClient>`, passing in the
-:classname:`CreateAppRequest` object. You can capture the result of this request as a
+:classname:`CreateAppRequest` object. Capture the result of this request as a
 :aws-java-class:`CreateAppResponse <services/pinpoint/model/CreateAppResponse>` object, as
-demonstrated in the code snippet below.
+demonstrated in the following code snippet.
 
 **Imports**
 
@@ -60,20 +60,20 @@ See the :sdk-examples-java-pinpoint:`complete example <CreateApp.java>` on GitHu
 Create a dynamic segment
 ========================
 
-A segment is a set of customers that share specific attributes, such as the city they live in or how
-frequently they visit your website. A dynamic segment is one that is based on attributes that you
+A segment is a set of customers who share specific attributes, such as the city they live in or how
+frequently they visit your website. A dynamic segment is one that's based on attributes that you
 define, and can change over time.
 
 To create a dynamic segment, first build all of the dimensions you want for this segment. For
 example, the following code snippet is set to include customers who were active on the site in the
 last 30 days. You can do this by first building a
 :aws-java-class:`RecencyDimension <services/pinpoint/model/RecencyDimension>` object with the
-desired :methodname:`duration()` and :methodname:`recencyType()` (i.e. :code:`ACTIVE` or
+:methodname:`duration()` and :methodname:`recencyType()` you want (that is, :code:`ACTIVE` or
 :code:`INACTIVE`), and then passing this object to a
 :aws-java-class:`SegmentBehaviors <services/pinpoint/model/SegmentBehaviors>` builder object as the
 value of :methodname:`recency()`.
 
-Once you have your segment attributes defined, build them into a
+When you have defined your segment attributes, build them into a
 :aws-java-class:`SegmentDimensions <services/pinpoint/model/SegmentDimensions>` object. Then build
 a :aws-java-class:`WriteSegmentRequest <services/pinpoint/model/WriteSegmentRequest>` object,
 passing in the :classname:`SegmentDimensions` object as the value of its
@@ -104,7 +104,7 @@ See the :sdk-examples-java-pinpoint:`complete example <CreateSegment.java>` on G
 Import a static segment
 =======================
 
-A static segment is one created and imported from outside of |PIN|. The example code below shows
+A static segment is one you create and import from outside of |PINlong|. The following example code shows
 how to create a static segment by importing it from |S3|.
 
 Prerequisite
@@ -126,11 +126,11 @@ builder, specify the :methodname:`s3Url()`, :methodname:`roleArn()`, and :method
 Then build a 
 :aws-java-class:`CreateImportJobRequest <services/pinpoint/model/CreateImportJobRequest>` object,
 passing in the :classname:`ImportJobRequest` object as the value of its
-:methodname:`importJobRequest()` as well as the :code:`ID` of your project as the
+:methodname:`importJobRequest()`, and the :code:`ID` of your project as the
 :methodname:`applicationId()`. Call the :methodname:`createImportJob()` method of your
-:classname:`PinpointClient`, passing in the :classname:`CreateImportJobRequest` object. You can
-capture the result of this request as a CreateImportJobResponse object, as demonstrated in the code
-snippet below.
+:classname:`PinpointClient`, passing in the :classname:`CreateImportJobRequest` object. 
+Capture the result of this request as a :classname:`CreateImportJobResponse` object, as demonstrated in the following code
+snippet.
 
 **Imports**
 
@@ -152,15 +152,15 @@ List segments for your project
 ==============================
 
 To list the segments associated with a particular project, start by building a
-:aws-java-class:`GetSegmentsRequest <services/pinpoint/model/GetSegmentsRequest>` object with the
+:aws-java-class:`GetSegmentsRequest <services/pinpoint/model/GetSegmentsRequest>` object, with the
 :code:`ID` of the project as the value of its :methodname:`applicationId()`. Next, call the
 :methodname:`getSegments()` method of your :classname:`PinpointClient`, passing in the
 :classname:`GetSegmentsRequest` object. Capture the result of this request as a
 :aws-java-class:`GetSegmentsResponse <services/pinpoint/model/GetSegmentsResponse>` object.
 Finally, instantiate a :javase-ref:`List <java/util/List>` object upcasted to the
-:aws-java-class:`SegmentResponse <services/pinpoint/model/SegmentResponse>` class, then call
-:classname:`GetSegmentsResponse`'s :methodname:`segmentsResponse().item()` as demonstrated in the
-code snippet below. From there, you can iterate through the results.
+:aws-java-class:`SegmentResponse <services/pinpoint/model/SegmentResponse>` class. Then call
+the :methodname:`segmentsResponse().item()` of :classname:`GetSegmentsResponse`, as demonstrated in the
+following code snippet. From there, you can iterate through the results.
 
 **Imports**
 
@@ -185,21 +185,21 @@ A campaign is an initiative meant to engage a particular audience segment by sen
 those customers.
 
 To create a campaign, first build all of the settings you want for this campaign. In the following
-code snippet, for example, the campaign will start start immediately because the
-:aws-java-class:`Schedule <services/pinpoint/model/Schedule>`'s :methodname:`startTime()` is to
-:code:`IMMEDIATE`. To set it to start at a specific time in the future instead, specify a time in
+code snippet, for example, the campaign will start immediately because the :methodname:`startTime()`
+of the :aws-java-class:`Schedule <services/pinpoint/model/Schedule>` is set to
+:code:`IMMEDIATE`. To set it to start at a specific time instead, specify a time in
 ISO 8601 format.
 
-.. note:: For more information about the settings available for campaigns, see
-          `the Schedule section of Campaigns <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-campaigns.html#apps-application-id-campaigns-model-schedule>`_
+.. note:: For more information about the settings available for campaigns, see the **Schedule** section of
+          `Campaigns <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-campaigns.html#apps-application-id-campaigns-model-schedule>`_
           in the |PIN-api|.
 
-Once you have your campaign configuration defined, build them into a
+After you define your campaign configuration, build it into a
 :aws-java-class:`WriteCampaignRequest <services/pinpoint/model/WriteCampaignRequest>` object. None
-of the methods of the :classname:`WriteCampaignRequest`'s :methodname:`builder()` are required;
-however, you do need to include any of the configuration settings
+of the methods of the :methodname:`builder()` of the :classname:`WriteCampaignRequest` are required.
+But you do need to include any of the configuration settings
 (:aws-java-class:`MessageConfiguration <services/pinpoint/model/MessageConfiguration>`) that you
-set for the campaign. It is also recommended to include a :methodname:`name` and a
+set for the campaign. We also recommend that you include a :methodname:`name` and a
 :methodname:`description` for your campaign so you can easily distinguish it from other campaigns.
 Call the :methodname:`createCampaign()` method of your :classname:`PinpointClient`, passing in the
 :classname:`WriteCampaignRequest` object. Capture the result of this request as a
@@ -224,17 +224,17 @@ See the :sdk-examples-java-pinpoint:`complete example <CreateCampaign.java>` on 
 Send a message
 ==============
 
-To send an SMS text message through |PIN|, first build an
+To send an SMS text message through |PINlong|, first build an
 :aws-java-class:`AddressConfiguration <services/pinpoint/model/AddressConfiguration>` object to
-specify the :methodname:`channelType()`. (In the example below, it is set to
+specify the :methodname:`channelType()`. (In the following example, it's set to
 :code:`ChannelType.SMS` to indicate the message will be sent via SMS.) Initialize a
 :javase-ref:`HashMap <java/util/HashMap>` to store the destination phone number and the
 :classname:`AddressConfiguration` object. Next, build an
 :aws-java-class:`SMSMessage <services/pinpoint/model/SMSMessage>` object containing the relevant
-values, including the :methodname:`originationNumber`, the type of message
+values. These include the :methodname:`originationNumber`, the type of message
 (:methodname:`messageType`), and the :methodname:`body` of the message itself.
 
-Once you have created the message, build the :classname:`SMSMessage` object into a
+When you have created the message, build the :classname:`SMSMessage` object into a
 :aws-java-class:`DirectMessageConfiguration <services/pinpoint/model/DirectMessageConfiguration>`
 object. Build your :javase-ref:`Map <java/util/Map>` object and
 :classname:`DirectMessageConfiguration` object into a
