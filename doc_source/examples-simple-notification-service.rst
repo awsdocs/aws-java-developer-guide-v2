@@ -8,18 +8,19 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-##############
-|SNS| examples
-##############
+##################
+|SNSlong| examples
+##################
 
 .. meta::
-   :description: How to use the AWS SDK for Java to work with Amazon Simple Notification Service (SNS).
+   :description: How to use the AWS SDK for Java to work with Amazon Simple Notification Service
+                 (SNS).
    :keywords: AWS for Java SDK code examples, SNS, topic, create, list, endpoint, subscribe,
               publish, message, unsubscribe
 
-With |SNS|, you can easily push real-time notification messages from your applications to subscribers
-over multiple communication channels. This topic describes how to perform some of the basic
-functions of SNS.
+With |SNSlong|, you can easily push real-time notification messages from your applications to
+subscribers over multiple communication channels. This topic describes how to perform some of the
+basic functions of SNS.
 
 
 .. _sns-create-topic:
