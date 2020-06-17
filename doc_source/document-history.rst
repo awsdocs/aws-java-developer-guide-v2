@@ -14,25 +14,40 @@ Document History
 
 This topic describes important changes to the |sdk-java-dg| over the course of its history.
 
-**This documentation was built on:** |today|
+**This documentation was last built on:** |today|
 
-Mar 19, 2020
-   Added TLS 1.2 to security section.
+30 May       2020
+   Added example topics for |PIN|, |COG|, and |SNS|
 
-Aug 2, 2018
-   Added Kinesis stream examples.
+29 May       2020
+   Added |LAM| function performance topic
 
-Apr 5, 2018
-   Added auto pagination topic.
+27 April     2020
+   Added JVM TTL DNS caching topic
 
-Dec 29, 2017
-   Added example topics for |IAM|, |EC2|, Cloudwatch and |DDB|
+21 April     2020
+   New Maven and Gradle set up topics
 
-Aug 7, 2017
-   Added getobjects example for S3.
+20 April     2020
+   Added |DDB| enhanced client topic
 
-Aug 4, 2017
-   Added async topic.
+19 March     2020
+   Added TLS 1.2 to security section
 
-Jun 28, 2017
-   New SDK version, 2.0 released.
+2  August    2018
+   Added Kinesis stream examples
+
+5  April     2018
+   Added auto pagination topic
+
+29 December  2017
+   Added example topics for |IAM|, |EC2|, |CW| and |DDB|
+
+7  August    2017
+   Added getobjects example for |S3|
+
+4  August    2017
+   Added async topic
+
+28 June      2017
+   AWS SDK for Java version 2 (v2) released
