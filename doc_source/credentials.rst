@@ -208,7 +208,7 @@ credentials using |STS|, use this method to specify the credentials for AWS acce
 .. topic:: To explicitly supply credentials to an AWS client
 
    #. Instantiate a class that provides the :aws-java-class:`AwsCredentials <auth/credentials/AwsCredentials>`
-      interface, such as :aws-java-class:`AwsSessionCredentials <auth/credentials/AwsSessionCredentials>`. Supply
+      interface, such as :aws-java-class:`AwsBasicCredentials <auth/credentials/AwsBasicCredentials>`. Supply
       it with the AWS access key and secret key to use for the connection.
 
    #. Create an :aws-java-class:`StaticCredentialsProvider <auth/credentials/StaticCredentialsProvider>` with
@@ -220,10 +220,9 @@ The following example creates a new service client that uses credentials that yo
 
 .. code-block:: java
 
-   AwsSessionCredentials awsCreds = AwsSessionCredentials.create(
+   AwsBasicCredentials awsCreds = AwsBasicCredentials.create(
        "your_access_key_id_here",
-       "your_secret_key_id_here",
-       "your_session_token_here");
+       "your_secret_key_id_here");
 
    S3Client s32 = S3Client.builder()
                           .credentialsProvider(StaticCredentialsProvider.create(awsCreds))
