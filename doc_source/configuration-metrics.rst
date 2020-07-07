@@ -143,7 +143,7 @@ Metrics collection includes the following:
 
 .. note:: The metrics available vary by HTTP client.
 
-For a complete list, see Service client metrics.
+For a complete list, see :doc:`configuration-metrics-list`.
 
 How can I use this information?
 -------------------------------
@@ -165,3 +165,9 @@ Additional information
 
 To publish (output) the SDK metrics data collected to somewhere other than Amazon CloudWatch, see
 Output SDK metrics to a custom publisher.
+
+.. toctree::
+   :hidden:
+
+   configuration-metrics-list
+

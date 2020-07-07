@@ -27,6 +27,7 @@ to all services you might use with the SDK.
    java-dg-region-selection
    client-configuration
    basics-async
+   configuration-metrics
    basics-http2
    java-dg-exceptions
    java-dg-logging
