@@ -102,34 +102,6 @@ sends metrics to CloudWatch.
                        .overrideConfiguration(c -> c.addMetricPublisher(metricsPub))
                        .build();
 
-Enable metrics globally
------------------------
-
-To enable the metrics publisher by default for all requests via service clients, use one of the
-following options:
-
--  Set the environment variable :code:`AWS_METRIC_PUBLISHING_ENABLED` to :literal:`true`
-
-To set these variables on Linux/Unix or macOS, use the :code:`export` command in a terminal.
-
--  :literal:`export AWS_METRIC_PUBLISHING_ENABLED=true`
-
-To set these variables on Windows, use the :code:`set` command in a command prompt.
-
--  :literal:`set AWS_METRIC_PUBLISHING_ENABLED=true`
-
--  Set the Java system property :code:`aws.metricPublishingEnable` to :literal:`true`
-
-To set this outside of your application code, you can add
-:code:`-Daws.metricPublishingEnabled=true` to the Java command you use to run your app. For
-example:
-
--  :literal:`java myapp.jar -Daws.metricPublishingEnabled=true`
-
-To set this within the code for your application, add the following:
-
--  :literal:`System.setProperty("aws.metricPublishingEnabled", "true");`
-
 What information is collected?
 ==============================
 
