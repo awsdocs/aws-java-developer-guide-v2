@@ -8,12 +8,13 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#########################
-Enable metrics collection
-#########################
+###########################
+Configure metrics (preview)
+###########################
 
 .. meta::
-   :description: How to enable metrics collection for the AWS SDK for Java v2
+   :description: How to enable and configure metrics collection and publishing for the AWS SDK for
+   Java v2
    :keywords: AWS SDK for Java, metrics, configuration, service client, collect, data, CloudWatch
 
 With the AWS SDK for Java version 2 (v2), you can collect metrics about the service clients in your
@@ -22,8 +23,7 @@ application, analyze the output in Amazon CloudWatch, and then act on it.
 By default, metrics collection is disabled in the SDK. This topic helps you to enable and configure
 it.
 
-.. note:: You can output metrics to destinations other than CloudWatch by developing a custom
-   metrics publisher. For more information, see Output metrics to a custom publisher.
+.. include:: includes/dev-preview-note.txt
 
 Prerequisites
 =============
@@ -32,10 +32,44 @@ Before you can enable and use metrics, you must complete the following steps:
 
 -  `Sign up for AWS and create an IAM
    user <https://docs.aws.amazon.com/sdk-for-java/v2/developer-guide/signup-create-iam-user.html>`_
+   
 -  `Set up AWS credentials and region for development
    <https://docs.aws.amazon.com/sdk-for-java/v2/developer-guide/setup-credentials.html>`_
--  Configure the SDK for Java v2 dependency in your project configuration (e.g. :file:`pom.xml` or
-   :file:`build.gradle` file) to version [2.14.x] or later.
+   
+-  Configure your project dependencies (for example, in your :file:`pom.xml` or :file:`build.gradle`
+   file) to use version :code:`2.13.52` or later of the |sdk-java|.
+   
+   To enabling publishing of metrics to |cw|, also include the artifactId
+   :literal:`cloudwatch-metric-publisher` with the version number :code:`2.13.52-PREVIEW` in your
+   project's dependencies.
+   
+   For example:
+   
+   .. code-block:: xml
+
+      <project>
+         <dependencyManagement>
+            <dependencies>
+                  <dependency>
+                     <groupId>software.amazon.awssdk</groupId>
+                     <artifactId>bom</artifactId>
+                     <version>2.13.52</version>
+                     <type>pom</type>
+                     <scope>import</scope>
+                  </dependency>
+            </dependencies>
+         </dependencyManagement>
+         <dependencies>
+            <dependency>
+                  <groupId>software.amazon.awssdk</groupId>
+                  <artifactId>cloudwach-metric-publisher</artifactId>
+                  <version>2.13.52-PREVIEW</version>
+            </dependency>
+         </dependencies>
+      </project>
+
+
+
 
 .. tip:: To enhance the security of your application, you can use dedicated set of credentials for
    publishing metrics to CloudWatch. Create a separate IAM user with
@@ -53,8 +87,7 @@ Before you can enable and use metrics, you must complete the following steps:
 How to enable metrics collection
 ================================
 
-You can enable metrics per request or per service client in your code, or globally using a Java
-System Property or an Environment Variable.
+You can enable metrics in your application for a service client or on individual requests.
 
 Enable metrics for a specific request
 -------------------------------------
@@ -111,7 +144,7 @@ Metrics collection includes the following:
 -  Information about the AWS services you call in your API requests, including exceptions returned
 -  The duration for various operations such as Marshalling, Signing, and HTTP requests
 -  HTTP client metrics, such as the number of open connections, the number of pending requests, and
-   the name of the HTTP client used.
+   the name of the HTTP client used
 
 .. note:: The metrics available vary by HTTP client.
 
@@ -132,14 +165,8 @@ Alarms <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThat
 in the `Amazon CloudWatch User
 Guide <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/>`__.
 
-Additional information
-======================
-
-To publish (output) the SDK metrics data collected to somewhere other than Amazon CloudWatch, see
-Output SDK metrics to a custom publisher.
-
 .. toctree::
-   :hidden:
+   :titlesonly:
+   :maxdepth: 1
 
    configuration-metrics-list
-

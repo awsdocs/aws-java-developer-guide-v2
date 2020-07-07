@@ -144,4 +144,12 @@ or failure. These metrics are collected for each attempt.
 |                            | returned with the HTTP |                   |                       |
 |                            | response               |                   |                       |
 +----------------------------+------------------------+-------------------+-----------------------+
+| LocalStreamWindowSize      | The local HTTP/2       | Integer           | Yes                   |
+|                            | window size in bytes   |                   |                       |
+|                            | this request's stream  |                   |                       |
++----------------------------+------------------------+-------------------+-----------------------+
+| RemoteStreamWindowSize     | The remote HTTP/2      | Integer           | Yes                   |
+|                            | window size in bytes   |                   |                       |
+|                            | this request's stream  |                   |                       |
++----------------------------+------------------------+-------------------+-----------------------+
 
