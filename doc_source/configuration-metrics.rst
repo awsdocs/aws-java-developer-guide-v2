@@ -62,7 +62,7 @@ Before you can enable and use metrics, you must complete the following steps:
          <dependencies>
             <dependency>
                   <groupId>software.amazon.awssdk</groupId>
-                  <artifactId>cloudwach-metric-publisher</artifactId>
+                  <artifactId>cloudwatch-metric-publisher</artifactId>
                   <version>2.13.52-PREVIEW</version>
             </dependency>
          </dependencies>
