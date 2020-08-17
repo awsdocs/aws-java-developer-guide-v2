@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-###########################
-Configure metrics (preview)
-###########################
+#################
+Configure metrics
+#################
 
 .. meta::
    :description: How to enable and configure metrics collection and publishing for the AWS SDK for
@@ -22,8 +22,6 @@ application, analyze the output in Amazon CloudWatch, and then act on it.
 
 By default, metrics collection is disabled in the SDK. This topic helps you to enable and configure
 it.
-
-.. include:: includes/dev-preview-note.txt
 
 Prerequisites
 =============
@@ -37,10 +35,10 @@ Before you can enable and use metrics, you must complete the following steps:
    <https://docs.aws.amazon.com/sdk-for-java/v2/developer-guide/setup-credentials.html>`_
    
 -  Configure your project dependencies (for example, in your :file:`pom.xml` or :file:`build.gradle`
-   file) to use version :code:`2.13.52` or later of the |sdk-java|.
+   file) to use version :code:`2.14.0` or later of the |sdk-java|.
    
    To enabling publishing of metrics to |cw|, also include the artifactId
-   :literal:`cloudwatch-metric-publisher` with the version number :code:`2.13.52-PREVIEW` in your
+   :literal:`cloudwatch-metric-publisher` with the version number :code:`2.14.0` or later in your
    project's dependencies.
    
    For example:
@@ -53,7 +51,7 @@ Before you can enable and use metrics, you must complete the following steps:
                   <dependency>
                      <groupId>software.amazon.awssdk</groupId>
                      <artifactId>bom</artifactId>
-                     <version>2.13.52</version>
+                     <version>2.14.0</version>
                      <type>pom</type>
                      <scope>import</scope>
                   </dependency>
@@ -63,13 +61,10 @@ Before you can enable and use metrics, you must complete the following steps:
             <dependency>
                   <groupId>software.amazon.awssdk</groupId>
                   <artifactId>cloudwach-metric-publisher</artifactId>
-                  <version>2.13.52-PREVIEW</version>
+                  <version>2.14.0</version>
             </dependency>
          </dependencies>
       </project>
-
-
-
 
 .. tip:: To enhance the security of your application, you can use dedicated set of credentials for
    publishing metrics to CloudWatch. Create a separate IAM user with
@@ -79,10 +74,11 @@ Before you can enable and use metrics, you must complete the following steps:
 
    For more information, see the `Amazon CloudWatch Permissions Reference
    <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/permissions-reference-cw.html#cw-permissions-table>`_
-   in the `Amazon CloudWatch User Guide <http://monitoring/>`__ and `Adding and Removing IAM
-   Identity Permissions
-   <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html>`_ in
-   the `AWS IAM User Guide <https://docs.aws.amazon.com/IAM/latest/UserGuide/>`_.
+   in the
+   `Amazon CloudWatch User Guide <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring>`_
+   and
+   `Adding and Removing IAM Identity Permissions <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html>`_
+   inthe `AWS IAM User Guide <https://docs.aws.amazon.com/IAM/latest/UserGuide/>`_.
 
 How to enable metrics collection
 ================================
