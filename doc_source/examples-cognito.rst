@@ -181,7 +181,7 @@ Get credentials for an ID
 
 To get the credentials for an identity in an identity pool, first build a
 :aws-java-class:`GetCredentialsForIdentityRequest <services/cognitoidentity/model/GetCredentialsForIdentityRequest>`
-with the identity pool ID as the value of its :methodname:`identityId()`. Call the
+with the identity ID as the value of its :methodname:`identityId()`. Call the
 :methodname:`getCredentialsForIdentity()` method of your :classname:`CognitoIdentityClient`,
 passing in the :classname:`GetCredentialsForIdentityRequest`. You can capture the result of this
 request as a
