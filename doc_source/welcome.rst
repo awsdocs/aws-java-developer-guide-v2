@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -18,7 +18,7 @@
 .. _migration guide: https://docs.aws.amazon.com/sdk-for-java/v2/migration-guide/what-is-java-migration.html
 
 #############################
-|sdk-java-v2| Developer Guide
+|sdk-java-v2| developer guide
 #############################
 
 The |sdk-java| provides a Java API for |AWSlong|. Using the SDK, you can easily build Java
@@ -57,11 +57,6 @@ feedback are also welcome.
   + `DynamoDB Encryption Client <https://github.com/aws/aws-sdk-java-v2/issues/34>`_
 
   + `SQS Client-side Buffering <https://github.com/aws/aws-sdk-java-v2/issues/848>`_
-
-
-* `Waiters <https://github.com/aws/aws-sdk-java-v2/issues/24>`_
-
-* `SDK Metrics <https://github.com/aws/aws-sdk-java-v2/issues/23>`_
 
 * `Progress Listeners <https://github.com/aws/aws-sdk-java-v2/issues/25>`_
 

@@ -16,6 +16,9 @@ This topic describes important changes to the |sdk-java-dg| over the course of i
 
 **This documentation was last built on:** |today|
 
+30 September 2020
+ Added topic for Waiters
+
 30 May 2020
  Added example topics for |PINlong|, |COG|, and |SNS|
 
