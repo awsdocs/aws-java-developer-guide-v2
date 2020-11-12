@@ -8,25 +8,23 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-###############################
-Security for |SERVICENAMETITLE|
-###############################
+##################################
+|S3| Examples Using the |sdk-java|
+##################################
 
 .. meta::
-   :description: Provides security-related information for this AWS product or service.
-   :keywords:
+   :description: Programming Amazon S3 using the AWS SDK for Java 2.x
+   :keywords: AWS SDK for Java code examples
 
-.. include:: common/_security-includes.txt
+This section provides examples of programming |S3|_ using the |sdk-java-v2|.
 
-.. include:: common/_security.txt
+.. include:: includes/complete-examples-note.txt
 
 .. toctree::
-   :maxdepth: 1
-   :titlesonly:
+    :titlesonly:
+    :maxdepth: 1
 
-   Data protection <data-protection>
-   Enforcing TLS 1.2 <security-java-tls>
-   Identity and access management <security-iam>
-   Compliance validation <compliance-validation>
-   Resilience <disaster-recovery-resiliency>
-   Infrastructure security <infrastructure-security>
+    Bucket Operations <examples-s3-buckets>
+    Object Operations <examples-s3-objects>
+    Amazon S3 Presigned Examples <examples-s3-presign>
+    

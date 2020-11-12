@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#############################################
-Optimize cold start performance for |LAMlong|
-#############################################
+###############################################
+Optimizing cold start performance for |LAMlong|
+###############################################
 
 .. meta::
    :description: How to minimize SDK startup time when using AWS SDK for Java with AWS Lambda.

@@ -9,23 +9,18 @@
    limitations under the License.
 
 ##########
-|sdk-java|
+Amazon RDS
 ##########
 
 .. meta::
-    :description: Describes the new features in version 2.x of the SDK.
-    :keywords: java, sdk, aws
+   :description: How to use the AWS SDK for Java to work with Amazon RDS
+   :keywords: AWS for Java SDK code examples, Amazon RDS
 
-.. toctree::
-   :maxdepth: 1
-   :titlesonly:
 
-   AWS SDK for Java 2.x <home>
-   Quick start <get-started>
-   Setting up <setup>
-   Configuring the SDK <configuration>
-   Code examples <examples>
-   Security <security>
-   document-history
+Amazon Relational Database Service (Amazon RDS) makes it easy to set up, operate, and scale a relational database in the cloud. See the following resources for complete code examples with instructions. 
 
-.. include:: about-aws.txt
+`Link to Github <https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/javav2/example_code/rds>`_ 
+
+`Link to Code Catalog <https://docs.aws.amazon.com/code-samples/latest/catalog/code-catalog-javav2-example_code-rds.html>`_ 
+
+

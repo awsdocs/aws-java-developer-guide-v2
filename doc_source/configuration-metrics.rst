@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#################
-Configure metrics
-#################
+#######################
+Configuring SDK metrics
+#######################
 
 .. meta::
    :description: How to enable and configure metrics collection and publishing for the AWS SDK for
@@ -22,6 +22,12 @@ application, analyze the output in Amazon CloudWatch, and then act on it.
 
 By default, metrics collection is disabled in the SDK. This topic helps you to enable and configure
 it.
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   configuration-metrics-list
 
 Prerequisites
 =============
@@ -160,9 +166,3 @@ and `Using Amazon CloudWatch
 Alarms <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html>`__
 in the `Amazon CloudWatch User
 Guide <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/>`__.
-
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
-
-   configuration-metrics-list

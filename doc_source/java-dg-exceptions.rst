@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -9,7 +9,7 @@
    limitations under the License.
 
 ##################
-Exception Handling
+Exception handling
 ##################
 
 .. meta::
@@ -20,7 +20,7 @@ Understanding how and when the |sdk-java| throws exceptions is important to buil
 high-quality applications using the SDK. The following sections describe the different cases of
 exceptions that are thrown by the SDK and how to handle them appropriately.
 
-Why Unchecked Exceptions?
+Why unchecked exceptions?
 =========================
 
 The |sdk-java| uses runtime (or unchecked) exceptions instead of checked exceptions for these
@@ -35,8 +35,8 @@ In general, checked exceptions work well on small scales, but can become trouble
 grow and become more complex.
 
 
-SdkServiceException (and Subclasses)
-======================================
+SdkServiceException (and subclasses)
+====================================
 
 :aws-java-class:`SdkServiceException <core/exception/SdkServiceException>` is the most common
 exception that you'll experience when using
@@ -62,7 +62,7 @@ the request's parameters or because of issues on the service side.
 
 
 SdkClientException
-===================
+==================
 
 :aws-java-class:`SdkClientException <core/exception/SdkClientException>` indicates that a
 problem occurred inside the Java client code,

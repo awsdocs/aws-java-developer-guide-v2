@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -9,7 +9,7 @@
    limitations under the License.
 
 ########################
-Logging |sdk-java| Calls
+Logging |sdk-java| calls
 ########################
 
 .. meta::
@@ -37,7 +37,7 @@ The SDK doesn't include the JAR.
 
 .. _log4j-configuration-file:
 
-Log4j Configuration file
+Log4j configuration file
 ========================
 Log4j uses a configuration file, log4j2.xml. Example configuration files are shown below.
 To learn more about the values used in the configuration file, see the
@@ -61,7 +61,7 @@ two logging hierarchies are available in the |sdk-java|:
 
 .. _sdk-java-logging-classpath:
 
-Setting the Classpath
+Setting the classpath
 =====================
 
 Both the Log4j JAR and the log4j2.xml file must be located on your classpath.
@@ -87,7 +87,7 @@ If you're using the Eclipse IDE, you can set the classpath by opening the menu a
 
 .. _sdk-java-logging-service:
 
-Service-Specific Errors and Warnings
+Service-specific errors and warnings
 ====================================
 
 We recommend that you always leave the "software.amazon.awssdk" logger hierarchy
@@ -121,7 +121,7 @@ you can explicitly set the software.amazon.awssdk logger to WARN.
 
 .. _sdk-java-logging-request-response:
 
-Request/Response Summary Logging
+Request/response summary logging
 ================================
 
 Every request to an AWS service generates a unique AWS request ID that is useful if you run into an
@@ -158,7 +158,7 @@ Here is an example of the log output:
 
 .. _sdk-java-logging-verbose:
 
-Verbose Wire Logging
+Verbose wire logging
 ====================
 
 In some cases, it can be useful to see the exact requests and responses that the |sdk-java|

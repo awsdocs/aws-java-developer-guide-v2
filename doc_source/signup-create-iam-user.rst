@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -12,7 +12,7 @@
    https://github.com/awsdocs/aws-doc-shared-content
 
 ########################################
-Sign up for AWS and Create an |IAM| User
+Sign up for AWS and create an |IAM| user
 ########################################
 
 To use the |sdk-java| to access |AWSlong| (AWS), you need an AWS account and AWS credentials.

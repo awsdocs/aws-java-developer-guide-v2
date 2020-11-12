@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -9,7 +9,7 @@
    limitations under the License.
 
 ########################
-Creating Service Clients
+Creating service clients
 ########################
 
 .. meta::
@@ -24,7 +24,7 @@ for each action in the service API. For example, the service interface for |DDBl
 :aws-java-class:`DynamoDbClient <services/dynamodb/DynamoDbClient>`. Each service interface has a
 static factory builder method you can use to construct an implementation of the service interface.
 
-Obtaining a Client Builder
+Obtaining a client builder
 ==========================
 
 To obtain an instance of the client, use the static factory method ``builder``.
@@ -46,8 +46,8 @@ In the |sdk-java-v2|, the setters are named without the ``with`` prefix.
    want, you can call the ``build`` method to create the client. Once a client is created,
    it's immutable. The only way to create a client with different settings is to build a new client.
 
-Using DefaultClient
-===================
+Using the default client
+========================
 
 The client builders have another factory method named :methodname:`create`.
 This method creates a service client with the default configuration.
@@ -62,7 +62,7 @@ for more information about how credentials and region are determined.
 
       DynamoDbClient client = DynamoDbClient.create();
 
-Client Lifecycle
+Client lifecycle
 ================
 
 Service clients in the SDK are thread-safe. For best performance, treat them as

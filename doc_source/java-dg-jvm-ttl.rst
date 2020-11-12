@@ -9,7 +9,7 @@
    limitations under the License.
 
 ########################################
-Setting the JVM TTL for DNS Name Lookups
+Setting the JVM TTL for DNS name lookups
 ########################################
 
 .. meta::
@@ -35,7 +35,7 @@ that it will periodically refresh its cached IP information.
    installed. Many JVMs provide a default TTL less than 60 seconds. If you're using such a JVM and
    not using a security manager, you can ignore the remainder of this topic.
 
-How to Set the JVM TTL
+How to set the JVM TTL
 ======================
 
 To modify the JVM's TTL, set the `networkaddress.cache.ttl

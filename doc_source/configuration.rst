@@ -8,25 +8,29 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-###############################
-Security for |SERVICENAMETITLE|
-###############################
+####################################
+Configuring the AWS SDK for Java 2.x
+####################################
 
 .. meta::
-   :description: Provides security-related information for this AWS product or service.
+   :description: Programming information for the AWS SDK for Java
    :keywords:
 
-.. include:: common/_security-includes.txt
-
-.. include:: common/_security.txt
+This section provides important general information about programming with the |sdk-java| that applies
+to all services you might use with the SDK.
 
 .. toctree::
    :maxdepth: 1
-   :titlesonly:
 
-   Data protection <data-protection>
-   Enforcing TLS 1.2 <security-java-tls>
-   Identity and access management <security-iam>
-   Compliance validation <compliance-validation>
-   Resilience <disaster-recovery-resiliency>
-   Infrastructure security <infrastructure-security>
+   creating-clients
+   credentials
+   java-dg-region-selection
+   configuration-lambda-starttime
+   configuration-http
+   configuration-metrics
+   waiters
+   http2
+   java-dg-exceptions
+   java-dg-logging
+   java-dg-jvm-ttl
+   java-dg-roles

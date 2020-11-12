@@ -8,29 +8,33 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-############################
-HTTP transport configuration
-############################
+#######################################
+Configuring the Netty-based HTTP client 
+#######################################
 
 .. meta::
-   :description: How to change max concurrency configuration by using the AWS SDK for Java.
+   :description: How to configure HTTP clients in the AWS SDK for Java.
 
-You can use the
-:aws-java-class:`NettyNioAsyncHttpClient <http/nio/netty/NettyNioAsyncHttpClient>`
-for asynchronous clients or the
-:aws-java-class:`ApacheHttpClient <http/apache/ApacheHttpClient>` for synchronous clients
-to set HTTP transport settings. For a full list of options you can set with these clients,
-see the
+For asynchronous operations in the |sdk-java-v2|, you can use Netty
+(:aws-java-class:`NettyNioAsyncHttpClient <http/nio/netty/NettyNioAsyncHttpClient>`) as the HTTP
+client or you can use the new AWS Common Runtime (CRT) HTTP client
+:aws-java-class:`AwsCrtAsyncHttpClient <http/crt/AwsCrtAsyncHttpClient>`. This topics shows you
+how to configure the Netty-based HTTP client.
+
+For a full list of options you can set with these clients, see the
 :aws-java-class-root:`AWS SDK for Java API Reference version 2.x<>`.
 
-.. note:: For more information about Apache HTTPClient, see `HttpClient Overview <https://hc.apache.org/httpcomponents-client-4.5.x/index.html>`_.
 
-Add a dependency on the :code:`netty-nio-client` in your POM to use the
-:aws-java-class:`NettyNioAsyncHttpClient <http/nio/netty/NettyNioAsyncHttpClient>`.
+Prerequisite
+============
 
-**POM Entry**
+Before you can use use the Netty client, you need to configure your project dependencies in your
+:file:`pom.xml` or :file:`build.gradle` file to include version :code:`2.0.0` or later of the
+:code:`artifactId` :literal:`netty-nio-client`.
 
-.. code-block:: java
+The following code example shows how to configure your project dependencies.
+
+.. code-block:: xml
 
    <dependency>
       <artifactId>netty-nio-client</artifactId>
@@ -38,23 +42,8 @@ Add a dependency on the :code:`netty-nio-client` in your POM to use the
       <version>2.0.0</version>
    </dependency>
 
-
-
-Maximum connections
-===================
-
-You can set the maximum allowed number of open HTTP connections by using the
-:methodname:`maxConcurrency` method. The :methodname:`maxPendingConnectionAcquires`
-method enables you to set the maximum requests allowed to queue up once max concurrency
-is reached.
-
-* Default for maxConcurrency: 50
-
-* Default for maxPendingConnectionAcquires: 10_000
-
-.. important::
-   Set the maximum connections to the number of concurrent transactions to avoid
-   connection contentions and poor performance.
+Configuring service clients
+===========================
 
 Use the HTTP client builder to have the SDK manage its lifecycle.
 The HTTP client will be closed for you when the service client is shut down.
@@ -72,7 +61,6 @@ The HTTP client will be closed for you when the service client is shut down.
 
 You can also pass the HTTP client directly to the service client if you want to manage
 the lifecycle yourself.
-
 
 **Code**
 
