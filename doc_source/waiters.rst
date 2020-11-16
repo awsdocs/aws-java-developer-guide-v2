@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-###############################
-Waiters
-###############################
+#############
+Using waiters
+#############
 
 .. meta::
    :description: How to poll for AWS resource states using the waiters utility for the AWS SDK for
@@ -32,7 +32,7 @@ Prerequisites
 
 Before you can use waiters in a project with the |sdk-java|, you must complete the following steps:
 
--  :doc:`signup-create-iam-user`
+-  :doc:`setup`
    
 -  :doc:`setup-credentials`
    

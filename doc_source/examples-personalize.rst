@@ -9,24 +9,18 @@
    limitations under the License.
 
 ###########################
-Security for the |sdk-java|
+Amazon Personalize examples
 ###########################
 
 .. meta::
-   :description: Provides security-related information for the AWS SDK for Java 2.x.
-   :keywords:
+   :description: How to use the AWS SDK for Java to work with Amazon Personalize
+   :keywords: AWS for Java SDK code examples, Amazon Personalize
 
-.. include:: common/_security-includes.txt
 
-.. include:: common/_security.txt
+Amazon Personalize is a machine learning service that makes it easy for developers to create individualized recommendations for customers. See the following resources for complete code examples with instructions. 
 
-.. toctree::
-   :maxdepth: 1
-   :titlesonly:
+`Link to Github <https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/javav2/example_code/personalize>`_ 
 
-   Data protection <data-protection>
-   Enforcing TLS 1.2 <security-java-tls>
-   Identity and access management <security-iam>
-   Compliance validation <compliance-validation>
-   Resilience <disaster-recovery-resiliency>
-   Infrastructure security <infrastructure-security>
+`Link to Code Catalog <https://docs.aws.amazon.com/code-samples/latest/catalog/code-catalog-javav2-example_code-personalize.html>`_ 
+
+

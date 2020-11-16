@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#######################
-Use the SDK with Gradle
-#######################
+#########################
+Using the SDK with Gradle
+#########################
 
 .. meta::
    :description:  How to use Gradle to set up your AWS SDK for Java v2 project

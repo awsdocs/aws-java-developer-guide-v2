@@ -1,4 +1,4 @@
-.. Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -9,7 +9,7 @@
    limitations under the License.
 
 ########################################
-Supplying and Retrieving AWS Credentials
+Supplying and retrieving AWS credentials
 ########################################
 
 .. meta::
@@ -29,7 +29,7 @@ Each of these methods is discussed in the following sections.
 
 .. _credentials-default:
 
-Use the Default Credential Provider Chain
+Use the default credential provider chain
 =========================================
 
 When you initialize a new service client without supplying any arguments, the |sdk-java|
@@ -45,7 +45,7 @@ The following example creates a new service client that uses the default credent
                          .region(Region.US_WEST_2)
                          .build();
 
-Credential Retrieval Order
+Credential retrieval order
 --------------------------
 
 You can use a supported credential retrieval technique to retrieve credentials required to perform AWS operations. For example, the following Java code shows how to create a **DynamoDbClient** object by using an **EnvironmentVariableCredentialsProvider** object.
@@ -86,7 +86,7 @@ The following list shows the supported credential retrieval techniques:
    metadata service. The |sdk-java| uses the :aws-java-class:`InstanceProfileCredentialsProvider
    <auth/credentials/InstanceProfileCredentialsProvider>` to load these credentials.
 
-Setting Credentials
+Setting credentials
 -------------------
 
 To use AWS credentials, supply them in at least one of the
@@ -102,7 +102,7 @@ preceding locations. For information about setting credentials, see the followin
 * To set up and use :emphasis:`instance profile credentials` with
   your EC2 instances, see :doc:`java-dg-roles`.
 
-Setting an Alternate Credentials Profile
+Setting an alternate credentials profile
 ----------------------------------------
 The |sdk-java| uses the default profile, but there are ways to customize
 which profile is sourced from the credentials file.
@@ -125,7 +125,7 @@ Setting the :code:`AWS_PROFILE` environment variable affects credential loading 
 supported AWS SDKs and tools, for example the AWS CLI and the AWS Tools for PowerShell.
 To change only the profile for a Java application, use the system property `aws.profile` instead.
 
-Setting an Alternate Credentials File Location
+Setting an alternate credentials file location
 ----------------------------------------------
 
 The |sdk-java| loads AWS credentials automatically from the default credentials file
@@ -141,7 +141,7 @@ or across the system.
 
 .. _credentials-file-format:
 
-AWS Credentials File Format
+AWS credentials file format
 ---------------------------
 
 When you use the :code:`aws configure` command to create an AWS credentials file, the command creates
@@ -165,7 +165,7 @@ specify a session token using the :code:`aws_session_token` field.
 
 .. _credentials-specify-provider:
 
-Use a Specific Credential Provider or Provider Chain
+Use a specific credential provider or provider chain
 ====================================================
 
 You can use a credential provider that is different from the :emphasis:`default` credential
@@ -192,7 +192,7 @@ see **All Known Implementing Classes** in :aws-java-class:`AwsCredentialsProvide
 
 .. _credentials-explicit:
 
-Supply Credentials Explicitly
+Supply credentials explicitly
 =============================
 
 If the default credential chain or a specific or custom provider or provider chain doesn't work for

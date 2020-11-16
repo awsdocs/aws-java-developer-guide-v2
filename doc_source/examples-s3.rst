@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -8,15 +8,15 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-##########################################
-|S3| Examples Using the |sdk-java|
-##########################################
+#################
+Working with |S3|
+#################
 
 .. meta::
    :description: Programming Amazon S3 using the AWS SDK for Java 2.x
    :keywords: AWS SDK for Java code examples
 
-This section provides examples of programming |S3|_ using the |sdk-java-v2|.
+This section provides examples of programming with |S3|_ using the |sdk-java-v2|.
 
 .. include:: includes/complete-examples-note.txt
 
@@ -24,6 +24,7 @@ This section provides examples of programming |S3|_ using the |sdk-java-v2|.
     :titlesonly:
     :maxdepth: 1
 
-    Bucket Operations <examples-s3-buckets>
-    Object Operations <examples-s3-objects>
+    Bucket operations <examples-s3-buckets>
+    Object operations <examples-s3-objects>
+    Amazon S3 presigned examples <examples-s3-presign>
     

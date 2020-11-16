@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-##########################################
-Configure |IAM| Roles for |EC2| (Advanced)
-##########################################
+#################################
+Configuring |IAM| roles for |EC2|
+#################################
 
 All requests to AWS services must be cryptographically signed using credentials issued
 by AWS. You can use :emphasis:`IAM roles` to conveniently grant secure access to AWS resources from
@@ -23,7 +23,7 @@ on |EC2|. For more information about |IAM| instances, see :ec2-ug:`IAM Roles for
 
 .. _default-provider-chain:
 
-Default Provider Chain and |EC2| Instance Profiles
+Default provider chain and |EC2| instance profiles
 ==================================================
 
 If your application creates an AWS client using the ``create`` method, the client searches
@@ -62,7 +62,7 @@ obtained credentials continue to allow access to AWS.
 
 .. _roles-walkthrough:
 
-Walkthrough: Using IAM roles for |EC2| Instances
+Walkthrough: Using IAM roles for |EC2| instances
 ================================================
 
 This walkthrough shows you how to retrieve an object from |S3| using an |IAM| role to
@@ -71,7 +71,7 @@ manage access.
 
 .. _java-dg-create-the-role:
 
-Create an |IAM| Role
+Create an |IAM| role
 --------------------
 
 Create an IAM role that grants read-only access to |S3|.
@@ -97,7 +97,7 @@ Create an IAM role that grants read-only access to |S3|.
 
 .. _java-dg-launch-ec2-instance-with-instance-profile:
 
-Launch an EC2 Instance and Specify Your IAM Role
+Launch an EC2 instance and specify your IAM role
 ------------------------------------------------
 
 You can launch an |EC2| instance with an |IAM| role using the |EC2| console.

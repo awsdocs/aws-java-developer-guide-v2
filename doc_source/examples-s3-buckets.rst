@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -9,7 +9,7 @@
    limitations under the License.
 
 ############################################
-Creating, Listing, and Deleting |S3| Buckets
+Creating, listing, and deleting |S3| buckets
 ############################################
 
 .. meta::
@@ -33,7 +33,7 @@ the |s3-dg|.
 
 .. _create-bucket:
 
-Create a Bucket
+Create a bucket
 ===============
 
 Build a :aws-java-class:`CreateBucketRequest <services/s3/model/CreateBucketRequest>`
@@ -56,7 +56,7 @@ First create an |s3client|.
 Make a Create Bucket Request. 
 
 .. literalinclude:: s3.java2.s3_bucket_ops.create_bucket.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>` on GitHub.
@@ -64,7 +64,7 @@ See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>` on GitHub.
 
 .. _list-buckets:
 
-List the Buckets
+List the buckets
 ================
 
 Build a :aws-java-class:`ListBucketsRequest <services/s3/model/ListBucketsRequest>`.
@@ -95,7 +95,7 @@ See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>` on GitHub.
 
 .. _delete-bucket:
 
-Delete a Bucket
+Delete a bucket
 ===============
 
 Before you can delete an |S3| bucket, you must ensure that the bucket is empty or
@@ -105,7 +105,7 @@ you must also delete any versioned objects that are in the bucket.
 .. contents::
    :local:
 
-Delete Objects in a Bucket
+Delete objects in a bucket
 --------------------------
 
 Build a :aws-java-class:`ListObjectsV2Request <services/s3/model/ListObjectsV2Request>`
@@ -127,12 +127,12 @@ First create an |s3client|.
 
 
 .. literalinclude:: s3.java2.s3_bucket_ops.delete_bucket.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-s3:`complete example <S3BucketDeletion.java>` on GitHub.
 
-Delete an Empty Bucket
+Delete an empty bucket
 ----------------------
 
 Build a :aws-java-class:`DeleteBucketRequest <services/s3/model/DeleteBucketRequest>`
@@ -148,13 +148,14 @@ with a bucket name and pass it to the |s3client|'s :methodname:`deleteBucket` me
 First create an |s3client|.
 
 .. literalinclude:: s3.java2.s3_bucket_ops.delete_bucket.txt
+   :dedent: 4
    :language: java
 
 
 Delete all objects in the bucket. 
 
 .. literalinclude:: s3.java2.s3_bucket_ops.delete_bucket.txt
-   :dedent: 8
+   :dedent: 4
    :language: java
 
 See the :sdk-examples-java-s3:`complete example <S3BucketOps.java>` on GitHub.

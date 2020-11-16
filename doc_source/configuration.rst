@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-##############################
-Using the AWS SDK for Java 2.0
-##############################
+####################################
+Configuring the AWS SDK for Java 2.x
+####################################
 
 .. meta::
    :description: Programming information for the AWS SDK for Java
@@ -25,11 +25,11 @@ to all services you might use with the SDK.
    creating-clients
    credentials
    java-dg-region-selection
-   client-configuration
-   basics-async
+   configuration-lambda-starttime
+   configuration-http
    configuration-metrics
    waiters
-   basics-http2
+   http2
    java-dg-exceptions
    java-dg-logging
    java-dg-jvm-ttl

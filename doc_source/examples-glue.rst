@@ -8,21 +8,19 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#####################################
-|LAMlong| examples for the |sdk-java|
-#####################################
+#################
+AWS Glue examples
+#################
 
 .. meta::
-   :description: Programming AWS Lambda using the AWS SDK for Java 2.x
-   :keywords: AWS SDK for Java code examples
+   :description: How to use the AWS SDK for Java to work with AWS Glue
+   :keywords: AWS for Java SDK code examples, aws glue
 
-This section provides examples of programming |LAM| using the |sdk-java-v2|.
 
-.. include:: includes/complete-examples-note.txt
+With AWS Glue, you can fully manage, extract, transform, and load (ETL) your data for analytics. See the following resources for complete code examples with instructions. 
 
-.. toctree::
-    :titlesonly:
-    :maxdepth: 1
+`Link to Github <https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/javav2/example_code/glue>`_ 
 
-    Service operations <examples-lambda.rst>
-    
+`Link to Code Catalog <https://docs.aws.amazon.com/code-samples/latest/catalog/code-catalog-javav2-example_code-glue.html>`_ 
+
+

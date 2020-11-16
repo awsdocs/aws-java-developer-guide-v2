@@ -9,23 +9,17 @@
    limitations under the License.
 
 ##########
-|sdk-java|
+Amazon SWF
 ##########
 
 .. meta::
-    :description: Describes the new features in version 2.x of the SDK.
-    :keywords: java, sdk, aws
+   :description: How to use the AWS SDK for Java to work with Amazon SWF
+   :keywords: AWS for Java SDK code examples, Amazon SWF
 
-.. toctree::
-   :maxdepth: 1
-   :titlesonly:
+The Amazon Simple Workflow Service (Amazon SWF) makes it easy to build applications that coordinate work across distributed components. See the following resources for complete code examples with instructions. 
 
-   AWS SDK for Java 2.x <home>
-   Quick start <get-started>
-   Setting up <setup>
-   Configuring the SDK <configuration>
-   Code examples <examples>
-   Security <security>
-   document-history
+`Link to Github <https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/javav2/example_code/swf>`_ 
 
-.. include:: about-aws.txt
+`Link to Code Catalog <https://docs.aws.amazon.com/code-samples/latest/catalog/code-catalog-javav2-example_code-swf.html>`_ 
+
+

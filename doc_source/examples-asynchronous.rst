@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -9,7 +9,7 @@
    limitations under the License.
 
 ########################
-Asynchronous Programming
+Asynchronous programming
 ########################
 
 .. meta::
@@ -30,7 +30,7 @@ that allow you to access the response when it's ready.
 
 .. _basics-async-non-streaming:
 
-Non-Streaming Operations
+Non-streaming operations
 ========================
 
 For non-streaming operations, asynchronous method calls are similar to synchronous methods.
@@ -79,8 +79,8 @@ See the :sdk-examples-java-dynamodbasync:`complete example <DynamoDBAsyncGetItem
 
 .. _basics-async-streaming:
 
-Streaming Operations
-======================
+Streaming operations
+====================
 
 For streaming operations, you must provide an :aws-java-class:`AsyncRequestBody
 <core/async/AsyncRequestBody>` to provide the content incrementally, or
@@ -113,7 +113,7 @@ The following example gets a file from |S3| asynchronously by using the
 .. literalinclude:: s3.java2.async_stream_ops.main.txt
    :language: java
    
-Advanced Operations
+Advanced operations
 ===================
 
 The |sdk-java-v2| uses `Netty <https://netty.io>`_ an asynchronous event-driven network application framework, to 

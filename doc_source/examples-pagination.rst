@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -9,7 +9,7 @@
    limitations under the License.
 
 ############################
-Retrieving Paginated Results
+Retrieving paginated results
 ############################
 
 .. meta::
@@ -32,7 +32,7 @@ various methods of retrieving your data from paginated responses.
 .. include:: includes/examples-note.txt
 
 ======================
-Synchronous Pagination
+Synchronous pagination
 ======================
 
 These examples use the synchronous pagination methods for listing objects in an
@@ -41,7 +41,7 @@ These examples use the synchronous pagination methods for listing objects in an
 
 .. _iterate-pages:
 
-Iterate over Pages
+Iterate over pages
 ==================
 
 Build a :aws-java-class:`ListObjectsV2Request <services/s3/model/ListObjectsV2Request>`
@@ -74,13 +74,13 @@ See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>` on Gi
 
 .. _iterate-objects:
 
-Iterate over Objects
+Iterate over objects
 ====================
 
 The following examples show ways to iterate over the objects returned in the response
 instead of the pages of the response.
 
-Use a Stream
+Use a stream
 ------------
 
 Use the :methodname:`stream` method on the response content
@@ -97,7 +97,7 @@ See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>` on Gi
 
 .. _for-loop:
 
-Use a For Loop
+Use a for loop
 --------------
 
 Use a standard ``for`` loop to iterate through the contents of the response.
@@ -110,7 +110,7 @@ Use a standard ``for`` loop to iterate through the contents of the response.
 
 See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>` on GitHub.
 
-Manual Pagination
+Manual pagination
 =================
 
 If your use case requires it, manual pagination is still available. Use the next token
@@ -125,7 +125,7 @@ in the response object for the subsequent requests. Here's an example using a ``
 See the :sdk-examples-java-s3:`complete example <S3ObjectOperations.java>` on GitHub.
 
 =======================
-Asynchronous Pagination
+Asynchronous pagination
 =======================
 
 These examples use the asynchronous pagination methods for listing tables in
@@ -133,7 +133,7 @@ These examples use the asynchronous pagination methods for listing tables in
 
 .. _iterate-pages-async:
 
-Iterate over Pages of Table Names
+Iterate over pages of table names
 =================================
 
 First, create an asynchronous |DDB| client. Then, call the
@@ -154,7 +154,7 @@ if an error occurs while retrieving data. Finally,
 the :methodname:`onComplete` method is called when all pages have been requested.
 
 
-Use a Subscriber
+Use a subscriber
 ----------------
 
 **Imports**
@@ -178,7 +178,7 @@ Then use Subscriber to get results.
 
 See the :sdk-examples-java-dynamodbasync:`complete example <AsyncPagination.java>` on GitHub.
 
-Use a For Loop
+Use a for loop
 --------------
 
 Use a ``for`` loop to iterate through the pages for simple use cases when creating a new subscriber
@@ -196,7 +196,7 @@ See the :sdk-examples-java-dynamodbasync:`complete example <AsyncPagination.java
 
 .. _iterate-objects-async:
 
-Iterate over Table Names
+Iterate over table names
 ========================
 
 The following examples show ways to iterate over the objects returned in the response
@@ -205,7 +205,7 @@ the asynchronous result class has a method to interact with the underlying item
 collection. The return type of the convenience method is a publisher that can be
 used to request items across all pages.
 
-Use a Subscriber
+Use a subscriber
 ----------------
 
 **Code**
@@ -227,7 +227,7 @@ See the :sdk-examples-java-dynamodbasync:`complete example <AsyncPagination.java
 
 .. _for-loop-async:
 
-Use a For Loop
+Use a for loop
 --------------
 
 Use the :methodname:`forEach` convenience method to iterate through the results.
@@ -241,8 +241,8 @@ Use the :methodname:`forEach` convenience method to iterate through the results.
 See the :sdk-examples-java-dynamodbasync:`complete example <AsyncPagination.java>` on GitHub.
 
 
-Use Third-party Library
-==========================
+Use third-party library
+=======================
 
 You can use other third party libraries instead of implementing a custom subscriber.
 This example demonstrates using the RxJava implementation
@@ -272,7 +272,7 @@ POM snippet to use.
 
 
 ..  ====================
-    Resume after Failure
+    Resume after failure
     ====================
 
     Use the :methodname:`resume` method on the response object to resume pagination after an error.

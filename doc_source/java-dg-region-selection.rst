@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -9,7 +9,7 @@
    limitations under the License.
 
 ####################
-AWS Region Selection
+AWS region selection
 ####################
 
 .. meta::
@@ -29,7 +29,7 @@ checking whether a service is available in a region.
 
 .. _region-selection-choose-region:
 
-Choosing a Region
+Choosing a region
 =================
 
 You can specify a region name and the SDK will automatically choose an appropriate endpoint for you.
@@ -59,7 +59,7 @@ access to new Regions without upgrading the SDK.
    be changed*. If you are working with multiple AWS Regions for the same service, you should
    create multiple clients |mdash| one per region.
 
-Choosing a Specific Endpoint
+Choosing a specific endpoint
 ============================
 
 Each AWS client can be configured to use a *specific endpoint* within a region by calling the
@@ -77,8 +77,8 @@ For example, to configure the |EC2| client to use the |euwest1-name|, use the fo
 See |regions-and-endpoints|_ for the current list of regions and their corresponding endpoints for
 all AWS services.
 
-Automatically Determine the AWS Region from the Environment
-=============================================================
+Automatically determine the AWS region from the environment
+===========================================================
 
 When running on |EC2| or |LAMlong|, you might want to configure clients to use the same region
 that your code is running on. This decouples your code from the environment it's running in and
@@ -95,7 +95,7 @@ If you don't explicitly set a region using the :methodname:`region` method, the 
 consults the default region provider chain to try and determine the region to use.
 
 
-Default Region Provider Chain
+Default region provider chain
 -----------------------------
 
 **The following is the region lookup process:**
@@ -130,7 +130,7 @@ client creation and keeps your application portable.
 
 .. _region-selection-query-service:
 
-Checking for Service Availability in an AWS Region
+Checking for service availability in an AWS region
 ==================================================
 
 To see if a particular AWS service is available in a region, use the
