@@ -26,7 +26,7 @@ Developer guide - |sdk-java| 2.x
 The |sdk-java| provides a Java API for |AWSlong|. Using the SDK, you can easily build Java
 applications that work with |S3|, |EC2|, |DDB|, and more.
 
-The |sdk-java-v2| is a major rewrite of the version 1.x code base. It's built on top of
+The |sdk-java| 2.x is a major rewrite of the version 1.x code base. It's built on top of
 Java 8+ and adds several frequently requested features. These include support for non-blocking I/O
 and the ability to plug in a different HTTP implementation at run time. For more information see
 the `AWS Blog`_. For guidance on migrating your application from 1.11.x to 2.x, see the
@@ -35,8 +35,8 @@ the `AWS Blog`_. For guidance on migrating your application from 1.11.x to 2.x, 
 We regularly add support for new services to the |sdk-java|. For a list of changes and
 features in a particular version, view the `change log`_.
 
-Get started with the |sdk-java-v2|
-==================================
+Get started with the |sdk-java| 2.x
+===================================
 
 If you're ready to get hands-on with the SDK, follow the :doc:`Quick Start <get-started>` tutorial.
 
@@ -84,8 +84,8 @@ developers:
 
 .. _features_notyet:
 
-Features not yet in the |sdk-java-v2|
--------------------------------------
+Features not yet in the |sdk-java| 2.x
+--------------------------------------
 
 See the following Github issues for details about additional features not yet in 2.x. Comments and
 feedback are also welcome.

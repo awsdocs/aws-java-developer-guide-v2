@@ -17,7 +17,7 @@ Get started with the |sdk-java| 2.x
                  SDK for Java
    :keywords: start, setup, install, get started, java, aws, sdk for java, fast, first, running
 
-The |sdk-java-v2| provides Java APIs for Amazon Web Services (AWS). Using the SDK, you can build
+The |sdk-java| 2.x provides Java APIs for Amazon Web Services (AWS). Using the SDK, you can build
 Java applications that work with |S3|, |EC2|, |DDB|, and more.
 
 This tutorial shows you how you can use |mvnlong|_ to define dependencies for the |sdk-java| and
@@ -413,10 +413,10 @@ To clean up the resources you created during this tutorial:
 Next steps
 ==========
 
-Now that you have the basics down, you can learn how to:
+Now that you have the basics down, you can learn about:
 
-   * Program more with |s3|
-   * Program with other Amazon Web Services, such as |DDB|, |EC2|, and |IAM|
-   * Use and configure features of the |sdk-java|
-   * Configure service client, credentials, regions, and more
+   * :doc:`Working with Amazon S3 <examples-s3>`
+   * :doc:`Working with other Amazon Web Services <examples>`, such as :doc:`DynamoDB <examples-dynamodb>`, :doc:`Amazon EC2 <examples-ec2>`, and :doc:`IAM <examples-iam>`
+   * :doc:`Configuring the SDK <configuration>`
+   * :doc:`security`
  

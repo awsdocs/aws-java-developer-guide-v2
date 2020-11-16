@@ -32,7 +32,7 @@ Prerequisites
 
 Before you can use waiters in a project with the |sdk-java|, you must complete the following steps:
 
--  :doc:`signup-create-iam-user`
+-  :doc:`setup`
    
 -  :doc:`setup-credentials`
    

@@ -8,16 +8,16 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-###########################
-|sdk-java-v2| code examples
-###########################
+####################################
+Code examples for the |sdk-java| 2.x
+####################################
 
 .. meta::
-   :description: Programming with Amazon Web Services with the AWS SDK for Java
+   :description: Programming with Amazon Web Services using the AWS SDK for Java
    :keywords:
 
-This section provides programming examples using the |sdk-java-v2| that applies
-to specific use cases.
+This section provides programming examples you can use with the |sdk-java| 2.x for specific
+features, use cases, and |AWSlong|.
 
 Find the source code for these examples and others in the |AWS| documentation 
 `code examples repository on GitHub <https://github.com/awsdocs/aws-doc-sdk-examples>`_.

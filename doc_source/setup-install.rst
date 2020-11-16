@@ -25,7 +25,7 @@ To use the |sdk-java|, you must have:
 
 * A suitable :ref:`Java Development Environment <java-dg-java-env>`.
 
-* An AWS account and access keys. For instructions, see :doc:`signup-create-iam-user`.
+* An AWS account and access keys. For instructions, see :doc:`setup`.
 
 * AWS credentials (access keys) set in your environment, or use the shared credentials file used by
   the AWS CLI and other SDKs. For more information, see :doc:`setup-credentials`.
