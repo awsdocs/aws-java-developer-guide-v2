@@ -38,8 +38,8 @@ For a full list of options you can set with these clients, see the
    :maxdepth: 1
    :titlesonly:
 
-   configuration-http-crt
-   configuration-http-netty
+   http-configuration-crt
+   http-configuration-netty
 
 
 Setting maximum connections

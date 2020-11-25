@@ -24,9 +24,9 @@ Security for the |sdk-java|
    :maxdepth: 1
    :titlesonly:
 
-   Data protection <data-protection>
+   Data protection <security-data-protection>
    Enforcing TLS 1.2 <security-java-tls>
    Identity and access management <security-iam>
-   Compliance validation <compliance-validation>
-   Resilience <disaster-recovery-resiliency>
-   Infrastructure security <infrastructure-security>
+   Compliance validation <security-compliance-validation>
+   Resilience <security-resilience>
+   Infrastructure security <security-infrastructure>

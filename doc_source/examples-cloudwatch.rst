@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-##################################
-|CW| examples using the |sdk-java|
-##################################
+#################
+Working with |CW|
+#################
 
 .. meta::
    :description: Programming Amazon Cloudwatch by using the AWS SDK for Java 2.x

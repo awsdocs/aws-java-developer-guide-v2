@@ -128,11 +128,11 @@ Configure your development environment with your Access Key ID and the Secret Ac
    #. In the text file you just created, replace *YOUR_AWS_ACCESS_KEY* with your unique AWS access
       key ID, and replace *YOUR_AWS_SECRET_ACCESS_KEY* with your unique AWS secret access key.
 
-   #. Save the file without a file extension. Refer to the following table for the correct location and file name based on
-      your operating system.
+   #. Save the file without a file extension. Refer to the following table for the correct location
+      and file name based on your operating system.
 
       +---------------------+----------------------------------------------------------------------+
-      | Operating system    | File name                                                             |
+      | Operating system    | File name                                                            |
       +=====================+======================================================================+
       | Windows             | :file:`C:\\Users\\<yourUserName>\\.aws\\credentials`                 |
       +---------------------+----------------------------------------------------------------------+

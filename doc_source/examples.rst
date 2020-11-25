@@ -31,42 +31,40 @@ For instructions, see the "Proposing new code examples" section in the
 .. toctree::
    :maxdepth: 1
 
-   Working with Amazon S3 <examples-s3>
-   Working with Amazon DynamoDB <examples-dynamodb>
-   Working with Amazon EC2 <examples-ec2>
-   Working with Amazon IAM <examples-iam>
-   examples-asynchronous
-   examples-pagination
-   Working with Amazon Athena <examples-athena>
-   Working with Amazon CloudWatch <examples-cloudwatch>
-   Working with Amazon CloudTrail <examples-cloudtrail>
-   Working with Amazon Cognito <examples-cognito>
-   Working with Amazon Comprehend <examples-comprehend>
-   Working with Amazon EventBridge <examples-eventbridge>
-   Working with Amazon Firehose <examples-firehose>
-   Working with Amazon Forecast <examples-forecast>
-   Working with Amazon S3 Glacier <examples-glacier>
-   Working with AWS Glue <examples-glue>
-   Working with Amazon Kinesis <examples-kinesis>
-   Working with Amazon KMS <examples-kms>
-   Working with AWS Lambda <examples-lambda>
-   Working with Amazon MediaConvert <examples-mediaconvert>
-   Working with Amazon MediaStore <examples-mediastore>
-   Working with Amazon MigrationHub <examples-migrationhub>
-   Working with Amazon Personalize <examples-personalize>
-   Working with Amazon Pinpoint <examples-pinpoint>
-   Working with Amazon Polly <examples-polly>
-   Working with Amazon RDS <examples-rds>
-   Working with Amazon Redshift <examples-redshift>
-   Working with Amazon Rekognition <examples-rekognition>
-   Working with Amazon SageMaker <examples-sagemaker>
-   Working with Amazon Secrets Manager <examples-secretsmanager>
-   Working with Amazon Simple Email Service <examples-ses>
-   Working with Amazon Simple Notification Service <examples-simple-notification-service>
-   Working with Amazon SQS <examples-sqs>
-   Working with AWS Systems Manager <examples-ssm>
-   Working with Amazon Simple Workflow Service <examples-swf>
-   Working with Amazon Textract <examples-textract>
-   Working with Amazon Transcribe <examples-transcribe>
-   Working with Amazon Translate <examples-translate>
-   Working with Amazon WorkDocs <examples-workdocs>
+   Amazon S3 <examples-s3>
+   Amazon DynamoDB <examples-dynamodb>
+   Amazon EC2 <examples-ec2>
+   Amazon IAM <examples-iam>
+   Amazon Athena <examples-athena>
+   Amazon CloudWatch <examples-cloudwatch>
+   Amazon CloudTrail <examples-cloudtrail>
+   Amazon Cognito <examples-cognito>
+   Amazon Comprehend <examples-comprehend>
+   Amazon EventBridge <examples-eventbridge>
+   Amazon Firehose <examples-firehose>
+   Amazon Forecast <examples-forecast>
+   Amazon S3 Glacier <examples-glacier>
+   AWS Glue <examples-glue>
+   Amazon Kinesis <examples-kinesis>
+   Amazon KMS <examples-kms>
+   AWS Lambda <examples-lambda>
+   Amazon MediaConvert <examples-mediaconvert>
+   Amazon MediaStore <examples-mediastore>
+   Amazon MigrationHub <examples-migrationhub>
+   Amazon Personalize <examples-personalize>
+   Amazon Pinpoint <examples-pinpoint>
+   Amazon Polly <examples-polly>
+   Amazon RDS <examples-rds>
+   Amazon Redshift <examples-redshift>
+   Amazon Rekognition <examples-rekognition>
+   Amazon SageMaker <examples-sagemaker>
+   Amazon Secrets Manager <examples-secretsmanager>
+   Amazon Simple Email Service <examples-ses>
+   Amazon Simple Notification Service <examples-simple-notification-service>
+   Amazon SQS <examples-sqs>
+   AWS Systems Manager <examples-ssm>
+   Amazon Simple Workflow Service <examples-swf>
+   Amazon Textract <examples-textract>
+   Amazon Transcribe <examples-transcribe>
+   Amazon Translate <examples-translate>
+   Amazon WorkDocs <examples-workdocs>

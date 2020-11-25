@@ -23,8 +23,8 @@
    AWS SDK for Java 2.x <home>
    Quick start <get-started>
    Setting up <setup>
-   Configuring the SDK <configuration>
-   Code examples <examples>
+   Using the SDK <using>
+   Working with Amazon Web Services <examples>
    Security <security>
    document-history
 

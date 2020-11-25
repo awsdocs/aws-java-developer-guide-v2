@@ -8,16 +8,16 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#######################
-Configuring SDK metrics
-#######################
+####################
+Enabling SDK metrics
+####################
 
 .. meta::
    :description: How to enable and configure metrics collection and publishing for the AWS SDK for
    Java v2
    :keywords: AWS SDK for Java, metrics, configuration, service client, collect, data, CloudWatch
 
-With the AWS SDK for Java version 2 (v2), you can collect metrics about the service clients in your
+With the AWS SDK for Java 2.x, you can collect metrics about the service clients in your
 application, analyze the output in Amazon CloudWatch, and then act on it.
 
 By default, metrics collection is disabled in the SDK. This topic helps you to enable and configure
@@ -27,7 +27,7 @@ it.
    :titlesonly:
    :maxdepth: 1
 
-   configuration-metrics-list
+   metrics-list
 
 Prerequisites
 =============

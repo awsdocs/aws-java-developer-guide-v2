@@ -8,26 +8,30 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-##################
-Working with |IAM|
-##################
+##############################
+Using the AWS SDK for Java 2.x
+##############################
 
 .. meta::
-   :description: Programming AWS Identity and Access Management using the AWS SDK for Java 2.x
-   :keywords: AWS SDK for Java 2.x code examples, IAM
+   :description: Programming information for the AWS SDK for Java 2.x
+   :keywords:
 
-This section provides examples of programming |iam|_ by using the |sdk-java-v2|.
-
-.. include:: common/desc-iam.txt
-
-.. include:: includes/complete-examples-note.txt
+This section provides important general information about programming with the |sdk-java| that applies
+to all services you might use with the SDK.
 
 .. toctree::
-   :titlesonly:
    :maxdepth: 1
 
-   examples-iam-access-keys
-   examples-iam-users
-   examples-iam-account-aliases
-   examples-iam-policies
-   examples-iam-server-certificates
+   creating-clients
+   credentials
+   region-selection
+   asynchronous
+   metrics
+   pagination
+   waiters
+   lambda-optimize-starttime
+   http-configuration
+   http2
+   handling-exceptions
+   logging-slf4j
+   jvm-ttl-dns

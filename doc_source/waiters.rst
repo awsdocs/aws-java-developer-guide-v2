@@ -17,27 +17,24 @@ Using waiters
                  Java v2
    :keywords: AWS SDK for Java, waiters, polling, state, resource, service client
 
-The waiters utility of the |sdk-java| version 2 (v2) enables you to validate that
-AWS resources are in a specified state before performing operations on those resources.
+The waiters utility of the |sdk-java| 2.x enables you to validate that AWS resources are in a
+specified state before performing operations on those resources.
 
-A *waiter* is an abstraction used to poll AWS resources, such as |ddb| tables or |s3| buckets, until a
-desired state is reached (or until a determination is made that the resource won't ever reach the
+A *waiter* is an abstraction used to poll AWS resources, such as |ddb| tables or |s3| buckets, until
+a desired state is reached (or until a determination is made that the resource won't ever reach the
 desired state). Instead of writing logic to continuously poll your AWS resources, which can be
-cumbersome and error-prone, you can use waiters to poll a resource and have your code continue to run after
-the resource is ready.
+cumbersome and error-prone, you can use waiters to poll a resource and have your code continue to
+run after the resource is ready.
 
 
 Prerequisites
 =============
 
-Before you can use waiters in a project with the |sdk-java|, you must complete the following steps:
+Before you can use waiters in a project with the |sdk-java|, you must complete the steps in
+:doc:`setup`.
 
--  :doc:`setup`
-   
--  :doc:`setup-credentials`
-   
--  Configure your project dependencies (for example, in your :file:`pom.xml` or :file:`build.gradle`
-   file) to use version :code:`2.15.0` or later of the |sdk-java|.
+You must also configure your project dependencies (for example, in your :file:`pom.xml` or
+:file:`build.gradle` file) to use version :code:`2.15.0` or later of the |sdk-java|.
    
    For example:
    
@@ -142,4 +139,12 @@ basis. Note that only some operations have customizable configurations.
    asyncWaiter.waitUntilTableExists(b -> b.tableName("myTable"), 
                                     o -> o.waitTimeout(Duration.ofMinutes(1)));
 
+Code examples
+=============
 
+For a complete example using waiters with |ddb|, see
+:sdk-examples-java-dynamodb:`CreateTable.java <CreateTable.java>` in the AWS Code Examples
+Repository.
+
+For a complete example using waiters with |s3|, see
+:sdk-examples-java-s3:`S3BucketOps.java <S3BucketOps.java>` in the AWS Code Examples Repository.

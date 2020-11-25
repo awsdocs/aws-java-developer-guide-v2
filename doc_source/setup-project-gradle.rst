@@ -8,22 +8,22 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#########################
-Using the SDK with Gradle
-#########################
+###########################
+Setting up a Gradle project
+###########################
 
 .. meta::
    :description:  How to use Gradle to set up your AWS SDK for Java v2 project
    :keywords: AWS SDK for Java, v2, Gradle, BOM, install, download, setup
 
 
-You can use Gradle_ to configure and build AWS SDK for Java projects.
+You can use Gradle_ to set up and build AWS SDK for Java projects.
 
 To manage SDK dependencies for your Gradle project, import the Maven bill of materials (BOM) for
 the |sdk-java| into the :file:`build.gradle` file.
 
-.. note:: In the following examples, replace *2.X.X* in the :file:`build.gradle` file with a valid
-          version of the AWS SDK for Java v2. Find the latest version in the
+.. note:: In the following examples, replace *2.15.0* in the :file:`build.gradle` file with the
+          latest version of the AWS SDK for Java v2. Find the latest version in the
           :aws-java-class-root:`AWS SDK for Java API Reference version 2.x<>`.
 
 .. topic:: To configure the |sdk-java| for Gradle version 5.0 or later
@@ -34,7 +34,7 @@ the |sdk-java| into the :file:`build.gradle` file.
 
           ...
           dependencies {
-            implementation platform('software.amazon.awssdk:bom:2.X.X')
+            implementation platform('software.amazon.awssdk:bom:2.15.0')
 
             // Declare individual SDK dependencies without version
             ...
@@ -74,7 +74,7 @@ The following is an example of a complete :file:`build.gradle` file that include
    }
 
    dependencies {
-     implementation platform('software.amazon.awssdk:bom:2.X.X')
+     implementation platform('software.amazon.awssdk:bom:2.15.0')
      implementation 'software.amazon.awssdk:kinesis'
      testImplementation group: 'junit', name: 'junit', version: '4.11'
    }
