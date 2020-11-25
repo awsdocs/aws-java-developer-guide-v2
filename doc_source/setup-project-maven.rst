@@ -8,11 +8,11 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-###############################
-Using the SDK with Apache Maven
-###############################
+##################################
+Setting up an Apache Maven project
+##################################
 
-You can use |mvnlong|_ to configure and build |sdk-java| projects, or to build the SDK itself.
+You can use |mvnlong|_ to set up and build |sdk-java| projects, or to build the SDK itself.
 
 Prerequisites
 =============

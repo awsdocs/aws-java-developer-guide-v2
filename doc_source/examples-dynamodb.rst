@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-#############################################
-|ddb| Examples Using the |sdk-java|
-#############################################
+##################
+Working with |ddb|
+##################
 
 .. meta::
    :description: Programming Amazon DynamoDB using the AWS SDK for Java 2.x

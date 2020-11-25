@@ -8,9 +8,9 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-##############
-|COG| examples
-##############
+##################
+Working with |COG|
+##################
 
 .. meta::
    :description: How to use the AWS SDK for Java to work with Amazon Cognito.

@@ -23,7 +23,7 @@ you had to use to retrieve the next page of results. New in the |sdk-java-v2| ar
 autopagination methods that make multiple
 service calls to get the next page of results for you automatically.
 You only have to write code that processes the results. Additionally both types of methods
-have synchronous and asynchronous versions. See :doc:`basics-async` for more detail about
+have synchronous and asynchronous versions. See :doc:`examples-asynchronous` for more detail about
 asynchronous clients.
 
 The following examples use |S3| and |DDBlong| operations to demonstrate the

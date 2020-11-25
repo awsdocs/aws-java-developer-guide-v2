@@ -93,7 +93,7 @@ To use AWS credentials, supply them in at least one of the
 preceding locations. For information about setting credentials, see the following topics:
 
 * To supply credentials in the :emphasis:`environment` or in the default
-  :emphasis:`credential profiles file`, see :doc:`setup-credentials`.
+  :emphasis:`credential profiles file`, see :ref:`setup-credentials`.
 
 * To set Java :emphasis:`system properties`, see the
   `System Properties <http://docs.oracle.com/javase/tutorial/essential/environment/sysprop.html>`_
@@ -228,3 +228,6 @@ The following example creates a new service client that uses credentials that yo
    S3Client s32 = S3Client.builder()
                           .credentialsProvider(StaticCredentialsProvider.create(awsCreds))
                           .build();
+.. toctree::
+
+   ec2-iam-roles
