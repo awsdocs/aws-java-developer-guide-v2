@@ -156,12 +156,24 @@ Then you configure the |MVN| compiler to use Java 1.8.
    #. Use the following command to create a new directory called :file:`myapp` with a project
       configuration file (:file:`pom.xml`) and a basic Java class.
 
+      **\*nix shell**
+      
       .. code-block:: sh
 
          mvn -B archetype:generate \
            -DarchetypeGroupId=org.apache.maven.archetypes \
            -DgroupId=com.example.myapp \
            -DartifactId=myapp
+           
+      **Windows Powershell**
+      
+      .. code-block:: PowerShell
+      
+         mvn -B archetype:generate `
+         "-DarchetypeGroupId=org.apache.maven.archetypes" `
+         "-DgroupId=com.example.myapp" `
+         "-DartifactId=myapp"
+         
 
 **To configure your project with dependencies for the AWS SDK for Java and Amazon S3, and to use
 Java 1.8**
@@ -362,9 +374,17 @@ project.
 
    #. Use the following command to run the application.
 
+      **\*nix shell**
+
       .. code-block:: sh
 
          mvn exec:java -Dexec.mainClass="com.example.myapp.App"
+      
+      **Windows Powershell**
+      
+      .. code-block:: PowerShell
+      
+         mvn exec:java "-Dexec.mainClass=com.example.myapp.App"
 
 When you run the application, it uploads a new a text file to a new bucket in |s3|. Afterward, it
 will also delete the file and bucket.
