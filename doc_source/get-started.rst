@@ -156,7 +156,7 @@ Then you configure the |MVN| compiler to use Java 1.8.
    #. Use the following command to create a new directory called :file:`myapp` with a project
       configuration file (:file:`pom.xml`) and a basic Java class.
 
-      **\*nix shell**
+      **Linux, macOS, Unix**
       
       .. code-block:: sh
 
@@ -173,6 +173,15 @@ Then you configure the |MVN| compiler to use Java 1.8.
          "-DarchetypeGroupId=org.apache.maven.archetypes" `
          "-DgroupId=com.example.myapp" `
          "-DartifactId=myapp"
+           
+      **Windows Command Prompt**
+      
+      .. code-block:: sh
+      
+         mvn -B archetype:generate ^
+         -DarchetypeGroupId=org.apache.maven.archetypes ^
+         -DgroupId=com.example.myapp ^
+         -DartifactId=myapp
          
 
 **To configure your project with dependencies for the AWS SDK for Java and Amazon S3, and to use
