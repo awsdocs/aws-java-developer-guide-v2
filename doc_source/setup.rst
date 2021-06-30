@@ -165,7 +165,7 @@ Next steps
 Once you have your AWS account and development environment set up, create a Java project using your
 preferred build tool. Import
 `the Maven bill of materials (BOM) for the AWS SDK for Java 2.x from Maven Central <https://mvnrepository.com/artifact/software.amazon.awssdk/bom/latest>`_,
-:code:`software.amazon.awssdk'. Then add dependendies for the services you'll use in your
+:code:`software.amazon.awssdk'. Then add dependencies for the services you'll use in your
 application.
 
 Example Maven :file:`pom.xml` file:
