@@ -25,7 +25,7 @@ to migrate your code to version {v2ver} from {v1ver}.
 
 
 [[migration-whats-new]]
-=== What's new
+== What's new
 
 * You can configure your own HTTP clients. See <<http-configuration,HTTP Transport Configuration>>.
 * Async clients are now truly nonblocking and return `CompletableFuture` objects. See <<asynchronous,Asynchronous programming>>.

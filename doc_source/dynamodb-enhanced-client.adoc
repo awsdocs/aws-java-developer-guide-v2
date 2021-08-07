@@ -7,7 +7,7 @@ include::../../includes.txt[]
 :info_title: Using the {DDB} Enhanced Client in the {sdkjavav2}
 :info_titleabbrev: {DDB} Enhanced Client
 :info_abstract: About the {DDB} enhanced client in the {sdkjavav2}.
-:info_keywordset: {sdk-java} code examples enhanced client object mapper get items from {DDB} tables
+:info_keywordset: sdk-javacode examples enhanced client object mapper get items from {DDB} tables
 
 [abstract]
 --

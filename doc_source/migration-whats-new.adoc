@@ -1,0 +1,29 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[migration-whats-new,migration-whats-new.title]]
+= What's new in the SDK for Java 2.x
+:info_doctype: section
+:info_title: What's new in the {sdkjavav2}
+:info_titleabbrev: What's new in {v2ver}
+
+This topic briefly describes the major new features in {sdkjavav2}. For details about each
+feature and to see examples of how to use them, refer to the examples in the rest of the guide.
+
+
+
+* You can configure your own HTTP clients. See <<http-configuration,HTTP Transport Configuration>>.
+* Async clients are now truly nonblocking and return `CompletableFuture` objects. See <<asynchronous,Asynchronous programming>>.
+* Operations that return multiple pages have autopaginated responses. This enables you to focus your code on what to do with the response, without the need to check for and get subsequent pages. See the <<pagination,Pagination>>
+* SDK start time performance for {LAMlong} functions is improved. See <<lambda-optimize-starttime,SDK Start Time Performance Improvements>>
+* Version 2.x supports a new shorthand method for creating requests. 
++
+====
+
+
+[source,java]
+----
+dynamoDbClient.putItem(request -> request.tableName(TABLE))
+----
+
+====

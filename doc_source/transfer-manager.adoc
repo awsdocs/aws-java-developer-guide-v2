@@ -6,8 +6,8 @@ include::../../includes.txt[]
 :info_doctype: section
 :info_title: {S3} Transfer Manager (Preview)
 :info_titleabbrev: S3 Transfer Manager (Preview)
-:info_abstract: How to use the {S3} Transfer Manager to upload and download files
-:info_keywordset: {sdk-java} code examples {S3} Transfer Manager
+:info_abstract: How to use the {S3} Transfer Manager to upload and download files.
+:info_keywordset: sdk-javacode examples enhanced client object mapper get items from {DDB} tables
 
 The {S3} Transfer Manager (Preview) is an open-source high level library for the {sdkjavav2} that
 you use to easily transfer files to and from {S3long} (S3). It's built on top of the Java
@@ -17,7 +17,6 @@ benefiting from its enhanced throughput, performance, and reliability by leverag
 multipart upload and byte-range fetches for parallel transfers.
 
 This topic helps you use the S3 Transfer Manager.
->>>>>>> mainline
 
 [[transfer-manager-prerequisites,transfer-manager-prerequisites.title]]
 == Prerequisites
@@ -55,8 +54,6 @@ The following code example shows how to configure your project dependencies.
 </project>
 ----
 
-<<<<<<< HEAD
-=======
 [[transfer-manager-imports,transfer-manager-imports.title]]
 == Imports
 
@@ -74,7 +71,6 @@ import software.amazon.awssdk.transfer.s3.Upload;
 import software.amazon.awssdk.transfer.s3.UploadRequest;
 ----
 
->>>>>>> mainline
 [[transfer-manager-using,transfer-manager-using.title]]
 == Using the Transfer Manager (Preview)
 
@@ -107,6 +103,11 @@ S3ClientConfiguration s3ClientConfiguration =
                              .minimumPartSizeInBytes(10 * MB)
                              .targetThroughputInGbps(20.0)
                              .build();
+
+S3TransferManager s3TransferManager =
+        S3TransferManager.builder()
+                         .s3ClientConfiguration(s3ClientConfiguration)
+                         .build();
 ----
 
 [[transfer-manager-upload,transfer-manager-upload.title]]
@@ -172,3 +173,4 @@ CompletedDownload completedDownload = download.completionFuture().join();
 
 System.out.println("Content length: "+ completedDownload.response().contentLength());
 ----
+
