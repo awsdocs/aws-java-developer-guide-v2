@@ -1,0 +1,23 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-mediaconvert,examples-mediaconvert.title]]
+= [[ws-elemental-mediaconvert, Working with MediaConvert]]Working with {EMClong}
+:info_doctype: section
+:info_title: Working with {EMClong}
+:info_titleabbrev: {EMClong}
+:info_abstract: How to use the {sdk-java} to work with {EMClong}
+:info_keywordset: sdk-javacode examples {EMClong}
+
+[abstract]
+--
+How to use the {sdk-java} to work with {EMClong}
+--
+
+{EMClong} is a file-based video processing service that allows video providers to transcode
+content for broadcast and multiscreen delivery. See the following resources for complete code
+examples with instructions.
+
+{url-awsdocs-github}aws-doc-sdk-examples/tree/master/javav2/example_code/mediaconvert[Link to Github]
+
+{url-sdkcodesampcat}code-catalog-javav2-example_code-mediaconvert.html[Link to {SDKCodeSampCat}]

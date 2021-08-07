@@ -1,0 +1,158 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-iam-policies,examples-iam-policies.title]]
+= [[work-with-iam-policies, Working with IAM policies]]Working with {IAM} policies
+:info_doctype: section
+:info_title: Working with {IAM} policies
+:info_abstract: How to create, attach and detach policies to {IAM} roles.
+:info_keywordset: sdkjavav2code examples {IAM} policies CreatePolicyRequest GetPolicyRequest \
+    ListAttachedRolePoliciesRequest DetachRolePolicyRequest
+
+[abstract]
+--
+How to create, attach and detach policies to {IAM} roles.
+--
+
+[[create-a-policy,create-a-policy.title]]
+== Create a policy
+
+To create a new policy, provide the policy's name and a JSON-formatted policy document in a
+{v2javadocs}software/amazon/awssdk/services/iam/model/CreatePolicyRequest.html[CreatePolicyRequest]
+to the IamClient's `createPolicy` method.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/iam.java2.create_policy.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/iam.java2.create_policy.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/iam/src/main/java/com/example/iam/CreatePolicy.java[complete example]
+on GitHub.
+
+[[get-a-policy,get-a-policy.title]]
+== Get a policy
+
+To retrieve an existing policy, call the IamClient's `getPolicy` method, providing the policy's
+ARN within a
+{v2javadocs}software/amazon/awssdk/services/iam/model/GetPolicyRequest.html[GetPolicyRequest]
+object.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/iam.java2.get_policy.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/iam.java2.get_policy.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/iam/src/main/java/com/example/iam/GetPolicy.java[complete example]
+on GitHub.
+
+[[attach-a-role-policy,attach-a-role-policy.title]]
+== Attach a role policy
+
+You can attach a policy to an {IAM} link:IAM/latest/UserGuide/id_roles.html["role", type="documentation"] by calling the IamClient's
+`attachRolePolicy` method, providing it with the role name and policy ARN in an
+{v2javadocs}software/amazon/awssdk/services/iam/model/AttachRolePolicyRequest.html[AttachRolePolicyRequest].
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/iam.java2.attach_role_policy.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/iam.java2.attach_role_policy.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/iam/src/main/java/com/example/iam/AttachRolePolicy.java[complete example]
+on GitHub.
+
+[[list-attached-role-policies,list-attached-role-policies.title]]
+== List attached role policies
+
+List attached policies on a role by calling the IamClient's `listAttachedRolePolicies` method. It
+takes a
+{v2javadocs}software/amazon/awssdk/services/iam/model/ListAttachedRolePoliciesRequest.html[ListAttachedRolePoliciesRequest]
+object that contains the role name to list the policies for.
+
+Call `getAttachedPolicies` on the returned
+{v2javadocs}software/amazon/awssdk/services/iam/model/ListAttachedRolePoliciesResponse.html[ListAttachedRolePoliciesResponse]
+object to get the list of attached policies. Results may be truncated; if the
+`ListAttachedRolePoliciesResponse` object's `isTruncated` method returns ``true``, call the
+`ListAttachedRolePoliciesResponse` object's `marker` method. Use the marker returned to create a
+new request and use it to call `listAttachedRolePolicies` again to get the next batch of results.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/iam.java2.attach_role_policy.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/iam.java2.attach_role_policy.main.txt[]
+----
+
+See the {https---github-com-awsdocs-aws-doc-sdk-examples-blob-master-javav2-example-code-iam-src-main-java-com-example-iam-AttachRolePolicy-java}[complete example] on GitHub.
+
+[[detach-a-role-policy,detach-a-role-policy.title]]
+== Detach a role policy
+
+To detach a policy from a role, call the IamClient's `detachRolePolicy` method, providing it with
+the role name and policy ARN in a
+{v2javadocs}software/amazon/awssdk/services/iam/model/DetachRolePolicyRequest.html[DetachRolePolicyRequest].
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/iam.java2.detach_role_policy.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/iam.java2.detach_role_policy.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/iam/src/main/java/com/example/iam/DetachRolePolicy.java[complete example]
+on GitHub.
+
+[[more-information,more-information.title]]
+== More information
+
+* link:IAM/latest/UserGuide/access_policies.html["Overview of pass:q[[.shared\]`IAM`] Policies", type="documentation"] in the {guide-iam-user}.
+* link:IAM/latest/UserGuide/reference_policies.html["pass:q[[.shared\]`AWS`] pass:q[[.shared\]`IAM`] Policy Reference", type="documentation"] in the {guide-iam-user}.
+* link:IAM/latest/APIReference/API_CreatePolicy.html["CreatePolicy", type="documentation"] in the {guide-iam-api}
+* link:IAM/latest/APIReference/API_GetPolicy.html["GetPolicy", type="documentation"] in the {guide-iam-api}
+* link:IAM/latest/APIReference/API_AttachRolePolicy.html["AttachRolePolicy", type="documentation"] in the {guide-iam-api}
+* link:IAM/latest/APIReference/API_ListAttachedRolePolicies.html["ListAttachedRolePolicies", type="documentation"] in the {guide-iam-api}
+* link:IAM/latest/APIReference/API_DetachRolePolicy.html["DetachRolePolicy", type="documentation"] in the {guide-iam-api}

@@ -1,0 +1,145 @@
+//!!NODE_ROOT <chapter>
+include::../../includes.txt[]
+[."topic"]
+[[examples,examples.title]]
+= [[code-examples-for-the-sdk-java-2-x, Code examples for the SDK for Java]]Code examples for the {sdkjavav2}
+:doctype: book
+:sectnums:
+:toc: left
+:icons: font
+:experimental:
+:idprefix:
+:idseparator: -
+:sourcedir: .
+:info_doctype: chapter
+:info_title: Code examples for the {sdkjavav2}
+:info_titleabbrev: Working with {AWS-services}
+:info_abstract: Programming with {AWS-services} using the {sdk-java}
+
+[abstract]
+--
+Programming with {AWS-services} using the {sdk-java}
+--
+
+This section provides programming examples you can use with the {sdkjavav2} for specific
+features, use cases, and {AWS-services}.
+
+Find the source code for these examples and others in the {AWS} documentation
+{url-awsdocs-github}aws-doc-sdk-examples[code examples repository on GitHub].
+
+To propose a new code example for the {AWS} documentation team to consider producing, create a new
+request. The team is looking to produce code examples that cover broader scenarios and use cases,
+versus simple code snippets that cover only individual API calls. For instructions, see the
+"`Proposing new code examples`" section in the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/README.rst[Readme on GitHub].
+
+[.topiclist-abbrev]
+[[Topic List]]
+
+
+include::examples-s3.adoc[leveloffset=+1]
+
+
+include::examples-dynamodb.adoc[leveloffset=+1]
+
+
+include::examples-ec2.adoc[leveloffset=+1]
+
+
+include::examples-iam.adoc[leveloffset=+1]
+
+
+include::examples-athena.adoc[leveloffset=+1]
+
+
+include::examples-cloudwatch.adoc[leveloffset=+1]
+
+
+include::examples-cloudtrail.adoc[leveloffset=+1]
+
+
+include::examples-cognito.adoc[leveloffset=+1]
+
+
+include::examples-comprehend.adoc[leveloffset=+1]
+
+
+include::examples-eventbridge.adoc[leveloffset=+1]
+
+
+include::examples-firehose.adoc[leveloffset=+1]
+
+
+include::examples-forecast.adoc[leveloffset=+1]
+
+
+include::examples-glue.adoc[leveloffset=+1]
+
+
+include::examples-kinesis.adoc[leveloffset=+1]
+
+
+include::examples-kms.adoc[leveloffset=+1]
+
+
+include::examples-lambda.adoc[leveloffset=+1]
+
+
+include::examples-mediaconvert.adoc[leveloffset=+1]
+
+
+include::examples-mediastore.adoc[leveloffset=+1]
+
+
+include::examples-migrationhub.adoc[leveloffset=+1]
+
+
+include::examples-personalize.adoc[leveloffset=+1]
+
+
+include::examples-pinpoint.adoc[leveloffset=+1]
+
+
+include::examples-polly.adoc[leveloffset=+1]
+
+
+include::examples-rds.adoc[leveloffset=+1]
+
+
+include::examples-redshift.adoc[leveloffset=+1]
+
+
+include::examples-rekognition.adoc[leveloffset=+1]
+
+
+include::examples-sagemaker.adoc[leveloffset=+1]
+
+
+include::examples-secretsmanager.adoc[leveloffset=+1]
+
+
+include::examples-ses.adoc[leveloffset=+1]
+
+
+include::examples-simple-notification-service.adoc[leveloffset=+1]
+
+
+include::examples-sqs.adoc[leveloffset=+1]
+
+
+include::examples-systems-manager.adoc[leveloffset=+1]
+
+
+include::examples-simple-workflow-service.adoc[leveloffset=+1]
+
+
+include::examples-textract.adoc[leveloffset=+1]
+
+
+include::examples-transcribe.adoc[leveloffset=+1]
+
+
+include::examples-translate.adoc[leveloffset=+1]
+
+
+include::examples-workdocs.adoc[leveloffset=+1]

@@ -1,0 +1,229 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-kinesis-stream,examples-kinesis-stream.title]]
+= [[subscribing-to-amazon-kinesis-data-streams, Subscribing to Kinesis Data Streams]]Subscribing to {AKSlong}
+:info_doctype: section
+:info_title: Subscribing to {AKSlong}
+:info_abstract: How to use {AKSlong} to get results from {AKlong} using the {sdkjavav2}.
+:info_keywordset: AK{sdkjavav2} async streaming
+
+[abstract]
+--
+How to use {AKSlong} to get results from {AKlong} using the {sdkjavav2}.
+--
+
+The following examples show you how to retrieve and process data from {AKlong} Data Streams using
+the `subscribeToShard` method. {AKS} now employs the enhanced fanout feature and a low-latency
+HTTP/2 data retrieval API, making it easier for developers to run multiple low-latency,
+high-performance applications on the same {AK} Data Stream.
+
+[[set-up,set-up.title]]
+== Set up
+
+First, create an asynchronous {AK} client and a
+{v2javadocs}software/amazon/awssdk/services/kinesis/model/SubscribeToShardRequest.html[SubscribeToShardRequest]
+object. These objects are used in each of the following examples to subscribe to {AK} events.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/kinesis.java2.stream_example.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/kinesis.java2.stream_example.setup.txt[]
+----
+
+
+[[use-the-builder-interface,use-the-builder-interface.title]]
+== Use the builder interface
+
+You can use the `builder` method to simplify the creation of the
+{v2javadocs}software/amazon/awssdk/services/kinesis/model/SubscribeToShardResponseHandler.html[SubscribeToShardResponseHandler].
+
+Using the builder, you can set each lifecycle callback with a method call instead of implementing
+the full interface.
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/kinesis.java2.stream_example.lifecycle_callback.txt[]
+----
+
+For more control of the publisher, you can use the `publisherTransformer` method to customize the
+publisher.
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/kinesis.java2.stream_example.publish_transformer.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/kinesis/src/main/java/com/example/kinesis/AmazonKinesisStreamEx.java[complete example]
+on GitHub.
+
+[[use-a-custom-response-handler,use-a-custom-response-handler.title]]
+== Use a custom response handler
+
+For full control of the subscriber and publisher, implement the
+{v2javadocs}software/amazon/awssdk/services/kinesis/model/SubscribeToShardResponseHandler.html[SubscribeToShardResponseHandler]
+interface.
+
+In this example, you implement the `onEventStream` method, which allows you full access to the
+publisher. This demonstrates how to transform the publisher to event records for printing by the
+subscriber.
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/kinesis.java2.stream_example.custom_handler.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/kinesis/src/main/java/com/example/kinesis/AmazonKinesisStreamEx.java[complete example]
+on GitHub.
+
+[[use-the-visitor-interface,use-the-visitor-interface.title]]
+== Use the visitor interface
+
+You can use a {v2javadocs}software/amazon/awssdk/services/kinesis/model/SubscribeToShardResponseHandlerVisitor.html[Visitor] object to subscribe to specific events you're interested in watching.
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/kinesis.java2.stream_example.visitor.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/kinesis/src/main/java/com/example/kinesis/AmazonKinesisStreamEx.java[complete example]
+on GitHub.
+
+[[use-a-custom-subscriber,use-a-custom-subscriber.title]]
+== Use a custom subscriber
+
+You can also implement your own custom subscriber to subscribe to the stream.
+
+This code snippet shows an example subscriber.
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/kinesis.java2.stream_example.custom_subscriber.txt[]
+----
+
+You can pass that custom subscriber to the `subscribe` method, similarly to preview examples. The
+following code snippet shows this example.
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/kinesis.java2.stream_example.subscribe.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/kinesis/src/main/java/com/example/kinesis/AmazonKinesisStreamEx.java[complete example]
+on GitHub.
+
+[[write-data-records-into-a-kinesis-data-stream,write-data-records-into-a-kinesis-data-stream.title]]
+== Write data records into a {AK} data stream
+
+You can use the
+{v2javadocs}software/amazon/awssdk/services/kinesis/AmazonKinesisClient.html[AmazonKinesisClient]
+object to write data records into a {AK} data stream by using the `putRecords` method. To
+successfully invoke this method, create a
+{v2javadocs}software/amazon/awssdk/services/kinesis/model/PutRecordsRequest.html[PutRecordsRequest]
+object. You pass the name of the data steam to the `streamName` method. Also you must pass the
+data by using the `putRecords` method (as shown in the following code example).
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/kinesis.java2.stream_rx_example.import.txt[]
+----
+
+In the following Java code example, notice that *StockTrade* object is used as the data to write
+to the {AK} data stream. Before running this example, ensure that you have created the data stream.
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/kinesis.java2.stream_example.subscribe.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/kinesis/src/main/java/com/example/kinesis/StockTradesWriter.java[complete example]
+on GitHub.
+
+[[use-a-third-party-library,use-a-third-party-library.title]]
+== Use a third-party library
+
+You can use other third-party libraries instead of implementing a custom subscriber. This example
+demonstrates using the RxJava implementation, but you can use any library that implements the
+Reactive Streams interfaces. See the
+{url-github}ReactiveX/RxJava/wiki[RxJava wiki page on Github]
+for more information on that library.
+
+To use the library, add it as a dependency. If you're using Maven, the example shows the POM
+snippet to use.
+
+*POM Entry*
+
+[source,xml]
+----
+<dependency>
+ <groupId>io.reactivex.rxjava2</groupId>
+ <artifactId>rxjava</artifactId>
+ <version>2.1.14</version>
+</dependency>
+----
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/kinesis.java2.stream_rx_example.import.txt[]
+----
+
+This example uses RxJava in the `onEventStream` lifecycle method. This gives you full access to
+the publisher, which can be used to create an Rx Flowable.
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/kinesis.java2.stream_rx_example.event_stream.txt[]
+----
+
+You can also use the `publisherTransformer` method with the `Flowable` publisher. You must adapt
+the `Flowable` publisher to an __SdkPublisher__, as shown in the following example.
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/kinesis.java2.stream_rx_example.publish_transform.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/kinesis/src/main/java/com/example/kinesis/AmazonKinesisStreamRxJavaEx.java[complete example]
+on GitHub.
+
+[[more-information,more-information.title]]
+== More information
+
+* link:kinesis/latest/APIReference/API_SubscribeToShardEvent.html["SubscribeToShardEvent", type="documentation"] in the {guide-ak-api}
+* link:kinesis/latest/APIReference/API_SubscribeToShard.html["SubscribeToShard", type="documentation"] in the {guide-ak-api}

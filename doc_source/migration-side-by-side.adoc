@@ -1,0 +1,60 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[migration-side-by-side,migration-side-by-side.title]]
+= Using the SDK for Java 1.x and 2.x side-by-side
+:info_doctype: section
+:info_title: Using the {sdk-java} {v1ver} and {v2ver} side by side
+:info_titleabbrev: Using version {v2ver} side-by-side with {v1ver}
+:info_abstract: Describes how to use the {sdk-java} {v1ver} and {v2ver} side-by-side.
+
+[abstract]
+--
+Describes how to use the {sdk-java} {v1ver} and {v2ver} side-by-side.
+--
+
+You can use both versions of the {sdk-java} in your projects.
+
+The following shows an example of the pom.xml file for a project that uses {S3} from version
+{v1ver} and {DDB} from version {v2build}.
+
+.Example of POM 
+====
+
+This example shows a pom.xml file entry for a project that uses both {v1ver} and {v2ver} versions
+of the SDK.
+
+[source,xml]
+----
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-bom</artifactId>
+            <version>1.12.1</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+        <dependency>
+          <groupId>software.amazon.awssdk</groupId>
+          <artifactId>bom</artifactId>
+          <version>2.16.1</version>
+          <type>pom</type>
+          <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+    
+<dependencies>
+    <dependency>
+      <groupId>com.amazonaws</groupId>
+      <artifactId>aws-java-sdk-s3</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>software.amazon.awssdk</groupId>
+      <artifactId>dynamodb</artifactId>
+    </dependency>
+</dependencies>
+----
+
+====

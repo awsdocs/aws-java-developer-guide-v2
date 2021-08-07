@@ -1,0 +1,22 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-glue,examples-glue.title]]
+= [[aws-glue-examples, Working with Glue]]Working with {GLU}
+:info_doctype: section
+:info_title: Working with {GLU}
+:info_titleabbrev: {GLU}
+:info_abstract: How to use the {sdk-java} to work with {GLU}
+:info_keywordset: sdk-javacode examples {GLU}
+
+[abstract]
+--
+How to use the {sdk-java} to work with {GLU}
+--
+
+With {GLU}, you can fully manage, extract, transform, and load (ETL) your data for analytics. See
+the following resources for complete code examples with instructions.
+
+{url-awsdocs-github}aws-doc-sdk-examples/tree/master/javav2/example_code/glue[Link to Github]
+
+{url-sdkcodesampcat}code-catalog-javav2-example_code-glue.html[Link to {SDKCodeSampCat}]

@@ -1,0 +1,124 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-ec2-regions-zones,examples-ec2-regions-zones.title]]
+= [[use-regions-and-availability-zones, Use regions and availability zones]]Use regions and availability zones
+:info_doctype: section
+:info_title: Use regions and availability zones
+:info_abstract: How to list {EC2} regions and availability zones using the {sdkjavav2}.
+:info_keywordset: sdkjavav2code examples {EC2} list regions describe regions list availability \
+    zones describe availability zones
+
+[abstract]
+--
+How to list {EC2} regions and availability zones using the {sdkjavav2}.
+--
+
+[[describe-regions,describe-regions.title]]
+== Describe regions
+
+To list the Regions available to your account, call the Ec2Client's `describeRegions` method. It
+returns a
+{v2javadocs}software/amazon/awssdk/services/ec2/model/DescribeRegionsResponse.html[DescribeRegionsResponse].
+Call the returned object's `regions` method to get a list of
+{v2javadocs}software/amazon/awssdk/services/ec2/model/Region.html[Region]
+objects that represent each Region.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/ec2.java2.describe_region_and_zones.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/ec2.java2.describe_region_and_zones.region.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/ec2/src/main/java/com/example/ec2/DescribeRegionsAndZones.java[complete example]
+on GitHub.
+
+[[describe-availability-zones,describe-availability-zones.title]]
+== Describe availability zones
+
+To list each Availability Zone available to your account, call the Ec2Client's
+`describeAvailabilityZones` method. It returns a
+{v2javadocs}software/amazon/awssdk/services/ec2/model/DescribeAvailabilityZonesResponse.html[DescribeAvailabilityZonesResponse].
+Call its `availabilityZones` method to get a list of
+{v2javadocs}software/amazon/awssdk/services/ec2/model/AvailabilityZone.html[AvailabilityZone]
+objects that represent each Availability Zone.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/ec2.java2.describe_region_and_zones.import.txt[]
+----
+
+*Code*
+
+Create the Ec2Client.
+
+[source,java]
+----
+include::../../snippets/ec2.java2.describe_region_and_zones.client.txt[]
+----
+
+Then call describeAvailabilityZones() and retrieve results.
+
+[source,java]
+----
+include::../../snippets/ec2.java2.describe_region_and_zones.avail_zone.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/ec2/src/main/java/com/example/ec2/DescribeRegionsAndZones.java[complete example]
+on GitHub.
+
+[[describe-accounts,describe-accounts.title]]
+== Describe accounts
+
+To describe your account, call the Ec2Client's `describeAccountAttributes` method. This method
+returns a
+{v2javadocs}software/amazon/awssdk/services/ec2/model/DescribeAccountAttributesResponse.html[DescribeAccountAttributesResponse]
+object. Invoke this objects `accountAttributes` method to get a list of
+{v2javadocs}software/amazon/awssdk/services/ec2/model/AccountAttribute.html[AccountAttribute]
+objects. You can iterate through the list to retrieve an
+{v2javadocs}software/amazon/awssdk/services/ec2/model/AccountAttribute.html[AccountAttribute]
+object.
+
+You can get your account's attribute values by invoking the
+{v2javadocs}software/amazon/awssdk/services/ec2/model/AccountAttribute.html[AccountAttribute]
+object's `attributeValues` method. This method returns a list of
+{v2javadocs}software/amazon/awssdk/services/ec2/model/AccountAttributeValue.html[AccountAttributeValue]
+objects. You can iterate through this second list to display the value of attributes (see the
+following code example).
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/ec2.java2.describe_region_and_zones.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/ec2.java2.describe_region_and_zones.region.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/ec2/src/main/java/com/example/ec2/DescribeRegionsAndZones.java[complete example]
+on GitHub.
+
+[[more-information,more-information.title]]
+== More information
+
+* {url-ec2-user}using-regions-availability-zones.html[Regions and Availability Zones] in the {guide-ec2-user}
+* link:AWSEC2/latest/APIReference/API_DescribeRegions.html["DescribeRegions", type="documentation"] in the {guide-ec2-api}
+* link:AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html["DescribeAvailabilityZones", type="documentation"] in the {guide-ec2-api}

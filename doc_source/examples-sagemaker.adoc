@@ -1,0 +1,23 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-sagemaker,examples-sagemaker.title]]
+= [[amazon-sagemaker, Working with SageMaker]]Working with {SMlong}
+:info_doctype: section
+:info_title: Working with {SMlong}
+:info_titleabbrev: {SMlong}
+:info_abstract: How to use the {sdk-java} to work with {SMlong}
+:info_keywordset: sdk-javacode examples {SMlong}
+
+[abstract]
+--
+How to use the {sdk-java} to work with {SMlong}
+--
+
+{SMlong} is a fully managed service that provides every developer and data scientist with the
+ability to build, train, and deploy machine learning (ML) models. See the following resources for
+complete code examples with instructions.
+
+{url-awsdocs-github}aws-doc-sdk-examples/tree/master/javav2/example_code/sagemaker[Link to Github]
+
+{url-sdkcodesampcat}code-catalog-javav2-example_code-sagemaker.html[Link to {SDKCodeSampCat}]

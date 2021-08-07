@@ -1,0 +1,117 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-iam-account-aliases,examples-iam-account-aliases.title]]
+= [[use-iam-account-aliases, Using IAM account aliases]]Using {IAM} account aliases
+:info_doctype: section
+:info_title: Using {IAM} account aliases
+:info_abstract: How to create, list and delete {AWS-account} aliases.
+:info_keywordset: sdkjavav2code examples {IAM} account aliases CreateAccountAliasRequest \
+    ListAccountAliasesResponse DeleteAccountAliasRequest
+
+[abstract]
+--
+How to create, list and delete {AWS-account} aliases.
+--
+
+If you want the URL for your sign-in page to contain your company name or other friendly
+identifier instead of your {AWS-account} ID, you can create an alias for your {AWS-account}.
+
+[NOTE]
+====
+
+{AWS} supports exactly one account alias per account.
+
+====
+
+[[create-an-account-alias,create-an-account-alias.title]]
+== Create an account alias
+
+To create an account alias, call the IamClient's `createAccountAlias` method with a
+{v2javadocs}software/amazon/awssdk/services/iam/model/CreateAccountAliasRequest.html[CreateAccountAliasRequest]
+object that contains the alias name.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/iam.java2.create_account_alias.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/iam.java2.create_account_alias.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/iam/src/main/java/com/example/iam/CreateAccountAlias.java[complete example]
+on GitHub.
+
+[[list-account-aliases,list-account-aliases.title]]
+== List account aliases
+
+To list your account's alias, if any, call the IamClient's `listAccountAliases` method.
+
+[NOTE]
+====
+
+The returned
+{v2javadocs}software/amazon/awssdk/services/iam/model/ListAccountAliasesResponse.html[ListAccountAliasesResponse]
+supports the same `isTruncated` and `marker` methods as other {sdk-java} __list__ methods, but an
+S account can have only _one_ account alias.
+
+====
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/iam.java2.list_account_aliases.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/iam.java2.list_account_aliases.main.txt[]
+----
+
+see the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/iam/src/main/java/com/example/iam/ListAccountAliases.java[complete example]
+on GitHub.
+
+[[delete-an-account-alias,delete-an-account-alias.title]]
+== Delete an account alias
+
+To delete your account's alias, call the IamClient's `deleteAccountAlias` method. When deleting
+an account alias, you must supply its name using a
+{v2javadocs}software/amazon/awssdk/services/iam/model/DeleteAccountAliasRequest.html[DeleteAccountAliasRequest]
+object.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/iam.java2.delete_account_alias.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/iam.java2.delete_account_alias.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/iam/src/main/java/com/example/iam/DeleteAccountAlias.java[complete example]
+on GitHub.
+
+[[more-information,more-information.title]]
+== More information
+
+* link:IAM/latest/UserGuide/console_account-alias.html["Your pass:q[[.shared\]`AWS`] Account ID and Its Alias", type="documentation"] in the {guide-iam-user}
+* link:IAM/latest/APIReference/API_CreateAccountAlias.html["CreateAccountAlias", type="documentation"] in the {guide-iam-api}
+* link:IAM/latest/APIReference/API_ListAccountAliases.html["ListAccountAliases", type="documentation"] in the {guide-iam-api}
+* link:IAM/latest/APIReference/API_DeleteAccountAlias.html["DeleteAccountAlias", type="documentation"] in the {guide-iam-api}

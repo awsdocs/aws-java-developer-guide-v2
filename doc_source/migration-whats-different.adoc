@@ -1,0 +1,424 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+:java-changelog-hll: {url-aws-github}aws-sdk-java-v2/blob/master/docs/LaunchChangelog.md#7-high-level-libraries
+:java-changelog-sc: {url-aws-github}aws-sdk-java-v2/blob/master/docs/LaunchChangelog.md#4-service-changes
+:java-changelog-cn: {url-aws-github}aws-sdk-java-v2/blob/master/docs/LaunchChangelog.md#63-client-names
+:java-changelog-cc: {url-aws-github}aws-sdk-java-v2/blob/master/docs/LaunchChangelog.md#13-sdk-client-configuration
+[."topic"]
+[[migration-whats-different,migration-whats-different.title]]
+= What's different between the SDK for Java 1.x and 2.x
+:info_doctype: section
+:info_title: What's different between the {sdk-java} {v1ver} and {v2ver}
+:info_titleabbrev: What's different between {v1ver} and {v2ver}
+
+This section describes the main changes to be aware of when converting an application from using
+the {sdk-java} version {v1ver} to version {v2ver}.
+
+[[highlevel-libraries,highlevel-libraries.title]]
+== High-Level libraries
+
+High-level libraries, such as the {S3} Transfer Manager and the {SQS} Client-side Buffering, are
+not yet available in version {v2ver}. See the {sdkjavav2} {java-changelog-hll}[changelog] for a
+complete list of libraries.
+
+If your application depends on these libraries, see
+<<migration-side-by-side,Using both SDKs side-by-side>> to learn how to configure your pom.xml to
+use both {v1ver} and {v2ver}. Refer to the {sdkjavav2}
+{java-changelog-hll}[changelog] for updates about these libraries.
+
+[[adding-v2,adding-v2.title]]
+== Adding version 2.x to Your Project
+
+Maven is the recommended way to manage dependencies when using the {sdkjavav2}. To add version 2
+components to your project, simply update your pom.xml file with a dependency on the SDK.
+
+====
+
+
+[source,xml]
+----
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+          <groupId>software.amazon.awssdk</groupId>
+          <artifactId>bom</artifactId>
+          <version>2.16.1</version>
+          <type>pom</type>
+          <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+    
+<dependencies>
+    <dependency>
+      <groupId>software.amazon.awssdk</groupId>
+      <artifactId>dynamodb</artifactId>
+    </dependency>
+</dependencies>
+----
+
+====
+
+[[client-builder,client-builder.title]]
+== Client builders
+
+You must create all clients using the client builder method. Constructors are no longer available.  
+
+.of creating a client in version {v1ver}
+====
+
+[source,java]
+----
+AmazonDynamoDB ddbClient = AmazonDynamoDBClientBuilder.defaultClient();
+AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient();
+----
+
+====
+
+.of creating a client in version {v2ver}
+====
+
+[source,java]
+----
+DynamoDbClient ddbClient = DynamoDbClient.create();
+DynamoDbClient ddbClient = DynamoDbClient.builder().build();
+----
+
+====
+
+[[client-configuration,client-configuration.title]]
+== Client Configuration
+
+In {v1ver}, SDK client configuration was modified by setting a  `ClientConfiguration` instance on
+the client or client builder. In version {v2ver}, the client configuration is split into separate
+configuration classes. The separate configuration classes enable you to configure different HTTP
+clients for async versus synchronous clients but still use the same `ClientOverrideConfiguration` class.
+
+.of client configuration in version {v1ver}
+====
+
+[source,java]
+----
+AmazonDynamoDBClientBuilder.standard()
+.withClientConfiguration(clientConfiguration)
+.build()
+----
+
+====
+
+.of synchronous client configuration in version {v2ver}
+====
+
+[source,java]
+----
+ProxyConfiguration.Builder proxyConfig = ProxyConfiguration.builder();
+
+ApacheHttpClient.Builder httpClientBuilder = 
+        ApacheHttpClient.builder()
+                        .proxyConfiguration(proxyConfig.build());
+
+ClientOverrideConfiguration.Builder overrideConfig =
+        ClientOverrideConfiguration.builder();
+
+DynamoDbClient client = 
+        DynamoDbClient.builder()
+                      .httpClientBuilder(httpClientBuilder)
+                      .overrideConfiguration(overrideConfig.build())
+                      .build();
+----
+
+====
+
+.of asynchronous client configuration in version {v2ver}
+====
+
+[source,java]
+----
+NettyNioAsyncHttpClient.Builder httpClientBuilder = 
+        NettyNioAsyncHttpClient.builder();
+
+ClientOverrideConfiguration.Builder overrideConfig =
+        ClientOverrideConfiguration.builder();
+
+ClientAsyncConfiguration.Builder asyncConfig =
+        ClientAsyncConfiguration.builder();
+
+DynamoDbAsyncClient client = 
+        DynamoDbAsyncClient.builder()
+                           .httpClientBuilder(httpClientBuilder)
+                           .overrideConfiguration(overrideConfig.build())
+                           .asyncConfiguration(asyncConfig.build())
+                           .build();
+----
+
+====
+
+For a complete mapping of client configuration methods between {v1ver} and {v2ver}, see the
+{sdkjavav2} {java-changelog-cc}[changelog].
+
+[[setter-methods,setter-methods.title]]
+== Setter Methods
+
+In the {sdkjavav2}, setter method names don't include the "set" or "with" prefix. For example,
+*.withEndpoint() is now just *.endpoint().
+
+.of using setting methods in {v1ver}
+====
+
+[source,java]
+----
+AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
+        		.withRegion("us-east-1")
+        		.build();
+----
+
+====
+
+.of using setting methods in {v2ver}
+====
+
+[source,java]
+----
+DynamoDbClient client = DynamoDbClient.builder()
+        		.region(Region.US_EAST_1)
+        		.build();
+----
+
+====
+
+[[class-names,class-names.title]]
+== Class Names
+
+All client class names are now fully camel cased and no longer prefixed by "Amazon". These
+changes are aligned with names used in the {CLI}. For a full list of client name changes, see
+the {sdkjavav2} {java-changelog-cn}[changelog].
+
+.of class names in {v1ver}
+====
+
+[source,java]
+----
+AmazonDynamoDB 
+AWSACMPCAAsyncClient
+----
+
+====
+
+.of class names in {v2ver}
+====
+
+[source,java]
+----
+DynamoDbClient 
+AcmAsyncClient
+----
+
+====
+
+[[region-class,region-class.title]]
+== Region Class
+
+The {sdk-java} version {v1ver} had multiple  `Region` and `Regions` classes, both in the core
+package and in many of the service packages. `Region` and `Regions` classes in version {v2ver} are
+now collapsed into one core class, ``Region``.
+
+.Region and Regions classes in {v1ver}
+====
+
+[source,java]
+----
+com.amazonaws.regions.Region
+com.amazonaws.regions.Regions
+com.amazonaws.services.ec2.model.Region
+----
+
+====
+
+.Region class in {v2ver}
+====
+
+[source,java]
+----
+software.amazon.awssdk.regions.Region
+----
+
+====
+
+For more details about changes related to using the  `Region` class, see
+<<migration-client-region,Region class name changes>>.
+
+[[immutable-classes,immutable-classes.title]]
+== Immutable POJOs
+
+Clients and operation request and response objects are now immutable and cannot be changed after
+creation. To reuse a request or response variable, you must build a new object to assign to it.
+
+.of updating a request object in {v1ver}
+====
+
+[source,java]
+----
+DescribeAlarmsRequest request = new DescribeAlarmsRequest();
+DescribeAlarmsResult response = cw.describeAlarms(request);
+
+request.setNextToken(response.getNextToken());
+----
+
+====
+
+.of updating a request object in {v2ver}
+====
+
+[source,java]
+----
+DescribeAlarmsRequest request = DescribeAlarmsRequest.builder().build();
+DescribeAlarmsResponse response = cw.describeAlarms(request);
+
+request = DescribeAlarmsRequest.builder()
+        .nextToken(response.nextToken())
+        .build();
+----
+
+====
+
+[[streaming-operations,streaming-operations.title]]
+== Streaming Operations
+
+Streaming operations such as the {S3}  `getObject` and `putObject` methods now support
+non-blocking I/O. As a result, the request and response POJOs no longer take `InputStream` as a
+parameter. Instead the request object accepts ``RequestBody``, which is a stream of bytes. The
+asynchronous client accepts ``AsyncRequestBody``.
+
+.of {S3} putObject operation in {v1ver}
+====
+
+[source,java]
+----
+s3client.putObject(BUCKET, KEY, new File(file_path));
+----
+
+====
+
+.of {S3} putObject operation in {v2ver}
+====
+
+[source,java]
+----
+s3client.putObject(PutObjectRequest.builder()
+                                 .bucket(BUCKET)
+                                 .key(KEY)
+                                 .build(),
+                 RequestBody.of(Paths.get("myfile.in")));
+----
+
+====
+
+In parallel, the response object accepts  `ResponseTransformer` for synchronous clients and
+`AsyncResponseTransformer` for asynchronous clients.
+
+.of {S3} getObject operation in {v1ver}
+====
+
+[source,java]
+----
+S3Object o = s3.getObject(bucket, key);
+S3ObjectInputStream s3is = o.getObjectContent();
+FileOutputStream fos = new FileOutputStream(new File(key));
+----
+
+====
+
+.of {S3} getObject operation in {v2ver}
+====
+
+[source,java]
+----
+s3client.getObject(GetObjectRequest.builder().bucket(bucket).key(key).build(),
+		ResponseTransformer.toFile(Paths.get("key")));
+----
+
+====
+
+[[exceptions-changes,exceptions-changes.title]]
+== Exception changes
+
+Exception class names, and their structures and relationships, have also changed.
+`software.amazon.awssdk.core.exception.SdkException` is the new base `Exception` class that all
+the other exceptions extend.
+
+For a full list of the {v2ver} exception class names mapped to the {v1ver} exceptions, see
+<<migration-exception-changes,Exception class name changes>>.
+
+[[service-changes,service-changes.title]]
+== Service-Specific Changes
+
+[[s3-operations-name,s3-operations-name.title]]
+=== Amazon S3 Operation Name Changes
+
+Many of the operation names for the {S3} client have changed in the {sdkjavav2}. In version
+{v1ver}, the {S3} client is not generated directly from the service API. This results in
+inconsistency between the SDK operations and the service API. In version {v2ver}, we now generate
+the {S3} client to be more consistent with the service API.
+
+.of {S3} client operation in {v1ver}
+====
+
+[source,java]
+----
+changeObjectStorageClass
+----
+
+====
+
+.of {S3} client operation in {v2ver}
+====
+
+[source,java]
+----
+copyObject
+----
+
+====
+
+.of {S3} client operation in the {S3} service API
+====
+
+[source,java]
+----
+CopyObject
+----
+
+====
+
+For a full list of the operation name mappings, see the {sdkjavav2} {java-changelog-sc}[changelog].
+
+[[cross-region-access,cross-region.title]]
+=== Cross-region access
+
+For security best practices, cross-region access is no longer supported for single clients.  
+
+In version {v1ver}, services such as {S3}, {SNS}, and {SQS} allowed access to resources across
+Region boundaries. This is no longer allowed in version {v2ver} using the same client. If you
+need to access a resource in a different region, you must create a client in that region and
+retrieve the resource using the appropriate client.
+
+
+[.topiclist-abbrev]
+[[Topic List]]
+
+
+
+include::migration-client-updates.adoc[leveloffset=+2]
+
+
+
+include::migration-client-credential.adoc[leveloffset=+2]
+
+
+
+include::migration-client-region.adoc[leveloffset=+2]
+
+
+
+include::migration-exception-changes.adoc[leveloffset=+2]
+

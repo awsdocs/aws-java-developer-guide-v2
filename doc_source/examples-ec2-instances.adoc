@@ -1,0 +1,224 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-ec2-instances,examples-ec2-instances.title]]
+= [[manage-ec2-instances, Manage EC2 instances]]Manage {EC2} instances
+:info_doctype: section
+:info_title: Manage {EC2} instances
+:info_abstract: How to create, start, stop, reboot, list and monitor {EC2} instances using the \
+    {sdkjavav2}.
+:info_keywordset: sdkjavav2code examples {EC2} instances create instance start instance stop \
+    instance reboot instance monitor instance list instances describe instances
+
+[abstract]
+--
+How to create, start, stop, reboot, list and monitor {EC2} instances using the {sdkjavav2}.
+--
+
+[[create-an-instance,create-an-instance.title]]
+== Create an instance
+
+Create a new {EC2} instance by calling the Ec2Client's `runInstances` method, providing it with a
+{v2javadocs}software/amazon/awssdk/services/ec2/model/RunInstancesRequest.html[RunInstancesRequest]
+containing the
+{url-ec2-user}AMIs.html[Amazon Machine Image (AMI)]
+to use and an
+{url-ec2-user}instance-types.html[instance type].
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/ec2.java2.create_instance.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/ec2.java2.create_instance.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/ec2/src/main/java/com/example/ec2/CreateInstance.java[complete example]
+on GitHub.
+
+[[start-an-instance,start-an-instance.title]]
+== Start an instance
+
+To start an {EC2} instance, call the Ec2Client's `startInstances` method, providing it with a
+{v2javadocs}software/amazon/awssdk/services/ec2/model/StartInstancesRequest.html[StartInstancesRequest]
+containing the ID of the instance to start.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/ec2.java2.start_stop_instance.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/ec2.java2.start_stop_instance.start.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/ec2/src/main/java/com/example/ec2/StartStopInstance.java[complete example]
+on GitHub.
+
+[[stop-an-instance,stop-an-instance.title]]
+== Stop an instance
+
+To stop an {EC2} instance, call the Ec2Client's `stopInstances` method, providing it with a
+{v2javadocs}software/amazon/awssdk/services/ec2/model/StopInstancesRequest.html[StopInstancesRequest]
+containing the ID of the instance to stop.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/ec2.java2.start_stop_instance.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/ec2.java2.start_stop_instance.stop.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/ec2/src/main/java/com/example/ec2/StartStopInstance.java[complete example]
+on GitHub.
+
+[[reboot-an-instance,reboot-an-instance.title]]
+== Reboot an instance
+
+To reboot an {EC2} instance, call the Ec2Client's `rebootInstances` method, providing it with a
+{v2javadocs}software/amazon/awssdk/services/ec2/model/RebootInstancesRequest.html[RebootInstancesRequest]
+containing the ID of the instance to reboot.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/ec2.java2.reboot_instance.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/ec2.java2.reboot_instance.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/ec2/src/main/java/com/example/ec2/RebootInstance.java[complete example]
+on GitHub.
+
+[[describe-instances,describe-instances.title]]
+== Describe instances
+
+To list your instances, create a
+{v2javadocs}software/amazon/awssdk/services/ec2/model/DescribeInstancesRequest.html[DescribeInstancesRequest]
+and call the Ec2Client's `describeInstances` method. It will return a
+{v2javadocs}software/amazon/awssdk/services/ec2/model/DescribeInstancesResponse.html[DescribeInstancesResponse]
+object that you can use to list the {EC2} instances for your account and region.
+
+Instances are grouped by __reservation__. Each reservation corresponds to the call to
+`startInstances` that launched the instance. To list your instances, you must first call the
+`DescribeInstancesResponse` class' `reservations` method, and then call `instances` on each
+returned
+{v2javadocs}software/amazon/awssdk/services/ec2/model/Reservation.html[Reservation]
+object.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/ec2.java2.describe_instances.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/ec2.java2.describe_instances.main.txt[]
+----
+
+Results are paged; you can get further results by passing the value returned from the result
+object's `nextToken` method to a new request object's `nextToken` method, then using the new
+request object in your next call to ``describeInstances``.
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/ec2/src/main/java/com/example/ec2/DescribeInstances.java[complete example]
+on GitHub.
+
+[[monitor-an-instance,monitor-an-instance.title]]
+== Monitor an instance
+
+You can monitor various aspects of your {EC2} instances, such as CPU and network utilization,
+available memory, and disk space remaining. To learn more about instance monitoring, see
+{url-ec2-user}monitoring_ec2.html[Monitoring {EC2}]
+in the {guide-ec2-user}.
+
+To start monitoring an instance, you must create a
+{v2javadocs}software/amazon/awssdk/services/ec2/model/MonitorInstancesRequest.html[MonitorInstancesRequest]
+with the ID of the instance to monitor, and pass it to the Ec2Client's `monitorInstances` method.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/ec2.java2.monitor_instance.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/ec2.java2.monitor_instance.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/ec2/src/main/java/com/example/ec2/MonitorInstance.java[complete example]
+on GitHub.
+
+[[stop-instance-monitoring,stop-instance-monitoring.title]]
+== Stop instance monitoring
+
+To stop monitoring an instance, create an
+{v2javadocs}software/amazon/awssdk/services/ec2/model/UnmonitorInstancesRequest.html[UnmonitorInstancesRequest]
+with the ID of the instance to stop monitoring, and pass it to the Ec2Client's
+`unmonitorInstances` method.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/ec2.java2.monitor_instance.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/ec2.java2.monitor_instance.stop.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/ec2/src/main/java/com/example/ec2/MonitorInstance.java[complete example]
+on GitHub.
+
+[[more-information,more-information.title]]
+== More information
+
+* link:AWSEC2/latest/APIReference/API_RunInstances.html["RunInstances", type="documentation"] in the {guide-ec2-api}
+* link:AWSEC2/latest/APIReference/API_DescribeInstances.html["DescribeInstances", type="documentation"] in the {guide-ec2-api}
+* link:AWSEC2/latest/APIReference/API_StartInstances.html["StartInstances", type="documentation"] in the {guide-ec2-api}
+* link:AWSEC2/latest/APIReference/API_StopInstances.html["StopInstances", type="documentation"] in the {guide-ec2-api}
+* link:AWSEC2/latest/APIReference/API_RebootInstances.html["RebootInstances", type="documentation"] in the {guide-ec2-api}
+* link:AWSEC2/latest/APIReference/API_MonitorInstances.html["MonitorInstances", type="documentation"] in the {guide-ec2-api}
+* link:AWSEC2/latest/APIReference/API_UnmonitorInstances.html["UnmonitorInstances", type="documentation"] in the {guide-ec2-api}

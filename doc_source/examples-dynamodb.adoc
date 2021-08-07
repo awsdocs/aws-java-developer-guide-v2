@@ -1,0 +1,35 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-dynamodb,examples-dynamodb.title]]
+= [[working-with-ddb, Working with DynamoDB]]Working with {DDB}
+:info_doctype: section
+:info_title: Working with {DDB}
+:info_titleabbrev: {DDBlong}
+:info_abstract: How to use the {sdk-java} to work with {DDBlong}
+:info_keywordset: sdkjavav2code examples
+
+[abstract]
+--
+How to use the {sdk-java} to work with {DDBlong}
+--
+
+This section provides examples that show you how to program link:dynamodb/["pass:q[[.shared\]`DDB`]", type="marketing"] by
+using the {sdkjavav2}.
+
+The following examples include only the code needed to demonstrate each technique. The
+{url-awsdocs-github}aws-doc-sdk-examples/tree/master/javav2[complete example code is available on GitHub].
+From there, you can download a single source file or clone the repository locally to get all the
+examples to build and run.
+
+[.topiclist-abbrev]
+[[Topic List]]
+
+
+include::examples-dynamodb-tables.adoc[leveloffset=+1]
+
+
+include::examples-dynamodb-items.adoc[leveloffset=+1]
+
+
+include::examples-dynamodb-enhanced.adoc[leveloffset=+1]

@@ -1,0 +1,147 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-iam-server-certificates,examples-iam-server-certificates.title]]
+= [[work-with-iam-server-certificates, Working with IAM server certificates]]Working with {IAM} server certificates
+:info_doctype: section
+:info_title: Working with {IAM} server certificates
+:info_abstract: How to get, list, update and delete {IAM} server certificates.
+:info_keywordset: sdkjavav2code examples {IAM} server certificates GetServerCertificateRequest \
+    ListServerCertificatesRequest UpdateServerCertificateRequest
+
+[abstract]
+--
+How to get, list, update and delete {IAM} server certificates.
+--
+
+To enable HTTPS connections to your website or application on {AWS}, you need an SSL/TLS __server
+certificate__. You can use a server certificate provided by {ACMlong} or one that you obtained
+from an external provider.
+
+We recommend that you use {ACM} to provision, manage, and deploy your server certificates. With
+{ACM} you can request a certificate, deploy it to your {AWS} resources, and let {ACM} handle
+certificate renewals for you. Certificates provided by {ACM} are free. For more information about
+{ACM}, see the {link-acm-ug}.
+
+[[get-a-server-certificate,get-a-server-certificate.title]]
+== Get a server certificate
+
+You can retrieve a server certificate by calling the IamClient's `getServerCertificate` method,
+passing it a
+{v2javadocs}software/amazon/awssdk/services/iam/model/GetServerCertificateRequest.html[GetServerCertificateRequest]
+with the certificate's name.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/iam.java2.get_server_certificate.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/iam.java2.get_server_certificate.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/iam/src/main/java/com/example/iam/GetServerCertificate.java[complete example]
+on GitHub.
+
+[[list-server-certificates,list-server-certificates.title]]
+== List server certificates
+
+To list your server certificates, call the IamClient's `listServerCertificates` method with a
+{v2javadocs}software/amazon/awssdk/services/iam/model/ListServerCertificatesRequest.html[ListServerCertificatesRequest].
+It returns a
+{v2javadocs}software/amazon/awssdk/services/iam/model/ListServerCertificatesResponse.html[ListServerCertificatesResponse].
+
+Call the returned `ListServerCertificateResponse` object's `serverCertificateMetadataList` method
+to get a list of
+{v2javadocs}software/amazon/awssdk/services/iam/model/ServerCertificateMetadata.html[ServerCertificateMetadata]
+objects that you can use to get information about each certificate.
+
+Results may be truncated; if the `ListServerCertificateResponse` object's `isTruncated` method
+returns ``true``, call the `ListServerCertificatesResponse` object's `marker` method and use the
+marker to create a new request. Use the new request to call `listServerCertificates` again to get
+the next batch of results.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/iam.java2.list_server_certificates.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/iam.java2.list_server_certificates.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/iam/src/main/java/com/example/iam/ListServerCertificates.java[complete example]
+on GitHub.
+
+[[update-a-server-certificate,update-a-server-certificate.title]]
+== Update a server certificate
+
+You can update a server certificate's name or path by calling the IamClient's
+`updateServerCertificate` method. It takes a
+{v2javadocs}software/amazon/awssdk/services/iam/model/UpdateServerCertificateRequest.html[UpdateServerCertificateRequest]
+object set with the server certificate's current name and either a new name or new path to use.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/iam.java2.update_server_certificate.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/iam.java2.update_server_certificate.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/iam/src/main/java/com/example/iam/UpdateServerCertificate.java[complete example]
+on GitHub.
+
+[[delete-a-server-certificate,delete-a-server-certificate.title]]
+== Delete a server certificate
+
+To delete a server certificate, call the IamClient's `deleteServerCertificate` method with a
+{v2javadocs}software/amazon/awssdk/services/iam/model/DeleteServerCertificateRequest.html[DeleteServerCertificateRequest]
+containing the certificate's name.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/iam.java2.delete_server_certificate.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/iam.java2.delete_server_certificate.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/iam/src/main/java/com/example/iam/DeleteServerCertificate.java[complete example]
+on GitHub.
+
+[[more-information,more-information.title]]
+== More information
+
+* link:IAM/latest/UserGuide/id_credentials_server-certs.html["Working with Server Certificates", type="documentation"] in the {guide-iam-user}
+* link:IAM/latest/APIReference/API_GetServerCertificate.html["GetServerCertificate", type="documentation"] in the {guide-iam-api}
+* link:IAM/latest/APIReference/API_ListServerCertificates.html["ListServerCertificates", type="documentation"] in the {guide-iam-api}
+* link:IAM/latest/APIReference/API_UpdateServerCertificate.html["UpdateServerCertificate", type="documentation"] in the {guide-iam-api}
+* link:IAM/latest/APIReference/API_DeleteServerCertificate.html["DeleteServerCertificate", type="documentation"] in the {guide-iam-api}
+* {link-acm-ug}

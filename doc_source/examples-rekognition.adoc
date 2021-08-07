@@ -1,0 +1,24 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-rekognition,examples-rekognition.title]]
+= [[amazon-rekognition, Working with Rekognition]]Working with {REKlong}
+:info_doctype: section
+:info_title: Working with {REKlong}
+:info_titleabbrev: {REKlong}
+:info_abstract: How to use the {sdk-java} to work with {REKlong}
+:info_keywordset: sdk-javacode examples {REKlong}
+
+[abstract]
+--
+How to use the {sdk-java} to work with {REKlong}
+--
+
+With {REKlong}, you can perform fast and accurate face searches, allowing you to identify a
+person in a photo or video using your private repository of face images. You can also verify
+identity by analyzing a face image against images you have stored for comparison. See the
+following resources for complete code examples with instructions.
+
+{url-awsdocs-github}aws-doc-sdk-examples/tree/master/javav2/example_code/rekognition[Link to Github]
+
+{url-sdkcodesampcat}code-catalog-javav2-example_code-rekognition.html[Link to {SDKCodeSampCat}]

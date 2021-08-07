@@ -1,0 +1,78 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[http-configuration-netty,http-configuration-netty.title]]
+= [[configuring-the-netty-based-http-client, Configuring the Netty-based HTTP client]]Configuring the Netty-based HTTP client
+:info_doctype: section
+:info_title: Configuring the Netty-based HTTP client
+:info_abstract: How to configure HTTP clients in the {sdk-java}.
+
+[abstract]
+--
+How to configure HTTP clients in the {sdk-java}.
+--
+
+For asynchronous operations in the {sdkjavav2}, you can use Netty ({v2javadocs}software/amazon/awssdk/http/nio/netty/NettyNioAsyncHttpClient.html[NettyNioAsyncHttpClient]) as the HTTP client or you can use the new {AWS} Common Runtime (CRT) HTTP client {v2javadocs}software/amazon/awssdk/http/crt/AwsCrtAsyncHttpClient.html[AwsCrtAsyncHttpClient]. This topics shows you how to configure the Netty-based HTTP client.
+
+For a full list of options you can set with these clients, see the {v2javadocs}[{sdk-java} API Reference version 2.x].
+
+[[prerequisite,prerequisite.title]]
+== Prerequisite
+
+Before you can use use the Netty client, you need to configure your project dependencies in your [path]``pom.xml`` or [path]``build.gradle`` file to include version `2.0.0` or later of the `artifactId```netty-nio-client``.
+
+The following code example shows how to configure your project dependencies.
+
+[source,xml]
+----
+<dependency>
+  <artifactId>netty-nio-client</artifactId>
+  <groupId>software.amazon.awssdk</groupId>
+  <version>2.0.0</version>
+</dependency>
+----
+
+
+[[configuring-service-clients,configuring-service-clients.title]]
+== Configuring service clients
+
+Use the HTTP client builder to have the SDK manage its lifecycle. The HTTP client will be closed for you when the service client is shut down.
+
+*Imports*
+
+[source,java]
+----
+
+import software.amazon.awssdk.http.async.SdkAsyncHttpClient;
+import software.amazon.awssdk.http.nio.netty.NettyNioAsyncHttpClient;
+import software.amazon.awssdk.services.kinesis.AmazonKinesisAsyncClient;
+----
+
+*Code*
+
+[source,java]
+----
+AmazonKinesisAsyncClient client = AmazonKinesisAsyncClient.builder()
+    .httpClientBuilder(NettyNioAsyncHttpClient.builder()
+        .maxConcurrency(100)
+        .maxPendingConnectionAcquires(10_000))
+    .build();
+----
+
+You can also pass the HTTP client directly to the service client if you want to manage the lifecycle yourself.
+
+*Code*
+
+[source,java]
+----
+SdkAsyncHttpClient httpClient = NettyNioAsyncHttpClient.builder()
+    .maxConcurrency(100)
+    .maxPendingConnectionAcquires(10_000)
+    .build();
+
+AmazonKinesisAsyncClient kinesisClient = AmazonKinesisAsyncClient.builder()
+    .httpClient(httpClient)
+    .build();
+
+httpClient.close();
+----

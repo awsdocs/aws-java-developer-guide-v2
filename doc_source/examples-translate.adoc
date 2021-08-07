@@ -1,0 +1,22 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-translate,examples-translate.title]]
+= [[amazon-translate, Working with Translate]]Working with {TSLlong}
+:info_doctype: section
+:info_title: Working with {TSLlong}
+:info_titleabbrev: {TSLlong}
+:info_abstract: How to use the {sdk-java} to work with {TSLlong}
+:info_keywordset: sdk-javacode examples {TSLlong}
+
+[abstract]
+--
+How to use the {sdk-java} to work with {TSLlong}
+--
+
+{TSLlong} removes the complexity of building real-time and batch translation capabilities into
+your applications. See the following resources for complete code examples with instructions.
+
+{url-awsdocs-github}aws-doc-sdk-examples/tree/master/javav2/example_code/translate[Link to Github]
+
+{url-sdkcodesampcat}code-catalog-javav2-example_code-translate.html[Link to {SDKCodeSampCat}]

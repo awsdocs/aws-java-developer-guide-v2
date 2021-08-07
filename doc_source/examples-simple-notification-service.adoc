@@ -1,0 +1,218 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-simple-notification-service,examples-simple-notification-service.title]]
+= [[snslong-examples, Working with SNS]]Working with {SNSlong}
+:info_doctype: section
+:info_title: Working with {SNSlong}
+:info_titleabbrev: {SNSlong}
+:info_abstract: How to use the {sdk-java} to work with {SNSlong} ({SNS}).
+:info_keywordset: sdk-javacode examples {SNS} topic create list endpoint subscribe publish \
+    message unsubscribe {SNSlong}
+
+[abstract]
+--
+How to use the {sdk-java} to work with {SNSlong} ({SNS}).
+--
+
+With {SNSlong}, you can easily push real-time notification messages from your applications to
+subscribers over multiple communication channels. This topic describes how to perform some of the
+basic functions of {SNS}.
+
+[[sns-create-topic,sns-create-topic.title]]
+== Create a topic
+
+A *topic* is a logical grouping of communication channels that defines which systems to send a
+message to, for example, fanning out a message to {LAMlong} and an HTTP webhook. You send
+messages to {SNS}, then they're distributed to the channels defined in the topic. This makes the
+messages available to subscribers.
+
+To create a topic, first build a
+{v2javadocs}software/amazon/awssdk/services/sns/model/CreateTopicRequest.html[CreateTopicRequest]
+object, with the name of the topic set using the `name()` method in the builder.
+Then, send the request object to {SNS} by using the `createTopic()` method of the
+{v2javadocs}software/amazon/awssdk/services/sns/SnsClient.html[SnsClient].
+You can capture the result of this request as a
+{v2javadocs}software/amazon/awssdk/services/sns/model/CreateTopicResponse.html[CreateTopicResponse]
+object, as demonstrated in the following code snippet.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/sns.java2.CreateTopic.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/sns.java2.CreateTopic.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/sns/src/main/java/com/example/sns/CreateTopic.java[complete example]
+on GitHub.
+
+[[sns-crelistate-topics,sns-crelistate-topics.title]]
+== List your {SNS} topics
+
+To retrieve a list of your existing {SNS} topics, build a
+{v2javadocs}software/amazon/awssdk/services/sns/model/ListTopicsRequest.html[ListTopicsRequest]
+object. Then, send the request object to {SNS} by using the `listTopics()` method of the
+``SnsClient``. You can capture the result of this request as a
+{v2javadocs}software/amazon/awssdk/services/sns/model/ListTopicsResponse.html[ListTopicsResponse]
+object.
+
+The following code snippet prints out the HTTP status code of the request and a list of Amazon
+Resource Names (ARNs) for your {SNS} topics.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/sns.java2.ListTopics.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/sns.java2.ListTopics.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/sns/src/main/java/com/example/sns/ListTopics.java[complete example]
+on GitHub.
+
+[[sns-subscribe-endpoint-topic,sns-subscribe-endpoint-topic.title]]
+== Subscribe an endpoint to a topic
+
+After you create a topic, you can configure which communication channels will be endpoints for
+that topic. Messages are distributed to these endpoints after {SNS} receives them.
+
+To configure a communication channel as an endpoint for a topic, subscribe that endpoint to the
+topic. To start, build a
+{v2javadocs}software/amazon/awssdk/services/sns/model/SubscribeRequest.html[SubscribeRequest]
+object. Specify the communication channel (for example, ``lambda`` or ``email``) as the
+``protocol()``. Set the `endpoint()` to the relevant output location (for example, the ARN of a
+{LAM} function or an email address), and then set the ARN of the topic to which you want to
+subscribe as the ``topicArn()``. Send the request object to {SNS} by using the `subscribe()` method
+of the ``SnsClient``. You can capture the result of this request as a
+{v2javadocs}software/amazon/awssdk/services/sns/model/SubscribeResponse.html[SubscribeResponse]
+object.
+
+The following code snippet shows how to subscribe an email address to a topic.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/sns.java2.SubscribeEmail.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/sns.java2.SubscribeEmail.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/sns/src/main/java/com/example/sns/SubscribeEmail.java[complete example]
+on GitHub.
+
+[[sns-publish-message-topic,sns-publish-message-topic.title]]
+== Publish a message to a topic
+
+After you have a topic and one or more endpoints configured for it, you can publish a message to
+it. To start, build a
+{v2javadocs}software/amazon/awssdk/services/sns/model/PublishRequest.html[PublishRequest]
+object. Specify the `message()` to send, and the ARN of the topic (``topicArn()``) to send it to.
+Then, send the request object to {SNS} by using the `publish()` method of the ``SnsClient``. You
+can capture the result of this request as a
+{v2javadocs}software/amazon/awssdk/services/sns/model/PublishResponse.html[PublishResponse]
+object.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/sns.java2.PublishTopic.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/sns.java2.PublishTopic.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/sns/src/main/java/com/example/sns/PublishTopic.java[complete example]
+on GitHub.
+
+[[sns-unsubscribe-endpoint-topic,sns-unsubscribe-endpoint-topic.title]]
+== Unsubscribe an endpoint from a topic
+
+You can remove the communication channels configured as endpoints for a topic. After doing that,
+the topic itself continues to exist and distribute messages to any other endpoints configured for
+that topic.
+
+To remove a communication channel as an endpoint for a topic, unsubscribe that endpoint from the
+topic. To start, build an
+{v2javadocs}software/amazon/awssdk/services/sns/model/UnsubscribeRequest.html[UnsubscribeRequest]
+object and set the ARN of the topic you want to unsubscribe from as the ``subscriptionArn()``.
+Then send the request object to SNS by using the `unsubscribe()` method of the ``SnsClient``. You
+can capture the result of this request as an
+{v2javadocs}software/amazon/awssdk/services/sns/model/UnsubscribeResponse.html[UnsubscribeResponse]
+object.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/sns.java2.Unsubscribe.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/sns.java2.Unsubscribe.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/sns/src/main/java/com/example/sns/Unsubscribe.java[complete example]
+on GitHub.
+
+[[sns-delete-topic,sns-delete-topic.title]]
+== Delete a topic
+
+To delete an {SNS} topic, first build a
+{v2javadocs}software/amazon/awssdk/services/sns/model/DeleteTopicRequest.html[DeleteTopicRequest]
+object with the ARN of the topic set as the `topicArn()` method in the builder. Then send the
+request object to {SNS} by using the `deleteTopic()` method of the ``SnsClient``. You can capture
+the result of this request as a
+{v2javadocs}software/amazon/awssdk/services/sns/model/DeleteTopicResponse.html[DeleteTopicResponse]
+object, as demonstrated in the following code snippet.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/sns.java2.DeleteTopic.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/sns.java2.DeleteTopic.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/sns/src/main/java/com/example/sns/DeleteTopic.java[complete example]
+on GitHub.
+
+For more information, see the {link-sns-dg}.

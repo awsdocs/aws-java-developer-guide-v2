@@ -1,0 +1,60 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-cloudwatch-publish-custom-metrics,examples-cloudwatch-publish-custom-metrics.title]]
+= [[publish-custom-metric-data, Publishing custom metric data]]Publishing custom metric data to {CW}
+:info_doctype: section
+:info_title: Publishing custom metric data to {CW}
+:info_abstract: How to publish your own custom metric data to {CWlong} using the {sdkjavav2}
+:info_keywordset: CWlong{sdk-java} custom metrics {sdkjavav2} code examples
+
+[abstract]
+--
+How to publish your own custom metric data to {CWlong} using the {sdkjavav2}
+--
+
+A number of {AWS-services} publish
+{url-cw-user}aws-namespaces.html[their own metrics]
+in namespaces beginning with "``AWS``" You can also publish custom metric data using your own
+namespace (as long as it doesn't begin with "``AWS``").
+
+[[cwid1,cwid1.title]]
+== Publish custom metric data
+
+To publish your own metric data, call the CloudWatchClient's `putMetricData` method with a
+{v2javadocs}software/amazon/awssdk/services/cloudwatch/model/PutMetricDataRequest.html[PutMetricDataRequest].
+The `PutMetricDataRequest` must include the custom namespace to use for the data, and information
+about the data point itself in a
+{v2javadocs}software/amazon/awssdk/services/cloudwatch/model/MetricDatum.html[MetricDatum]
+object.
+
+[NOTE]
+====
+
+You cannot specify a namespace that begins with "``AWS``". Namespaces that begin with "``AWS``" are
+reserved for use by {AWSlong} products.
+
+====
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/cloudwatch.java2.put_metric_data.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/cloudwatch.java2.put_metric_data.main.txt[]
+----
+
+See the {url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/cloudwatch/src/main/java/com/example/cloudwatch/PutMetricData.java[complete example] on GitHub.
+
+[[more-information,more-information.title]]
+== More information
+
+* {url-cw-user}working_with_metrics.html[Using {CWlong} Metrics] in the {guide-cw-user}.
+* {url-cw-user}aws-namespaces.html[{AWS} Namespaces] in the {guide-cw-user}.
+* {url-cw-api}API_PutMetricData.html[PutMetricData] in the {guide-cw-api}.

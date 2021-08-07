@@ -1,0 +1,281 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+:java-importjobrequest: {url-pin-api}apps-application-id-jobs-import.html#apps-application-id-jobs-import-properties
+:java-schedule: {url-pin-api}apps-application-id-campaigns.html#apps-application-id-campaigns-model-schedule
+[."topic"]
+[[examples-pinpoint,examples-pinpoint.title]]
+= [[working-with-pinlong, Working with Pinpoint]Working with {PINlong}
+:info_doctype: section
+:info_title: Working with {PINlong}
+:info_titleabbrev: {PINlong}
+:info_abstract: How to use the {sdk-java} to work with {PINlong}.
+:info_keywordset: sdk-javacode examples pinpoint project application app segment dynamic \
+    static campaign send message
+
+[abstract]
+--
+How to use the {sdk-java} to work with {PINlong}.
+--
+
+You can use {PINlong} to send relevant, personalized messages to your customers via multiple
+communication channels, such as push notifications, SMS, and email.
+
+[[pinpoint-create-project,pinpoint-create-project.title]]
+== Create a project
+
+A project (or application) in {PIN} is a collection of settings, customer data, segments, and
+campaigns.
+
+To create a project, start by building a
+{v2javadocs}software/amazon/awssdk/services/pinpoint/model/CreateApplicationRequest.html[CreateApplicationRequest]
+object with the name of the project as the value of its ``name()``. Then build a
+{v2javadocs}software/amazon/awssdk/services/pinpoint/model/CreateAppRequest.html[CreateAppRequest]
+object, passing in the `CreateApplicationRequest` object as the value of its
+`createApplicationRequest()` method. Call the `createApp()` method of your
+{v2javadocs}software/amazon/awssdk/services/pinpoint/PinpointClient.html[PinpointClient],
+passing in the `CreateAppRequest` object. Capture the result of this request as a
+{v2javadocs}software/amazon/awssdk/services/pinpoint/model/CreateAppResponse.html[CreateAppResponse]
+object, as demonstrated in the following code snippet.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/pinpoint.java2.createapp.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/pinpoint.java2.createapp.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/pinpoint/src/main/java/com/example/pinpoint/CreateApp.java[complete example]
+on GitHub.
+
+[[pinpoint-create-dynamic,pinpoint-create-dynamic.title]]
+== Create a dynamic segment
+
+A segment is a set of customers who share specific attributes, such as the city they live in or
+how frequently they visit your website. A dynamic segment is one that's based on attributes that
+you define, and can change over time.
+
+To create a dynamic segment, first build all of the dimensions you want for this segment. For
+example, the following code snippet is set to include customers who were active on the site in
+the last 30 days. You can do this by first building a
+{v2javadocs}software/amazon/awssdk/services/pinpoint/model/RecencyDimension.html[RecencyDimension]
+object with the `duration()` and `recencyType()` you want (that is, ``ACTIVE`` or ``INACTIVE``),
+and then passing this object to a
+{v2javadocs}software/amazon/awssdk/services/pinpoint/model/SegmentBehaviors.html[SegmentBehaviors]
+builder object as the value of ``recency()``.
+
+When you have defined your segment attributes, build them into a
+{v2javadocs}software/amazon/awssdk/services/pinpoint/model/SegmentDimensions.html[SegmentDimensions]
+object. Then build a
+{v2javadocs}software/amazon/awssdk/services/pinpoint/model/WriteSegmentRequest.html[WriteSegmentRequest]
+object, passing in the `SegmentDimensions` object as the value of its ``dimensions()``. Next,
+build a
+{v2javadocs}software/amazon/awssdk/services/pinpoint/model/CreateSegmentRequest.html[CreateSegmentRequest]
+object, passing in the `WriteSegmentRequest` object as the value of its ``writeSegmentRequest()``.
+Finally, call the `createSegment()` method of your ``PinpointClient``, passing in the
+`CreateSegmentRequest` object. Capture the result of this request as a
+{v2javadocs}software/amazon/awssdk/services/pinpoint/model/CreateSegmentResponse.html[CreateSegmentResponse]
+object.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/pinpoint.java2.createsegment.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/pinpoint.java2.createsegment.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/pinpoint/src/main/java/com/example/pinpoint/CreateSegment.java[complete example]
+on GitHub.
+
+[[pinpoint-import-static,pinpoint-import-static.title]]
+== Import a static segment
+
+A static segment is one you create and import from outside of {PINlong}. The following example
+code shows how to create a static segment by importing it from {S3}.
+
+[[prerequisite,prerequisite.title]]
+=== Prerequisite
+
+Before you can complete this example, you need to create an {IAM} role that grants {PINlong}
+access to {S3}. For more information, see
+{url-pin-dg}permissions-import-segment.html[{IAM} role for importing endpoints or segments]
+in the {guide-pin-dg}.
+
+To import a static segment, start by building an
+{v2javadocs}software/amazon/awssdk/services/pinpoint/model/ImportJobRequest.html[ImportJobRequest]
+object. In the builder, specify the ``s3Url()``, ``roleArn()``, and ``format()``.
+
+[NOTE]
+====
+
+For more information about the properties of an ``ImportJobRequest``, see
+{java-importjobrequest}[the ImportJobRequest section of Import Jobs] in the {guide-pin-api}.
+
+====
+
+Then build a
+{v2javadocs}software/amazon/awssdk/services/pinpoint/model/CreateImportJobRequest.html[CreateImportJobRequest]
+object, passing in the `ImportJobRequest` object as the value of its ``importJobRequest()``, and
+the `ID` of your project as the ``applicationId()``. Call the `createImportJob()` method of your
+``PinpointClient``, passing in the `CreateImportJobRequest` object. Capture the result of this
+request as a `CreateImportJobResponse` object, as demonstrated in the following code snippet.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/pinpoint.java2.importsegment.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/pinpoint.java2.importsegment.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/pinpoint/src/main/java/com/example/pinpoint/ImportSegment.java[complete example]
+on GitHub.
+
+[[pinpoint-list-segments,pinpoint-list-segments.title]]
+== List segments for your project
+
+To list the segments associated with a particular project, start by building a
+{v2javadocs}software/amazon/awssdk/services/pinpoint/model/GetSegmentsRequest.html[GetSegmentsRequest]
+object, with the `ID` of the project as the value of its ``applicationId()``. Next, call the
+`getSegments()` method of your ``PinpointClient``, passing in the `GetSegmentsRequest` object.
+Capture the result of this request as a
+{v2javadocs}software/amazon/awssdk/services/pinpoint/model/GetSegmentsResponse.html[GetSegmentsResponse]
+object. Finally, instantiate a {java-oracle-map}[List] object upcasted to the
+{v2javadocs}software/amazon/awssdk/services/pinpoint/model/SegmentResponse.html[SegmentResponse]
+class. Then call the `segmentsResponse().item()` of ``GetSegmentsResponse``, as demonstrated in
+the following code snippet. From there, you can iterate through the results.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/pinpoint.java2.listsegments.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/pinpoint.java2.listsegments.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/pinpoint/src/main/java/com/example/pinpoint/ListSegments.java[complete example]
+on GitHub.
+
+[[pinpoint-create-campaign,pinpoint-create-campaign.title]]
+== Create a campaign
+
+A campaign is an initiative meant to engage a particular audience segment by sending messages to
+those customers.
+
+To create a campaign, first build all of the settings you want for this campaign. In the
+following code snippet, for example, the campaign will start immediately because the `startTime()`
+of the
+{v2javadocs}software/amazon/awssdk/services/pinpoint/model/Schedule.html[Schedule]
+is set to ``IMMEDIATE``. To set it to start at a specific time instead, specify a time in ISO
+8601 format.
+
+[NOTE]
+====
+
+For more information about the settings available for campaigns, see the *Schedule* section of
+{java-schedule}[Campaigns] in the {guide-pin-api}.
+
+====
+
+After you define your campaign configuration, build it into a
+{v2javadocs}software/amazon/awssdk/services/pinpoint/model/WriteCampaignRequest.html[WriteCampaignRequest]
+object. None of the methods of the `builder()` of the `WriteCampaignRequest` are required. But
+you do need to include any of the configuration settings
+({v2javadocs}software/amazon/awssdk/services/pinpoint/model/MessageConfiguration.html[MessageConfiguration])
+that you set for the campaign. We also recommend that you include a `name` and a `description`
+for your campaign so you can easily distinguish it from other campaigns. Call the `createCampaign
+()` method of your ``PinpointClient``, passing in the `WriteCampaignRequest` object. Capture the
+result of this request as a
+{v2javadocs}software/amazon/awssdk/services/pinpoint/model/CreateCampaignResponse.html[CreateCampaignResponse]
+object.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/pinpoint.java2.createcampaign.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/pinpoint.java2.createcampaign.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/pinpoint/src/main/java/com/example/pinpoint/CreateCampaign.java[complete example]
+on GitHub.
+
+[[pinpoint-send-message,pinpoint-send-message.title]]
+== Send a message
+
+To send an SMS text message through {PINlong}, first build an
+{v2javadocs}software/amazon/awssdk/services/pinpoint/model/AddressConfiguration.html[AddressConfiguration]
+object to specify the ``channelType()``. (In the following example, it's set to `ChannelType.SMS`
+to indicate the message will be sent via SMS.) Initialize a {java-oracle-hashmap}[HashMap] to
+store the destination phone number and the `AddressConfiguration` object. Next, build an
+{v2javadocs}software/amazon/awssdk/services/pinpoint/model/SMSMessage.html[SMSMessage]
+object containing the relevant values. These include the ``originationNumber``, the type of
+message (``messageType``), and the `body` of the message itself.
+
+When you have created the message, build the `SMSMessage` object into a
+{v2javadocs}software/amazon/awssdk/services/pinpoint/model/DirectMessageConfiguration.html[DirectMessageConfiguration]
+object. Build your {java-oracle-map}[Map] object and `DirectMessageConfiguration` object into a
+{v2javadocs}software/amazon/awssdk/services/pinpoint/model/MessageRequest.html[MessageRequest]
+object. Build a
+{v2javadocs}software/amazon/awssdk/services/pinpoint/model/SendMessagesRequest.html[SendMessagesRequest]
+object, including your project ID (``applicationId``) and your `MessageRequest` object. Call the
+`sendMessages()` method of your ``PinpointClient``, passing in the `SendMessagesRequest` object.
+Capture the result of this request as a
+{v2javadocs}software/amazon/awssdk/services/pinpoint/model/SendMessagesResponse.html[SendMessagesResponse]
+object.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/pinpoint.java2.sendmsg.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/pinpoint.java2.sendmsg.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/pinpoint/src/main/java/com/example/pinpoint/SendMessage.java[complete example]
+on GitHub.
+
+For more information, see the {link-pin-dg}.

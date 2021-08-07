@@ -1,0 +1,94 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[ec2-iam-roles,ec2-iam-roles.title]]
+= [[configuring-iam-roles-for-ec2, Configuring IAM roles for EC2]]Configuring {IAM} roles for {EC2}
+:info_doctype: section
+:info_title: Configuring {IAM} roles for {EC2}
+
+All requests to {AWS-services} must be cryptographically signed using credentials issued by {AWS}
+. You can use _{IAM} roles_ to conveniently grant secure access to {AWS} resources from your
+{EC2} instances.
+
+This topic provides information about how to use {IAM} roles with {sdk-java} applications running
+on {EC2}. For more information about {IAM} instances, see
+{url-ec2-user}iam-roles-for-amazon-ec2.html[{IAM} Roles for {EC2}]
+in the {guide-ec2-user}.
+
+[[default-provider-chain,default-provider-chain.title]]
+== Default provider chain and {EC2} instance profiles
+
+If your application creates an {AWS} client using the `create` method, the client searches for
+credentials using the __default credentials provider chain__, in the following order:
+
+. In the Java system properties: `aws.accessKeyId` and ``aws.secretAccessKey``.
+. In system environment variables: `AWS_ACCESS_KEY_ID` and ``AWS_SECRET_ACCESS_KEY``.
+. In the default credentials file (the location of this file varies by platform).
+. In the {ECS} environment variable: ``AWS_CONTAINER_CREDENTIALS_RELATIVE_URI``.
+. In the __instance profile credentials__, which exist within the instance metadata associated
+with the {IAM} role for the {EC2} instance.
+
+The final step in the default provider chain is available only when running your application on
+an {EC2} instance. However, it provides the greatest ease of use and best security when working
+with {EC2} instances. You can also pass an
+{v2javadocs}software/amazon/awssdk/auth/InstanceProfileCredentialsProvider.html[InstanceProfileCredentialsProvider]
+instance directly to the client constructor to get instance profile credentials without
+proceeding through the entire default provider chain.
+
+For example:
+
+[source,java]
+----
+S3Client s3 = S3Client.builder()
+       .credentialsProvider(InstanceProfileCredentialsProvider.builder().build())
+       .build();
+----
+
+When you use this approach, the SDK retrieves temporary {AWS} credentials that have the same
+permissions as those associated with the {IAM} role that is associated with the {EC2} instance in
+its instance profile. Although these credentials are temporary and would eventually expire,
+`InstanceProfileCredentialsProvider` periodically refreshes them for you so that the obtained
+credentials continue to allow access to {AWS}.
+
+[[roles-walkthrough,roles-walkthrough.title]]
+== Walkthrough: Using IAM roles for EC2 instances
+
+This walkthrough shows you how to retrieve an object from {S3} using an {IAM} role to manage access.
+
+[[java-dg-create-the-role,java-dg-create-the-role.title]]
+=== Create an {IAM} role
+
+Create an {IAM} role that grants read-only access to {S3}.
+
+. Open the link:iam/home["pass:q[[.shared\]`IAM`] console", type="console"].
+. In the navigation pane, choose **Roles**, then **Create New Role**.
+. On the *Select Role Type* page, under **{AWS-service} Roles**, choose **{EC2}**.
+. On the *Attach Policy* page, choose *{S3} Read Only Access* from the policy list, then choose
+**Next Step**.
+
+Enter a name for the role, then select **Next Step**. Remember this name:::
+** because you'll need it when you launch your {EC2} instance.
+. On the *Review* page, choose **Create Role**.
+
+
+[[java-dg-launch-ec2-instance-with-instance-profile,java-dg-launch-ec2-instance-with-instance-profile.title]]
+=== Launch an EC2 instance and specify your IAM role
+
+You can launch an {EC2} instance with an {IAM} role using the {EC2} console.
+
+To launch an {EC2} instance using the console, follow the directions in
+{url-ec2-gsg}[Getting Started with {EC2} Linux Instances]
+in the {guide-ec2-user}.
+
+When you reach the *Review Instance Launch* page, select **Edit instance details**. In **{IAM}
+role**, choose the {IAM} role that you created previously. Complete the procedure as directed.
+
+[NOTE]
+====
+
+You need to create or use an existing security group and key pair to connect to the instance.
+
+====
+
+With this {IAM} and {EC2} setup, you can deploy your application to the {EC2} instance and it will
+have read access to the {S3} service.

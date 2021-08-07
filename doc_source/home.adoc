@@ -1,0 +1,113 @@
+//!!NODE_ROOT <chapter>
+include::../../includes.txt[]
+[."topic"]
+[[home,home.title]]
+= Developer guide - {sdkjavav2}
+:doctype: book
+:sectnums:
+:toc: left
+:icons: font
+:experimental:
+:idprefix:
+:idseparator: -
+:sourcedir: .
+:info_doctype: chapter
+:info_title: Developer guide - {sdkjavav2}
+:info_titleabbrev: {sdkjavav2}
+:info_abstract: Welcome to the Developer Guide for version {v2ver} of the {sdk-java}
+:info_keywordset: AWS sdk java
+
+[abstract]
+--
+Welcome to the Developer Guide for version {v2ver} of the {sdk-java}
+--
+
+The {sdk-java} provides a Java API for {AWS-services}. Using the SDK, you can easily build Java
+applications that work with {S3}, {EC2}, {DDB}, and more.
+
+The {sdkjavav2} is a major rewrite of the version 1.x code base. It's built on top of Java 8+ and
+adds several frequently requested features. These include support for non-blocking I/O and the
+ability to plug in a different HTTP implementation at run time. For more information see the
+link:developer/aws-sdk-for-java-2-0-developer-preview/["pass:q[[.shared\]`AWS`] blog", type="blog"].
+
+We regularly add support for new services to the {sdk-java}. For a list of changes and features
+in a particular version, view the
+{url-aws-github}aws-sdk-java-v2/blob/master/CHANGELOG.md[change log].
+
+[[get-started-with-the-sdk-java-2-x,get-started-with-the-sdk-java-2-x.title]]
+== Get started with the SDK
+
+If you're ready to get hands-on with the SDK, follow the
+xref:get-started[Quick Start,linkend=get-started] tutorial.
+
+To set up your development environment, see xref:setup[Setting up,linkend=setup].
+
+If you're currently using version {v1ver} of the {Java}, see <<migration,Migrating to version 2>>
+for specific guidance.
+
+For information on making requests to {S3}, {DDB}, {EC2} and other {AWS-services}, see
+<<using,Using the {Java}>> and xref:examples[Code examples for the {sdkjavav2},linkend=examples].
+
+[[developing-aws-applications-for-android,developing-aws-applications-for-android.title]]
+== Developing applications for Android
+
+If you're an Android developer, {AWSlong} publishes an SDK made specifically for Android
+development: the
+link:mobile/sdk/["pass:q[[.shared\]`Androidlong`]", type="marketing"]. See the
+{url-android-dev}[{Androidlong} Developer Guide]
+for the complete documentation.
+
+[[maintenance-and-support-for-sdk-major-versions,maintenance-and-support-for-sdk-major-versions.title]]
+== Maintenance and support for SDK major versions
+
+For information about maintenance and support for SDK major versions and their underlying
+dependencies, see the following in the
+link:sdkref/latest/guide/overview.html["pass:q[[.shared\]`AWS`] SDKs and Tools Reference Guide", type="documentation"]
+
+* link:sdkref/latest/guide/maint-policy.html["pass:q[[.shared\]`AWS`] SDKs and Tools Maintenance Policy", type="documentation"]
+* link:sdkref/latest/guide/version-support-matrix.html["pass:q[[.shared\]`AWS`] SDKs and Tools Version Support Matrix", type="documentation"]
+
+[[additional-resources,additional-resources.title]]
+== Additional resources
+
+In addition to this guide, the following are valuable online resources for {sdk-java} developers:
+
+* {v2javadocs}[{sdkjavav2} Reference]
+* link:developer/category/java["Java developer blog", type="blog"]
+* link:forum.jspa?forumID=70["Java developer forums", type="forum"]
+* GitHub:
++
+** {url-awsdocs-github}aws-java-developer-guide-v2[Documentation source]
+** {url-aws-github}aws-sdk-java-v2[SDK source]
+* The {url-sdkcodesampcat}[{SDKCodeSampCat}]
+* https://twitter.com/awsforjava[@awsforjava (Twitter)]
+
+
+[[features-notyet,features-notyet.title]]
+=== Features not yet in the version 2 of the SDK
+
+See the following Github issues for details about additional features not yet in {v2ver}. Comments
+and feedback are also welcome.
+
+* High-level libraries
++
+** {url-aws-github}aws-sdk-java-v2/issues/37[{S3} Transfer manager]
+** {url-aws-github}aws-sdk-java-v2/issues/34[{S3} Encryption Client]
+** {url-aws-github}aws-sdk-java-v2/issues/36[{DDB} document APIs]
+** {url-aws-github}aws-sdk-java-v2/issues/34[{DDB} Encryption Client]
+** {url-aws-github}aws-sdk-java-v2/issues/848[{SQS} Client-side Buffering]
+* {url-aws-github}aws-sdk-java-v2/issues/25[Progress Listeners]
+
+
+[[contributing-to-the-sdk,contributing-to-the-sdk.title]]
+=== Contributing to the SDK
+
+Developers can also contribute feedback through the following channels:
+
+* Submit issues on GitHub:
++
+** {url-awsdocs-github}aws-java-developer-guide-v2/issues[Submit documentation issues]
+** {url-aws-github}aws-sdk-java-v2/issues[Submit SDK issues]
+* Join an informal chat about SDK on the {sdkjavav2} https://gitter.im/aws/aws-sdk-java-v2[gitter channel]
+* Submit feedback anonymously to mailto:aws-java-sdk-v2-feedback@amazon.com[aws-java-sdk-v2-feedback@amazon.com]. This email is monitored by the {sdk-java} team.
+* Submit pull requests in the documentation or SDK source GitHub repositories to contribute to the SDK development.

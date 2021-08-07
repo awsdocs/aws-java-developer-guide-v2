@@ -1,0 +1,23 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-glacier,examples-glacier.title]]
+= [[amazon-s3-glacier-examples, Working with S3 Glacier]]Working with {GL}
+:info_doctype: section
+:info_title: Working with {GL}
+:info_titleabbrev: {GL}
+:info_abstract: How to use the {sdk-java} to work with {GL}
+:info_keywordset: sdk-javacode examples {GL}
+
+[abstract]
+--
+How to use the {sdk-java} to work with {GL}
+--
+
+{GL} is an extremely low-cost storage service that provides secure, durable, and flexible storage
+for data backup and archival. See the following resources for complete code examples with
+instructions.
+
+{url-awsdocs-github}aws-doc-sdk-examples/tree/master/javav2/example_code/glacier[Link to Github]
+
+{url-sdkcodesampcat}code-catalog-javav2-example_code-glacier.html[Link to {SDKCodeSampCat}]

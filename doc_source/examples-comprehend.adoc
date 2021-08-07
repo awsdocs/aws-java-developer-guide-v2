@@ -1,0 +1,23 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-comprehend,examples-comprehend.title]]
+= [[amazon-comprehend, Working with Comprehend]]Working with {CMP}
+:info_doctype: section
+:info_title: Working with {CMP}
+:info_titleabbrev: {CMPlong}
+:info_abstract: How to use the {sdk-java} to work with {CMP}
+:info_keywordset: sdk-javacode examples {CMPlong}
+
+[abstract]
+--
+How to use the {sdk-java} to work with {CMPlong}
+--
+
+{CMPlong} is a natural language processing (NLP) service that uses machine learning to find
+insights and relationships in text. See the following resources for complete code examples with
+instructions.
+
+{url-awsdocs-github}aws-doc-sdk-examples/tree/master/javav2/example_code/comprehend[Link to Github]
+
+{url-sdkcodesampcat}code-catalog-javav2-example_code-comprehend.html[Link to {SDKCodeSampCat}]

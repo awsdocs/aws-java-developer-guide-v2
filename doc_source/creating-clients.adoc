@@ -1,0 +1,87 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[creating-clients,creating-clients.title]]
+= [[creating-service-clients, Creating service clients]]Creating service clients
+:info_doctype: section
+:info_title: Creating service clients
+:info_abstract: How to create service clients by using the {sdk-java}.
+
+[abstract]
+--
+How to create service clients by using the {sdk-java}.
+--
+
+To make requests to {AWS-services}, you first create a service client object. In version {v2ver} of
+the SDK, you can create clients only by using service client builders.
+
+Each {AWS-service} has a service interface with methods for each action in the service API. For
+example, the service interface for {DDBlong} is named
+{v2javadocs}software/amazon/awssdk/services/dynamodb/DynamoDbClient.html[DynamoDbClient].
+Each service interface has a static factory builder method you can use to construct an
+implementation of the service interface.
+
+[[obtaining-a-client-builder,obtaining-a-client-builder.title]]
+== Obtaining a client builder
+
+To obtain an instance of the client, use the static factory method ``builder``. Then customize
+it by using the setters in the builder, as shown in the following example.
+
+In the {sdkjavav2}, the setters are named without the `with` prefix.
+
+[source,java]
+----
+DynamoDbClient client = DynamoDbClient.builder()
+            .region(Region.US_WEST_2)
+            .credentialsProvider(ProfileCredentialsProvider.builder()
+                   .profileName("myProfile")
+                   .build())
+            .build();
+----
+
+[NOTE]
+====
+
+The fluent setter methods return the `builder` object, so that you can chain the method calls
+for convenience and for more readable code. After you configure the properties you want, you can
+call the `build` method to create the client. Once a client is created, it's immutable. The only
+way to create a client with different settings is to build a new client.
+
+====
+
+[[using-the-default-client,using-the-default-client.title]]
+== Using the default client
+
+The client builders have another factory method named ``create``. This method creates a service
+client with the default configuration. It uses the default provider chain to load credentials and
+the {AWS-Region}. If credentials or the region can't be determined from the environment that the
+application is running in, the call to `create` fails. See
+xref:credentials[Using credentials,linkend=credentials] and
+xref:region-selection[Region selection] for more information about how credentials and region are
+determined.
+
+[[create-default-client,create-default-client.title]]
+=== To create a default client
+
+[source,java]
+----
+DynamoDbClient client = DynamoDbClient.create();
+----
+
+
+[[client-lifecycle,client-lifecycle.title]]
+== Client lifecycle
+
+Service clients in the SDK are thread-safe. For best performance, treat them as long-lived
+objects. Each client has its own connection pool resource that is released when the client is
+garbage collected. The clients in the {sdkjavav2} now extend the AutoClosable interface. For best
+practices, explicitly close a client by calling the `close` method.
+
+[[client-close,client-close.title]]
+=== To close a client
+
+[source,java]
+----
+DynamoDbClient client = DynamoDbClient.create();
+client.close();
+----

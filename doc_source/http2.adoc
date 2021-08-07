@@ -1,0 +1,31 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[http2,http2.title]]
+= [[http-2-programming, HTTP/2 programming]]HTTP/2 programming
+:info_doctype: section
+:info_title: Working with HTTP/2 in the {sdk-java}
+:info_titleabbrev: HTTP/2
+:info_abstract: Basic information about the HTTP/2 protocol and how it's implemented in the \
+    {sdkjavav2}.
+
+[abstract]
+--
+Basic information about the HTTP/2 protocol and how it's implemented in the {sdkjavav2}.
+--
+
+HTTP/2 is a major revision of the HTTP protocol. This new version has several enhancements to
+improve performance:
+
+
+* Binary data encoding provides more efficient data transfer.
+* Header compression reduces the overhead bytes downloaded by the client, helping get the content to the client sooner. This is especially useful for mobile clients that are already constrained on bandwidth.
+* Bidirectional asynchronous communication (multiplexing) allows multiple requests and response messages between the client and {AWS} to be in flight at the same time over a single connection, instead of over multiple connections, which improves performance.
+
+Developers upgrading to the latest SDKs will automatically use HTTP/2 when it's supported by the
+service they're working with. New programming interfaces seamlessly take advantage of HTTP/2
+features and provide new ways to build applications.
+
+The {sdkjavav2} features new APIs for event streaming that implement the HTTP/2 protocol. For
+examples of how to use these new APIs, see
+xref:examples-kinesis[Working with Kinesis,linkend=examples-kinesis].

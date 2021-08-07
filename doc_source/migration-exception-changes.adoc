@@ -1,0 +1,66 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[migration-exception-changes,migration-exception-changes.title]]
+= Exception class name changes
+:info_doctype: section
+:info_title: Exception class name changes
+:info_abstract: Exception changes for class names.
+
+[abstract]
+--
+Exception changes for class names.
+--
+
+This topic contains a mapping of exception class-related name changes between versions {v1ver}
+and {v2ver}.
+
+This table maps the exception class name changes.
+
+[cols="1,1", options="header"]
+|===
+| {v1ver}
+| {v2ver}
+
+
+| `com.amazonaws.SdkBaseException`
+  `com.amazonaws.AmazonClientException`
+| `software.amazon.awssdk.core.exception.SdkException`
+
+| `com.amazonaws.SdkClientException`
+| `software.amazon.awssdk.core.exception.SdkClientException`
+
+| `com.amazonaws.AmazonServiceException`
+| `software.amazon.awssdk.awscore.exception.AwsServiceException`
+|===
+
+
+The following table maps the methods on exception classes between version {v1ver} and {v2ver}.
+
+[cols="1,1", options="header"]
+|===
+| {v1ver}
+| {v2ver}
+
+
+| `AmazonServiceException.getRequestId`
+| `SdkServiceException.requestId`
+
+| `AmazonServiceException.getServiceName`
+| `AwsServiceException.awsErrorDetails().serviceName`
+
+| `AmazonServiceException.getErrorCode`
+| `AwsServiceException.awsErrorDetails().errorCode`
+
+| `AmazonServiceException.getErrorMessage`
+| `AwsServiceException.awsErrorDetails().errorMessage`
+
+| `AmazonServiceException.getStatusCode`
+| `AwsServiceException.awsErrorDetails().sdkHttpResponse().statusCode`
+
+| `AmazonServiceException.getHttpHeaders`
+| `AwsServiceException.awsErrorDetails().sdkHttpResponse().headers`
+
+| `AmazonServiceException.rawResponse`
+| `AwsServiceException.awsErrorDetails().rawResponse`
+|===

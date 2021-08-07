@@ -1,0 +1,123 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-lambda,examples-lambda.title]]
+= [[invoke-list-and-delete-lamlong-functions, Invoke, list, and delete Lambda functions]]Invoke, list, and delete {LAMlong} functions
+:info_doctype: section
+:info_title: Invoke, list, and delete {LAMlong} functions
+:info_titleabbrev: {LAMlong}
+:info_abstract: How to invoke, list, and delete a {LAM} function by using the {sdkjavav2}.
+:info_keywordset: LAMlong{sdkjavav2} code examples delete Function invoke list Functions
+
+[abstract]
+--
+How to invoke, list, and delete a {LAM} function by using the {sdkjavav2}.
+--
+
+This section provides examples of programming with the {LAM} service client by using the
+{sdkjavav2}.
+
+[.topiclist-abbrev]
+[[Topic List]]
+
+
+[[invoke-function,invoke-function.title]]
+== Invoke a Lambda function
+
+You can invoke a {LAM} function by creating a
+{v2javadocs}software/amazon/awssdk/services/lambda/LambdaClient.html[LambdaClient]
+object and invoking its `invoke` method. Create an
+{v2javadocs}software/amazon/awssdk/services/lambda/model/InvokeRequest.html[InvokeRequest]
+object to specify additional information such as the function name and the payload to pass to the
+{LAM} function. Function names appear as
+__{region-arn}lambda:{region_api_default}:{account_id_example}:function:HelloFunction__. You can retrieve
+the value by looking at the function in the {console}.
+
+To pass payload data to a function, create a
+{v2javadocs}software/amazon/awssdk/core/SdkBytes.html[SdkBytes]
+object that contains information. For example, in the following code example, notice the JSON
+data passed to the {LAM} function.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/lambda.java2.invoke.import.txt[]
+----
+
+*Code*
+
+The following code example demonstrates how to invoke a {LAM} function.
+
+[source,java]
+----
+include::../../snippets/lambda.java2.invoke.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/lambda/src/main/java/com/example/lambda/LambdaInvoke.java[complete example]
+on GitHub.
+
+[[list-function,list-function.title]]
+== List Lambda functions
+
+Build a
+{v2javadocs}software/amazon/awssdk/services/lambda/LambdaClient.html[{LAM}Client]
+object and invoke its `listFunctions` method. This method returns a
+{v2javadocs}software/amazon/awssdk/services/lambda/model/ListFunctionsResponse.html[ListFunctionsResponse]
+object. You can invoke this object's `functions` method to return a list of
+{v2javadocs}software/amazon/awssdk/services/lambda/model/FunctionConfiguration.html[FunctionConfiguration]
+objects. You can iterate through the list to retrieve information about the functions. For
+example, the following Java code example shows how to get each function name.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/lambda.java2.list.import.txt[]
+----
+
+*Code*
+
+The following Java code example demonstrates how to retrieve a list of function names.
+
+[source,java]
+----
+include::../../snippets/lambda.java2.list.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/lambda/src/main/java/com/example/lambda/ListLambdaFunctions.java[complete example]
+on GitHub.
+
+[[delete-function,delete-function.title]]
+== Delete a Lambda function
+
+Build a
+{v2javadocs}software/amazon/awssdk/services/lambda/LambdaClient.html[LambdaClient]
+object and invoke its `deleteFunction` method. Create a
+{v2javadocs}software/amazon/awssdk/services/lambda/model/DeleteFunctionRequest.html[DeleteFunctionRequest]
+object and pass it to the `deleteFunction` method. This object contains information such as the
+name of the function to delete. Function names appear as
+__{region-arn}lambda:{region_api_default}:{account_id_example}:function:HelloFunction__. You can retrieve
+the value by looking at the function in the {console}.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/lambda.java2.delete.import.txt[]
+----
+
+*Code*
+
+The following Java code demonstrates how to delete a {LAM} function.
+
+[source,java]
+----
+include::../../snippets/lambda.java2.delete.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/lambda/src/main/java/com/example/lambda/DeleteFunction.java[complete example]
+on GitHub.

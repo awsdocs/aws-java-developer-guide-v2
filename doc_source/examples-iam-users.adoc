@@ -1,0 +1,133 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-iam-users,examples-iam-users.title]]
+= [[managing-iam-users, Managing IAM Users]]Managing {IAM} Users
+:info_doctype: section
+:info_title: Managing {IAM} Users
+:info_abstract: How to create, list, update and delete {IAM} users.
+:info_keywordset: sdkjavav2code examples {IAM} users CreateUserRequest ListUsersRequest \
+    UpdateUserRequest
+
+[abstract]
+--
+How to create, list, update and delete {IAM} users.
+--
+
+[[creating-a-user,creating-a-user.title]]
+== Creating a User
+
+Create a new {IAM} user by providing the user name to the IamClient's `createUser` method using a
+{v2javadocs}software/amazon/awssdk/services/iam/model/CreateUserRequest.html[CreateUserRequest]
+object containing the user name.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/iam.java2.create_user.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/iam.java2.create_user.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/iam/src/main/java/com/example/iam/CreateUser.java[complete example]
+on GitHub.
+
+[[listing-users,listing-users.title]]
+== Listing Users
+
+To list the {IAM} users for your account, create a new
+{v2javadocs}software/amazon/awssdk/services/iam/model/ListUsersRequest.html[ListUsersRequest]
+and pass it to the IamClient's `listUsers` method. You can retrieve the list of users by calling
+`users` on the returned
+{v2javadocs}software/amazon/awssdk/services/iam/model/ListUsersResponse.html[ListUsersResponse]
+object.
+
+The list of users returned by `listUsers` is paged. You can check to see there are more results
+to retrieve by calling the response object's `isTruncated` method. If it returns ``true``, then
+call the response object's `marker()` method. Use the marker value to create a new request object.
+Then call the `listUsers` method again with the new request.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/iam.java2.list_users.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/iam.java2.list_users.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/iam/src/main/java/com/example/iam/ListUsers.java[complete example]
+on GitHub.
+
+[[updating-a-user,updating-a-user.title]]
+== Updating a User
+
+To update a user, call the IamClient object's `updateUser` method, which takes a
+{v2javadocs}software/amazon/awssdk/services/iam/model/UpdateUserRequest.html[UpdateUserRequest]
+object that you can use to change the user's _name_ or __path__.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/iam.java2.update_user.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/iam.java2.update_user.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/iam/src/main/java/com/example/iam/UpdateUser.java[complete example]
+on GitHub.
+
+[[deleting-a-user,deleting-a-user.title]]
+== Deleting a User
+
+To delete a user, call the IamClient's `deleteUser` request with a
+{v2javadocs}software/amazon/awssdk/services/iam/model/UpdateUserRequest.html[UpdateUserRequest]
+object set with the user name to delete.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/iam.java2.delete_user.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/iam.java2.delete_user.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/iam/src/main/java/com/example/iam/DeleteUser.java[complete example]
+on GitHub.
+
+[[more-information,more-information.title]]
+== More Information
+
+* link:IAM/latest/UserGuide/id_users.html["pass:q[[.shared\]`IAM`] Users", type="documentation"] in the {guide-iam-user}
+* link:IAM/latest/UserGuide/id_users_manage.html["Managing pass:q[[.shared\]`IAM`] Users", type="documentation"] in the {guide-iam-user}
+* link:IAM/latest/APIReference/API_CreateUser.html["CreateUser", type="documentation"] in the {guide-iam-api}
+* link:IAM/latest/APIReference/API_ListUsers.html["ListUsers", type="documentation"] in the {guide-iam-api}
+* link:IAM/latest/APIReference/API_UpdateUser.html["UpdateUser", type="documentation"] in the {guide-iam-api}
+* link:IAM/latest/APIReference/API_DeleteUser.html["DeleteUser", type="documentation"] in the {guide-iam-api}

@@ -1,0 +1,107 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+:https---sdk-amazonaws-com-java-api-latest-software-amazon-awssdk-ClientConfiguration-html-setLocalAddress-java-net-InetAddress-: {v2javadocs}software/amazon/awssdk/ClientConfiguration.html#setLocalAddress-java.net.InetAddress-
+:https---sdk-amazonaws-com-java-api-latest-software-amazon-awssdk-core-retry-RetryPolicy-Builder-html-numRetries-java-lang-Integer-: {v2javadocs}software/amazon/awssdk/core/retry/RetryPolicy.Builder.html#numRetries-java.lang.Integer-
+:https---sdk-amazonaws-com-java-api-latest-software-amazon-awssdk-http-SdkHttpConfigurationOption-html-CONNECTION-TIME-TO-LIVE-: {v2javadocs}software/amazon/awssdk/http/SdkHttpConfigurationOption.html#CONNECTION_TIME_TO_LIVE>
+:https---sdk-amazonaws-com-java-api-latest-software-amazon-awssdk-core-client-config-ClientOverrideConfiguration-apiCallAttemptTimeout---html: {v2javadocs}software/amazon/awssdk/core/client/config/ClientOverrideConfiguration#apiCallAttemptTimeout--.html
+[."topic"]
+[[http-configuration,http-configuration.title]]
+= HTTP configuration
+:info_doctype: section
+:info_title: HTTP configuration
+:info_abstract: How to configure HTTP clients in the {sdk-java}.
+
+[abstract]
+--
+How to configure HTTP clients in the {sdk-java}.
+--
+
+You can change the default configuration for HTTP clients in applications you build with the
+{sdk-java}. This section discusses how to configure HTTP clients and settings for the {sdkjavav2}.
+Some of the available settings including specifying which HTTP client to use, as well as setting
+max concurrency, connection timeout, and maximum retries.
+
+You can use the
+{v2javadocs}software/amazon/awssdk/http/nio/netty/NettyNioAsyncHttpClient.html[NettyNioAsyncHttpClient]
+or {v2javadocs}software/amazon/awssdk/http/crt/AwsCrtAsyncHttpClient.html[AwsCrtAsyncHttpClient]
+for asynchronous clients. For more information, see
+xref:http-configuration-netty[Configuring the Netty-based HTTP client,linkend=http-configuration-netty]
+or xref:http-configuration-crt[Configuring the {AWS} CRT-based HTTP client,linkend=http-configuration-crt].
+
+For synchronous clients, you can use
+{v2javadocs}software/amazon/awssdk/http/apache/ApacheHttpClient.html[ApacheHttpClient].
+For more information about Apache HTTPClient, see
+https://hc.apache.org/httpcomponents-client-4.5.x/index.html[HttpClient Overview].
+
+For a full list of options you can set with these clients, see the
+{v2javadocs}[{sdkjavav2} API Reference].
+
+[.topiclist-abbrev]
+[[Topic List]]
+
+
+[[setting-maximum-connections,setting-maximum-connections.title]]
+== Setting maximum connections
+
+...
+
+You can set the maximum allowed number of open HTTP connections by setting the value of
+`MAX_CONNECTIONS` on a
+{v2javadocs}software/amazon/awssdk/http/SdkHttpConfigurationOption.html[SdkHttpConfigurationOption]
+object. Use that object to configure your HTTP client builder. (For example,
+{v2javadocs}software/amazon/awssdk/http/apache/ApacheHttpClient.html[ApacheHttpClient].)
+
+`maxConcurrency` method. The `maxPendingConnectionAcquires` method enables you to set the maximum
+requests allowed to queue up once max concurrency is reached.
+
+
+
+* Default for maxConcurrency: 50
+* Default for maxPendingConnectionAcquires: 10_000
+
+...
+
+[NOTE]
+====
+
+Set the maximum connections to the number of concurrent transactions to avoid connection
+contentions and poor performance.
+
+====
+
+[[timeouts-and-error-handling,timeouts-and-error-handling.title]]
+== Timeouts and error handling
+
+You can set options related to timeouts and handling errors with HTTP connections.
+
+
+
+* *API call attempt timeout*
++
+
+The API call attempt timeout is the amount of time to wait for the HTTP request to complete before timing out.
++
+
+To set this value yourself, use the {https---sdk-amazonaws-com-java-api-latest-software-amazon-awssdk-core-client-config-ClientOverrideConfiguration-apiCallAttemptTimeout---html}[apiCallAttemptTimeout] method.
+* *Connection Time to Live (TTL)*
++
+
+By default, the SDK will attempt to reuse HTTP connections as long as possible. In failure situations where a connection is established to a server that has been brought out of service, having a finite TTL can help with application recovery. For example, setting a 15 minute TTL will ensure that even if you have a connection established to a server that is experiencing issues, you'll reestablish a connection to a new server within 15 minutes.
++
+
+To set the HTTP connection TTL, use the {https---sdk-amazonaws-com-java-api-latest-software-amazon-awssdk-http-SdkHttpConfigurationOption-html-CONNECTION-TIME-TO-LIVE-}[http/SdkHttpConfigurationOption.html#CONNECTION_TIME_TO_LIVE>] method.
+* *Maximum Error Retries*
++
+
+The default maximum retry count for retriable errors is 3. You can set a different value by using the {https---sdk-amazonaws-com-java-api-latest-software-amazon-awssdk-core-retry-RetryPolicy-Builder-html-numRetries-java-lang-Integer-}[numRetries] method.
+
+
+[[local-address,local-address.title]]
+== Local address
+
+To set the local address that the HTTP client will bind to, use {https---sdk-amazonaws-com-java-api-latest-software-amazon-awssdk-ClientConfiguration-html-setLocalAddress-java-net-InetAddress-}[ClientConfiguration.setLocalAddress].
+
+include::http-configuration-crt.adoc[leveloffset=+1]
+
+
+include::http-configuration-netty.adoc[leveloffset=+1]

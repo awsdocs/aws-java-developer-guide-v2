@@ -1,0 +1,125 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-ec2-elastic-ip,examples-ec2-elastic-ip.title]]
+= [[use-elastic-ip-addresses-in-ec2, Use elastic IP addresses in EC2]]Use elastic IP addresses in {EC2}
+:info_doctype: section
+:info_title: Use elastic IP addresses in {EC2}
+:info_abstract: How to allocate, use, list, and release Elastic IP addresses for {EC2} instances \
+with the {sdk-java}.
+:info_keywordset: sdk-javacode examples {EC2} Elastic IP allocate address release address \
+assign address associate address list addresses
+
+[abstract]
+--
+How to allocate, use, list, and release Elastic IP addresses for {EC2} instances with the
+{sdk-java}.
+--
+
+[[allocate-an-elastic-ip-address,allocate-an-elastic-ip-address.title]]
+== Allocate an elastic IP address
+
+To use an Elastic IP address, you first allocate one to your account, and then associate it with
+your instance or a network interface.
+
+To allocate an Elastic IP address, call the Ec2Client's `allocateAddress` method with an
+{v2javadocs}software/amazon/awssdk/services/ec2/model/AllocateAddressRequest.html[AllocateAddressRequest]
+object containing the network type (classic {EC2} or VPC).
+
+The returned
+{v2javadocs}software/amazon/awssdk/services/ec2/model/AllocateAddressResponse.html[AllocateAddressResponse]
+contains an allocation ID that you can use to associate the address with an instance, by passing
+the allocation ID and instance ID in a
+{v2javadocs}software/amazon/awssdk/services/ec2/model/AssociateAddressRequest.html[AssociateAddressRequest]
+to the Ec2Client's `associateAddress` method.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/ec2.java2.allocate_address.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/ec2.java2.allocate_address.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/ec2/src/main/java/com/example/ec2/AllocateAddress.java[complete example]
+on GitHub.
+
+[[describe-elastic-ip-addresses,describe-elastic-ip-addresses.title]]
+== Describe elastic IP addresses
+
+To list the Elastic IP addresses assigned to your account, call the Ec2Client's
+`describeAddresses` method. It returns a
+{v2javadocs}software/amazon/awssdk/services/ec2/model/DescribeAddressesResponse.html[DescribeAddressesResponse]
+which you can use to get a list of
+{v2javadocs}software/amazon/awssdk/services/ec2/model/Address.html[Address]
+objects that represent the Elastic IP addresses on your account.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/ec2.java2.describe_addresses.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/ec2.java2.describe_addresses.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/ec2/src/main/java/com/example/ec2/DescribeAddresses.java[complete example]
+on GitHub.
+
+[[release-an-elastic-ip-address,release-an-elastic-ip-address.title]]
+== Release an elastic IP address
+
+To release an Elastic IP address, call the Ec2Client's `releaseAddress` method, passing it a
+{v2javadocs}software/amazon/awssdk/services/ec2/model/ReleaseAddressRequest.html[ReleaseAddressRequest]
+containing the allocation ID of the Elastic IP address you want to release.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/ec2.java2.release_instance.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/ec2.java2.release_instance.main.txt[]
+----
+
+After you release an Elastic IP address, it is released to the {AWS} IP address pool and might be
+unavailable to you afterward. Be sure to update your DNS records and any servers or devices that
+communicate with the address.
+
+If you are using _EC2-Classic_ or a __default VPC__, then releasing an Elastic IP address
+automatically disassociates it from any instance that it's associated with. To disassociate an
+Elastic IP address without releasing it, use the Ec2Client's `disassociateAddress` method.
+
+If you are using a non-default VPC, you _must_ use `disassociateAddress` to disassociate the
+Elastic IP address before you try to release it. Otherwise, {EC2} returns an error
+(__InvalidIPAddress.InUse__).
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/ec2/src/main/java/com/example/ec2/ReleaseAddress.java[complete example]
+on GitHub.
+
+[[more-information,more-information.title]]
+== More information
+
+* {url-ec2-user}elastic-ip-addresses-eip.html[Elastic IP Addresses] in the {guide-ec2-user}
+* link:AWSEC2/latest/APIReference/API_AllocateAddress.html["AllocateAddress", type="documentation"] in the {guide-ec2-api}
+* link:AWSEC2/latest/APIReference/API_DescribeAddresses.html["DescribeAddresses", type="documentation"] in the {guide-ec2-api}
+* link:AWSEC2/latest/APIReference/API_ReleaseAddress.html["ReleaseAddress", type="documentation"] in the {guide-ec2-api}

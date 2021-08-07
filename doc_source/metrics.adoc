@@ -1,0 +1,175 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+:java-cw-permissionstable: {url-cw-user}permissions-reference-cw.html#cw-permissions-table
+[."topic"]
+[[metrics,metrics.title]]
+= [[enabling-sdk-metrics, Enabling SDK metrics]]Enabling SDK metrics
+:info_doctype: section
+:info_title: Enabling SDK metrics for the {sdk-java}
+:info_titleabbrev: SDK Metrics
+:info_abstract: How to enable and configure metrics collection and publishing for the {sdk-java}
+
+[abstract]
+--
+How to enable and configure metrics collection and publishing for the {sdk-java}
+--
+
+With the {sdkjavav2}, you can collect metrics about the service clients in your application,
+analyze the output in {CWlong}, and then act on it.
+
+By default, metrics collection is disabled in the SDK. This topic helps you to enable and
+configure it.
+
+
+[[prerequisitesmetrics,prerequisitesmetrics.title]]
+== Prerequisites
+
+Before you can enable and use metrics, you must complete the following steps:
+
+* Complete the steps in xref:setup[].
+* Configure your project dependencies (for example, in your [path]``pom.xml`` or [path]``build.gradle`` file) to use version `2.14.0` or later of the {sdk-java}.
++
+
+To enabling publishing of metrics to {CW}, also include the artifactId `cloudwatch-metric-publisher` with the version number `2.14.0` or later in your project's dependencies.
++
+
+For example:
++
+[source,xml]
+----
+<project>
+  <dependencyManagement>
+   <dependencies>
+      <dependency>
+        <groupId>software.amazon.awssdk</groupId>
+        <artifactId>bom</artifactId>
+        <version>2.14.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+   </dependencies>
+  </dependencyManagement>
+  <dependencies>
+   <dependency>
+      <groupId>software.amazon.awssdk</groupId>
+      <artifactId>cloudwatch-metric-publisher</artifactId>
+      <version>2.14.0</version>
+   </dependency>
+  </dependencies>
+</project>
+----
+
+
+[NOTE]
+====
+
+To enhance the security of your application, you can use dedicated set of credentials for
+publishing metrics to {CW}. Create a separate {IAM} user with
+{url-cw-api}API_PutMetricData.html[cloudwatch:PutMetricData]
+permissions and then use that user's access key as credentials in the MetricPublisher
+configuration for your application.
+
+For more information, see the {java-cw-permissionstable}[{CWlong} Permissions Reference] in the
+{link-cwe-user} and
+link:IAM/latest/UserGuide/access_policies_manage-attach-detach.html["Adding and Removing pass:q[[.shared\]`IAM`] Identity Permissions", type="documentation"]
+in the {link-iam-user}.
+
+====
+
+[[how-to-enable-metrics-collection,how-to-enable-metrics-collection.title]]
+== How to enable metrics collection
+
+You can enable metrics in your application for a service client or on individual requests.
+
+[[enable-metrics-for-a-specific-request,enable-metrics-for-a-specific-request.title]]
+=== Enable metrics for a specific request
+
+The following code snippet shows how to enable the {CW} metrics publisher for a request to
+{DDBlong}. It uses the default metrics publisher configuration.
+
+[source,java]
+----
+MetricPublisher metricsPub = CloudWatchMetricPublisher.create();
+DynamoDbClient ddb = DynamoDbClient.create();
+ddb.listTables(ListTablesRequest.builder()
+  .overrideConfiguration(c -> c.addMetricPublisher(metricsPub))
+  .build());
+----
+
+
+[[enable-metrics-for-a-specific-service-client,enable-metrics-for-a-specific-service-client.title]]
+=== Enable metrics for a specific service client
+
+The following code snippet shows how to enable the {CW} metrics publisher for a service client.
+
+[source,java]
+----
+MetricPublisher metricsPub = CloudWatchMetricPublisher.create();
+
+DynamoDbClient ddb = DynamoDbClient.builder()
+          .overrideConfiguration(c -> c.addMetricPublisher(metricsPub))
+          .build();
+----
+
+The following snippet demonstrates how to use a custom configuration for the metrics publisher
+for a specific service client. The customizations include loading a separate credentials profile,
+specifying a different region than the service client, and customizing how often the publisher
+sends metrics to {CW}.
+
+[source,java]
+----
+MetricPublisher metricsPub = CloudWatchMetricPublisher.builder()
+          .credentialsProvider(EnvironmentVariableCredentialsProvider.create("cloudwatch"))
+          .region(Region.US_WEST_2)
+          .publishFrequency(5, TimeUnit.MINUTES)
+          .build();
+
+Region region = Region.US_EAST_1;
+DynamoDbClient ddb = DynamoDbClient.builder()
+          .region(region)
+          .overrideConfiguration(c -> c.addMetricPublisher(metricsPub))
+          .build();
+----
+
+
+[[what-information-is-collected,what-information-is-collected.title]]
+== What information is collected?
+
+Metrics collection includes the following:
+
+
+
+* Number of API requests, including whether they succeed or fail
+* Information about the {AWS-services} you call in your API requests, including exceptions returned
+* The duration for various operations such as Marshalling, Signing, and HTTP requests
+* HTTP client metrics, such as the number of open connections, the number of pending requests, and the name of the HTTP client used
+
+
+[NOTE]
+====
+
+The metrics available vary by HTTP client.
+
+====
+
+For a complete list, see xref:metrics-list[Service client metrics,linkend=metrics-list].
+
+[[how-can-i-use-this-information,how-can-i-use-this-information.title]]
+== How can I use this information?
+
+You can use the metrics the SDK collects to monitor the service clients in your application. You
+can look at overall usage trends, identify anomalies, review service client exceptions returned,
+or to dig in to understand a particular issue. Using {CWlong}, you can also create alarms to
+notify you as soon as your application reaches a condition that you define.
+
+For more information, see
+{url-cw-user}working_with_metrics.html[Using {CWlong} Metrics] and
+{url-cw-user}AlarmThatSendsEmail.html[Using {CWlong} Alarms] in the {link-cw-user}.
+
+
+[.topiclist-abbrev]
+[[Topic List]]
+
+
+include::metrics-list.adoc[leveloffset=+1]
+

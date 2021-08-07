@@ -1,0 +1,22 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-swf,examples-swf.title]]
+= [[amazon-swf, Working with SWF]]Working with {SWFlong}
+:info_doctype: section
+:info_title: Working with {SWFlong}
+:info_titleabbrev: {SWFlong}
+:info_abstract: How to use the {sdk-java} to work with {SWFlong}
+:info_keywordset: sdk-javacode examples {SWF} {SWFlong}
+
+[abstract]
+--
+How to use the {sdk-java} to work with {SWF}
+--
+
+The {SWFlong} makes it easy to build applications that coordinate work across distributed
+components. See the following resources for complete code examples with instructions.
+
+{url-awsdocs-github}aws-doc-sdk-examples/tree/master/javav2/example_code/swf[Link to Github]
+
+{url-sdkcodesampcat}code-catalog-javav2-example_code-swf.html[Link to {SDKCodeSampCat}]

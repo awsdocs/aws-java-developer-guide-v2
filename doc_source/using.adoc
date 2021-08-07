@@ -1,0 +1,300 @@
+//!!NODE_ROOT <chapter>
+include::../../includes.txt[]
+:java-apicalltimeout: {v2javadocs}software/amazon/awssdk/core/client/config/ClientOverrideConfiguration.Builder.html#apiCallTimeout-java.time.Duration-
+:java-apicallattempt: {v2javadocs}software/amazon/awssdk/core/client/config/ClientOverrideConfiguration.Builder.html#apiCallAttemptTimeout-java.time.Duration-
+[."topic"]
+[[using,using.title]]
+= [[using-the-aws-sdk-for-java-2-x, Using the SDK for Java]]Using the {sdkjavav2}
+:doctype: book
+:sectnums:
+:toc: left
+:icons: font
+:experimental:
+:idprefix:
+:idseparator: -
+:sourcedir: .
+:info_doctype: chapter
+:info_title: Using the {sdkjavav2}
+:info_titleabbrev: Using the SDK
+:info_abstract: Programming information for the {sdkjavav2}
+
+[abstract]
+--
+Programming information for the {sdkjavav2}
+--
+
+After completing the steps in <<setup,Setting up the SDK>>, you are ready to make requests to {AWS}
+services such as {S3}, {DDB}, {IAM}, {EC2}, and more.
+
+[[creating-clients,creating-clients.title]]
+== Creating service clients
+
+To make a request to an {AWS-service}, you must first instantiate an object to serve as a client for
+that service using the static factory method ``builder``. Then customize it by using the setters
+in the builder. The fluent setter methods return the `builder` object, so that you can chain the
+method calls for convenience and for more readable code. After you configure the properties you
+want, you can call the `build` method to create the client.
+
+As an example, this code snippet instantiates an `Ec2Client` object as a service client for {EC2}:
+
+[source,java]
+----
+Region region = Region.US_WEST_2;
+Ec2Client ec2Client = Ec2Client.builder()
+        .region(region)
+        .build();
+----
+
+[NOTE]
+====
+
+Service clients in the SDK are thread-safe. For best performance, treat them as long-lived
+objects. Each client has its own connection pool resource that is released when the client is
+garbage collected.
+
+A service client object is immutable, so you must create a new client for each service to which
+you make requests, or if you want to use a different configuration for making requests to the
+same service.
+
+Specifying the `Region` in the service client builder is not required for all {AWS-services};
+however, it is a best practice to set the Region for the API calls you make in your
+applications. See
+<<region-selection,{AWS} region selection>> for more information.
+
+====
+
+[[using-default-client,using-default-client.title]]
+=== Using the default client
+
+The client builders have another factory method named ``create``. This method creates a service
+client with the default configuration. It uses the default provider chain to load credentials and
+the {AWS-Region}. If credentials or the region can't be determined from the environment that the
+application is running in, the call to `create` fails. See
+xref:credentials[Using credentials,linkend=credentials] and
+xref:region-selection[Region selection] for more information about how credentials and region are
+determined.
+
+As an example, this code snippet instantiates a `DynamoDbClient` object as a service client for
+{DDBlong}:
+
+[source,java]
+----
+DynamoDbClient dynamoDbClient = DynamoDbClient.create();
+----
+
+[[using-making-requests,using-making-requests.title]]
+=== Making requests
+
+You use the service client to make requests to that {AWS-service}.
+
+For example, this code snippet shows how to create a `RunInstancesRequest` object to create a new
+{EC2} instance:
+
+[source,java]
+----
+
+RunInstancesRequest runInstancesRequest = RunInstancesRequest.builder()
+        .imageId(amiId)
+        .instanceType(InstanceType.T1_MICRO)
+        .maxCount(1)
+        .minCount(1)
+        .build();
+
+ec2Client.runInstances(runInstancesRequest);
+----
+
+[[using-handling-responses,using-handling-responses.title]]
+=== Handling responses
+
+You use a response handler to process the response back from the {AWS} service.
+
+For example, this code snippet shows how to create a `RunInstancesResponse` object to handle the
+response from {EC2} by printing out the `instanceId` for the new instance from the request above:
+
+[source,java]
+----
+
+RunInstancesResponse runInstancesResponse = ec2Client.runInstances(runInstancesRequest);
+System.out.println(runInstancesResponse.instances().get(0).instanceId());
+----
+
+[[using-closing-client,using-closing-client.title]]
+=== Closing the client
+
+When you no longer need the service client, close it.
+
+[source,java]
+----
+
+ec2Client.close();
+----
+
+[NOTE]
+====
+
+Service clients extend the `AutoClosable` interface, but as a best practice - especially with
+short-lived code such as {LAMlong} functions - you should explicitly call the `close()` method.
+
+====
+
+[[using-handling-exceptions,using-handling-exceptions.title]]
+== Handling exceptions
+
+The SDK uses runtime (or unchecked) exceptions, providing you fine-grained control over error
+handling and ensuring that exception handling will scale with your application.
+
+An
+{v2javadocs}software/amazon/awssdk/core/exception/SdkServiceException.html[`SdkServiceException`],
+or one of its sub-classes, is the most common form of exception the SDK will throw. These exceptions
+represent responses from the {AWS} service. You can also handle an
+{v2javadocs}software/amazon/awssdk/core/exception/SdkClientException.html[`SdkClientException`],
+which occurs when there`'s a problem on the client side (i.e., in your development or application
+environment), such a network connection failure.
+
+This code snippet demonstrates one way to handle service exceptions while uploading a file to {S3}.
+
+[source,java]
+----
+Region region = Region.US_WEST_2;
+s3Client = S3Client.builder()
+        .region(region)
+        .build();
+
+try {
+
+    PutObjectRequest putObjectRequest = PutObjectRequest.builder()
+                    .bucket(bucketName)
+                    .key(key)
+                    .build();
+    
+    s3Client.putObject(putObjectRequest, RequestBody.fromString("SDK for Java test"));
+
+} catch (S3Exception e) {
+    System.err.println(e.awsErrorDetails().errorMessage());
+    System.exit(1);
+}
+----
+
+See <<handling-exceptions,Handling exceptions>> for more information.
+
+
+[[using-use-waiters,using-use-waiters.title]]
+== Using waiters
+
+Some requests take time to process, such as creating a new table in {DDB} or creating a new
+{S3} bucket. To ensure the resource is ready before your code continues to run, use a _Waiter_.
+
+For example, this code snippet creates a new table ("myTable") in {DDB}, waits for the table to
+be in an `ACTIVE` status, and then prints out the response:
+
+[source,java]
+----
+DynamoDbClient dynamoDbClient = DynamoDbClient.create();
+DynamoDbWaiter dynamoDbWaiter = dynamoDbClient.waiter();
+
+WaiterResponse<DescribeTableResponse> waiterResponse =
+   dynamoDbWaiter.waitUntilTableExists(r -> r.tableName("myTable"));
+
+waiterResponse.matched().response().ifPresent(System.out::println);
+----
+
+See <<waiters,Using waiters>> for more information.
+
+[[using-configure-service-clients,using-configure-service-clients.title]]
+== Configuring service clients
+
+To customize the configuration of a service client, use the setters on the factory method `builder`.
+For convenience and to create more readable code, you chain the methods to set multiple
+configuration options.
+
+As an example, refere to the following code snippet.
+
+[source,java]
+----
+
+ClientOverrideConfiguration clientOverrideConfiguration =
+    ClientOverrideConfiguration.builder()
+                    .apiCallAttemptTimeout(Duration.ofSeconds(1))
+                    .retryPolicy(RetryPolicy.builder().numRetries(10).build())
+                    .addMetricPublisher(CloudWatchMetricPublisher.create())
+                    .build();
+
+Region region = Region.US_WEST_2;
+S3Client s3Client = S3Client.builder()
+                    .region(region)
+                    .credentialsProvider(EnvironmentVariableCredentialsProvider.create())
+                    .overrideConfiguration(clientOverrideConfiguration)
+                    .httpClientBuilder(ApacheHttpClient.builder()
+                        .proxyConfiguration(proxyConfig.build(ProxyConfiguration.builder()))
+                        .build())
+                    .build();
+----
+
+
+[[using-http-clients,using-http-clients.title]]
+== HTTP clients
+
+You can change the default configuration for HTTP clients in applications you build with the
+{sdk-java}. For information on how to configure HTTP clients and settings, see
+<<http-configuration,HTTP configuration>>.
+
+[[using-retries,using-retries.title]]
+== Retries
+
+You can change the default settings for retries in your service clients, including the retry mode
+and back-off strategy. For more information, refer to
+link:sdk-for-java/latest/reference/software/amazon/awssdk/core/retry/RetryPolicy.html["the `RetryPolicy` class",type="documentation"]
+in the {sdk-java} API Reference.
+
+For more information about retries in {AWS-services}, see
+link:general/latest/gr/api-retries.html["Error retries and exponential backoff in pass:q[[.shared\]`AWS`]",type="documentation"].
+
+[[using-timeouts,using-timeouts.title]]
+== Timeouts
+
+You can configure timeouts for each of your service clients using the `apiCallTimeout` and the
+`apiCallAttemptTimeout` setters. The `apiCallTimeout` setting is the amount of time to allow the
+client to complete the execution of an API call. The `apiCallAttemptTimeout` setting is the
+amount of time to wait for the HTTP request to complete before giving up.
+
+For more information, see {java-apicalltimeout}[`apiCallTimeout`] and
+{java-apicallattempt}[`apiCallAttemptTimeout`] in the {sdk-java} API Reference.
+
+[[using-execution-interceptors,using-execution-interceptors.title]]
+== Execution interceptors
+
+You can write code that intercepts the execution of your API requests and responses at different
+parts of the request/response lifecycle. This enables you to publish metrics, modify a request
+in-flight, debug request processing, view exceptions, and more. For more information, see
+{v2javadocs}software/amazon/awssdk/core/interceptor/ExecutionInterceptor.html[the `ExecutionInterceptor` interface]
+in the {sdk-java} API Reference.
+
+[[using-addl-info,using-addl-info.title]]
+== Additional information
+
+* For complete examples of the code snippets above, see
+<<examples-dynamodb,Working with {DDBlong}>>, <<examples-ec2,Working with {EC2}>>, and
+<<examples-s3,Working with {S3}>>.
+
+
+
+include::credentials.adoc[leveloffset=+1]
+
+
+include::region-selection.adoc[leveloffset=+1]
+
+
+include::lambda-optimize-starttime.adoc[leveloffset=+1]
+
+
+include::http-configuration.adoc[leveloffset=+1]
+
+
+include::handling-exceptions.adoc[leveloffset=+1]
+
+
+include::logging-slf4j.adoc[leveloffset=+1]
+
+
+include::jvm-ttl-dns.adoc[leveloffset=+1]
+

@@ -1,0 +1,22 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-athena,examples-athena.title]]
+= [[amazon-athena, Working with Amazon Athena]]Working with {ATElong}
+:info_doctype: section
+:info_title: Working with {ATElong}
+:info_titleabbrev: {ATElong}
+:info_abstract: How to use the {sdk-java} to work with {ATElong}
+:info_keywordset: sdk-javacode examples {ATElong}
+
+[abstract]
+--
+How to use the {sdk-java} to work with {ATElong}
+--
+
+{ATElong} is a serverless, interactive query service to query data and analyze big data in {S3}
+by using standard SQL. See the following resources for complete code examples with instructions.
+
+{url-awsdocs-github}aws-doc-sdk-examples/tree/master/javav2/example_code/athena[Link to Github]
+
+{url-sdkcodesampcat}code-catalog-javav2-example_code-athena.html[Link to {SDKCodeSampCat}]

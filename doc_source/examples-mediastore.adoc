@@ -1,0 +1,22 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-mediastore,examples-mediastore.title]]
+= [[aws-elemental-mediastore-examples, Working with MediaStore]]Working with {EMSlong}
+:info_doctype: section
+:info_title: Working with {EMSlong}
+:info_titleabbrev: {EMSlong}
+:info_abstract: How to use the {sdk-java} to work with {EMSlong}
+:info_keywordset: sdk-javacode examples {EMSlong}
+
+[abstract]
+--
+How to use the {sdk-java} to work with {EMSlong}
+--
+
+{EMSlong} is an {AWS} storage service optimized for media. See the following resources for
+complete code examples with instructions.
+
+{url-awsdocs-github}aws-doc-sdk-examples/tree/master/javav2/example_code/mediastore[Link to Github]
+
+{url-sdkcodesampcat}code-catalog-javav2-example_code-mediastore.html[Link to {SDKCodeSampCat}]

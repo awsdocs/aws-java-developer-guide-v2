@@ -1,0 +1,65 @@
+//!!NODE_ROOT <book>
+include::../../includes.txt[]
+[[index]]
+= {sdk-java}
+:doctype: book
+:toc: left
+:icons: font
+:experimental:
+:idprefix:
+:idseparator: -
+:info_doctype: book
+:info_title: {sdk-java}
+:info_abstract: Describes the new features in version {v2ver} of the SDK.
+:info_keywordset: javasdkaws
+:info_subtitle: Developer Guide
+:info_copyright: {AWSlong}, Inc. and/or its affiliates. All rights reserved.
+:info_legalnotice: Amazon's trademarks and trade dress may not be used in \
+   connection with any product or service that is not Amazon's, \
+   in any manner that is likely to cause confusion among customers, \
+   or in any manner that disparages or discredits Amazon. All other \
+   trademarks not owned by Amazon are the property of their respective \
+   owners, who may or may not be affiliated with, connected to, or \
+   sponsored by Amazon.
+:front-cover-image: image::../images/aws_cover.jpg[]
+
+
+[abstract]
+--
+Describes the new features in version {v2ver} of the {sdk-java}.
+--
+
+
+:sectnums:
+
+
+[.banner.info]
+Hello {AWS-always} Java community! Please share your experience and help us improve the {sdk-java} and its learning resources by https://amazonmr.au1.qualtrics.com/jfe/form/SV_egoUorKZU48vF7E[taking a survey].  This survey takes approximately 10 minute to complete.
+
+[.banner.info]
+https://amazonmr.au1.qualtrics.com/jfe/form/SV_egoUorKZU48vF7E[**Click here to take the survey**]
+
+
+
+include::home.adoc[leveloffset=+1]
+
+
+include::get-started.adoc[leveloffset=+1]
+
+
+include::setup.adoc[leveloffset=+1]
+
+
+include::using.adoc[leveloffset=+1]
+
+
+include::features.adoc[leveloffset=+1]
+
+
+include::examples.adoc[leveloffset=+1]
+
+
+include::security.adoc[leveloffset=+1]
+
+
+include::document-history.adoc[leveloffset=+1]

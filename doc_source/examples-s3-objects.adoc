@@ -1,0 +1,219 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-s3-objects,examples-s3-objects.title]]
+= [[work-with-s3-objects, Working with S3 objects]]Working with {S3} objects
+:info_doctype: section
+:info_title: Working with {S3} objects
+:info_titleabbrev: Object operations
+:info_abstract: How to list, upload, download or delete objects in an {S3} bucket using the {sdkjavav2}.
+:info_keywordset: S3long{S3} {sdkjavav2} code example PutObjectRequest createMultipartUpload \
+    GetObjectRequest
+
+[abstract]
+--
+How to list, upload, download or delete objects in an {S3} bucket using the {sdkjavav2}.
+--
+
+An {S3} object represents a file or collection of data. Every object must be contained in a
+xref:examples-s3-buckets[bucket,linkend=examples-s3-buckets].
+
+[NOTE]
+====
+
+Best Practice
+
+We recommend that you enable the
+{url-s3-api}RESTBucketPUTlifecycle.html[AbortIncompleteMultipartUpload]
+lifecycle rule on your {S3} buckets.
+
+This rule directs {S3} to abort multipart uploads that don't complete within a specified number
+of days after being initiated. When the set time limit is exceeded, {S3} aborts the upload and
+then deletes the incomplete upload data.
+
+For more information, see
+{url-s3-user}lifecycle-configuration-bucket-with-versioning.html[Lifecycle Configuration for a Bucket with Versioning]
+in the {guide-s3-user}.
+
+====
+
+[NOTE]
+====
+
+These code snippets assume that you understand the material in basics, and have configured
+default {AWS} credentials using the information in xref:setup-credentials[].
+
+====
+
+[.topiclist-abbrev]
+[[Topic List]]
+
+
+[[upload-object,upload-object.title]]
+== Upload an object
+
+Build a
+{v2javadocs}software/amazon/awssdk/services/s3/model/PutObjectRequest.html[PutObjectRequest]
+and supply a bucket name and key name. Then use the S3Client's `putObject` method with a
+{v2javadocs}software/amazon/awssdk/core/sync/RequestBody.html[RequestBody]
+that contains the object content and the `PutObjectRequest` object.
+_The bucket must exist, or the service will return an error._
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/s3.java2.s3_object_operations.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/s3.java2.s3_object_operations.upload.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java[complete example]
+on GitHub.
+
+[[list-objects,list-objects.title]]
+== Upload objects in multiple parts
+
+Use the S3Client's `createMultipartUpload` method to get an upload ID. Then use the `uploadPart`
+method to upload each part. Finally, use the S3Client's `completeMultipartUpload` method to tell
+{S3} to merge all the uploaded parts and finish the upload operation.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/s3.java2.s3_object_operations.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/s3.java2.s3_object_operations.upload_multi_part.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java[complete example]
+on GitHub.
+
+[[download-object,download-object.title]]
+== Download an object
+
+Build a
+{v2javadocs}software/amazon/awssdk/services/s3/model/GetObjectRequest.html[GetObjectRequest]
+and supply a bucket name and key name. Use the S3Client's `getObject` method, passing it the
+`GetObjectRequest` object and a `ResponseTransformer` object. The `ResponseTransformer` creates a
+response handler that writes the response content to the specified file or stream.
+
+The following example specifies a file name to write the object content to.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/s3.java2.s3_object_operations.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/s3.java2.s3_object_operations.download.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java[complete example]
+on GitHub.
+
+[[delete-object,delete-object.title]]
+== Delete an object
+
+Build a
+{v2javadocs}software/amazon/awssdk/services/s3/model/DeleteObjectRequest.html[DeleteObjectRequest]
+and supply a bucket name and key name. Use the S3Client's `deleteObject` method, and pass it the
+name of a bucket and object to delete. _The specified bucket and object key must exist, or the
+service will return an error._
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/s3.java2.s3_object_operations.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/s3.java2.s3_object_operations.delete.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java[complete example]
+on GitHub.
+
+[[copy-an-object,copy-an-object.title]]
+== Copy an object
+
+Build a
+{v2javadocs}software/amazon/awssdk/services/s3/model/CopyObjectRequest.html[CopyObjectRequest]
+and supply a bucket name that the object is coped into, a URL encoded string value (see the
+URLEncoder.encode method), and the key name of the object. Use the S3Client's `copyObject`
+method, and pass the
+{v2javadocs}software/amazon/awssdk/services/s3/model/CopyObjectRequest.html[CopyObjectRequest]
+object. _The specified bucket and object key must exist, or the service will return an error._
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/s3.java2.copy_object.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/s3.java2.copy_object.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/s3/src/main/java/com/example/s3/CopyObject.java[complete example]
+on GitHub.
+
+[[list-object,list-object.title]]
+== List objects
+
+Build a
+{v2javadocs}software/amazon/awssdk/services/s3/model/ListObjectsRequest.html[ListObjectsRequest]
+and supply the bucket name. Then invoke the S3Client's `listObjects` method and pass the
+{v2javadocs}software/amazon/awssdk/services/s3/model/ListObjectsRequest.html[ListObjectsRequest]
+object. This method returns a
+{v2javadocs}software/amazon/awssdk/services/s3/model/ListObjectsResponse.html[ListObjectsResponse]
+that contains all of the objects in the bucket. You can invoke this object's _contents_ method to
+get a list of objects. You can iterate through this list to display the objects, as shown in the
+following code example.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/s3.java2.list_objects.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/s3.java2.list_objects.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/s3/src/main/java/com/example/s3/ListObjects.java[complete example]
+on GitHub.

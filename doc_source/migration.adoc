@@ -1,0 +1,63 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[migration,migration.title]]
+= [[migrate-from-1x-to-2x-sdk-java, Migrating from version 1.x to 2.x of the SDK for Java]]Migrating from version {v1ver} to {v2ver} of the {sdk-java}
+:info_doctype: section
+:info_title: Migrating from version {v1ver} to {v2ver} of the {sdk-java}
+:info_titleabbrev: Migrating to version 2
+:info_abstract: Learn about changes in version 2 of the {sdk-java}
+
+[abstract]
+--
+Learn about changes in version 2 of the {sdk-java}
+--
+
+The {sdkjavav2} is a major rewrite of the {v1ver} code base built on top of Java 8+. It includes
+many updates, such as improved consistency, ease of use, and strongly enforced immutability. This
+section describes the major features that are new in version {v2ver}, and provides guidance on how
+to migrate your code to version {v2ver} from {v1ver}.
+
+
+
+[.topiclist-abbrev]
+[[Topic List]]
+
+
+[[migration-whats-new]]
+=== What's new
+
+* You can configure your own HTTP clients. See <<http-configuration,HTTP Transport Configuration>>.
+* Async clients are now truly nonblocking and return `CompletableFuture` objects. See <<asynchronous,Asynchronous programming>>.
+* Operations that return multiple pages have autopaginated responses. This enables you to focus your code on what to do with the response, without the need to check for and get subsequent pages. See the <<pagination,Pagination>>
+* SDK start time performance for {LAMlong} functions is improved. See <<lambda-optimize-starttime,SDK Start Time Performance Improvements>>
+* Version 2.x supports a new shorthand method for creating requests.
++
+====
+
+
+[source,java]
+----
+dynamoDbClient.putItem(request -> request.tableName(TABLE))
+----
+
+====
+
+
+include::migration-whats-different.adoc[leveloffset=+1]
+
+
+
+include::migration-side-by-side.adoc[leveloffset=+1]
+
+
+
+For more details about the new features and to see specific code examples, refer to the other
+sections of this guide.
+
+* xref:get-started[Quick Start,linkend=get-started]
+* xref:setup[Setting up,linkend=setup]
+* xref:examples[Code examples for the {sdkjavav2},linkend=examples]
+* xref:using[Using the SDK,linkend=using]
+* xref:security[Security for the {sdk-java},linkend=security]
+

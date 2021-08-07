@@ -1,0 +1,23 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-polly,examples-polly.title]]
+= [[amazon-polly-examples, Working with Polly]]Working with {POLlong}
+:info_doctype: section
+:info_title: Working with {POLlong}
+:info_titleabbrev: {POLlong}
+:info_abstract: How to use the {sdk-java} to work with {POLlong}
+:info_keywordset: sdk-javacode examples {POLlong}
+
+[abstract]
+--
+How to use the {sdk-java} to work with {POLlong}
+--
+
+{POLlong} is a service that turns text into lifelike speech, allowing you to create applications
+that talk, and build entirely new categories of speech-enabled functionality. See the following
+resources for complete code examples with instructions.
+
+{url-awsdocs-github}aws-doc-sdk-examples/tree/master/javav2/example_code/polly[Link to Github]
+
+{url-sdkcodesampcat}code-catalog-javav2-example_code-polly.html[Link to {SDKCodeSampCat}]

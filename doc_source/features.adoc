@@ -1,0 +1,52 @@
+//!!NODE_ROOT <chapter>
+include::../../includes.txt[]
+[."topic"]
+[[features,features.title]]
+= [[features-of-the-sdk-java-2-x, Features of the SDK for Java]Features of the {sdkjavav2}
+:doctype: book
+:sectnums:
+:toc: left
+:icons: font
+:experimental:
+:idprefix:
+:idseparator: -
+:sourcedir: .
+:info_doctype: chapter
+:info_title: Features of the {sdkjavav2}
+:info_titleabbrev: SDK features
+:info_abstract: Information about the features of the {sdk-java}
+
+[abstract]
+--
+Information about the features of the {sdk-java}
+--
+
+This section provides information about the features of the {sdkjavav2}.
+
+
+
+[.topiclist-abbrev]
+[[Topic List]]
+
+
+include::asynchronous.adoc[leveloffset=+1]
+
+
+include::dynamodb-enhanced-client.adoc[leveloffset=+1]
+
+
+include::http2.adoc[leveloffset=+1]
+
+
+include::metrics.adoc[leveloffset=+1]
+
+
+include::pagination.adoc[leveloffset=+1]
+
+
+include::transfer-manager.adoc[leveloffset=+1]
+
+
+include::waiters.adoc[leveloffset=+1]
+
+

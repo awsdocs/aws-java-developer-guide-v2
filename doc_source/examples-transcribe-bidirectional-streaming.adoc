@@ -1,0 +1,98 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-transcribe-bidirectional-streaming,examples-transcribe-bidirectional-streaming.title]]
+= [[working-with-tsc, Working with Transcribe]]Working with {TSClong}
+:info_doctype: section
+:info_title: Working with {TSClong}
+:info_titleabbrev: {TSClong}
+:info_abstract: How to set up bidirectional streaming using {TSClong}.
+:info_keywordset: sdkjavav2code examples transcribe streaming
+
+[abstract]
+--
+How to set up bidirectional streaming using {TSClong}.
+--
+
+The following example shows how bidirectional streaming works using {TSClong}. Bidirectional
+streaming implies that there's both a stream of data going to the service and being received back
+in real time. The example uses {TSClong} streaming transcription to send an audio stream and
+receive a stream of transcribed text back in real time.
+
+See
+{url-tsc-dev}streaming.html[Streaming Transcription]
+in the {guide-tsc-dev} to learn more about this feature.
+
+See
+{url-tsc-dev}getting-started.html[Getting Started]
+in the {guide-tsc-dev} to get started using {TSClong}.
+
+[[set-up-the-microphone,set-up-the-microphone.title]]
+== Set up the microphone
+
+This code uses the javax.sound.sampled package to stream audio from an input device.
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/transcribe.java2.bidir_streaming_microphone.complete.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/transcribe/src/main/java/com/amazonaws/transcribe/Microphone.java[complete example]
+on GitHub.
+
+[[create-a-publisher,create-a-publisher.title]]
+== Create a publisher
+
+This code implements a publisher that publishes audio data from the {TSClong} audio stream.
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/transcribe.java2.bidir_streaming_audiopublisher.complete.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/transcribe/src/main/java/com/amazonaws/transcribe/AudioStreamPublisher.java[complete example]
+on GitHub.
+
+[[create-the-client-and-start-the-stream,create-the-client-and-start-the-stream.title]]
+== Create the client and start the stream
+
+In the main method, create a request object, start the audio input stream and instantiate the
+publisher with the audio input.
+
+You must also create a
+{v2javadocs}software/amazon/awssdk/services/transcribestreaming/model/StartStreamTranscriptionResponseHandler.html[StartStreamTranscriptionResponseHandler]
+to specify how to handle the response from {TSC}.
+
+Then, use the TranscribeStreamingAsyncClient's `startStreamTranscription` method to start the
+bidirectional streaming.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/transcribe.java2.bidir_streaming.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/transcribe.java2.bidir_streaming.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/transcribe/src/main/java/com/amazonaws/transcribe/BidirectionalStreaming.java[complete example]
+on GitHub.
+
+[[more-info,more-info.title]]
+== More information
+
+* {url-tsc-dev}how-it-works.html[How It Works] in the {guide-tsc-dev}.
+* {url-tsc-dev}getting-started-streaming.html[Getting Started With Streaming Audio] in the {guide-tsc-dev}.
+* {url-tsc-dev}limits-guidelines.html[Guidelines and Limits] in the {guide-tsc-dev}.

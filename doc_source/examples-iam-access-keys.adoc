@@ -1,0 +1,190 @@
+//!!NODE_ROOT <section>
+include::../../includes.txt[]
+[."topic"]
+[[examples-iam-access-keys,examples-iam-access-keys.title]]
+= [[manage-iam-access-keys, Managing IAM access keys]]Managing {IAM} access keys
+:info_doctype: section
+:info_title: Managing {IAM} access keys
+:info_abstract: How to manage {IAM} access keys with the {sdkjavav2}.
+:info_keywordset: sdkjavav2code examples {IAM} access keys creating listing updating deleting \
+    getting last access time CreateAccessKeyRequest ListAccessKeysRequest \
+    GetAccessKeyLastUsedRequest
+
+[abstract]
+--
+How to manage {IAM} access keys with the {sdkjavav2}.
+--
+
+[[create-an-access-key,create-an-access-key.title]]
+== Create an access key
+
+To create an {IAM} access key, call the IamClient's `createAccessKey` method with a
+{v2javadocs}software/amazon/awssdk/services/iam/model/CreateAccessKeyRequest.html[CreateAccessKeyRequest]
+object.
+
+[NOTE]
+====
+
+You must set the region to *AWS_GLOBAL* for IamClient calls to work because {IAM} is a global
+service.
+
+====
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/iam.java2.create_access_key.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/iam.java2.create_access_key.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/iam/src/main/java/com/example/iam/CreateAccessKey.java[complete example]
+on GitHub.
+
+[[list-access-keys,list-access-keys.title]]
+== List access keys
+
+To list the access keys for a given user, create a
+{v2javadocs}software/amazon/awssdk/services/iam/model/ListAccessKeysRequest.html[ListAccessKeysRequest]
+object that contains the user name to list keys for, and pass it to the IamClient's
+`listAccessKeys` method.
+
+[NOTE]
+====
+
+If you do not supply a user name to ``listAccessKeys``, it will attempt to list access keys
+associated with the {AWS-account} that signed the request.
+
+====
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/iam.java2.list_access_keys.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/iam.java2.list_access_keys.main.txt[]
+----
+
+The results of `listAccessKeys` are paged (with a default maximum of 100 records per call). You
+can call `isTruncated` on the returned
+{v2javadocs}software/amazon/awssdk/services/iam/model/ListAccessKeysResponse.html[ListAccessKeysResponse]
+object to see if the query returned fewer results then are available. If so, then call `marker`
+on the `ListAccessKeysResponse` and use it when creating a new request. Use that new request in
+the next invocation of ``listAccessKeys``.
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/iam/src/main/java/com/example/iam/ListAccessKeys.java[complete example]
+on GitHub.
+
+[[retrieve-an-access-key-s-last-used-time,retrieve-an-access-key-s-last-used-time.title]]
+== Retrieve an access key's last used time
+
+To get the time an access key was last used, call the IamClient's `getAccessKeyLastUsed` method
+with the access key's ID (which can be passed in using a
+{v2javadocs}software/amazon/awssdk/services/iam/model/GetAccessKeyLastUsedRequest.html[GetAccessKeyLastUsedRequest]
+object.
+
+You can then use the returned
+{v2javadocs}software/amazon/awssdk/services/iam/model/GetAccessKeyLastUsedResponse.html[GetAccessKeyLastUsedResponse]
+object to retrieve the key's last used time.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/iam.java2.access_key_last_used.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/iam.java2.access_key_last_used.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/iam/src/main/java/com/example/iam/AccessKeyLastUsed.java[complete example]
+on GitHub.
+
+[[iam-access-keys-update,iam-access-keys-update.title]]
+== Activate or deactivate access keys
+
+You can activate or deactivate an access key by creating an
+{v2javadocs}software/amazon/awssdk/services/iam/model/UpdateAccessKeyRequest.html[UpdateAccessKeyRequest]
+object, providing the access key ID, optionally the user name, and the desired
+{v2javadocs}software/amazon/awssdk/services/iam/model/StatusType.html[status],
+then passing the request object to the IamClient's `updateAccessKey` method.
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/iam.java2.update_access_key.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/iam.java2.update_access_key.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/iam/src/main/java/com/example/iam/UpdateAccessKey.java[complete example]
+on GitHub.
+
+[[delete-an-access-key,delete-an-access-key.title]]
+== Delete an access key
+
+To permanently delete an access key, call the IamClient's `deleteKey` method, providing it with a
+{v2javadocs}software/amazon/awssdk/services/iam/model/DeleteAccessKeyRequest.html[DeleteAccessKeyRequest]
+containing the access key's ID and username.
+
+[NOTE]
+====
+
+Once deleted, a key can no longer be retrieved or used. To temporarily deactivate a key so that
+it can be activated again later, use
+xref:iam-access-keys-update[updateAccessKey, linkend=iam-access-keys-update] method instead.
+
+====
+
+*Imports*
+
+[source,java]
+----
+include::../../snippets/iam.java2.delete_access_key.import.txt[]
+----
+
+*Code*
+
+[source,java]
+----
+include::../../snippets/iam.java2.delete_access_key.main.txt[]
+----
+
+See the
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/iam/src/main/java/com/example/iam/DeleteAccessKey.java[complete example]
+on GitHub.
+
+[[more-information,more-information.title]]
+== More information
+
+* link:IAM/latest/APIReference/API_CreateAccessKey.html["CreateAccessKey", type="documentation"] in the {guide-iam-api}
+* link:IAM/latest/APIReference/API_ListAccessKeys.html["ListAccessKeys", type="documentation"] in the {guide-iam-api}
+* link:IAM/latest/APIReference/API_GetAccessKeyLastUsed.html["GetAccessKeyLastUsed", type="documentation"] in the {guide-iam-api}
+* link:IAM/latest/APIReference/API_UpdateAccessKey.html["UpdateAccessKey", type="documentation"] in the {guide-iam-api}
+* link:IAM/latest/APIReference/API_DeleteAccessKey.html["DeleteAccessKey", type="documentation"] in the {guide-iam-api}
