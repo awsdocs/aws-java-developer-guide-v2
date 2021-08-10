@@ -33,13 +33,6 @@ Describes the new features in version {v2ver} of the {sdk-java}.
 :sectnums:
 
 
-[.banner.info]
-Hello {AWS-always} Java community! Please share your experience and help us improve the {sdk-java} and its learning resources by https://amazonmr.au1.qualtrics.com/jfe/form/SV_egoUorKZU48vF7E[taking a survey].  This survey takes approximately 10 minute to complete.
-
-[.banner.info]
-https://amazonmr.au1.qualtrics.com/jfe/form/SV_egoUorKZU48vF7E[**Click here to take the survey**]
-
-
 
 include::home.adoc[leveloffset=+1]
 

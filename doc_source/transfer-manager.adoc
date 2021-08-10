@@ -6,13 +6,13 @@ include::../../includes.txt[]
 :info_doctype: section
 :info_title: {S3} Transfer Manager (Preview)
 :info_titleabbrev: S3 Transfer Manager (Preview)
-:info_abstract: How to use the {S3} Transfer Manager to upload and download files.
-:info_keywordset: sdk-javacode examples enhanced client object mapper get items from {DDB} tables
+:info_abstract: How to use the {S3} Transfer Manager to upload and download files
+:info_keywordset: {sdk-java} code examples {S3} Transfer Manager
 
-The {S3} Transfer Manager (Preview) is an open-source high level library for the {sdkjavav2} that
-you use to easily transfer files to and from {S3long} (S3). It's built on top of the Java
-bindings of the
-https://github.com/awslabs/aws-crt-java/tree/main/s3-native-client[{AWS} Common Runtime S3 Client],
+The {S3} Transfer Manager (Preview) is an open-source high level file transfer utility for the
+{sdkjavav2} that you can use to easily transfer files to and from {S3long} (S3). It's built on
+top of the Java bindings of the
+https://github.com/awslabs/aws-crt-java[{AWS} Common Runtime S3 Client],
 benefiting from its enhanced throughput, performance, and reliability by leveraging {S3}
 multipart upload and byte-range fetches for parallel transfers.
 
@@ -25,8 +25,8 @@ Before you can use the Transfer Manager, you must do the following:
 
 * Complete the steps in xref:setup[].
 * Configure your project dependencies (for example, in your [path]``pom.xml`` or
-[path]``build.gradle`` file) to use version `2.17.21` or later of the {Java}.
-* Include version `2.17.21-PREVIEW` of the _artifactId_ `s3-transfer-manager`.
+[path]``build.gradle`` file) to use version `2.17.16` or later of the {Java}.
+* Include version `2.17.16-PREVIEW` of the _artifactId_ `s3-transfer-manager`.
 
 The following code example shows how to configure your project dependencies.
 
@@ -38,7 +38,7 @@ The following code example shows how to configure your project dependencies.
       <dependency>
         <groupId>software.amazon.awssdk</groupId>
         <artifactId>bom</artifactId>
-        <version>2.17.21</version>
+        <version>2.17.16</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -48,11 +48,12 @@ The following code example shows how to configure your project dependencies.
    <dependency>
       <groupId>software.amazon.awssdk</groupId>
       <artifactId>s3-transfer-manager</artifactId>
-      <version>2.17.21-PREVIEW</version>
+      <version>2.17.16-PREVIEW</version>
    </dependency>
   </dependencies>
 </project>
 ----
+
 
 [[transfer-manager-imports,transfer-manager-imports.title]]
 == Imports
@@ -103,11 +104,6 @@ S3ClientConfiguration s3ClientConfiguration =
                              .minimumPartSizeInBytes(10 * MB)
                              .targetThroughputInGbps(20.0)
                              .build();
-
-S3TransferManager s3TransferManager =
-        S3TransferManager.builder()
-                         .s3ClientConfiguration(s3ClientConfiguration)
-                         .build();
 ----
 
 [[transfer-manager-upload,transfer-manager-upload.title]]
@@ -130,8 +126,7 @@ bucket and key to which you want to upload the file.
 [source,java]
 ----
 Upload upload =
-        s3TransferManager.upload(b -> b
-                         .putObjectRequest(r -> r.bucket(bucket).key(key))
+        s3TransferManager.upload(b -> b.putObjectRequest(r -> r.bucket(bucket).key(key))
                          .source(Paths.get("fileToUpload.txt")));
 ----
 
@@ -158,8 +153,7 @@ method and use the `destination()` to set where the file will be saved.
 [source,java]
 ----
 Download download =
-        s3TransferManager.download(b -> b
-                         .getObjectRequest(r -> r.bucket(bucket).key(key))
+        s3TransferManager.download(b -> b.getObjectRequest(r -> r.bucket(bucket).key(key))
                          .destination(Paths.get("downloadedFile.txt")));
 ----
 
@@ -173,4 +167,3 @@ CompletedDownload completedDownload = download.completionFuture().join();
 
 System.out.println("Content length: "+ completedDownload.response().contentLength());
 ----
-
