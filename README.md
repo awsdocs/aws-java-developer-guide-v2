@@ -1,8 +1,8 @@
-## [Developer guide](doc_source/index.adoc) for version 2.x of the AWS SDK for Java
+## [Developer guide](doc_source/home.adoc) for version 2.x of the AWS SDK for Java
 
 This is the open source version of the developer guide for version 2.x of the Amazon Web Services (AWS) SDK for Java.
 
-To view this documentation, start with the [index](doc_source/index.adoc).
+To view this documentation, start with the [home](doc_source/home.adoc).
 
 This repository contains the open source version of the official [AWS SDK for Java 2.x Developer Guide](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide).
 It provides information about how to set up and use the [AWS SDK for Java](https://aws.amazon.com/sdk-for-java) to create Java applications that use AWS.
