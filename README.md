@@ -30,7 +30,7 @@ To contribute your own documentation fixes or updates, please use standard GitHu
 
 The code examples featured in this documentation can be found in a separate repository: [aws-doc-sdk-examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/javav2/example_code).
 
-In addition to examples in Ruby, you'll also find examples for each of the other AWS SDKs. If you find issues with any of the examples, you can submit Issues or fork the repository and submit a pull request!
+In addition to examples in Java, you'll also find examples for each of the other AWS SDKs. If you find issues with any of the examples, you can submit Issues or fork the repository and submit a pull request!
 
 The code examples are provided under the Apache 2.0 open source license. For more details, see the example repository's [README](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/README.rst).
 
