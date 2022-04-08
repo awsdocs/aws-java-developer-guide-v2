@@ -24,6 +24,10 @@ history.
 |Description
 |Date
 
+|xref:security-java-tls[]
+|Update TLS security information
+|22 March 2022
+
 |xref:setup-additional[]
 |Added more information about setting up and using credentials
 |22 February 2021

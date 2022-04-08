@@ -27,7 +27,7 @@ For data protection purposes, we recommend that you protect {AWS-account} creden
 
 
 * Use multi-factor authentication (MFA) with each account.
-* Use SSL/TLS to communicate with {AWS} resources. We recommend TLS 1.2 or later.
+* Use SSL/TLS to communicate with {AWS} resources.
 * Set up API and user activity logging with {CTlong}.
 * Use {AWS} encryption solutions, with all default security controls within {AWS-services}.
 * Use advanced managed security services such as Amazon Macie, which assists in discovering and securing personal data that is stored in {S3}.
