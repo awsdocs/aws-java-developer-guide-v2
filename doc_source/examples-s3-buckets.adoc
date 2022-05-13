@@ -147,7 +147,7 @@ use the `deleteObject` method on each object to delete it.
 
 [source,java]
 ----
-include::../../snippets/s3.java2.s3_bucket_ops.import.txt[]
+include::../../snippets/s3.java2.bucket_deletion.import.txt[]
 ----
 
 *Code*
@@ -156,14 +156,21 @@ First create an S3Client.
 
 [source,java]
 ----
-include::../../snippets/s3.java2.s3_bucket_ops.region.txt[]
+include::../../snippets/s3.java2.bucket_deletion.region.txt[]
 ----
 
 Delete all objects in the bucket.
 
 [source,java]
 ----
-include::../../snippets/s3.java2.s3_bucket_ops.delete_bucket.txt[]
+include::../../snippets/ss3.java2.bucket_deletion.delete_all_objects_bucket.txt[]
+----
+
+Delete the bucket.
+
+[source,java]
+----
+include::../../snippets/s3.java2.bucket_deletion.delete_bucket.txt[]
 ----
 
 See the
@@ -181,7 +188,7 @@ with a bucket name and pass it to the S3Client's `deleteBucket` method.
 
 [source,java]
 ----
-include::../../snippets/s3.java2.s3_bucket_ops.import.txt[]
+include::../../snippets/s3.java2.bucket_deletion.import.txt[]
 ----
 
 *Code*
@@ -190,23 +197,16 @@ First create an S3Client.
 
 [source,java]
 ----
-include::../../snippets/s3.java2.s3_bucket_ops.region.txt[]
-----
-
-Delete all objects in the bucket.
-
-[source,java]
-----
-include::../../snippets/s3.java2.delete_objects.main.txt[]
+include::../../snippets/s3.java2.bucket_deletion.region.txt[]
 ----
 
 Delete the bucket.
 
 [source,java]
 ----
-include::../../snippets/s3.java2.s3_bucket_ops.delete_bucket.txt[]
+include::../../snippets/s3.java2.bucket_deletion.delete_bucket.txt[]
 ----
 
 See the
-{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/s3/src/main/java/com/example/s3/S3BucketOps.java[complete example]
+{url-awsdocs-github}aws-doc-sdk-examples/blob/master/javav2/example_code/s3/src/main/java/com/example/s3/S3BucketDeletion.java[complete example]
 on GitHub.
