@@ -114,7 +114,7 @@ Download download =
 To capture the response, use a [http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/transfer/s3/CompletedDownload.html](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/transfer/s3/CompletedDownload.html) object\.
 
 ```
-CompletedDownload completedDownload = download.completionFuture().join();
+CompletedFileDownload completedDownload = download.completionFuture().join();
 
 System.out.println("Content length: "+ completedDownload.response().contentLength());
 ```
