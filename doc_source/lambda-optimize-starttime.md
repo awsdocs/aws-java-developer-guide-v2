@@ -29,7 +29,7 @@ Using this credentials provider enables the code to be used in Lambda functions,
 ```
 S3Client client = S3Client.builder()
        .region(Region.US_WEST_2)
-       .credentialsProvider(EnvironmentVariableCredentialsProvider.create())
+       .credentialsProvider(new EnvironmentVariableCredentialsProvider())
        .httpClient(UrlConnectionHttpClient.builder().build())
        .build();
 ```
