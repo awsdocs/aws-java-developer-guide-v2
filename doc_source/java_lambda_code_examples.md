@@ -1,6 +1,6 @@
 --------
 
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\! By the way, the AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156)\!
+You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
 
 --------
 
@@ -15,10 +15,10 @@ The following code examples show you how to perform actions and implement common
 Each example includes a link to GitHub, where you can find instructions on how to set up and run the code in context\.
 
 **Topics**
-+ [Actions](#w591aac15c14b9c43c13)
-+ [Scenarios](#w591aac15c14b9c43c15)
++ [Actions](#w620aac15c13b9c43c13)
++ [Scenarios](#w620aac15c13b9c43c15)
 
-## Actions<a name="w591aac15c14b9c43c13"></a>
+## Actions<a name="w620aac15c13b9c43c13"></a>
 
 ### Create a function<a name="lambda_CreateFunction_java_topic"></a>
 
@@ -133,7 +133,7 @@ The following code example shows how to invoke a Lambda function\.
 ```
 +  For API details, see [Invoke](https://docs.aws.amazon.com/goto/SdkForJavaV2/lambda-2015-03-31/Invoke) in *AWS SDK for Java 2\.x API Reference*\. 
 
-## Scenarios<a name="w591aac15c14b9c43c15"></a>
+## Scenarios<a name="w620aac15c13b9c43c15"></a>
 
 ### Get started with functions<a name="lambda_Scenario_GettingStartedFunctions_java_topic"></a>
 

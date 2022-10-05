@@ -1,6 +1,6 @@
 --------
 
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\! By the way, the AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156)\!
+You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
 
 --------
 
@@ -13,6 +13,7 @@ Find the source code for these examples and others in the AWS documentation [cod
 To propose a new code example for the AWS documentation team to consider producing, create a new request\. The team is looking to produce code examples that cover broader scenarios and use cases, versus simple code snippets that cover only individual API calls\. For instructions, see the "Proposing new code examples" section in the [Readme on GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/README.rst)\.
 
 **Topics**
++ [AWS database services](examples-databases.md)
 + [Amazon Simple Storage Service \(S3\)](examples-s3.md)
 + [Amazon DynamoDB](examples-dynamodb.md)
 + [Amazon EC2](examples-ec2.md)
@@ -35,8 +36,6 @@ To propose a new code example for the AWS documentation team to consider produci
 + [Amazon Personalize](examples-personalize.md)
 + [Amazon Pinpoint](examples-pinpoint.md)
 + [Amazon Polly](examples-polly.md)
-+ [Amazon Relational Database Service](examples-rds.md)
-+ [Amazon Redshift](examples-redshift.md)
 + [Amazon Rekognition](examples-rekognition.md)
 + [Amazon SageMaker](examples-sagemaker.md)
 + [AWS Secrets Manager](examples-secretsmanager.md)

@@ -1,6 +1,6 @@
 --------
 
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\! By the way, the AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156)\!
+You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
 
 --------
 
@@ -15,13 +15,13 @@ The following code examples show you how to perform actions and implement common
 Each example includes a link to GitHub, where you can find instructions on how to set up and run the code in context\.
 
 **Topics**
-+ [Actions](#w591aac15c14b9c53c13)
++ [Actions](#w620aac15c13b9c55c13)
 
-## Actions<a name="w591aac15c14b9c53c13"></a>
+## Actions<a name="w620aac15c13b9c55c13"></a>
 
-### Create an instance<a name="rds_CreateDBInstance_java_topic"></a>
+### Create a DB instance<a name="rds_CreateDBInstance_java_topic"></a>
 
-The following code example shows how to create an Amazon RDS instance and wait for it to be in an available state\.
+The following code example shows how to create an Amazon RDS DB instance and wait for it to become available\.
 
 **SDK for Java 2\.x**  
  To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#readme)\. 
@@ -93,9 +93,9 @@ The following code example shows how to create an Amazon RDS instance and wait f
 ```
 +  For API details, see [CreateDBInstance](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/CreateDBInstance) in *AWS SDK for Java 2\.x API Reference*\. 
 
-### Delete an instance<a name="rds_DeleteDBInstance_java_topic"></a>
+### Delete a DB instance<a name="rds_DeleteDBInstance_java_topic"></a>
 
-The following code example shows how to delete an Amazon RDS instance\.
+The following code example shows how to delete an Amazon RDS DB instance\.
 
 **SDK for Java 2\.x**  
  To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#readme)\. 
@@ -121,9 +121,9 @@ The following code example shows how to delete an Amazon RDS instance\.
 ```
 +  For API details, see [DeleteDBInstance](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/DeleteDBInstance) in *AWS SDK for Java 2\.x API Reference*\. 
 
-### Describe an instance<a name="rds_DescribeDBInstances_java_topic"></a>
+### Describe DB instances<a name="rds_DescribeDBInstances_java_topic"></a>
 
-The following code example shows how to describe an Amazon RDS instance\.
+The following code example shows how to describe Amazon RDS DB instances\.
 
 **SDK for Java 2\.x**  
  To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#readme)\. 
@@ -149,9 +149,9 @@ The following code example shows how to describe an Amazon RDS instance\.
 ```
 +  For API details, see [DescribeDBInstances](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/DescribeDBInstances) in *AWS SDK for Java 2\.x API Reference*\. 
 
-### Modify an instance<a name="rds_ModifyDBInstance_java_topic"></a>
+### Modify a DB instance<a name="rds_ModifyDBInstance_java_topic"></a>
 
-The following code example shows how to modify an Amazon RDS instance\.
+The following code example shows how to modify an Amazon RDS DB instance\.
 
 **SDK for Java 2\.x**  
  To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#readme)\. 
@@ -177,9 +177,9 @@ The following code example shows how to modify an Amazon RDS instance\.
 ```
 +  For API details, see [ModifyDBInstance](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/ModifyDBInstance) in *AWS SDK for Java 2\.x API Reference*\. 
 
-### Reboot an instance<a name="rds_RebootDBInstance_java_topic"></a>
+### Reboot a DB instance<a name="rds_RebootDBInstance_java_topic"></a>
 
-The following code example shows how to reboot an Amazon RDS instance\.
+The following code example shows how to reboot an Amazon RDS DB instance\.
 
 **SDK for Java 2\.x**  
  To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#readme)\. 

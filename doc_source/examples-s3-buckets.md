@@ -1,6 +1,6 @@
 --------
 
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\! By the way, the AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156)\!
+You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
 
 --------
 
@@ -29,10 +29,17 @@ Build a [CreateBucketRequest](http://docs.aws.amazon.com/sdk-for-java/latest/ref
  **Imports** 
 
 ```
+import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 import software.amazon.awssdk.core.waiters.WaiterResponse;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
-import software.amazon.awssdk.services.s3.model.*;
+import software.amazon.awssdk.services.s3.model.CreateBucketRequest;
+import software.amazon.awssdk.services.s3.model.S3Exception;
+import software.amazon.awssdk.services.s3.model.HeadBucketRequest;
+import software.amazon.awssdk.services.s3.model.HeadBucketResponse;
+import software.amazon.awssdk.services.s3.model.ListBucketsRequest;
+import software.amazon.awssdk.services.s3.model.ListBucketsResponse;
+import software.amazon.awssdk.services.s3.model.DeleteBucketRequest;
 import software.amazon.awssdk.services.s3.waiters.S3Waiter;
 ```
 
@@ -41,31 +48,32 @@ import software.amazon.awssdk.services.s3.waiters.S3Waiter;
 First create an S3Client\.
 
 ```
-        Region region = Region.US_WEST_2;
+        ProfileCredentialsProvider credentialsProvider = ProfileCredentialsProvider.create();
+        Region region = Region.US_EAST_1;
         S3Client s3 = S3Client.builder()
-                .region(region)
-                .build();
+            .region(region)
+            .credentialsProvider(credentialsProvider)
+            .build();
 ```
 
 Make a Create Bucket Request\.
 
 ```
-    // Create a bucket by using a S3Waiter object
+     // Create a bucket by using a S3Waiter object
     public static void createBucket( S3Client s3Client, String bucketName) {
 
         try {
             S3Waiter s3Waiter = s3Client.waiter();
-             CreateBucketRequest bucketRequest = CreateBucketRequest.builder()
-                    .bucket(bucketName)
-                    .build();
+            CreateBucketRequest bucketRequest = CreateBucketRequest.builder()
+                .bucket(bucketName)
+                .build();
 
             s3Client.createBucket(bucketRequest);
             HeadBucketRequest bucketRequestWait = HeadBucketRequest.builder()
-                    .bucket(bucketName)
-                    .build();
+                .bucket(bucketName)
+                .build();
 
-
-            // Wait until the bucket is created and print out the response
+            // Wait until the bucket is created and print out the response.
             WaiterResponse<HeadBucketResponse> waiterResponse = s3Waiter.waitUntilBucketExists(bucketRequestWait);
             waiterResponse.matched().response().ifPresent(System.out::println);
             System.out.println(bucketName +" is ready");
@@ -86,10 +94,17 @@ Build a [ListBucketsRequest](http://docs.aws.amazon.com/sdk-for-java/latest/refe
  **Imports** 
 
 ```
+import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 import software.amazon.awssdk.core.waiters.WaiterResponse;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
-import software.amazon.awssdk.services.s3.model.*;
+import software.amazon.awssdk.services.s3.model.CreateBucketRequest;
+import software.amazon.awssdk.services.s3.model.S3Exception;
+import software.amazon.awssdk.services.s3.model.HeadBucketRequest;
+import software.amazon.awssdk.services.s3.model.HeadBucketResponse;
+import software.amazon.awssdk.services.s3.model.ListBucketsRequest;
+import software.amazon.awssdk.services.s3.model.ListBucketsResponse;
+import software.amazon.awssdk.services.s3.model.DeleteBucketRequest;
 import software.amazon.awssdk.services.s3.waiters.S3Waiter;
 ```
 
@@ -98,10 +113,12 @@ import software.amazon.awssdk.services.s3.waiters.S3Waiter;
 First create an S3Client\.
 
 ```
-        Region region = Region.US_WEST_2;
+        ProfileCredentialsProvider credentialsProvider = ProfileCredentialsProvider.create();
+        Region region = Region.US_EAST_1;
         S3Client s3 = S3Client.builder()
-                .region(region)
-                .build();
+            .region(region)
+            .credentialsProvider(credentialsProvider)
+            .build();
 ```
 
 Make a List Buckets Request\.
@@ -130,11 +147,10 @@ Build a [ListObjectsV2Request](http://docs.aws.amazon.com/sdk-for-java/latest/re
  **Imports** 
 
 ```
-import software.amazon.awssdk.core.waiters.WaiterResponse;
+import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.*;
-import software.amazon.awssdk.services.s3.waiters.S3Waiter;
 ```
 
  **Code** 
@@ -142,18 +158,36 @@ import software.amazon.awssdk.services.s3.waiters.S3Waiter;
 First create an S3Client\.
 
 ```
-        Region region = Region.US_WEST_2;
+        ProfileCredentialsProvider credentialsProvider = ProfileCredentialsProvider.create();
+        Region region = Region.US_EAST_1;
         S3Client s3 = S3Client.builder()
                 .region(region)
+                .credentialsProvider(credentialsProvider)
                 .build();
 ```
 
 Delete all objects in the bucket\.
 
 ```
-        DeleteBucketRequest deleteBucketRequest = DeleteBucketRequest.builder().bucket(bucket).build();
-        s3.deleteBucket(deleteBucketRequest);
-        s3.close();
+    public static void deleteObjectsInBucket (S3Client s3, String bucket) {
+
+        try {
+            // To delete a bucket, all the objects in the bucket must be deleted first.
+            ListObjectsV2Request listObjectsV2Request = ListObjectsV2Request.builder()
+                    .bucket(bucket)
+                    .build();
+            ListObjectsV2Response listObjectsV2Response;
+
+            do {
+                listObjectsV2Response = s3.listObjectsV2(listObjectsV2Request);
+                for (S3Object s3Object : listObjectsV2Response.contents()) {
+                    DeleteObjectRequest request = DeleteObjectRequest.builder()
+                            .bucket(bucket)
+                            .key(s3Object.key())
+                            .build();
+                    s3.deleteObject(request);
+                }
+            } while (listObjectsV2Response.isTruncated());
 ```
 
 See the [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/s3/src/main/java/com/example/s3/S3BucketDeletion.java) on GitHub\.
@@ -165,10 +199,17 @@ Build a [DeleteBucketRequest](http://docs.aws.amazon.com/sdk-for-java/latest/ref
  **Imports** 
 
 ```
+import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 import software.amazon.awssdk.core.waiters.WaiterResponse;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
-import software.amazon.awssdk.services.s3.model.*;
+import software.amazon.awssdk.services.s3.model.CreateBucketRequest;
+import software.amazon.awssdk.services.s3.model.S3Exception;
+import software.amazon.awssdk.services.s3.model.HeadBucketRequest;
+import software.amazon.awssdk.services.s3.model.HeadBucketResponse;
+import software.amazon.awssdk.services.s3.model.ListBucketsRequest;
+import software.amazon.awssdk.services.s3.model.ListBucketsResponse;
+import software.amazon.awssdk.services.s3.model.DeleteBucketRequest;
 import software.amazon.awssdk.services.s3.waiters.S3Waiter;
 ```
 
@@ -177,38 +218,21 @@ import software.amazon.awssdk.services.s3.waiters.S3Waiter;
 First create an S3Client\.
 
 ```
-        Region region = Region.US_WEST_2;
+        ProfileCredentialsProvider credentialsProvider = ProfileCredentialsProvider.create();
+        Region region = Region.US_EAST_1;
         S3Client s3 = S3Client.builder()
-                .region(region)
-                .build();
-```
-
-Delete all objects in the bucket\.
-
-```
-    public static void deleteBucketObjects(S3Client s3, String bucketName, String objectName) {
-
-        ArrayList<ObjectIdentifier> toDelete = new ArrayList<ObjectIdentifier>();
-        toDelete.add(ObjectIdentifier.builder().key(objectName).build());
-
-        try {
-            DeleteObjectsRequest dor = DeleteObjectsRequest.builder()
-                    .bucket(bucketName)
-                    .delete(Delete.builder().objects(toDelete).build())
-                    .build();
-            s3.deleteObjects(dor);
-        } catch (S3Exception e) {
-            System.err.println(e.awsErrorDetails().errorMessage());
-            System.exit(1);
-        }
-        System.out.println("Done!");
-    }
+            .region(region)
+            .credentialsProvider(credentialsProvider)
+            .build();
 ```
 
 Delete the bucket\.
 
 ```
-        DeleteBucketRequest deleteBucketRequest = DeleteBucketRequest.builder().bucket(bucket).build();
+        DeleteBucketRequest deleteBucketRequest = DeleteBucketRequest.builder()
+            .bucket(bucket)
+            .build();
+
         s3.deleteBucket(deleteBucketRequest);
         s3.close();
 ```

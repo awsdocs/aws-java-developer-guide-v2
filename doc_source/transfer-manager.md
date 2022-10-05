@@ -1,10 +1,15 @@
 --------
 
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\! By the way, the AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156)\!
+You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
 
 --------
 
 # Amazon S3 Transfer Manager \(Preview\)<a name="transfer-manager"></a>
+
+
+|  | 
+| --- |
+| The Amazon S3 Transfer Manager is in developer preview release for AWS SDK for Java 2\.x and is subject to change\. | 
 
 The Amazon S3 Transfer Manager \(Preview\) is an open\-source high level file transfer utility for the AWS SDK for Java 2\.x that you can use to easily transfer files to and from Amazon Simple Storage Service \(S3\)\. It’s built on top of the Java bindings of the [AWS Common Runtime S3 Client](https://github.com/awslabs/aws-crt-java), benefiting from its enhanced throughput, performance, and reliability by leveraging Amazon S3 multipart upload and byte\-range fetches for parallel transfers\.
 
@@ -79,6 +84,12 @@ S3ClientConfiguration s3ClientConfiguration =
                              .minimumPartSizeInBytes(10 * MB)
                              .targetThroughputInGbps(20.0)
                              .build();
+
+S3TransferManager s3TransferManager = S3TransferManager.builder()
+                            .s3ClientConfiguration(s3ClientConfiguration)
+                            .build();
+
+// use the configured s3TransferManager instance
 ```
 
 ## Upload a file to S3<a name="transfer-manager-upload"></a>

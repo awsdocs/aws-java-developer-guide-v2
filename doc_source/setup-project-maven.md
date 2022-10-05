@@ -1,6 +1,6 @@
 --------
 
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\! By the way, the AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156)\!
+You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
 
 --------
 
@@ -144,7 +144,7 @@ If you created your project using the project archetype as described earlier, yo
 Add the modules to your project for the AWS service and features you need for your project\. The modules \(dependencies\) that are managed by the AWS SDK for Java BOM are listed on the Maven central repository \([https://mvnrepository\.com/artifact/software\.amazon\.awssdk/bom/latest](https://mvnrepository.com/artifact/software.amazon.awssdk/bom/latest)\)\.
 
 **Note**  
-You can look at the `pom.xml` file from a code example to determine which dependencies you need for your project\. For example, if you’re interested in the dependencies for the Amazon S3 service, see [this example](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java) from the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2) on GitHub\. \(Look for the `pom.xml` file file under [/java2/example\_code/s3](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/pom.xml)\.\)
+You can look at the `pom.xml` file from a code example to determine which dependencies you need for your project\. For example, if you’re interested in the dependencies for the Amazon S3 service, see [this example](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java) from the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2) on GitHub\. \(Look for the `pom.xml` file under [/java2/example\_code/s3](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/pom.xml)\.\)
 
 ### Build the entire SDK into your project<a name="build-the-entire-sdk-into-your-project"></a>
 

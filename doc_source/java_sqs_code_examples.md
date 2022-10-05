@@ -1,6 +1,6 @@
 --------
 
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\! By the way, the AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156)\!
+You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
 
 --------
 
@@ -15,9 +15,9 @@ The following code examples show you how to perform actions and implement common
 Each example includes a link to GitHub, where you can find instructions on how to set up and run the code in context\.
 
 **Topics**
-+ [Actions](#w591aac15c14b9c65c13)
++ [Actions](#w620aac15c13b9c71c13)
 
-## Actions<a name="w591aac15c14b9c65c13"></a>
+## Actions<a name="w620aac15c13b9c71c13"></a>
 
 ### Create a queue<a name="sqs_CreateQueue_java_topic"></a>
 
@@ -316,31 +316,65 @@ The following code example shows how to send a message to an Amazon SQS queue\.
   
 
 ```
-    public static void sendMessage(SqsClient sqsClient, String queueName, String message) {
+public class SendReceiveMessages {
+    private static final String QUEUE_NAME = "testQueue" + new Date().getTime();
+
+    public static void main(String[] args) {
+
+        SqsClient sqsClient = SqsClient.builder()
+                .region(Region.US_WEST_2)
+                .build();
 
         try {
             CreateQueueRequest request = CreateQueueRequest.builder()
-                .queueName(queueName)
-                .build();
-            sqsClient.createQueue(request);
+                    .queueName(QUEUE_NAME)
+                    .build();
+            CreateQueueResponse createResult = sqsClient.createQueue(request);
 
             GetQueueUrlRequest getQueueRequest = GetQueueUrlRequest.builder()
-                .queueName(queueName)
+                .queueName(QUEUE_NAME)
                 .build();
 
             String queueUrl = sqsClient.getQueueUrl(getQueueRequest).queueUrl();
+
             SendMessageRequest sendMsgRequest = SendMessageRequest.builder()
                 .queueUrl(queueUrl)
-                .messageBody(message)
+                .messageBody("hello world")
                 .delaySeconds(5)
                 .build();
-
             sqsClient.sendMessage(sendMsgRequest);
 
-        } catch (SqsException e) {
-            System.err.println(e.awsErrorDetails().errorMessage());
-            System.exit(1);
+             // Send multiple messages to the queue
+            SendMessageBatchRequest sendBatchRequest = SendMessageBatchRequest.builder()
+                .queueUrl(queueUrl)
+                .entries(
+                        SendMessageBatchRequestEntry.builder()
+                                .messageBody("Hello from message 1")
+                                .id("msg_1")
+                                .build()
+                        ,
+                        SendMessageBatchRequestEntry.builder()
+                                .messageBody("Hello from message 2")
+                                .delaySeconds(10)
+                                .id("msg_2")
+                                .build())
+                .build();
+             sqsClient.sendMessageBatch(sendBatchRequest);
+
+            // Receive messages from the queue
+            ReceiveMessageRequest receiveRequest = ReceiveMessageRequest.builder()
+                .queueUrl(queueUrl)
+                .build();
+            List<Message> messages = sqsClient.receiveMessage(receiveRequest).messages();
+
+            // Print out the messages
+             for (Message m : messages) {
+                System.out.println("\n" +m.body());
+            }
+        } catch (QueueNameExistsException e) {
+            throw e;
         }
     }
+}
 ```
 +  For API details, see [SendMessage](https://docs.aws.amazon.com/goto/SdkForJavaV2/sqs-2012-11-05/SendMessage) in *AWS SDK for Java 2\.x API Reference*\. 

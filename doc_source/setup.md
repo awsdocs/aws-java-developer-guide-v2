@@ -1,6 +1,6 @@
 --------
 
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\! By the way, the AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156)\!
+You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
 
 --------
 
@@ -149,7 +149,7 @@ Your development environment needs the following:
 
 ## Next steps<a name="setup-nextsteps"></a>
 
-Once you have your AWS account and development environment set up, create a Java project using your preferred build tool\. Import [the Maven bill of materials \(BOM\) for the AWS SDK for Java 2\.x from Maven Central](https://mvnrepository.com/artifact/software.amazon.awssdk/bom/latest), `software.amazon.awssdk`\. Then add dependendies for the services you’ll use in your application\.
+Once you have your AWS account and development environment set up, create a Java project using your preferred build tool\. Check [the Maven bill of materials \(BOM\) for the AWS SDK for Java 2\.x from Maven Central](https://mvnrepository.com/artifact/software.amazon.awssdk/bom/latest), for the latest version\. Use that version number in the `<dependencyManagement>` section below\. Then add dependencies for the services you’ll use in your application\.
 
 Example Maven `pom.xml` file:
 
@@ -170,7 +170,7 @@ Example Maven `pom.xml` file:
    <dependency>
     <groupId>software.amazon.awssdk</groupId>
     <artifactId>bom</artifactId>
-    <version>2.15.0</version>
+    <version>2.17.261</version>
     <type>pom</type>
     <scope>import</scope>
    </dependency>

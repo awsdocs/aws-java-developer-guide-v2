@@ -1,6 +1,6 @@
 --------
 
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\! By the way, the AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156)\!
+You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
 
 --------
 
@@ -34,12 +34,16 @@ The following code examples show how to perform actions and implement common sce
 + [Amazon Personalize Events](java_personalize-events_code_examples.md)
 + [Amazon Personalize Runtime](java_personalize-runtime_code_examples.md)
 + [Amazon Pinpoint](java_pinpoint_code_examples.md)
++ [Amazon Pinpoint SMS and Voice API](java_pinpoint-sms-voice_code_examples.md)
 + [Amazon RDS](java_rds_code_examples.md)
++ [Amazon Redshift](java_redshift_code_examples.md)
 + [Amazon Rekognition](java_rekognition_code_examples.md)
 + [Amazon S3](java_s3_code_examples.md)
 + [S3 Glacier](java_glacier_code_examples.md)
 + [Amazon SES](java_ses_code_examples.md)
++ [Amazon SES API v2](java_sesv2_code_examples.md)
 + [Amazon SNS](java_sns_code_examples.md)
 + [Amazon SQS](java_sqs_code_examples.md)
 + [Secrets Manager](java_secrets-manager_code_examples.md)
++ [Step Functions](java_sfn_code_examples.md)
 + [Amazon Textract](java_textract_code_examples.md)

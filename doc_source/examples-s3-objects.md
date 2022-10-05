@@ -1,6 +1,6 @@
 --------
 
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\! By the way, the AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156)\!
+You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
 
 --------
 
@@ -274,6 +274,7 @@ Build a [CopyObjectRequest](http://docs.aws.amazon.com/sdk-for-java/latest/refer
  **Imports** 
 
 ```
+import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.CopyObjectRequest;
@@ -289,21 +290,24 @@ import java.nio.charset.StandardCharsets;
 ```
     public static String copyBucketObject (S3Client s3, String fromBucket, String objectKey, String toBucket) {
 
-        String encodedUrl = null;
+        String encodedUrl = "";
         try {
             encodedUrl = URLEncoder.encode(fromBucket + "/" + objectKey, StandardCharsets.UTF_8.toString());
+        
         } catch (UnsupportedEncodingException e) {
             System.out.println("URL could not be encoded: " + e.getMessage());
         }
+        
         CopyObjectRequest copyReq = CopyObjectRequest.builder()
-                .copySource(encodedUrl)
-                .destinationBucket(toBucket)
-                .destinationKey(objectKey)
-                .build();
+            .copySourceIfMatch(encodedUrl)
+            .destinationBucket(toBucket)
+            .destinationKey(objectKey)
+            .build();
 
         try {
             CopyObjectResponse copyRes = s3.copyObject(copyReq);
             return copyRes.copyObjectResult().toString();
+
         } catch (S3Exception e) {
             System.err.println(e.awsErrorDetails().errorMessage());
             System.exit(1);
@@ -321,6 +325,7 @@ Build a [ListObjectsRequest](http://docs.aws.amazon.com/sdk-for-java/latest/refe
  **Imports** 
 
 ```
+import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.ListObjectsRequest;
@@ -328,7 +333,6 @@ import software.amazon.awssdk.services.s3.model.ListObjectsResponse;
 import software.amazon.awssdk.services.s3.model.S3Exception;
 import software.amazon.awssdk.services.s3.model.S3Object;
 import java.util.List;
-import java.util.ListIterator;
 ```
 
  **Code** 
@@ -336,29 +340,27 @@ import java.util.ListIterator;
 ```
     public static void listBucketObjects(S3Client s3, String bucketName ) {
 
-       try {
+        try {
             ListObjectsRequest listObjects = ListObjectsRequest
-                    .builder()
-                    .bucket(bucketName)
-                    .build();
+                .builder()
+                .bucket(bucketName)
+                .build();
 
             ListObjectsResponse res = s3.listObjects(listObjects);
             List<S3Object> objects = res.contents();
-
-            for (ListIterator iterVals = objects.listIterator(); iterVals.hasNext(); ) {
-                S3Object myValue = (S3Object) iterVals.next();
+            for (S3Object myValue : objects) {
                 System.out.print("\n The name of the key is " + myValue.key());
                 System.out.print("\n The object is " + calKb(myValue.size()) + " KBs");
                 System.out.print("\n The owner is " + myValue.owner());
-
-             }
+            }
 
         } catch (S3Exception e) {
             System.err.println(e.awsErrorDetails().errorMessage());
             System.exit(1);
         }
     }
-    //convert bytes to kbs
+
+    //convert bytes to kbs.
     private static long calKb(Long val) {
         return val/1024;
     }

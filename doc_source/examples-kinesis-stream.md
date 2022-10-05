@@ -1,6 +1,6 @@
 --------
 
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\! By the way, the AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156)\!
+You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
 
 --------
 
@@ -81,7 +81,7 @@ For more control of the publisher, you can use the `publisherTransformer` method
     }
 ```
 
-See the [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/kinesis/src/main/java/com/example/kinesis/AmazonKinesisStreamEx.java) on GitHub\.
+See the [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/kinesis/src/main/java/com/example/kinesis/KinesisStreamEx.java) on GitHub\.
 
 ## Use a custom response handler<a name="use-a-custom-response-handler"></a>
 
@@ -129,7 +129,7 @@ In this example, you implement the `onEventStream` method, which allows you full
     }
 ```
 
-See the [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/kinesis/src/main/java/com/example/kinesis/AmazonKinesisStreamEx.java) on GitHub\.
+See the [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/kinesis/src/main/java/com/example/kinesis/KinesisStreamEx.java) on GitHub\.
 
 ## Use the visitor interface<a name="use-the-visitor-interface"></a>
 
@@ -152,7 +152,7 @@ You can use a [Visitor](http://docs.aws.amazon.com/sdk-for-java/latest/reference
     }
 ```
 
-See the [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/kinesis/src/main/java/com/example/kinesis/AmazonKinesisStreamEx.java) on GitHub\.
+See the [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/kinesis/src/main/java/com/example/kinesis/KinesisStreamEx.java) on GitHub\.
 
 ## Use a custom subscriber<a name="use-a-custom-subscriber"></a>
 
@@ -211,7 +211,7 @@ You can pass that custom subscriber to the `subscribe` method, similarly to prev
     }
 ```
 
-See the [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/kinesis/src/main/java/com/example/kinesis/AmazonKinesisStreamEx.java) on GitHub\.
+See the [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/kinesis/src/main/java/com/example/kinesis/KinesisStreamEx.java) on GitHub\.
 
 ## Write data records into a Kinesis data stream<a name="write-data-records-into-a-kinesis-data-stream"></a>
 
@@ -220,23 +220,14 @@ You can use the [AmazonKinesisClient](http://docs.aws.amazon.com/sdk-for-java/la
  **Imports** 
 
 ```
-import java.net.URI;
-import java.util.concurrent.CompletableFuture;
-
-import io.reactivex.Flowable;
 import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
-import software.amazon.awssdk.core.async.SdkPublisher;
-import software.amazon.awssdk.http.Protocol;
-import software.amazon.awssdk.http.SdkHttpConfigurationOption;
-import software.amazon.awssdk.http.nio.netty.NettyNioAsyncHttpClient;
+import software.amazon.awssdk.core.SdkBytes;
 import software.amazon.awssdk.regions.Region;
-import software.amazon.awssdk.services.kinesis.KinesisAsyncClient;
-import software.amazon.awssdk.services.kinesis.model.ShardIteratorType;
-import software.amazon.awssdk.services.kinesis.model.StartingPosition;
-import software.amazon.awssdk.services.kinesis.model.SubscribeToShardEvent;
-import software.amazon.awssdk.services.kinesis.model.SubscribeToShardRequest;
-import software.amazon.awssdk.services.kinesis.model.SubscribeToShardResponseHandler;
-import software.amazon.awssdk.utils.AttributeMap;
+import software.amazon.awssdk.services.kinesis.KinesisClient;
+import software.amazon.awssdk.services.kinesis.model.PutRecordRequest;
+import software.amazon.awssdk.services.kinesis.model.KinesisException;
+import software.amazon.awssdk.services.kinesis.model.DescribeStreamRequest;
+import software.amazon.awssdk.services.kinesis.model.DescribeStreamResponse;
 ```
 
 In the following Java code example, notice that **StockTrade** object is used as the data to write to the Kinesis data stream\. Before running this example, ensure that you have created the data stream\.
@@ -244,13 +235,69 @@ In the following Java code example, notice that **StockTrade** object is used as
  **Code** 
 
 ```
-    private static CompletableFuture<Void> responseHandlerBuilderSubscriber(KinesisAsyncClient client, SubscribeToShardRequest request) {
-        SubscribeToShardResponseHandler responseHandler = SubscribeToShardResponseHandler
-                .builder()
-                .onError(t -> System.err.println("Error during stream - " + t.getMessage()))
-                .subscriber(MySubscriber::new)
+    public static void setStockData( KinesisClient kinesisClient, String streamName) {
+
+        try {
+            // Repeatedly send stock trades with a 100 milliseconds wait in between.
+            StockTradeGenerator stockTradeGenerator = new StockTradeGenerator();
+
+            // Put in 50 Records for this example.
+            int index = 50;
+            for (int x=0; x<index; x++){
+                StockTrade trade = stockTradeGenerator.getRandomTrade();
+                sendStockTrade(trade, kinesisClient, streamName);
+                Thread.sleep(100);
+            }
+
+        } catch (KinesisException | InterruptedException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+        System.out.println("Done");
+    }
+
+    private static void sendStockTrade(StockTrade trade, KinesisClient kinesisClient,
+                                       String streamName) {
+        byte[] bytes = trade.toJsonAsBytes();
+
+        // The bytes could be null if there is an issue with the JSON serialization by the Jackson JSON library.
+        if (bytes == null) {
+            System.out.println("Could not get JSON bytes for stock trade");
+            return;
+        }
+
+        System.out.println("Putting trade: " + trade);
+        PutRecordRequest request = PutRecordRequest.builder()
+            .partitionKey(trade.getTickerSymbol()) // We use the ticker symbol as the partition key, explained in the Supplemental Information section below.
+            .streamName(streamName)
+            .data(SdkBytes.fromByteArray(bytes))
+            .build();
+
+        try {
+            kinesisClient.putRecord(request);
+        } catch (KinesisException e) {
+            e.getMessage();
+        }
+    }
+
+    private static void validateStream(KinesisClient kinesisClient, String streamName) {
+        try {
+            DescribeStreamRequest describeStreamRequest = DescribeStreamRequest.builder()
+                .streamName(streamName)
                 .build();
-        return client.subscribeToShard(request, responseHandler);
+
+            DescribeStreamResponse describeStreamResponse = kinesisClient.describeStream(describeStreamRequest);
+
+            if(!describeStreamResponse.streamDescription().streamStatus().toString().equals("ACTIVE")) {
+                System.err.println("Stream " + streamName + " is not active. Please wait a few moments and try again.");
+                System.exit(1);
+            }
+
+        }catch (KinesisException e) {
+            System.err.println("Error found while describing the stream " + streamName);
+            System.err.println(e);
+            System.exit(1);
+        }
     }
 ```
 
@@ -323,7 +370,7 @@ You can also use the `publisherTransformer` method with the `Flowable` publisher
             .build();
 ```
 
-See the [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/kinesis/src/main/java/com/example/kinesis/AmazonKinesisStreamRxJavaEx.java) on GitHub\.
+See the [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/kinesis/src/main/java/com/example/kinesis/KinesisStreamRxJavaEx.java) on GitHub\.
 
 ## More information<a name="more-information"></a>
 +  [SubscribeToShardEvent](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_SubscribeToShardEvent.html) in the Amazon Kinesis API Reference

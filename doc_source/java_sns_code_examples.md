@@ -1,6 +1,6 @@
 --------
 
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\! By the way, the AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156)\!
+You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
 
 --------
 
@@ -15,9 +15,10 @@ The following code examples show you how to perform actions and implement common
 Each example includes a link to GitHub, where you can find instructions on how to set up and run the code in context\.
 
 **Topics**
-+ [Actions](#w591aac15c14b9c63c13)
++ [Actions](#w620aac15c13b9c69c13)
++ [Scenarios](#w620aac15c13b9c69c15)
 
-## Actions<a name="w591aac15c14b9c63c13"></a>
+## Actions<a name="w620aac15c13b9c69c13"></a>
 
 ### Add tags to a topic<a name="sns_TagResource_java_topic"></a>
 
@@ -453,6 +454,21 @@ The following code example shows how to set the default settings for sending SMS
   
 
 ```
+public class SetSMSAttributes {
+    public static void main(String[] args) {
+
+        HashMap<String, String> attributes = new HashMap<>(1);
+        attributes.put("DefaultSMSType", "Transactional");
+        attributes.put("UsageReportS3Bucket", "janbucket" );
+
+        SnsClient snsClient = SnsClient.builder()
+            .region(Region.US_EAST_1)
+            .credentialsProvider(ProfileCredentialsProvider.create())
+            .build();
+        setSNSAttributes(snsClient, attributes);
+        snsClient.close();
+    }
+
     public static void setSNSAttributes( SnsClient snsClient, HashMap<String, String> attributes) {
 
         try {
@@ -591,3 +607,262 @@ The following code example shows how to subscribe an email address to an Amazon 
     }
 ```
 +  For API details, see [Subscribe](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/Subscribe) in *AWS SDK for Java 2\.x API Reference*\. 
+
+## Scenarios<a name="w620aac15c13b9c69c15"></a>
+
+### Create a platform endpoint for push notifications<a name="sns_CreatePlatformEndpoint_java_topic"></a>
+
+The following code example shows how to create a platform endpoint for Amazon SNS push notifications\.
+
+**SDK for Java 2\.x**  
+ To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#readme)\. 
+  
+
+```
+public class RegistrationExample {
+
+    public static void main(String[] args) {
+
+        final String usage = "\n" +
+            "Usage: " +
+            "    <token>\n\n" +
+            "Where:\n" +
+            "   token - The name of the FIFO topic. \n\n" +
+            "   platformApplicationArn - The ARN value of platform application. You can get this value from the AWS Management Console. \n\n";
+
+        if (args.length != 2) {
+            System.out.println(usage);
+            System.exit(1);
+        }
+
+        String token = args[0];
+        String platformApplicationArn = args[1];
+        SnsClient snsClient = SnsClient.builder()
+            .region(Region.US_EAST_1)
+            .credentialsProvider(ProfileCredentialsProvider.create())
+            .build();
+
+        createEndpoint(snsClient, token, platformApplicationArn);
+    }
+
+    public static void createEndpoint(SnsClient snsClient, String token, String platformApplicationArn){
+
+        System.out.println("Creating platform endpoint with token " + token);
+
+        try {
+            CreatePlatformEndpointRequest endpointRequest = CreatePlatformEndpointRequest.builder()
+                .token(token)
+                .platformApplicationArn(platformApplicationArn)
+                .build();
+
+            CreatePlatformEndpointResponse response = snsClient.createPlatformEndpoint(endpointRequest);
+            System.out.println("The ARN of the endpoint is " + response.endpointArn());
+        } catch ( SnsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+}
+```
+
+### Create and publish to a FIFO topic<a name="sns_PublishFifoTopic_java_topic"></a>
+
+The following code example shows how to create and publish to a FIFO Amazon SNS topic\.
+
+**SDK for Java 2\.x**  
+ To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#readme)\. 
+Create a FIFO topic and FIFO queues\. Subscribe the queues to the topic\.  
+
+```
+    public static void main(String[] args) {
+
+        final String usage = "\n" +
+            "Usage: " +
+            "    <topicArn>\n\n" +
+            "Where:\n" +
+            "   fifoTopicName - The name of the FIFO topic. \n\n" +
+            "   fifoQueueARN - The ARN value of a SQS FIFO queue. You can get this value from the AWS Management Console. \n\n";
+
+        if (args.length != 2) {
+            System.out.println(usage);
+            System.exit(1);
+        }
+
+        String fifoTopicName = "PriceUpdatesTopic3.fifo";
+        String fifoQueueARN = "arn:aws:sqs:us-east-1:814548047983:MyPriceSQS.fifo";
+        SnsClient snsClient = SnsClient.builder()
+            .region(Region.US_EAST_1)
+            .credentialsProvider(ProfileCredentialsProvider.create())
+            .build();
+
+        createFIFO(snsClient, fifoTopicName, fifoQueueARN);
+    }
+
+    public static void createFIFO(SnsClient snsClient, String topicName, String queueARN) {
+
+        try {
+            // Create a FIFO topic by using the SNS service client.
+            Map<String, String> topicAttributes = new HashMap<>();
+            topicAttributes.put("FifoTopic", "true");
+            topicAttributes.put("ContentBasedDeduplication", "false");
+
+            CreateTopicRequest topicRequest = CreateTopicRequest.builder()
+                .name(topicName)
+                .attributes(topicAttributes)
+                .build();
+
+            CreateTopicResponse response = snsClient.createTopic(topicRequest);
+            String topicArn = response.topicArn();
+            System.out.println("The topic ARN is"+topicArn);
+
+            // Subscribe to the endpoint by using the SNS service client.
+            // Only Amazon SQS FIFO queues can receive notifications from an Amazon SNS FIFO topic.
+            SubscribeRequest subscribeRequest = SubscribeRequest.builder()
+                .topicArn(topicArn)
+                .endpoint(queueARN)
+                .protocol("sqs")
+                .build();
+
+            snsClient.subscribe(subscribeRequest);
+            System.out.println("The topic is subscribed to the queue.");
+
+            // Compose and publish a message that updates the wholesale price.
+            String subject = "Price Update";
+            String payload = "{\"product\": 214, \"price\": 79.99}";
+            String groupId = "PID-214";
+            String dedupId = UUID.randomUUID().toString();
+            String attributeName = "business";
+            String attributeValue = "wholesale";
+
+            MessageAttributeValue msgAttValue = MessageAttributeValue.builder()
+                .dataType("String")
+                .stringValue(attributeValue)
+                .build();
+
+            Map<String, MessageAttributeValue> attributes = new HashMap<>();
+            attributes.put(attributeName, msgAttValue);
+            PublishRequest pubRequest = PublishRequest.builder()
+                .topicArn(topicArn)
+                .subject(subject)
+                .message(payload)
+                .messageGroupId(groupId)
+                .messageDeduplicationId(dedupId)
+                .messageAttributes(attributes)
+                .build();
+
+            snsClient.publish(pubRequest);
+            System.out.println("Message was published to "+topicArn);
+
+        } catch (SnsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+}
+```
+
+### Publish SMS messages to a topic<a name="sns_UsageSmsTopic_java_topic"></a>
+
+The following code example shows how to:
++ Create an Amazon SNS topic\.
++ Subscribe phone numbers to the topic\.
++ Publish SMS messages to the topic so that all subscribed phone numbers receive the message at once\.
+
+**SDK for Java 2\.x**  
+ To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#readme)\. 
+Create a topic and return its ARN\.  
+
+```
+    public static String createSNSTopic(SnsClient snsClient, String topicName ) {
+
+        CreateTopicResponse result = null;
+        try {
+            CreateTopicRequest request = CreateTopicRequest.builder()
+                .name(topicName)
+                .build();
+
+            result = snsClient.createTopic(request);
+            return result.topicArn();
+
+        } catch (SnsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+        return "";
+    }
+```
+Subscribe an endpoint to a topic\.  
+
+```
+    public static void subTextSNS( SnsClient snsClient, String topicArn, String phoneNumber) {
+
+        try {
+            SubscribeRequest request = SubscribeRequest.builder()
+                .protocol("sms")
+                .endpoint(phoneNumber)
+                .returnSubscriptionArn(true)
+                .topicArn(topicArn)
+                .build();
+
+            SubscribeResponse result = snsClient.subscribe(request);
+            System.out.println("Subscription ARN: " + result.subscriptionArn() + "\n\n Status is " + result.sdkHttpResponse().statusCode());
+
+        } catch (SnsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+```
+Set attributes on the message, such as the ID of the sender, the maximum price, and its type\. Message attributes are optional\.  
+
+```
+public class SetSMSAttributes {
+    public static void main(String[] args) {
+
+        HashMap<String, String> attributes = new HashMap<>(1);
+        attributes.put("DefaultSMSType", "Transactional");
+        attributes.put("UsageReportS3Bucket", "janbucket" );
+
+        SnsClient snsClient = SnsClient.builder()
+            .region(Region.US_EAST_1)
+            .credentialsProvider(ProfileCredentialsProvider.create())
+            .build();
+        setSNSAttributes(snsClient, attributes);
+        snsClient.close();
+    }
+
+    public static void setSNSAttributes( SnsClient snsClient, HashMap<String, String> attributes) {
+
+        try {
+            SetSmsAttributesRequest request = SetSmsAttributesRequest.builder()
+                .attributes(attributes)
+                .build();
+
+            SetSmsAttributesResponse result = snsClient.setSMSAttributes(request);
+            System.out.println("Set default Attributes to " + attributes + ". Status was " + result.sdkHttpResponse().statusCode());
+
+        } catch (SnsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+```
+Publish a message to a topic\. The message is sent to every subscriber\.  
+
+```
+    public static void pubTextSMS(SnsClient snsClient, String message, String phoneNumber) {
+        try {
+            PublishRequest request = PublishRequest.builder()
+                .message(message)
+                .phoneNumber(phoneNumber)
+                .build();
+
+            PublishResponse result = snsClient.publish(request);
+            System.out.println(result.messageId() + " Message sent. Status was " + result.sdkHttpResponse().statusCode());
+
+        } catch (SnsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+```

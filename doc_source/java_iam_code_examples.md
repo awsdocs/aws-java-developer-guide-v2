@@ -1,6 +1,6 @@
 --------
 
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\! By the way, the AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156)\!
+You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
 
 --------
 
@@ -15,10 +15,10 @@ The following code examples show you how to perform actions and implement common
 Each example includes a link to GitHub, where you can find instructions on how to set up and run the code in context\.
 
 **Topics**
-+ [Actions](#w591aac15c14b9c37c13)
-+ [Scenarios](#w591aac15c14b9c37c15)
++ [Actions](#w620aac15c13b9c37c13)
++ [Scenarios](#w620aac15c13b9c37c15)
 
-## Actions<a name="w591aac15c14b9c37c13"></a>
+## Actions<a name="w620aac15c13b9c37c13"></a>
 
 ### Attach a policy to a role<a name="iam_AttachRolePolicy_java_topic"></a>
 
@@ -575,7 +575,7 @@ The following code example shows how to update an IAM access key\.
 ```
 +  For API details, see [UpdateAccessKey](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/UpdateAccessKey) in *AWS SDK for Java 2\.x API Reference*\. 
 
-## Scenarios<a name="w591aac15c14b9c37c15"></a>
+## Scenarios<a name="w620aac15c13b9c37c15"></a>
 
 ### Create a user and assume a role<a name="iam_Scenario_CreateUserAssumeRole_java_topic"></a>
 

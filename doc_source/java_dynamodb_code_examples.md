@@ -1,6 +1,6 @@
 --------
 
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\! By the way, the AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156)\!
+You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
 
 --------
 
@@ -15,10 +15,10 @@ The following code examples show you how to perform actions and implement common
 Each example includes a link to GitHub, where you can find instructions on how to set up and run the code in context\.
 
 **Topics**
-+ [Actions](#w591aac15c14b9c27c13)
-+ [Scenarios](#w591aac15c14b9c27c15)
++ [Actions](#w620aac15c13b9c27c13)
++ [Scenarios](#w620aac15c13b9c27c15)
 
-## Actions<a name="w591aac15c14b9c27c13"></a>
+## Actions<a name="w620aac15c13b9c27c13"></a>
 
 ### Create a table<a name="dynamodb_CreateTable_java_topic"></a>
 
@@ -275,7 +275,6 @@ Puts an item into a table by using the enhanced client\.
 
 ```
     public static void putRecord(DynamoDbEnhancedClient enhancedClient) {
-
         try {
             DynamoDbTable<Customer> custTable = enhancedClient.table("Customer", TableSchema.fromBean(Customer.class));
 
@@ -287,7 +286,7 @@ Puts an item into a table by using the enhanced client\.
             // Populate the Table.
             Customer custRecord = new Customer();
             custRecord.setCustName("Tom red");
-            custRecord.setId("id119");
+            custRecord.setId("id101");
             custRecord.setEmail("tred@noserver.com");
             custRecord.setRegistrationDate(instant) ;
 
@@ -298,7 +297,7 @@ Puts an item into a table by using the enhanced client\.
             System.err.println(e.getMessage());
             System.exit(1);
         }
-        System.out.println("Customer data added to the table.");
+        System.out.println("Customer data added to the table with id id101");
     }
 ```
 +  For API details, see [PutItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem) in *AWS SDK for Java 2\.x API Reference*\. 
@@ -522,7 +521,8 @@ Inserts many items into a table by using the enhanced client\.
     public static void putBatchRecords(DynamoDbEnhancedClient enhancedClient) {
 
         try {
-            DynamoDbTable<Customer> mappedTable = enhancedClient.table("Customer", TableSchema.fromBean(Customer.class));
+            DynamoDbTable<Customer> customerMappedTable = enhancedClient.table("Customer", TableSchema.fromBean(Customer.class));
+            DynamoDbTable<Music> musicMappedTable = enhancedClient.table("Music", TableSchema.fromBean(Music.class));
             LocalDate localDate = LocalDate.parse("2020-04-07");
             LocalDateTime localDateTime = localDate.atStartOfDay();
             Instant instant = localDateTime.toInstant(ZoneOffset.UTC);
@@ -540,15 +540,23 @@ Inserts many items into a table by using the enhanced client\.
             record3.setRegistrationDate(instant) ;
 
             BatchWriteItemEnhancedRequest batchWriteItemEnhancedRequest = BatchWriteItemEnhancedRequest.builder()
-                .writeBatches(WriteBatch.builder(Customer.class)
-                    .mappedTableResource(mappedTable)
-                    .addPutItem(r -> r.item(record2))
-                    .addPutItem(r -> r.item(record3))
-                    .build())
-                .build();
+                    .writeBatches(
+                            WriteBatch.builder(Customer.class)          // add items to the Customer table
+                                    .mappedTableResource(customerMappedTable)
+                                    .addPutItem(builder -> builder.item(record2))
+                                    .addPutItem(builder -> builder.item(record3))
+                                    .build(),
+                            WriteBatch.builder(Music.class)             // delete an item from the Music table
+                                    .mappedTableResource(musicMappedTable)
+                                    .addDeleteItem(builder -> builder.key(
+                                            Key.builder().partitionValue("Famous Band").build()))
+                                    .build())
+                    .build();
 
-            // Add these two items to the table.
+
+            // Add two items to the Customer table and delete one item from the Music table
             enhancedClient.batchWriteItem(batchWriteItemEnhancedRequest);
+
             System.out.println("done");
 
         } catch (DynamoDbException e) {
@@ -559,7 +567,7 @@ Inserts many items into a table by using the enhanced client\.
 ```
 +  For API details, see [BatchWriteItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/BatchWriteItem) in *AWS SDK for Java 2\.x API Reference*\. 
 
-## Scenarios<a name="w591aac15c14b9c27c15"></a>
+## Scenarios<a name="w620aac15c13b9c27c15"></a>
 
 ### Get started using tables, items, and queries<a name="dynamodb_Scenario_GettingStartedMovies_java_topic"></a>
 

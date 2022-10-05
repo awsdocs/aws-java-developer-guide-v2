@@ -1,6 +1,6 @@
 --------
 
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\! By the way, the AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156)\!
+You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
 
 --------
 
@@ -15,9 +15,37 @@ The following code examples show you how to perform actions and implement common
 Each example includes a link to GitHub, where you can find instructions on how to set up and run the code in context\.
 
 **Topics**
-+ [Actions](#w591aac15c14b9c61c13)
++ [Actions](#w620aac15c13b9c65c13)
 
-## Actions<a name="w591aac15c14b9c61c13"></a>
+## Actions<a name="w620aac15c13b9c65c13"></a>
+
+### List email templates<a name="ses_ListTemplates_java_topic"></a>
+
+The following code example shows how to list Amazon SES email templates\.
+
+**SDK for Java 2\.x**  
+ To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#readme)\. 
+  
+
+```
+    public static void listAllTemplates(SesV2Client sesv2Client) {
+
+        try {
+            ListEmailTemplatesRequest templatesRequest = ListEmailTemplatesRequest.builder()
+                .pageSize(1)
+                .build();
+
+            ListEmailTemplatesResponse response = sesv2Client.listEmailTemplates(templatesRequest);
+            response.templatesMetadata().forEach(template ->
+                    System.out.println("Template name: " + template.templateName()));
+
+        } catch (SesV2Exception e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+```
++  For API details, see [ListTemplates](https://docs.aws.amazon.com/goto/SdkForJavaV2/email-2010-12-01/ListTemplates) in *AWS SDK for Java 2\.x API Reference*\. 
 
 ### List identities<a name="ses_ListIdentities_java_topic"></a>
 
@@ -188,3 +216,53 @@ The following code example shows how to send email with Amazon SES\.
      }
 ```
 +  For API details, see [SendEmail](https://docs.aws.amazon.com/goto/SdkForJavaV2/email-2010-12-01/SendEmail) in *AWS SDK for Java 2\.x API Reference*\. 
+
+### Send templated email<a name="ses_SendTemplatedEmail_java_topic"></a>
+
+The following code example shows how to send templated email with Amazon SES\.
+
+**SDK for Java 2\.x**  
+ To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#readme)\. 
+  
+
+```
+    public static void send(SesV2Client client, String sender, String recipient, String templateName){
+
+        Destination destination = Destination.builder()
+            .toAddresses(recipient)
+            .build();
+
+        /*
+         Specify both name and favorite animal (favoriteanimal) in your code when defining the Template object.
+         If you don't specify all the variables in the template, Amazon SES doesn't send the email.
+        */
+        Template myTemplate = Template.builder()
+            .templateName(templateName)
+            .templateData("{\n" +
+              "  \"name\": \"Jason\"\n," +
+              "  \"favoriteanimal\": \"Cat\"\n" +
+              "}")
+            .build();
+
+        EmailContent emailContent = EmailContent.builder()
+            .template(myTemplate)
+            .build();
+
+        SendEmailRequest emailRequest = SendEmailRequest.builder()
+            .destination(destination)
+            .content(emailContent)
+            .fromEmailAddress(sender)
+            .build();
+
+        try {
+            System.out.println("Attempting to send an email based on a template using the AWS SDK for Java (v2)...");
+            client.sendEmail(emailRequest);
+            System.out.println("email based on a template was sent");
+
+        } catch (SesV2Exception e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+```
++  For API details, see [SendTemplatedEmail](https://docs.aws.amazon.com/goto/SdkForJavaV2/email-2010-12-01/SendTemplatedEmail) in *AWS SDK for Java 2\.x API Reference*\. 

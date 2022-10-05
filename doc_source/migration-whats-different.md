@@ -1,6 +1,6 @@
 --------
 
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\! By the way, the AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156)\!
+You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
 
 --------
 
@@ -10,9 +10,9 @@ This section describes the main changes to be aware of when converting an applic
 
 ## High\-Level libraries<a name="highlevel-libraries"></a>
 
-High\-level libraries, such as the Amazon S3 Transfer Manager and the Amazon SQS Client\-side Buffering, are not yet available in version 2\.x\. See the AWS SDK for Java 2\.x [changelog](https://github.com/aws/aws-sdk-java-v2/blob/master/docs/LaunchChangelog.md#7-high-level-libraries) for a complete list of libraries\.
+High\-level libraries, such as the Amazon SQS Client\-side Buffering, are not yet available in version 2\.x\. See the AWS SDK for Java 2\.x [changelog](https://github.com/aws/aws-sdk-java-v2/blob/master/docs/LaunchChangelog.md#7-high-level-libraries) for a list of libraries that have been released\.
 
-If your application depends on these libraries, see [Using both SDKs side\-by\-side](migration-side-by-side.md) to learn how to configure your pom\.xml to use both 1\.x and 2\.x\. Refer to the AWS SDK for Java 2\.x [changelog](https://github.com/aws/aws-sdk-java-v2/blob/master/docs/LaunchChangelog.md#7-high-level-libraries) for updates about these libraries\.
+If your application depends on libraries that have not yet been released in version 2\.x, see [Using both SDKs side\-by\-side](migration-side-by-side.md) to learn how to configure your pom\.xml to use both 1\.x and 2\.x\.
 
 ## Adding version 2\.x to Your Project<a name="adding-v2"></a>
 

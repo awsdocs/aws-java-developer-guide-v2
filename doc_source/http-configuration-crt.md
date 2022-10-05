@@ -1,10 +1,15 @@
 --------
 
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\! By the way, the AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156)\!
+You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
 
 --------
 
 # Configuring the AWS CRT\-based HTTP client<a name="http-configuration-crt"></a>
+
+
+|  | 
+| --- |
+| The AWS CRT\-based HTTP client is in developer preview release for AWS SDK for Java 2\.x and is subject to change\. | 
 
 The AWS Common Runtime \(CRT\) HTTP client is a new HTTP client you can use with the AWS SDK for Java 2\.x\. The CRT\-based HTTP client is an asynchronous, non\-blocking HTTP client built on top of the Java bindings of the [AWS Common Runtime](https://github.com/awslabs/aws-crt-java)\. You can use the CRT\-based HTTP client to benefit from features such as improved performance, connection health checks, and post\-quantum TLS support\.
 
@@ -135,13 +140,13 @@ AwsCrtAsyncHttpClient.builder()
 
 ## Post\-quantum TLS support<a name="post-quantum-tls-support"></a>
 
-You can configure the CRT\-based HTTP client to use post\-quantum TLS when your application makes requests to Amazon Kinesis\. Use the `tlsCipherPreference` method on the HTTP client builder\. Refer to the following example code snippet and the [API documentation](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/http/crtAwsCrtAsyncHttpClient.Builder.html)\.
+You can configure the CRT\-based HTTP client to use post\-quantum TLS when your application makes requests to Amazon Kinesis\. Use the `tlsCipherPreference` method on the HTTP client builder\. Refer to the following example code snippet and the [API documentation](https://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/http/crt/AwsCrtAsyncHttpClient.Builder.html)\.
 
 ```
 SdkAsyncHttpClient awsCrtHttpClient = AwsCrtAsyncHttpClient.builder()
                                .tlsCipherPreference(TlsCipherPreference.TLS_CIPHER_KMS_PQ_TLSv1_0_2019_06)
                                .build();
-KmsAsyncClient kms = KmsAsyncClient.builder()
+KinesisAsyncClient kac = KinesisAsyncClient.builder()
                   .httpClient(awsCrtHttpClient)
                   .build();
 ```

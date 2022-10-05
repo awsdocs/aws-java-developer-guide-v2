@@ -1,6 +1,6 @@
 --------
 
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\! By the way, the AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156)\!
+You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
 
 --------
 
@@ -15,10 +15,10 @@ The following code examples show you how to perform actions and implement common
 Each example includes a link to GitHub, where you can find instructions on how to set up and run the code in context\.
 
 **Topics**
-+ [Actions](#w591aac15c14b9c55c13)
-+ [Scenarios](#w591aac15c14b9c55c15)
++ [Actions](#w620aac15c13b9c59c13)
++ [Scenarios](#w620aac15c13b9c59c15)
 
-## Actions<a name="w591aac15c14b9c55c13"></a>
+## Actions<a name="w620aac15c13b9c59c13"></a>
 
 ### Compare faces in an image against a reference image<a name="rekognition_CompareFaces_java_topic"></a>
 
@@ -620,7 +620,7 @@ For more information, see [Searching for a face \(image\)](https://docs.aws.amaz
 ```
 +  For API details, see [SearchFacesByImage](https://docs.aws.amazon.com/goto/SdkForJavaV2/rekognition-2016-06-27/SearchFacesByImage) in *AWS SDK for Java 2\.x API Reference*\. 
 
-## Scenarios<a name="w591aac15c14b9c55c15"></a>
+## Scenarios<a name="w620aac15c13b9c59c15"></a>
 
 ### Detect information in videos<a name="rekognition_VideoDetection_java_topic"></a>
 
@@ -1242,10 +1242,10 @@ Detect technical cue segments and shot detection segments in a video stored in a
                     paginationToken = segDetectionResponse.nextToken();
 
                 GetSegmentDetectionRequest recognitionRequest = GetSegmentDetectionRequest.builder()
-                    .jobId(startJobId)
-                    .nextToken(paginationToken)
-                    .maxResults(10)
-                    .build();
+                        .jobId(startJobId)
+                        .nextToken(paginationToken)
+                        .maxResults(10)
+                        .build();
 
                 // Wait until the job succeeds.
                 while (!finished) {
@@ -1272,28 +1272,30 @@ Detect technical cue segments and shot detection segments in a video stored in a
                     System.out.println("Job");
                 }
 
-                List<SegmentDetection> detectedSegment = segDetectionResponse.segments();
-                String type = detectedSegment.get(0).type().toString();
-                if (type.contains(SegmentType.TECHNICAL_CUE.toString())) {
-                    System.out.println("Technical Cue");
-                    TechnicalCueSegment segmentCue = detectedSegment.get(0).technicalCueSegment();
-                    System.out.println("\tType: " + segmentCue.type());
-                    System.out.println("\tConfidence: " + segmentCue.confidence().toString());
-                }
+                List<SegmentDetection> detectedSegments = segDetectionResponse.segments();
+                for (SegmentDetection detectedSegment : detectedSegments) {
+                    String type = detectedSegment.type().toString();
+                    if (type.contains(SegmentType.TECHNICAL_CUE.toString())) {
+                        System.out.println("Technical Cue");
+                        TechnicalCueSegment segmentCue = detectedSegment.technicalCueSegment();
+                        System.out.println("\tType: " + segmentCue.type());
+                        System.out.println("\tConfidence: " + segmentCue.confidence().toString());
+                    }
 
-                if (type.contains(SegmentType.SHOT.toString())) {
-                    System.out.println("Shot");
-                    ShotSegment segmentShot = detectedSegment.get(0).shotSegment();
-                    System.out.println("\tIndex " + segmentShot.index());
-                    System.out.println("\tConfidence: " + segmentShot.confidence().toString());
-                }
+                    if (type.contains(SegmentType.SHOT.toString())) {
+                        System.out.println("Shot");
+                        ShotSegment segmentShot = detectedSegment.shotSegment();
+                        System.out.println("\tIndex " + segmentShot.index());
+                        System.out.println("\tConfidence: " + segmentShot.confidence().toString());
+                    }
 
-                long seconds = detectedSegment.get(0).durationMillis();
-                System.out.println("\tDuration : " + seconds + " milliseconds");
-                System.out.println("\tStart time code: " + detectedSegment.get(0).startTimecodeSMPTE());
-                System.out.println("\tEnd time code: " + detectedSegment.get(0).endTimecodeSMPTE());
-                System.out.println("\tDuration time code: " + detectedSegment.get(0).durationSMPTE());
-                System.out.println();
+                    long seconds = detectedSegment.durationMillis();
+                    System.out.println("\tDuration : " + seconds + " milliseconds");
+                    System.out.println("\tStart time code: " + detectedSegment.startTimecodeSMPTE());
+                    System.out.println("\tEnd time code: " + detectedSegment.endTimecodeSMPTE());
+                    System.out.println("\tDuration time code: " + detectedSegment.durationSMPTE());
+                    System.out.println();
+                }
 
             } while (segDetectionResponse !=null && segDetectionResponse.nextToken() != null);
 

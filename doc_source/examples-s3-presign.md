@@ -1,6 +1,6 @@
 --------
 
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\! By the way, the AWS SDK for Java team is hiring [software development engineers](https://github.com/aws/aws-sdk-java-v2/issues/3156)\!
+You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
 
 --------
 
@@ -26,6 +26,9 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
+import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 import software.amazon.awssdk.services.s3.model.S3Exception;
@@ -42,32 +45,35 @@ The following Java code example uploads content to a presigned S3 bucket\.
     public static void signBucket(S3Presigner presigner, String bucketName, String keyName) {
 
         try {
+            Map<String, String> metadata = new HashMap<>();
+            metadata.put("author","Mary Doe");
+            metadata.put("version","1.0.0.0");
+
             PutObjectRequest objectRequest = PutObjectRequest.builder()
-                    .bucket(bucketName)
-                    .key(keyName)
-                    .contentType("text/plain")
-                    .build();
+                .bucket(bucketName)
+                .key(keyName)
+                .contentType("text/plain")
+                .metadata(metadata)
+                .build();
 
             PutObjectPresignRequest presignRequest = PutObjectPresignRequest.builder()
-                    .signatureDuration(Duration.ofMinutes(10))
-                    .putObjectRequest(objectRequest)
-                    .build();
+                .signatureDuration(Duration.ofMinutes(10))
+                .putObjectRequest(objectRequest)
+                .build();
 
             PresignedPutObjectRequest presignedRequest = presigner.presignPutObject(presignRequest);
+            System.out.println("Presigned URL to upload a file to: " + presignedRequest.url());
+            System.out.println("Which HTTP method needs to be used when uploading a file: " + presignedRequest.httpRequest().method());
 
-
-            String myURL = presignedRequest.url().toString();
-            System.out.println("Presigned URL to upload a file to: " +myURL);
-            System.out.println("Which HTTP method needs to be used when uploading a file: " +
-                    presignedRequest.httpRequest().method());
-
-            // Upload content to the Amazon S3 bucket by using this URL
+            // Upload content to the Amazon S3 bucket by using this URL.
             URL url = presignedRequest.url();
 
-            // Create the connection and use it to upload the new object by using the presigned URL
+            // Create the connection and use it to upload the new object.
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
             connection.setRequestProperty("Content-Type","text/plain");
+            connection.setRequestProperty("x-amz-meta-author","Mary Doe");
+            connection.setRequestProperty("x-amz-meta-version","1.0.0.0");
             connection.setRequestMethod("PUT");
             OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
             out.write("This text was uploaded as an object by using a presigned URL.");
@@ -76,9 +82,7 @@ The following Java code example uploads content to a presigned S3 bucket\.
             connection.getResponseCode();
             System.out.println("HTTP response code is " + connection.getResponseCode());
 
-        } catch (S3Exception e) {
-            e.getStackTrace();
-        } catch (IOException e) {
+        } catch (S3Exception | IOException e) {
             e.getStackTrace();
         }
     }
@@ -100,6 +104,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.time.Duration;
+import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.model.GetObjectRequest;
 import software.amazon.awssdk.services.s3.model.S3Exception;
@@ -116,52 +121,46 @@ The following Java code example reads content from a presigned S3 bucket\.
 ```
        public static void getPresignedUrl(S3Presigner presigner, String bucketName, String keyName ) {
 
-        try {
-            GetObjectRequest getObjectRequest =
-                    GetObjectRequest.builder()
-                            .bucket(bucketName)
-                            .key(keyName)
-                            .build();
+           try {
+               GetObjectRequest getObjectRequest = GetObjectRequest.builder()
+                   .bucket(bucketName)
+                   .key(keyName)
+                   .build();
 
-            GetObjectPresignRequest getObjectPresignRequest =  GetObjectPresignRequest.builder()
-                            .signatureDuration(Duration.ofMinutes(10))
-                            .getObjectRequest(getObjectRequest)
-                             .build();
+               GetObjectPresignRequest getObjectPresignRequest = GetObjectPresignRequest.builder()
+                   .signatureDuration(Duration.ofMinutes(60))
+                   .getObjectRequest(getObjectRequest)
+                   .build();
 
-            // Generate the presigned request
-            PresignedGetObjectRequest presignedGetObjectRequest =
-                    presigner.presignGetObject(getObjectPresignRequest);
-
-            // Log the presigned URL
-            System.out.println("Presigned URL: " + presignedGetObjectRequest.url());
-
-            HttpURLConnection connection = (HttpURLConnection) presignedGetObjectRequest.url().openConnection();
-            presignedGetObjectRequest.httpRequest().headers().forEach((header, values) -> {
+               PresignedGetObjectRequest presignedGetObjectRequest = presigner.presignGetObject(getObjectPresignRequest);
+               String theUrl = presignedGetObjectRequest.url().toString();
+               System.out.println("Presigned URL: " + theUrl);
+               HttpURLConnection connection = (HttpURLConnection) presignedGetObjectRequest.url().openConnection();
+               presignedGetObjectRequest.httpRequest().headers().forEach((header, values) -> {
                 values.forEach(value -> {
                     connection.addRequestProperty(header, value);
-                });
-            });
+                 });
+               });
 
-            // Send any request payload that the service needs (not needed when isBrowserExecutable is true)
-            if (presignedGetObjectRequest.signedPayload().isPresent()) {
-                connection.setDoOutput(true);
-                try (InputStream signedPayload = presignedGetObjectRequest.signedPayload().get().asInputStream();
-                     OutputStream httpOutputStream = connection.getOutputStream()) {
+               // Send any request payload that the service needs (not needed when isBrowserExecutable is true).
+               if (presignedGetObjectRequest.signedPayload().isPresent()) {
+                   connection.setDoOutput(true);
+
+               try (InputStream signedPayload = presignedGetObjectRequest.signedPayload().get().asInputStream();
+                    OutputStream httpOutputStream = connection.getOutputStream()) {
                     IoUtils.copy(signedPayload, httpOutputStream);
-                }
-            }
+               }
+           }
 
-            // Download the result of executing the request
-            try (InputStream content = connection.getInputStream()) {
-                System.out.println("Service returned response: ");
-                IoUtils.copy(content, System.out);
-            }
+           // Download the result of executing the request.
+           try (InputStream content = connection.getInputStream()) {
+               System.out.println("Service returned response: ");
+               IoUtils.copy(content, System.out);
+           }
 
-        } catch (S3Exception e) {
-            e.getStackTrace();
-        } catch (IOException e) {
-            e.getStackTrace();
-        }
+       } catch (S3Exception | IOException e) {
+           e.getStackTrace();
+       }
     }
 ```
 
