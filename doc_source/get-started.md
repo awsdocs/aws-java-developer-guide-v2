@@ -270,7 +270,7 @@ After the project is created and contains the example class, build and run the a
 
 When you run the application, it uploads a new a text file to a new bucket in Amazon S3\. Afterward, it will also delete the file and bucket\.
 
-1. In `App.java`, comment out the line `cleanUp(s3, bucket, key);` and save the file\.
+1. In `Handler.java`, comment out the line `cleanUp(s3, bucket, key);` and save the file\.
 
 1. Rebuild the project by running `mvn package`\.
 
