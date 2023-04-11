@@ -1,9 +1,3 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Use regions and availability zones<a name="examples-ec2-regions-zones"></a>
 
 ## Describe regions<a name="describe-regions"></a>

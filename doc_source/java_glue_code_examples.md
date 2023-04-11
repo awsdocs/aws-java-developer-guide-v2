@@ -1,31 +1,25 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # AWS Glue examples using SDK for Java 2\.x<a name="java_glue_code_examples"></a>
 
 The following code examples show you how to perform actions and implement common scenarios by using the AWS SDK for Java 2\.x with AWS Glue\.
 
-*Actions* are code excerpts that show you how to call individual AWS Glue functions\.
+*Actions* are code excerpts that show you how to call individual service functions\.
 
-*Scenarios* are code examples that show you how to accomplish a specific task by calling multiple AWS Glue functions\.
+*Scenarios* are code examples that show you how to accomplish a specific task by calling multiple functions within the same service\.
 
 Each example includes a link to GitHub, where you can find instructions on how to set up and run the code in context\.
 
 **Topics**
-+ [Actions](#w620aac15c13b9c35c13)
-+ [Scenarios](#w620aac15c13b9c35c15)
++ [Actions](#actions)
++ [Scenarios](#scenarios)
 
-## Actions<a name="w620aac15c13b9c35c13"></a>
+## Actions<a name="actions"></a>
 
 ### Create a crawler<a name="glue_CreateCrawler_java_topic"></a>
 
 The following code example shows how to create an AWS Glue crawler\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#readme)\. 
   
 
 ```
@@ -74,7 +68,7 @@ The following code example shows how to create an AWS Glue crawler\.
 The following code example shows how to get an AWS Glue crawler\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#readme)\. 
   
 
 ```
@@ -110,7 +104,7 @@ The following code example shows how to get an AWS Glue crawler\.
 The following code example shows how to get a database from the AWS Glue Data Catalog\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#readme)\. 
   
 
 ```
@@ -145,7 +139,7 @@ The following code example shows how to get a database from the AWS Glue Data Ca
 The following code example shows how to get tables from a database in the AWS Glue Data Catalog\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#readme)\. 
   
 
 ```
@@ -181,7 +175,7 @@ The following code example shows how to get tables from a database in the AWS Gl
 The following code example shows how to start an AWS Glue crawler\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#readme)\. 
   
 
 ```
@@ -202,28 +196,55 @@ The following code example shows how to start an AWS Glue crawler\.
 ```
 +  For API details, see [StartCrawler](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/StartCrawler) in *AWS SDK for Java 2\.x API Reference*\. 
 
-## Scenarios<a name="w620aac15c13b9c35c15"></a>
+## Scenarios<a name="scenarios"></a>
 
-### Get started running crawlers and jobs<a name="glue_Scenario_GetStartedCrawlersJobs_java_topic"></a>
+### Get started with crawlers and jobs<a name="glue_Scenario_GetStartedCrawlersJobs_java_topic"></a>
 
 The following code example shows how to:
-+ Create and run a crawler that crawls a public Amazon Simple Storage Service \(Amazon S3\) bucket and generates a metadata database that describes the CSV\-formatted data it finds\.
++ Create a crawler that crawls a public Amazon S3 bucket and generates a database of CSV\-formatted metadata\.
 + List information about databases and tables in your AWS Glue Data Catalog\.
-+ Create and run a job that extracts CSV data from the source Amazon S3 bucket, transforms it by removing and renaming fields, and loads JSON\-formatted output into another Amazon S3 bucket\.
-+ List information about job runs and view some of the transformed data\.
-+ Delete all resources created by the demo\.
++ Create a job to extract CSV data from the S3 bucket, transform the data, and load JSON\-formatted output into another S3 bucket\.
++ List information about job runs, view transformed data, and clean up resources\.
 
 For more information, see [Tutorial: Getting started with AWS Glue Studio](https://docs.aws.amazon.com/glue/latest/ug/tutorial-create-job.html)\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#readme)\. 
   
 
 ```
+/**
+ *
+ * Before running this Java V2 code example, set up your development environment, including your credentials.
+ *
+ * For more information, see the following documentation topic:
+ *
+ * https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/get-started.html
+ *
+ * To set up the resources, see this documentation topic:
+ *
+ * https://docs.aws.amazon.com/glue/latest/ug/tutorial-add-crawler.html
+ *
+ * This example performs the following tasks:
+ *
+ * 1. Create a database.
+ * 2. Create a crawler.
+ * 3. Get a crawler.
+ * 4. Start a crawler.
+ * 5. Get a database.
+ * 6. Get tables.
+ * 7. Create a job.
+ * 8. Start a job run.
+ * 9. List all jobs.
+ * 10. Get job runs.
+ * 11. Delete a job.
+ * 12. Delete a database.
+ * 13. Delete a crawler.
+ */
+
 public class GlueScenario {
-
+    public static final String DASHES = new String(new char[80]).replace("\0", "-");
     public static void main(String[] args) throws InterruptedException {
-
         final String usage = "\n" +
             "Usage:\n" +
             "    <iam> <s3Path> <cron> <dbName> <crawlerName> <jobName> \n\n" +
@@ -235,12 +256,13 @@ public class GlueScenario {
             "    crawlerName - The name of the crawler. \n" +
             "    jobName - The name you assign to this job definition."+
             "    scriptLocation - The Amazon S3 path to a script that runs a job." +
-            "    locationUri - The location of the database" ;
+            "    locationUri - The location of the database" +
+            "    bucketNameSc - The Amazon S3 bucket name used when creating a job" ;
 
-       if (args.length != 8) {
+       if (args.length != 9) {
             System.out.println(usage);
             System.exit(1);
-        }
+       }
 
         String iam = args[0];
         String s3Path = args[1];
@@ -250,33 +272,92 @@ public class GlueScenario {
         String jobName = args[5];
         String scriptLocation = args[6];
         String locationUri = args[7];
+        String bucketNameSc = args[8];
+
         Region region = Region.US_EAST_1;
         GlueClient glueClient = GlueClient.builder()
             .region(region)
             .credentialsProvider(ProfileCredentialsProvider.create())
             .build();
+        System.out.println(DASHES);
+        System.out.println("Welcome to the AWS Glue scenario.");
+        System.out.println(DASHES);
 
-        System.out.println("About to start the AWS Glue Scenario");
+        System.out.println(DASHES);
+        System.out.println("1. Create a database.");
         createDatabase(glueClient, dbName, locationUri);
+        System.out.println(DASHES);
+
+        System.out.println(DASHES);
+        System.out.println("2. Create a crawler.");
         createGlueCrawler(glueClient, iam, s3Path, cron, dbName, crawlerName);
+        System.out.println(DASHES);
+
+        System.out.println(DASHES);
+        System.out.println("3. Get a crawler.");
         getSpecificCrawler(glueClient, crawlerName);
+        System.out.println(DASHES);
+
+        System.out.println(DASHES);
+        System.out.println("4. Start a crawler.");
         startSpecificCrawler(glueClient, crawlerName);
+        System.out.println(DASHES);
+
+        System.out.println(DASHES);
+        System.out.println("5. Get a database.");
         getSpecificDatabase(glueClient, dbName);
-        getGlueTables(glueClient, dbName);
+        System.out.println(DASHES);
+
+        System.out.println(DASHES);
+        System.out.println("*** Wait 5 min for the tables to become available");
+        TimeUnit.MINUTES.sleep(5);
+        System.out.println("6. Get tables.");
+        String myTableName = getGlueTables(glueClient, dbName);
+        System.out.println(DASHES);
+
+        System.out.println(DASHES);
+        System.out.println("7. Create a job.");
         createJob(glueClient, jobName, iam, scriptLocation);
-        startJob(glueClient, jobName);
+        System.out.println(DASHES);
+
+        System.out.println(DASHES);
+        System.out.println("8. Start a Job run.");
+        startJob(glueClient, jobName, dbName, myTableName, bucketNameSc );
+        System.out.println(DASHES);
+
+        System.out.println(DASHES);
+        System.out.println("9. List all jobs.");
         getAllJobs(glueClient);
+        System.out.println(DASHES);
+
+        System.out.println(DASHES);
+        System.out.println("10. Get job runs.");
         getJobRuns(glueClient, jobName);
+        System.out.println(DASHES);
+
+        System.out.println(DASHES);
+        System.out.println("11. Delete a job.");
         deleteJob(glueClient, jobName);
         System.out.println("*** Wait 5 MIN for the "+crawlerName +" to stop");
         TimeUnit.MINUTES.sleep(5);
+        System.out.println(DASHES);
+
+        System.out.println(DASHES);
+        System.out.println("12. Delete a database.");
         deleteDatabase(glueClient, dbName);
+        System.out.println(DASHES);
+
+        System.out.println(DASHES);
+        System.out.println("Delete a crawler.");
         deleteSpecificCrawler(glueClient, crawlerName);
+        System.out.println(DASHES);
+
+        System.out.println(DASHES);
         System.out.println("Successfully completed the AWS Glue Scenario");
+        System.out.println(DASHES);
     }
 
     public static void createDatabase(GlueClient glueClient, String dbName, String locationUri ) {
-
         try {
             DatabaseInput input = DatabaseInput.builder()
                 .description("Built with the AWS SDK for Java V2")
@@ -289,7 +370,7 @@ public class GlueScenario {
                 .build();
 
             glueClient.createDatabase(request);
-            System.out.println("The database was successfully created");
+            System.out.println(dbName +" was successfully created");
 
         } catch (GlueException e) {
             System.err.println(e.awsErrorDetails().errorMessage());
@@ -334,29 +415,30 @@ public class GlueScenario {
     }
 
     public static void getSpecificCrawler(GlueClient glueClient, String crawlerName) {
-
         try {
             GetCrawlerRequest crawlerRequest = GetCrawlerRequest.builder()
                 .name(crawlerName)
                 .build();
 
-            GetCrawlerResponse response = glueClient.getCrawler(crawlerRequest);
-            Instant createDate = response.crawler().creationTime();
-            DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime( FormatStyle.SHORT )
-                .withLocale( Locale.US)
-                .withZone( ZoneId.systemDefault() );
+            boolean ready = false;
+            while(!ready) {
+                GetCrawlerResponse response = glueClient.getCrawler(crawlerRequest);
+                String status = response.crawler().stateAsString();
+                if (status.compareTo("READY") == 0) {
+                    ready = true ;
+                }
+                Thread.sleep(3000);
+            }
 
-            formatter.format( createDate );
-            System.out.println("The create date of the Crawler is " + createDate );
+            System.out.println("The crawler is now ready");
 
-        } catch (GlueException e) {
-            System.err.println(e.awsErrorDetails().errorMessage());
+        } catch (GlueException | InterruptedException e) {
+            System.err.println(e.getMessage());
             System.exit(1);
         }
     }
 
     public static void startSpecificCrawler(GlueClient glueClient, String crawlerName) {
-
         try {
             StartCrawlerRequest crawlerRequest = StartCrawlerRequest.builder()
                 .name(crawlerName)
@@ -372,7 +454,6 @@ public class GlueScenario {
     }
 
     public static void getSpecificDatabase(GlueClient glueClient, String databaseName) {
-
         try {
             GetDatabaseRequest databasesRequest = GetDatabaseRequest.builder()
                 .name(databaseName)
@@ -395,8 +476,8 @@ public class GlueScenario {
         }
     }
 
-    public static void getGlueTables(GlueClient glueClient, String dbName){
-
+    public static String getGlueTables(GlueClient glueClient, String dbName){
+        String myTableName = "";
         try {
             GetTablesRequest tableRequest = GetTablesRequest.builder()
                 .databaseName(dbName)
@@ -404,22 +485,33 @@ public class GlueScenario {
 
             GetTablesResponse response = glueClient.getTables(tableRequest);
             List<Table> tables = response.tableList();
-            for (Table table: tables) {
-                System.out.println("Table name is: "+table.name());
+            if (tables.isEmpty()) {
+                System.out.println("No tables were returned");
+            } else {
+                for (Table table : tables) {
+                    myTableName = table.name();
+                    System.out.println("Table name is: " + myTableName);
+                }
             }
 
         } catch (GlueException e) {
             System.err.println(e.awsErrorDetails().errorMessage());
             System.exit(1);
         }
+        return myTableName;
     }
 
-    public static void startJob(GlueClient glueClient, String jobName) {
-
+    public static void startJob(GlueClient glueClient, String jobName, String inputDatabase, String inputTable, String outBucket) {
         try {
+            Map<String,String> myMap = new HashMap<>();
+            myMap.put("--input_database", inputDatabase);
+            myMap.put("--input_table", inputTable);
+            myMap.put("--output_bucket_url", outBucket);
+
             StartJobRunRequest runRequest = StartJobRunRequest.builder()
                 .workerType(WorkerType.G_1_X)
                 .numberOfWorkers(10)
+                .arguments(myMap)
                 .jobName(jobName)
                 .build();
 
@@ -433,11 +525,10 @@ public class GlueScenario {
     }
 
     public static void createJob(GlueClient glueClient, String jobName, String iam, String scriptLocation) {
-
         try {
             JobCommand command = JobCommand.builder()
                 .pythonVersion("3")
-                .name("MyJob1")
+                .name("glueetl")
                 .scriptLocation(scriptLocation)
                 .build();
 
@@ -461,7 +552,6 @@ public class GlueScenario {
     }
 
     public static void getAllJobs(GlueClient glueClient) {
-
         try {
             GetJobsRequest jobsRequest = GetJobsRequest.builder()
                 .maxResults(10)
@@ -481,29 +571,50 @@ public class GlueScenario {
     }
 
     public static void getJobRuns(GlueClient glueClient, String jobName) {
-
         try {
             GetJobRunsRequest runsRequest = GetJobRunsRequest.builder()
                 .jobName(jobName)
                 .maxResults(20)
                 .build();
 
-            GetJobRunsResponse response = glueClient.getJobRuns(runsRequest);
-            List<JobRun> jobRuns = response.jobRuns();
-            for (JobRun jobRun: jobRuns) {
-                System.out.println("Job run state is "+jobRun.jobRunState().name());
-                System.out.println("Job run Id is "+jobRun.id());
-                System.out.println("The Glue version is "+jobRun.glueVersion());
+            boolean jobDone = false ;
+            while (!jobDone) {
+                GetJobRunsResponse response = glueClient.getJobRuns(runsRequest);
+                List<JobRun> jobRuns = response.jobRuns();
+                for (JobRun jobRun : jobRuns) {
+                    String jobState = jobRun.jobRunState().name();
+                    if (jobState.compareTo("SUCCEEDED") == 0) {
+                        System.out.println(jobName + " has succeeded");
+                        jobDone = true;
+
+                    } else if (jobState.compareTo("STOPPED") == 0) {
+                        System.out.println("Job run has stopped");
+                        jobDone = true;
+
+                    } else if (jobState.compareTo("FAILED") == 0) {
+                        System.out.println("Job run has failed");
+                        jobDone = true;
+
+                    } else if (jobState.compareTo("TIMEOUT") == 0) {
+                        System.out.println("Job run has timed out");
+                        jobDone = true;
+
+                    } else {
+                        System.out.println("*** Job run state is " + jobRun.jobRunState().name());
+                        System.out.println("Job run Id is " + jobRun.id());
+                        System.out.println("The Glue version is " + jobRun.glueVersion());
+                    }
+                    TimeUnit.SECONDS.sleep(5);
+                }
             }
 
-        } catch (GlueException e) {
-            System.err.println(e.awsErrorDetails().errorMessage());
+        } catch (GlueException | InterruptedException e) {
+            System.err.println(e.getMessage());
             System.exit(1);
         }
     }
 
     public static void deleteJob(GlueClient glueClient, String jobName) {
-
         try {
             DeleteJobRequest jobRequest = DeleteJobRequest.builder()
                 .jobName(jobName)
@@ -519,7 +630,6 @@ public class GlueScenario {
     }
 
     public static void deleteDatabase(GlueClient glueClient, String databaseName) {
-
         try {
             DeleteDatabaseRequest request = DeleteDatabaseRequest.builder()
                 .name(databaseName)
@@ -535,7 +645,6 @@ public class GlueScenario {
     }
 
     public static void deleteSpecificCrawler(GlueClient glueClient, String crawlerName) {
-
         try {
             DeleteCrawlerRequest deleteCrawlerRequest = DeleteCrawlerRequest.builder()
                 .name(crawlerName)
@@ -560,6 +669,8 @@ public class GlueScenario {
   + [DeleteTable](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/DeleteTable)
   + [GetCrawler](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/GetCrawler)
   + [GetDatabase](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/GetDatabase)
+  + [GetDatabases](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/GetDatabases)
+  + [GetJob](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/GetJob)
   + [GetJobRun](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/GetJobRun)
   + [GetJobRuns](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/GetJobRuns)
   + [GetTables](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/GetTables)

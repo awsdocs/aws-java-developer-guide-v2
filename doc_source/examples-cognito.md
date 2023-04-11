@@ -1,9 +1,3 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Working with Amazon Cognito<a name="examples-cognito"></a>
 
 With Amazon Cognito, you can quickly add user sign\-up or sign\-in capability to your web or mobile app\. The examples here demonstrate some of the basic functionality of Amazon Cognito\.

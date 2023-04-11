@@ -1,9 +1,3 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Working with Amazon Simple Notification Service<a name="examples-simple-notification-service"></a>
 
 With Amazon Simple Notification Service, you can easily push real\-time notification messages from your applications to subscribers over multiple communication channels\. This topic describes how to perform some of the basic functions of Amazon SNS\.

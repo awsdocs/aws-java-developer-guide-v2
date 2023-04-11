@@ -1,9 +1,3 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Working with IAM server certificates<a name="examples-iam-server-certificates"></a>
 
 To enable HTTPS connections to your website or application on AWS, you need an SSL/TLS *server certificate*\. You can use a server certificate provided by AWS Certificate Manager or one that you obtained from an external provider\.

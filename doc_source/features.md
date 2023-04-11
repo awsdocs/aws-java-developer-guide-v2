@@ -1,9 +1,3 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Features of the AWS SDK for Java 2\.x<a name="features"></a>
 
 This section provides information about the features of the AWS SDK for Java 2\.x\.
@@ -14,5 +8,6 @@ This section provides information about the features of the AWS SDK for Java 2\.
 + [HTTP/2](http2.md)
 + [SDK Metrics](metrics.md)
 + [Pagination](pagination.md)
-+ [S3 Transfer Manager \(Preview\)](transfer-manager.md)
++ [AWS CRT\-based S3 client](crt-based-s3-client.md)
++ [S3 Transfer Manager](transfer-manager.md)
 + [Waiters](waiters.md)

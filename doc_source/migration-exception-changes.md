@@ -1,9 +1,3 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Exception class name changes<a name="migration-exception-changes"></a>
 
 This topic contains a mapping of exception class\-related name changes between versions 1\.x and 2\.x\.

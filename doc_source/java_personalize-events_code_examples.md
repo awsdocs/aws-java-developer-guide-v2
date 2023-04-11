@@ -1,30 +1,24 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Amazon Personalize Events examples using SDK for Java 2\.x<a name="java_personalize-events_code_examples"></a>
 
 The following code examples show you how to perform actions and implement common scenarios by using the AWS SDK for Java 2\.x with Amazon Personalize Events\.
 
-*Actions* are code excerpts that show you how to call individual Amazon Personalize Events functions\.
+*Actions* are code excerpts that show you how to call individual service functions\.
 
-*Scenarios* are code examples that show you how to accomplish a specific task by calling multiple Amazon Personalize Events functions\.
+*Scenarios* are code examples that show you how to accomplish a specific task by calling multiple functions within the same service\.
 
 Each example includes a link to GitHub, where you can find instructions on how to set up and run the code in context\.
 
 **Topics**
-+ [Actions](#w620aac15c13b9c47c13)
++ [Actions](#actions)
 
-## Actions<a name="w620aac15c13b9c47c13"></a>
+## Actions<a name="actions"></a>
 
 ### Import real\-time interaction event data<a name="personalize-events_putEvents_java_topic"></a>
 
 The following code example shows how to import real\-time interaction event data into Amazon Personalize Events\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/personalize#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/personalize#readme)\. 
   
 
 ```
@@ -79,7 +73,7 @@ The following code example shows how to import real\-time interaction event data
 The following code example shows how to incrementally import a user into Amazon Personalize Events Events\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/personalize#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/personalize#readme)\. 
   
 
 ```

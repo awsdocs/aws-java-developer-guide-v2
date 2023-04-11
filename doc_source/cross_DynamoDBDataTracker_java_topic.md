@@ -1,10 +1,4 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
-# Create a dynamic web application to track DynamoDB data<a name="cross_DynamoDBDataTracker_java_topic"></a>
+# Create a web application to track DynamoDB data<a name="cross_DynamoDBDataTracker_java_topic"></a>
 
 **SDK for Java 2\.x**  
  Shows how to use the Amazon DynamoDB API to create a dynamic web application that tracks DynamoDB work data\.   

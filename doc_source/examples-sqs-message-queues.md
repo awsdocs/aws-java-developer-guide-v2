@@ -1,9 +1,3 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Working with Amazon Simple Queue Service message queues<a name="examples-sqs-message-queues"></a>
 
 A *message queue* is the logical container used for sending messages reliably in Amazon Simple Queue Service\. There are two types of queues: *standard* and *first\-in, first\-out* \(FIFO\)\. To learn more about queues and the differences between these types, see the [Amazon Simple Queue Service Developer Guide](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/)\.

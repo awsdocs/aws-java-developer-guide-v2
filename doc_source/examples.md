@@ -1,9 +1,3 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Code examples for the AWS SDK for Java 2\.x<a name="examples"></a>
 
 This section provides programming examples you can use with the AWS SDK for Java 2\.x for specific features, use cases, and AWS services\.

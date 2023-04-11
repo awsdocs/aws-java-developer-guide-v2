@@ -1,9 +1,3 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Subscribing to Amazon Kinesis Data Streams<a name="examples-kinesis-stream"></a>
 
 The following examples show you how to retrieve and process data from Amazon Kinesis Data Streams using the `subscribeToShard` method\. Kinesis Data Streams now employs the enhanced fanout feature and a low\-latency HTTP/2 data retrieval API, making it easier for developers to run multiple low\-latency, high\-performance applications on the same Kinesis Data Stream\.
@@ -276,7 +270,7 @@ In the following Java code example, notice that **StockTrade** object is used as
         try {
             kinesisClient.putRecord(request);
         } catch (KinesisException e) {
-            e.getMessage();
+            System.err.println(e.getMessage());
         }
     }
 

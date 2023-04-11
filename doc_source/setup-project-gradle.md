@@ -1,10 +1,4 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
-# Setting up a Gradle project<a name="setup-project-gradle"></a>
+# Set up a Gradle project<a name="setup-project-gradle"></a>
 
 You can use [Gradle](https://gradle.org/) to set up and build AWS SDK for Java projects\.
 
@@ -20,7 +14,7 @@ In the following examples, replace *2\.15\.0* in the `build.gradle` file with th
    dependencies {
     implementation platform('software.amazon.awssdk:bom:2.15.0')
    
-    // Declare individual SDK dependencies without version
+    // Declare individual SDK dependencies without version.
     ...
    }
    ```
@@ -60,6 +54,6 @@ dependencies {
 ```
 
 **Note**  
-In the previous example, replace the dependency for Kinesis with the dependencies of the AWS services you will use in your project\. The modules \(dependencies\) that are managed by the AWS SDK for Java BOM are listed on Maven central repository \([https://mvnrepository\.com/artifact/software\.amazon\.awssdk/bom/latest](https://mvnrepository.com/artifact/software.amazon.awssdk/bom/latest)\)\.
+In the previous example, replace the dependency for Kinesis with the dependencies of the AWS services you will use in your project\. The modules \(dependencies\) that are managed by the AWS SDK for Java BOM are listed on [the Maven central repository](https://mvnrepository.com/artifact/software.amazon.awssdk/bom/latest)\.
 
 For more information about specifying SDK dependencies by using the BOM, see [Setting up an Apache Maven project](setup-project-maven.md)\.

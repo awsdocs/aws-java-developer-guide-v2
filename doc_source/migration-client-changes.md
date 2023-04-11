@@ -1,9 +1,3 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Additional client changes<a name="migration-client-changes"></a>
 
 This topic describes additional changes to the default client in the AWS SDK for Java 2\.x\.
@@ -16,4 +10,4 @@ This topic describes additional changes to the default client in the AWS SDK for
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/migration-client-changes.html)
 + The following system properties are no longer supported in 2\.x\.    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/migration-client-changes.html)
-+ Loading Region configuration from a custom endpoints\.json file is no longer supported\.
++ Loading Region configuration from a custom `endpoints.json` file is no longer supported\.

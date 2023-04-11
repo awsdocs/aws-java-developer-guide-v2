@@ -1,9 +1,3 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Logging with the SDK for Java 2\.x<a name="logging-slf4j"></a>
 
 The AWS SDK for Java 2\.x uses [SLF4J](https://www.slf4j.org/manual.html), which is an abstraction layer that enables the use of any one of several logging systems at runtime\.

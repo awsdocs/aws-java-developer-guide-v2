@@ -1,9 +1,3 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Using waiters in the AWS SDK for Java 2\.x<a name="waiters"></a>
 
 The waiters utility of the AWS SDK for Java 2\.x enables you to validate that AWS resources are in a specified state before performing operations on those resources\.

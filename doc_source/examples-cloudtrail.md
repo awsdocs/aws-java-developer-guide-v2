@@ -1,9 +1,3 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Working with AWS CloudTrail<a name="examples-cloudtrail"></a>
 
  AWS CloudTrail is an AWS service that helps you enable governance, compliance, and operational and risk auditing of your AWS account\. ee the following resources for complete code examples with instructions\.

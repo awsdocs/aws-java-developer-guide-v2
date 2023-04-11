@@ -1,9 +1,3 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Creating, listing, and deleting Amazon S3 buckets<a name="examples-s3-buckets"></a>
 
 Every object \(file\) in Amazon S3 must reside within a *bucket*\. A bucket represents a collection \(container\) of objects\. Each bucket must have a unique *key* \(name\)\. For detailed information about buckets and their configuration, see [Working with Amazon S3 Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html) in the Amazon Simple Storage Service User Guide\.
@@ -15,7 +9,7 @@ This rule directs Amazon S3 to abort multipart uploads that don’t complete wit
 For more information, see [Lifecycle Configuration for a Bucket with Versioning](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/lifecycle-configuration-bucket-with-versioning.html) in the Amazon Simple Storage Service User Guide\.
 
 **Note**  
-These code snippets assume that you understand the material in basics, and have configured default AWS credentials using the information in [Set default credentials and Region](setup.md#setup-credentials)\.
+These code snippets assume that you understand the material in basics, and have configured default AWS credentials using the information in [Set up single sign\-on access for the SDK](setup-basics.md#setup-credentials)\.
 
 **Topics**
 + [Create a bucket](#create-bucket)
@@ -150,7 +144,12 @@ Build a [ListObjectsV2Request](http://docs.aws.amazon.com/sdk-for-java/latest/re
 import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
-import software.amazon.awssdk.services.s3.model.*;
+import software.amazon.awssdk.services.s3.model.DeleteBucketRequest;
+import software.amazon.awssdk.services.s3.model.DeleteObjectRequest;
+import software.amazon.awssdk.services.s3.model.ListObjectsV2Request;
+import software.amazon.awssdk.services.s3.model.ListObjectsV2Response;
+import software.amazon.awssdk.services.s3.model.S3Exception;
+import software.amazon.awssdk.services.s3.model.S3Object;
 ```
 
  **Code** 

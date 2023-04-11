@@ -1,9 +1,3 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Retrieving paginated results using the AWS SDK for Java 2\.x<a name="pagination"></a>
 
 Many AWS operations return paginated results when the response object is too large to return in a single response\. In the AWS SDK for Java 1\.0, the response contained a token you had to use to retrieve the next page of results\. New in the AWS SDK for Java 2\.x are autopagination methods that make multiple service calls to get the next page of results for you automatically\. You only have to write code that processes the results\. Additionally both types of methods have synchronous and asynchronous versions\. See examples\-asynchronous for more detail about asynchronous clients\.

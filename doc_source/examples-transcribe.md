@@ -1,9 +1,3 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Working with Amazon Transcribe<a name="examples-transcribe"></a>
 
 This section provides examples of programming [Amazon Transcribe](http://aws.amazon.com/transcribe/) using the AWS SDK for Java 2\.x\.

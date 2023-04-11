@@ -1,10 +1,4 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
-# Using the AWS SDK for Java 2\.x<a name="using"></a>
+# Use the AWS SDK for Java 2\.x<a name="using"></a>
 
 After completing the steps in [Setting up the SDK](setup.md), you are ready to make requests to AWS services such as Amazon S3, DynamoDB, IAM, Amazon EC2, and more\.
 

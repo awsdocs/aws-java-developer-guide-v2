@@ -1,9 +1,3 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Publishing custom metric data to CloudWatch<a name="examples-cloudwatch-publish-custom-metrics"></a>
 
 A number of AWS services publish [their own metrics](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-namespaces.html) in namespaces beginning with " `AWS` " You can also publish custom metric data using your own namespace \(as long as it doesn’t begin with " `AWS` "\)\.

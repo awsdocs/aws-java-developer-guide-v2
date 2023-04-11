@@ -1,22 +1,32 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # What's different between the AWS SDK for Java 1\.x and 2\.x<a name="migration-whats-different"></a>
 
 This section describes the main changes to be aware of when converting an application from using the AWS SDK for Java version 1\.x to version 2\.x\.
 
-## High\-Level libraries<a name="highlevel-libraries"></a>
+## Package name change<a name="mig-diff-package-name-change"></a>
 
-High\-level libraries, such as the Amazon SQS Client\-side Buffering, are not yet available in version 2\.x\. See the AWS SDK for Java 2\.x [changelog](https://github.com/aws/aws-sdk-java-v2/blob/master/docs/LaunchChangelog.md#7-high-level-libraries) for a list of libraries that have been released\.
+A noticable change from the the SDK for Java 1\.x to the SDK for Java 2\.x is the package name change\. Package names begin with `software.amazon.awssdk` in SDK 2\.x, whereas the SDK 1\.x uses `com.amazonaws`\.
 
-If your application depends on libraries that have not yet been released in version 2\.x, see [Using both SDKs side\-by\-side](migration-side-by-side.md) to learn how to configure your pom\.xml to use both 1\.x and 2\.x\.
+These same names differentiate Maven artifacts from SDK 1\.x to SDK 2\.x\. Maven artifacts for the SDK 2\.x use the `software.amazon.awssdk` groupId, whereas the SDK 1\.x uses the `com.amazonaws` groupId\.
 
-## Adding version 2\.x to Your Project<a name="adding-v2"></a>
+There are a few times when your code requires a `com.amazonaws` dependency for a project that otherwise uses only SDK 2\.x artifacts\. One example of this is when you work with server\-side AWS Lambda\. This was shown in the [Set up an Apache Maven project](setup-project-maven.md#modules-dependencies) section earlier in this guide\.
 
-Maven is the recommended way to manage dependencies when using the AWS SDK for Java 2\.x\. To add version 2 components to your project, simply update your pom\.xml file with a dependency on the SDK\.
+**Note**  
+Several package names in the SDK 1\.x contain `v2`\. The use of `v2` in this case usually means that code in the package is targted to work with version 2 of the service\.   
+Since the full package name begins with `com.amazonaws`, these are SDK 1\.x components\. Examples of these package names in the SDK 1\.x are:   
+`com.amazonaws.services.dynamodbv2`
+`com.amazonaws.retry.v2`
+`com.amazonaws.services.apigatewayv2`
+`com.amazonaws.services.simpleemailv2`
+
+## High\-level libraries<a name="highlevel-libraries"></a>
+
+High\-level libraries, such as Amazon SQS Client\-side Buffering, are not yet available in version 2\.x\. For a list of libraries that have been released, see the AWS SDK for Java 2\.x [changelog](https://github.com/aws/aws-sdk-java-v2/blob/master/docs/LaunchChangelog.md#7-high-level-libraries)\.
+
+If your application depends on libraries that aren't released in version 2\.x, configure your `pom.xml` file to use both 1\.x and 2\.x\. For more information, see [Using both SDKs side\-by\-side](migration-side-by-side.md)\.
+
+## Adding version 2\.x to your project<a name="adding-v2"></a>
+
+Maven is the recommended way to manage dependencies when using the AWS SDK for Java 2\.x\. To add version 2 components to your project, update your `pom.xml` file with a dependency on the SDK\. 
 
 **Example**  
 
@@ -61,7 +71,7 @@ DynamoDbClient ddbClient = DynamoDbClient.builder().build();
 
 ## Client Configuration<a name="client-configuration"></a>
 
-In 1\.x, SDK client configuration was modified by setting a `ClientConfiguration` instance on the client or client builder\. In version 2\.x, the client configuration is split into separate configuration classes\. The separate configuration classes enable you to configure different HTTP clients for async versus synchronous clients but still use the same `ClientOverrideConfiguration` class\.
+In 1\.x, SDK client configuration was modified by setting a `ClientConfiguration` instance on the client or client builder\. In version 2\.x, the client configuration is split into separate configuration classes\. With the separate configuration classes, you can configure different HTTP clients for async versus synchronous clients but still use the same `ClientOverrideConfiguration` class\.
 
 **Example of client configuration in version 1\.x**  
 
@@ -114,7 +124,7 @@ For a complete mapping of client configuration methods between 1\.x and 2\.x, se
 
 ## Setter Methods<a name="setter-methods"></a>
 
-In the AWS SDK for Java 2\.x, setter method names don’t include the "set" or "with" prefix\. For example, \*\.withEndpoint\(\) is now just \*\.endpoint\(\)\.
+In the AWS SDK for Java 2\.x, setter method names don’t include the `set` or `with` prefix\. For example, `*.withEndpoint()` is now `*.endpoint()`\.
 
 **Example of using setting methods in 1\.x**  
 
@@ -134,7 +144,7 @@ DynamoDbClient client = DynamoDbClient.builder()
 
 ## Class Names<a name="class-names"></a>
 
-All client class names are now fully camel cased and no longer prefixed by "Amazon"\. These changes are aligned with names used in the AWS CLI\. For a full list of client name changes, see the AWS SDK for Java 2\.x [changelog](https://github.com/aws/aws-sdk-java-v2/blob/master/docs/LaunchChangelog.md#63-client-names)\.
+All client class names are now fully camel cased and no longer prefixed by `Amazon`\. These changes are aligned with names used in the AWS CLI\. For a full list of client name changes, see the AWS SDK for Java 2\.x [changelog](https://github.com/aws/aws-sdk-java-v2/blob/master/docs/LaunchChangelog.md#63-client-names)\.
 
 **Example of class names in 1\.x**  
 
@@ -150,7 +160,7 @@ DynamoDbClient
 AcmAsyncClient
 ```
 
-## Region Class<a name="region-class"></a>
+## Region class<a name="region-class"></a>
 
 The AWS SDK for Java version 1\.x had multiple `Region` and `Regions` classes, both in the core package and in many of the service packages\. `Region` and `Regions` classes in version 2\.x are now collapsed into one core class, `Region`\.
 
@@ -194,17 +204,17 @@ request = DescribeAlarmsRequest.builder()
         .build();
 ```
 
-## Streaming Operations<a name="streaming-operations"></a>
+## Streaming operations<a name="streaming-operations"></a>
 
-Streaming operations such as the Amazon S3 `getObject` and `putObject` methods now support non\-blocking I/O\. As a result, the request and response POJOs no longer take `InputStream` as a parameter\. Instead the request object accepts `RequestBody`, which is a stream of bytes\. The asynchronous client accepts `AsyncRequestBody`\.
+Streaming operations such as the Amazon S3 `getObject` and `putObject` methods now support non\-blocking I/O\. As a result, the request and response POJOs no longer take `InputStream` as a parameter\. Instead, the request object accepts `RequestBody`, which is a stream of bytes\. The asynchronous client accepts `AsyncRequestBody`\.
 
-**Example of Amazon S3 putObject operation in 1\.x**  
+**Example of Amazon S3`putObject` operation in 1\.x**  
 
 ```
 s3client.putObject(BUCKET, KEY, new File(file_path));
 ```
 
-**Example of Amazon S3 putObject operation in 2\.x**  
+**Example of Amazon S3`putObject` operation in 2\.x**  
 
 ```
 s3client.putObject(PutObjectRequest.builder()
@@ -216,7 +226,7 @@ s3client.putObject(PutObjectRequest.builder()
 
 In parallel, the response object accepts `ResponseTransformer` for synchronous clients and `AsyncResponseTransformer` for asynchronous clients\.
 
-**Example of Amazon S3 getObject operation in 1\.x**  
+**Example of Amazon S3`getObject` operation in 1\.x**  
 
 ```
 S3Object o = s3.getObject(bucket, key);
@@ -224,7 +234,7 @@ S3ObjectInputStream s3is = o.getObjectContent();
 FileOutputStream fos = new FileOutputStream(new File(key));
 ```
 
-**Example of Amazon S3 getObject operation in 2\.x**  
+**Example of Amazon S3`getObject` operation in 2\.x**  
 
 ```
 s3client.getObject(GetObjectRequest.builder().bucket(bucket).key(key).build(),
@@ -233,13 +243,13 @@ s3client.getObject(GetObjectRequest.builder().bucket(bucket).key(key).build(),
 
 ## Exception changes<a name="exceptions-changes"></a>
 
-Exception class names, and their structures and relationships, have also changed\. `software.amazon.awssdk.core.exception.SdkException` is the new base `Exception` class that all the other exceptions extend\.
+Exception class names, their structures, and their relationships have also changed\. `software.amazon.awssdk.core.exception.SdkException` is the new base `Exception` class that all the other exceptions extend\.
 
 For a full list of the 2\.x exception class names mapped to the 1\.x exceptions, see [Exception class name changes](migration-exception-changes.md)\.
 
-## Service\-Specific Changes<a name="service-changes"></a>
+## Service\-specific changes<a name="service-changes"></a>
 
-### Amazon S3 Operation Name Changes<a name="s3-operations-name"></a>
+### Amazon S3 operation name changes<a name="s3-operations-name"></a>
 
 Many of the operation names for the Amazon S3 client have changed in the AWS SDK for Java 2\.x\. In version 1\.x, the Amazon S3 client is not generated directly from the service API\. This results in inconsistency between the SDK operations and the service API\. In version 2\.x, we now generate the Amazon S3 client to be more consistent with the service API\.
 
@@ -263,10 +273,10 @@ CopyObject
 
 For a full list of the operation name mappings, see the AWS SDK for Java 2\.x [changelog](https://github.com/aws/aws-sdk-java-v2/blob/master/docs/LaunchChangelog.md#4-service-changes)\.
 
-### Cross\-region access<a name="cross-region-access"></a>
+### Cross\-Region access<a name="cross-region-access"></a>
 
-For security best practices, cross\-region access is no longer supported for single clients\.
+For security best practices, cross\-Region access is no longer supported for single clients\.
 
-In version 1\.x, services such as Amazon S3, Amazon SNS, and Amazon SQS allowed access to resources across Region boundaries\. This is no longer allowed in version 2\.x using the same client\. If you need to access a resource in a different region, you must create a client in that region and retrieve the resource using the appropriate client\.
+In version 1\.x, services such as Amazon S3, Amazon SNS, and Amazon SQS are allowed to access resources across Region boundaries\. This is no longer allowed in version 2\.x using the same client\. If you need to access a resource in a different Region, you must create a client in that Region and retrieve the resource using the appropriate client\.
 
 **Topics**

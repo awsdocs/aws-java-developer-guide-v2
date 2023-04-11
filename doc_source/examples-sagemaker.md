@@ -1,9 +1,3 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Working with Amazon SageMaker<a name="examples-sagemaker"></a>
 
  Amazon SageMaker is a fully managed service that provides every developer and data scientist with the ability to build, train, and deploy machine learning \(ML\) models\. See the following resources for complete code examples with instructions\.

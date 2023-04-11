@@ -1,31 +1,25 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Lambda examples using SDK for Java 2\.x<a name="java_lambda_code_examples"></a>
 
 The following code examples show you how to perform actions and implement common scenarios by using the AWS SDK for Java 2\.x with Lambda\.
 
-*Actions* are code excerpts that show you how to call individual Lambda functions\.
+*Actions* are code excerpts that show you how to call individual service functions\.
 
-*Scenarios* are code examples that show you how to accomplish a specific task by calling multiple Lambda functions\.
+*Scenarios* are code examples that show you how to accomplish a specific task by calling multiple functions within the same service\.
 
 Each example includes a link to GitHub, where you can find instructions on how to set up and run the code in context\.
 
 **Topics**
-+ [Actions](#w620aac15c13b9c43c13)
-+ [Scenarios](#w620aac15c13b9c43c15)
++ [Actions](#actions)
++ [Scenarios](#scenarios)
 
-## Actions<a name="w620aac15c13b9c43c13"></a>
+## Actions<a name="actions"></a>
 
 ### Create a function<a name="lambda_CreateFunction_java_topic"></a>
 
 The following code example shows how to create a Lambda function\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#readme)\. 
   
 
 ```
@@ -75,7 +69,7 @@ The following code example shows how to create a Lambda function\.
 The following code example shows how to delete a Lambda function\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#readme)\. 
   
 
 ```
@@ -101,7 +95,7 @@ The following code example shows how to delete a Lambda function\.
 The following code example shows how to invoke a Lambda function\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#readme)\. 
   
 
 ```
@@ -133,28 +127,50 @@ The following code example shows how to invoke a Lambda function\.
 ```
 +  For API details, see [Invoke](https://docs.aws.amazon.com/goto/SdkForJavaV2/lambda-2015-03-31/Invoke) in *AWS SDK for Java 2\.x API Reference*\. 
 
-## Scenarios<a name="w620aac15c13b9c43c15"></a>
+## Scenarios<a name="scenarios"></a>
 
 ### Get started with functions<a name="lambda_Scenario_GettingStartedFunctions_java_topic"></a>
 
 The following code example shows how to:
-+ Create an AWS Identity and Access Management \(IAM\) role that grants Lambda permission to write to logs\.
-+ Create a Lambda function and upload handler code\.
++ Create an IAM role and Lambda function, then upload handler code\.
 + Invoke the function with a single parameter and get results\.
-+ Update the function code and configure its Lambda environment with an environment variable\.
-+ Invoke the function with new parameters and get results\. Display the execution log that's returned from the invocation\.
-+ List the functions for your account\.
-+ Delete the IAM role and the Lambda function\.
++ Update the function code and configure with an environment variable\.
++ Invoke the function with new parameters and get results\. Display the returned execution log\.
++ List the functions for your account, then clean up resources\.
 
 For more information, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html)\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#readme)\. 
   
 
 ```
-public class LambdaScenario {
+/*
+ *  Lambda function names appear as:
+ *
+ *  arn:aws:lambda:us-west-2:335556666777:function:HelloFunction
+ *
+ *  To find this value, look at the function in the AWS Management Console.
+ *
+ *  Before running this Java code example, set up your development environment, including your credentials.
+ *
+ *  For more information, see this documentation topic:
+ *
+ *  https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/get-started.html
+ *
+ *  This example performs the following tasks:
+ *
+ * 1. Creates an AWS Lambda function.
+ * 2. Gets a specific AWS Lambda function.
+ * 3. Lists all Lambda functions.
+ * 4. Invokes a Lambda function.
+ * 5. Updates the Lambda function code and invokes it again.
+ * 6. Updates a Lambda function's configuration value.
+ * 7. Deletes a Lambda function.
+ */
 
+public class LambdaScenario {
+    public static final String DASHES = new String(new char[80]).replace("\0", "-");
     public static void main(String[] args) throws InterruptedException {
 
         final String usage = "\n" +
@@ -179,42 +195,61 @@ public class LambdaScenario {
         String handler = args[3];
         String bucketName = args[4];
         String key = args[5];
+
         Region region = Region.US_WEST_2;
         LambdaClient awsLambda = LambdaClient.builder()
             .region(region)
             .credentialsProvider(ProfileCredentialsProvider.create())
             .build();
 
+        System.out.println(DASHES);
+        System.out.println("Welcome to the AWS Lambda example scenario.");
+        System.out.println(DASHES);
+
+        System.out.println(DASHES);
+        System.out.println("1. Create an AWS Lambda function.");
         String funArn = createLambdaFunction(awsLambda, functionName, filePath, role, handler);
         System.out.println("The AWS Lambda ARN is "+funArn);
+        System.out.println(DASHES);
 
-        // Get the Lambda function.
-        System.out.println("Getting the " +functionName +" AWS Lambda function.");
+        System.out.println(DASHES);
+        System.out.println("2. Get the "+functionName + " AWS Lambda function.");
         getFunction(awsLambda, functionName);
+        System.out.println(DASHES);
 
-        // List the Lambda functions.
-        System.out.println("Listing all functions.");
-        LambdaScenario.listFunctions(awsLambda);
+        System.out.println(DASHES);
+        System.out.println("3. List all AWS Lambda functions.");
+        listFunctions(awsLambda);
+        System.out.println(DASHES);
 
+        System.out.println(DASHES);
+        System.out.println("4. Invoke the Lambda function.");
         System.out.println("*** Sleep for 1 min to get Lambda function ready.");
         Thread.sleep(60000);
-
-        System.out.println("*** Invoke the Lambda function.");
         invokeFunction(awsLambda, functionName);
+        System.out.println(DASHES);
 
-        System.out.println("*** Update the Lambda function code.");
-        LambdaScenario.updateFunctionCode(awsLambda, functionName, bucketName, key);
-
+        System.out.println(DASHES);
+        System.out.println("5. Update the Lambda function code and invoke it again.");
+        updateFunctionCode(awsLambda, functionName, bucketName, key);
         System.out.println("*** Sleep for 1 min to get Lambda function ready.");
         Thread.sleep(60000);
-        System.out.println("*** Invoke the Lambda function again with the updated code.");
         invokeFunction(awsLambda, functionName);
+        System.out.println(DASHES);
 
-        System.out.println("Update a Lambda function's configuration value.");
+        System.out.println(DASHES);
+        System.out.println("6. Update a Lambda function's configuration value.");
         updateFunctionConfiguration(awsLambda, functionName, handler);
+        System.out.println(DASHES);
 
-        System.out.println("Delete the AWS Lambda function.");
+        System.out.println(DASHES);
+        System.out.println("7. Delete the AWS Lambda function.");
         LambdaScenario.deleteLambdaFunction(awsLambda, functionName);
+        System.out.println(DASHES);
+
+        System.out.println(DASHES);
+        System.out.println("The AWS Lambda scenario completed successfully");
+        System.out.println(DASHES);
         awsLambda.close();
     }
 

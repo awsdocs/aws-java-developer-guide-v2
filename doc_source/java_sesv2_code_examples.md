@@ -1,30 +1,24 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Amazon SES API v2 examples using SDK for Java 2\.x<a name="java_sesv2_code_examples"></a>
 
 The following code examples show you how to perform actions and implement common scenarios by using the AWS SDK for Java 2\.x with Amazon SES API v2\.
 
-*Actions* are code excerpts that show you how to call individual Amazon SES API v2 functions\.
+*Actions* are code excerpts that show you how to call individual service functions\.
 
-*Scenarios* are code examples that show you how to accomplish a specific task by calling multiple Amazon SES API v2 functions\.
+*Scenarios* are code examples that show you how to accomplish a specific task by calling multiple functions within the same service\.
 
 Each example includes a link to GitHub, where you can find instructions on how to set up and run the code in context\.
 
 **Topics**
-+ [Actions](#w620aac15c13b9c67c13)
++ [Actions](#actions)
 
-## Actions<a name="w620aac15c13b9c67c13"></a>
+## Actions<a name="actions"></a>
 
 ### Send an email<a name="sesv2_SendEmail_java_topic"></a>
 
 The following code example shows how to send an Amazon SES API v2 email\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ses#readme)\. 
 Sends a message\.  
 
 ```

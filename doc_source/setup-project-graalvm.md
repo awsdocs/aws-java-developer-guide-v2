@@ -1,10 +1,4 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
-# Setting up a GraalVM Native Image project for the AWS SDK for Java<a name="setup-project-graalvm"></a>
+# Set up a GraalVM Native Image project for the AWS SDK for Java<a name="setup-project-graalvm"></a>
 
 With versions 2\.16\.1 and later, the AWS SDK for Java provides out\-of\-the\-box support for GraalVM Native Image applications\. Use the `archetype-app-quickstart` Maven archetype to set up a project with built\-in native image support\.
 
@@ -17,7 +11,7 @@ With versions 2\.16\.1 and later, the AWS SDK for Java provides out\-of\-the\-bo
 To create a Maven project with built\-in native image support, in a terminal or command prompt window, use the following command\.
 
 **Note**  
-Replace *com\.example\.mynativeimageapp* with the full package namespace of your application\. Also replace *mynativeimageapp* with your project name\. This becomes the name of the directory for your project\.
+Replace `com.example.mynativeimageapp` with the full package namespace of your application\. Also replace `mynativeimageapp` with your project name\. This becomes the name of the directory for your project\.
 
 ```
 mvn archetype:generate \
@@ -34,7 +28,7 @@ mvn archetype:generate \
 
 This command creates a Maven project configured with dependencies for the AWS SDK for Java, Amazon S3, and the `ApacheHttpClient` HTTP client\. It also includes a dependency for the [GraalVM Native Image Maven plugin](https://www.graalvm.org/reference-manual/native-image/NativeImageMavenPlugin/), so that you can build native images using Maven\.
 
-To include dependencies for a different Amazon Web Services, set the value of the `-Dservice` parameter to the artifict ID of that service\. For example, *dynamodb*, *iam*, *pinpoint*, etc\. For a complete list of artifact IDs, see the list of managed dependencies for [software\.amazon\.awssdk on Maven Central](https://mvnrepository.com/artifact/software.amazon.awssdk/bom/latest)\.
+To include dependencies for a different Amazon Web Services, set the value of the `-Dservice` parameter to the artifact ID of that service\. Examples include `dynamodb`, `comprehend`, and `pinpoint`\. For a complete list of artifact IDs, see the list of managed dependencies for [software\.amazon\.awssdk on Maven Central](https://mvnrepository.com/artifact/software.amazon.awssdk/bom/latest)\.
 
 To use an asynchronous HTTP client, set the `-DhttpClient` parameter to `netty-nio-client`\. To use `UrlConnectionHttpClient` as the synchronous HTTP client instead of `apache-client`, set the `-DhttpClient` parameter to `url-connection-client`\.
 

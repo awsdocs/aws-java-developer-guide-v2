@@ -1,30 +1,24 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Secrets Manager examples using SDK for Java 2\.x<a name="java_secrets-manager_code_examples"></a>
 
 The following code examples show you how to perform actions and implement common scenarios by using the AWS SDK for Java 2\.x with Secrets Manager\.
 
-*Actions* are code excerpts that show you how to call individual Secrets Manager functions\.
+*Actions* are code excerpts that show you how to call individual service functions\.
 
-*Scenarios* are code examples that show you how to accomplish a specific task by calling multiple Secrets Manager functions\.
+*Scenarios* are code examples that show you how to accomplish a specific task by calling multiple functions within the same service\.
 
 Each example includes a link to GitHub, where you can find instructions on how to set up and run the code in context\.
 
 **Topics**
-+ [Actions](#w620aac15c13b9c73c13)
++ [Actions](#actions)
 
-## Actions<a name="w620aac15c13b9c73c13"></a>
+## Actions<a name="actions"></a>
 
 ### Create a secret<a name="secrets-manager_CreateSecret_java_topic"></a>
 
 The following code example shows how to create a Secrets Manager secret\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/secretsmanager#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/secretsmanager#readme)\. 
   
 
 ```
@@ -54,7 +48,7 @@ The following code example shows how to create a Secrets Manager secret\.
 The following code example shows how to delete a Secrets Manager secret\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/secretsmanager#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/secretsmanager#readme)\. 
   
 
 ```
@@ -81,7 +75,7 @@ The following code example shows how to delete a Secrets Manager secret\.
 The following code example shows how to describe a Secrets Manager secret\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/secretsmanager#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/secretsmanager#readme)\. 
   
 
 ```
@@ -117,7 +111,7 @@ The following code example shows how to describe a Secrets Manager secret\.
 The following code example shows how to get a Secrets Manager secret value\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/secretsmanager#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/secretsmanager#readme)\. 
   
 
 ```
@@ -145,7 +139,7 @@ The following code example shows how to get a Secrets Manager secret value\.
 The following code example shows how to list Secrets Manager secrets\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/secretsmanager#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/secretsmanager#readme)\. 
   
 
 ```
@@ -171,7 +165,7 @@ The following code example shows how to list Secrets Manager secrets\.
 The following code example shows how to put a value in a Secrets Manager secret\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/secretsmanager#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/secretsmanager#readme)\. 
   
 
 ```

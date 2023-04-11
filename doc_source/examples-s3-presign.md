@@ -1,9 +1,3 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Working with Amazon S3 presigned URLs<a name="examples-s3-presign"></a>
 
 You can use a [S3Presigner](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/services/s3/presigner/S3Presigner.html) object to sign an Amazon S3 `SdkRequest` so that it’s executed without requiring authentication on the part of the caller\. For example, assume Alice has access to an S3 object, and she wants to temporarily share access to that object with Bob\. Alice can generate a pre\-signed [GetObjectRequest](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/services/s3/model/GetObjectRequest.html) object to secure share with Bob so that he can download the object without requiring access to Alice’s credentials\.
@@ -94,7 +88,7 @@ See the [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/blob/
 
 Build a [S3Presigner](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/services/s3/presigner/S3Presigner.html) object that represents the client object\. Next, create a [GetObjectRequest](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/services/s3/model/GetObjectRequest.html) object and specify the bucket name and key name\. In addition, create a [GetObjectPresignRequest](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/services/s3/presigner/model/GetObjectPresignRequest.html) object that can be executed at a later time without requiring additional signing or authentication\. When you create this object, you can specify the time in minutes that the bucket can be accessed without using credentials by invoking the `signatureDuration` method \(as shown in the following code example\)\.
 
-Invoke the `presignGetObject` method that belongs to the [S3Presigner](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/services/s3/presigner/S3Presigner.html) object to create a [PresignedPutObjectRequest](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/services/s3/presigner/model/PresignedPutObjectRequest.html) object\. You can invoke this object’s `url` method to obtain the URL to use\. Once you have the URL, you can use standard HTTP Java logic to read the contents of the bucket, as shown in the following Java code example\.
+Invoke the `presignGetObject` method that belongs to the [S3Presigner](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/services/s3/presigner/S3Presigner.html) object to create a [PresignedGetObjectRequest](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/presigner/model/PresignedGetObjectRequest.html) object\. You can invoke this object’s `url` method to obtain the URL to use\. Once you have the URL, you can use standard HTTP Java logic to read the contents of the bucket, as shown in the following Java code example\.
 
  **Imports** 
 

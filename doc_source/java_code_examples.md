@@ -1,24 +1,13 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # SDK for Java 2\.x code examples<a name="java_code_examples"></a>
 
 The code examples in this topic show you how to use the AWS SDK for Java 2\.x with AWS\.
 
-The examples are divided into the following categories:
+*Actions* are code excerpts that show you how to call individual service functions\.
 
-**Single\-service actions**  
-Code excerpts that show you how to call individual service functions\.
+*Scenarios* are code examples that show you how to accomplish a specific task by calling multiple functions within the same service\.
 
-**Single\-service scenarios**  
-Code examples that show you how to accomplish a specific task by calling multiple functions within the same service\.
-
-**Cross\-service examples**  
-Sample applications that work across multiple AWS services\.
+*Cross\-service examples* are sample applications that work across multiple AWS services\.
 
 **Topics**
-+ [Single\-service actions and scenarios](java_code_examples_categorized.md)
++ [Actions and scenarios](java_code_examples_categorized.md)
 + [Cross\-service examples](java_code_examples_cross_service.md)

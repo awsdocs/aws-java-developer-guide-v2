@@ -1,31 +1,25 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # DynamoDB examples using SDK for Java 2\.x<a name="java_dynamodb_code_examples"></a>
 
 The following code examples show you how to perform actions and implement common scenarios by using the AWS SDK for Java 2\.x with DynamoDB\.
 
-*Actions* are code excerpts that show you how to call individual DynamoDB functions\.
+*Actions* are code excerpts that show you how to call individual service functions\.
 
-*Scenarios* are code examples that show you how to accomplish a specific task by calling multiple DynamoDB functions\.
+*Scenarios* are code examples that show you how to accomplish a specific task by calling multiple functions within the same service\.
 
 Each example includes a link to GitHub, where you can find instructions on how to set up and run the code in context\.
 
 **Topics**
-+ [Actions](#w620aac15c13b9c27c13)
-+ [Scenarios](#w620aac15c13b9c27c15)
++ [Actions](#actions)
++ [Scenarios](#scenarios)
 
-## Actions<a name="w620aac15c13b9c27c13"></a>
+## Actions<a name="actions"></a>
 
 ### Create a table<a name="dynamodb_CreateTable_java_topic"></a>
 
 The following code example shows how to create a DynamoDB table\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#readme)\. 
   
 
 ```
@@ -74,7 +68,7 @@ The following code example shows how to create a DynamoDB table\.
 The following code example shows how to delete a DynamoDB table\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#readme)\. 
   
 
 ```
@@ -101,11 +95,11 @@ The following code example shows how to delete a DynamoDB table\.
 The following code example shows how to delete an item from a DynamoDB table\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#readme)\. 
   
 
 ```
-    public static void deleteDymamoDBItem(DynamoDbClient ddb, String tableName, String key, String keyVal) {
+    public static void deleteDynamoDBItem(DynamoDbClient ddb, String tableName, String key, String keyVal) {
         HashMap<String,AttributeValue> keyToGet = new HashMap<>();
         keyToGet.put(key, AttributeValue.builder()
             .s(keyVal)
@@ -131,7 +125,7 @@ The following code example shows how to delete an item from a DynamoDB table\.
 The following code example shows how to get an item from a DynamoDB table\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#readme)\. 
 Gets an item from a table by using the DynamoDbClient\.  
 
 ```
@@ -173,7 +167,7 @@ Gets an item from a table by using the DynamoDbClient\.
 The following code example shows how to get information about a DynamoDB table\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#readme)\. 
   
 
 ```
@@ -219,7 +213,7 @@ The following code example shows how to get information about a DynamoDB table\.
 The following code example shows how to list DynamoDB tables\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#readme)\. 
   
 
 ```
@@ -270,34 +264,44 @@ The following code example shows how to list DynamoDB tables\.
 The following code example shows how to put an item in a DynamoDB table\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#readme)\. 
-Puts an item into a table by using the enhanced client\.  
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#readme)\. 
+Puts an item into a table using [DynamoDbClient](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/services/dynamodb/DynamoDbClient.html)\.  
 
 ```
-    public static void putRecord(DynamoDbEnhancedClient enhancedClient) {
+    public static void putItemInTable(DynamoDbClient ddb,
+                                      String tableName,
+                                      String key,
+                                      String keyVal,
+                                      String albumTitle,
+                                      String albumTitleValue,
+                                      String awards,
+                                      String awardVal,
+                                      String songTitle,
+                                      String songTitleVal){
+
+        HashMap<String,AttributeValue> itemValues = new HashMap<>();
+        itemValues.put(key, AttributeValue.builder().s(keyVal).build());
+        itemValues.put(songTitle, AttributeValue.builder().s(songTitleVal).build());
+        itemValues.put(albumTitle, AttributeValue.builder().s(albumTitleValue).build());
+        itemValues.put(awards, AttributeValue.builder().s(awardVal).build());
+
+        PutItemRequest request = PutItemRequest.builder()
+            .tableName(tableName)
+            .item(itemValues)
+            .build();
+
         try {
-            DynamoDbTable<Customer> custTable = enhancedClient.table("Customer", TableSchema.fromBean(Customer.class));
+            PutItemResponse response = ddb.putItem(request);
+            System.out.println(tableName +" was successfully updated. The request id is "+response.responseMetadata().requestId());
 
-            // Create an Instant value.
-            LocalDate localDate = LocalDate.parse("2020-04-07");
-            LocalDateTime localDateTime = localDate.atStartOfDay();
-            Instant instant = localDateTime.toInstant(ZoneOffset.UTC);
-
-            // Populate the Table.
-            Customer custRecord = new Customer();
-            custRecord.setCustName("Tom red");
-            custRecord.setId("id101");
-            custRecord.setEmail("tred@noserver.com");
-            custRecord.setRegistrationDate(instant) ;
-
-            // Put the customer data into an Amazon DynamoDB table.
-            custTable.putItem(custRecord);
-
+        } catch (ResourceNotFoundException e) {
+            System.err.format("Error: The Amazon DynamoDB table \"%s\" can't be found.\n", tableName);
+            System.err.println("Be sure that it exists and that you've typed its name correctly!");
+            System.exit(1);
         } catch (DynamoDbException e) {
             System.err.println(e.getMessage());
             System.exit(1);
         }
-        System.out.println("Customer data added to the table with id id101");
     }
 ```
 +  For API details, see [PutItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem) in *AWS SDK for Java 2\.x API Reference*\. 
@@ -307,82 +311,8 @@ Puts an item into a table by using the enhanced client\.
 The following code example shows how to query a DynamoDB table\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#readme)\. 
-Queries a table by using the enhanced client\.  
-
-```
-    public static String queryTable(DynamoDbEnhancedClient enhancedClient) {
-
-        try{
-            DynamoDbTable<Customer> mappedTable = enhancedClient.table("Customer", TableSchema.fromBean(Customer.class));
-            QueryConditional queryConditional = QueryConditional.keyEqualTo(Key.builder()
-                .partitionValue("id101")
-                .build());
-
-            // Get items in the table and write out the ID value.
-            Iterator<Customer> results = mappedTable.query(queryConditional).items().iterator();
-            String result="";
-
-            while (results.hasNext()) {
-                Customer rec = results.next();
-                result = rec.getId();
-                System.out.println("The record id is "+result);
-            }
-            return result;
-
-        } catch (DynamoDbException e) {
-            System.err.println(e.getMessage());
-            System.exit(1);
-        }
-        return "";
-    }
-```
-Queries a table by using the enhanced client and a secondary index\.  
-
-```
-    public static void queryIndex(DynamoDbClient ddb, String tableName) {
-
-        try {
-            // Create a DynamoDbEnhancedClient and use the DynamoDbClient object.
-            DynamoDbEnhancedClient enhancedClient = DynamoDbEnhancedClient.builder()
-                .dynamoDbClient(ddb)
-                .build();
-
-            //Create a DynamoDbTable object based on Movies.
-            DynamoDbTable<Movies> table = enhancedClient.table("Movies", TableSchema.fromBean(Movies.class));
-            String dateVal = "2013";
-
-            DynamoDbIndex<Movies> secIndex = enhancedClient.table("Movies", TableSchema.fromBean(Movies.class)) .index("year-index");
-            AttributeValue attVal = AttributeValue.builder()
-                .n(dateVal)
-                .build();
-
-            // Create a QueryConditional object that's used in the query operation.
-            QueryConditional queryConditional = QueryConditional
-                .keyEqualTo(Key.builder().partitionValue(attVal)
-                .build());
-
-            // Get items in the table.
-            SdkIterable<Page<Movies>> results = secIndex.query(QueryEnhancedRequest.builder()
-                .queryConditional(queryConditional)
-                .limit(300)
-                .build());
-
-            // Display the results.
-            results.forEach(page -> {
-                List<Movies> allMovies = page.items();
-                for (Movies myMovies: allMovies) {
-                    System.out.println("The movie title is " + myMovies.getTitle() + ". The year is " + myMovies.getYear());
-                }
-            });
-
-        } catch (DynamoDbException e) {
-            System.err.println(e.getMessage());
-            System.exit(1);
-        }
-    }
-```
-Queries a table by using the DynamoDbClient\.  
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#readme)\. 
+Queries a table by using [DynamoDbClient](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/services/dynamodb/DynamoDbClient.html)\.  
 
 ```
     public static int queryTable(DynamoDbClient ddb, String tableName, String partitionKeyName, String partitionKeyVal, String partitionAlias) {
@@ -416,7 +346,7 @@ Queries a table by using the DynamoDbClient\.
         return -1;
     }
 ```
-Queries a table by using the DynamoDbClient and a secondary index\.  
+Queries a table by using `DynamoDbClient` and a secondary index\.  
 
 ```
     public static void queryIndex(DynamoDbClient ddb, String tableName) {
@@ -453,25 +383,30 @@ Queries a table by using the DynamoDbClient and a secondary index\.
 The following code example shows how to scan a DynamoDB table\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#readme)\. 
-Scans an Amazon DynamoDB table by using the enhanced client\.  
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#readme)\. 
+Scans an Amazon DynamoDB table using [DynamoDbClient](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/services/dynamodb/DynamoDbClient.html)\.  
 
 ```
-    public static void scan( DynamoDbEnhancedClient enhancedClient) {
-        try{
-            DynamoDbTable<Customer> custTable = enhancedClient.table("Customer", TableSchema.fromBean(Customer.class));
-            Iterator<Customer> results = custTable.scan().items().iterator();
-            while (results.hasNext()) {
-                Customer rec = results.next();
-                System.out.println("The record id is "+rec.getId());
-                System.out.println("The name is " +rec.getCustName());
+    public static void scanItems( DynamoDbClient ddb,String tableName ) {
+
+        try {
+            ScanRequest scanRequest = ScanRequest.builder()
+                .tableName(tableName)
+                .build();
+
+            ScanResponse response = ddb.scan(scanRequest);
+            for (Map<String, AttributeValue> item : response.items()) {
+                Set<String> keys = item.keySet();
+                for (String key : keys) {
+                    System.out.println ("The key name is "+key +"\n" );
+                    System.out.println("The value is "+item.get(key).s());
+                }
             }
 
         } catch (DynamoDbException e) {
-            System.err.println(e.getMessage());
+            e.printStackTrace();
             System.exit(1);
         }
-        System.out.println("Done");
     }
 ```
 +  For API details, see [Scan](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/Scan) in *AWS SDK for Java 2\.x API Reference*\. 
@@ -481,30 +416,44 @@ Scans an Amazon DynamoDB table by using the enhanced client\.
 The following code example shows how to update an item in a DynamoDB table\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#readme)\. 
-Updates an item located in a table by using the enhanced client\.  
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#readme)\. 
+Updates an item in a table using [DynamoDbClient](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/services/dynamodb/DynamoDbClient.html)\.  
 
 ```
-    public static String modifyItem(DynamoDbEnhancedClient enhancedClient, String keyVal, String email) {
+    public static void updateTableItem(DynamoDbClient ddb,
+                                       String tableName,
+                                       String key,
+                                       String keyVal,
+                                       String name,
+                                       String updateVal){
+
+        HashMap<String,AttributeValue> itemKey = new HashMap<>();
+        itemKey.put(key, AttributeValue.builder()
+            .s(keyVal)
+            .build());
+
+        HashMap<String,AttributeValueUpdate> updatedValues = new HashMap<>();
+        updatedValues.put(name, AttributeValueUpdate.builder()
+            .value(AttributeValue.builder().s(updateVal).build())
+            .action(AttributeAction.PUT)
+            .build());
+
+        UpdateItemRequest request = UpdateItemRequest.builder()
+            .tableName(tableName)
+            .key(itemKey)
+            .attributeUpdates(updatedValues)
+            .build();
 
         try {
-
-            DynamoDbTable<Customer> mappedTable = enhancedClient.table("Customer", TableSchema.fromBean(Customer.class));
-            Key key = Key.builder()
-                .partitionValue(keyVal)
-                .build();
-
-            // Get the item by using the key and update the email value.
-            Customer customerRec = mappedTable.getItem(r->r.key(key));
-            customerRec.setEmail(email);
-            mappedTable.updateItem(customerRec);
-            return customerRec.getEmail();
-
+            ddb.updateItem(request);
+        } catch (ResourceNotFoundException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
         } catch (DynamoDbException e) {
             System.err.println(e.getMessage());
             System.exit(1);
         }
-        return "";
+        System.out.println("The Amazon DynamoDB table was updated!");
     }
 ```
 +  For API details, see [UpdateItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem) in *AWS SDK for Java 2\.x API Reference*\. 
@@ -514,7 +463,7 @@ Updates an item located in a table by using the enhanced client\.
 The following code example shows how to write a batch of DynamoDB items\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb/#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb/#readme)\. 
 Inserts many items into a table by using the enhanced client\.  
 
 ```
@@ -539,12 +488,20 @@ Inserts many items into a table by using the enhanced client\.
             record3.setEmail("spink@noserver.com");
             record3.setRegistrationDate(instant) ;
 
+            Customer record4 = new Customer();
+            record4.setCustName("Jerry orange");
+            record4.setId("id101");
+            record4.setEmail("jorange@noserver.com");
+            record4.setRegistrationDate(instant) ;
+
+
             BatchWriteItemEnhancedRequest batchWriteItemEnhancedRequest = BatchWriteItemEnhancedRequest.builder()
                     .writeBatches(
                             WriteBatch.builder(Customer.class)          // add items to the Customer table
                                     .mappedTableResource(customerMappedTable)
                                     .addPutItem(builder -> builder.item(record2))
                                     .addPutItem(builder -> builder.item(record3))
+                                    .addPutItem(builder -> builder.item(record4))
                                     .build(),
                             WriteBatch.builder(Music.class)             // delete an item from the Music table
                                     .mappedTableResource(musicMappedTable)
@@ -554,7 +511,7 @@ Inserts many items into a table by using the enhanced client\.
                     .build();
 
 
-            // Add two items to the Customer table and delete one item from the Music table
+            // Add three items to the Customer table and delete one item from the Music table
             enhancedClient.batchWriteItem(batchWriteItemEnhancedRequest);
 
             System.out.println("done");
@@ -567,9 +524,9 @@ Inserts many items into a table by using the enhanced client\.
 ```
 +  For API details, see [BatchWriteItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/BatchWriteItem) in *AWS SDK for Java 2\.x API Reference*\. 
 
-## Scenarios<a name="w620aac15c13b9c27c15"></a>
+## Scenarios<a name="scenarios"></a>
 
-### Get started using tables, items, and queries<a name="dynamodb_Scenario_GettingStartedMovies_java_topic"></a>
+### Get started with tables, items, and queries<a name="dynamodb_Scenario_GettingStartedMovies_java_topic"></a>
 
 The following code example shows how to:
 + Create a table that can hold movie data\.
@@ -577,17 +534,15 @@ The following code example shows how to:
 + Write movie data to the table from a sample JSON file\.
 + Query for movies that were released in a given year\.
 + Scan for movies that were released in a range of years\.
-+ Delete a movie from the table\.
-+ Delete the table\.
++ Delete a movie from the table, then delete the table\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#readme)\. 
 Create a DynamoDB table\.  
 
 ```
     // Create a table with a Sort key.
     public static void createTable(DynamoDbClient ddb, String tableName) {
-
         DynamoDbWaiter dbWaiter = ddb.waiter();
         ArrayList<AttributeDefinition> attributeDefinitions = new ArrayList<>();
 
@@ -650,7 +605,6 @@ Create a helper function to download and extract the sample JSON file\.
 ```
     // Load data into the table.
     public static void loadData(DynamoDbClient ddb, String tableName, String fileName) throws IOException {
-
         DynamoDbEnhancedClient enhancedClient = DynamoDbEnhancedClient.builder()
             .dynamoDbClient(ddb)
             .build();
@@ -662,7 +616,6 @@ Create a helper function to download and extract the sample JSON file\.
         ObjectNode currentNode;
         int t = 0 ;
         while (iter.hasNext()) {
-
             // Only add 200 Movies to the table.
             if (t == 200)
                 break ;
@@ -725,10 +678,28 @@ Get an item from a table\.
 Full example\.  
 
 ```
+/**
+ *  Before running this Java V2 code example, set up your development environment, including your credentials.
+ *
+ *  For more information, see the following documentation topic:
+ *
+ *  https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/get-started.html
+ *
+ *  This Java example performs these tasks:
+ *
+ * 1. Creates the Amazon DynamoDB Movie table with partition and sort key.
+ * 2. Puts data into the Amazon DynamoDB table from a JSON document using the Enhanced client.
+ * 3. Gets data from the Movie table.
+ * 4. Adds a new item.
+ * 5. Updates an item.
+ * 6. Uses a Scan to query items using the Enhanced client.
+ * 7. Queries all items where the year is 2013 using the Enhanced Client.
+ * 8. Deletes the table.
+ */
+
 public class Scenario {
-
+    public static final String DASHES = new String(new char[80]).replace("\0", "-");
     public static void main(String[] args) throws IOException {
-
         final String usage = "\n" +
             "Usage:\n" +
             "    <fileName>\n\n" +
@@ -749,35 +720,55 @@ public class Scenario {
             .credentialsProvider(credentialsProvider)
             .build();
 
-        System.out.println("******* Creating an Amazon DynamoDB table named Movies with a key named year and a sort key named title.");
+        System.out.println(DASHES);
+        System.out.println("Welcome to the Amazon DynamoDB example scenario.");
+        System.out.println(DASHES);
+
+        System.out.println(DASHES);
+        System.out.println("1. Creating an Amazon DynamoDB table named Movies with a key named year and a sort key named title.");
         createTable(ddb, tableName);
+        System.out.println(DASHES);
 
-        System.out.println("******* Loading data into the Amazon DynamoDB table.");
+        System.out.println(DASHES);
+        System.out.println("2. Loading data into the Amazon DynamoDB table.");
         loadData(ddb, tableName, fileName);
+        System.out.println(DASHES);
 
-        System.out.println("******* Getting data from the Movie table.");
+        System.out.println(DASHES);
+        System.out.println("3. Getting data from the Movie table.");
         getItem(ddb) ;
+        System.out.println(DASHES);
 
-        System.out.println("******* Putting a record into the Amazon DynamoDB table.");
+        System.out.println(DASHES);
+        System.out.println("4. Putting a record into the Amazon DynamoDB table.");
         putRecord(ddb);
+        System.out.println(DASHES);
 
-        System.out.println("******* Updating a record.");
+        System.out.println(DASHES);
+        System.out.println("5. Updating a record.");
         updateTableItem(ddb, tableName);
+        System.out.println(DASHES);
 
-        System.out.println("******* Scanning the Amazon DynamoDB table.");
+        System.out.println(DASHES);
+        System.out.println("6. Scanning the Amazon DynamoDB table.");
         scanMovies(ddb, tableName);
+        System.out.println(DASHES);
 
-        System.out.println("******* Querying the Movies released in 2013.");
+        System.out.println(DASHES);
+        System.out.println("7. Querying the Movies released in 2013.");
         queryTable(ddb);
+        System.out.println(DASHES);
 
-        System.out.println("******* Deleting the Amazon DynamoDB table.");
+        System.out.println(DASHES);
+        System.out.println("8. Deleting the Amazon DynamoDB table.");
         deleteDynamoDBTable(ddb, tableName);
+        System.out.println(DASHES);
+
         ddb.close();
     }
 
     // Create a table with a Sort key.
     public static void createTable(DynamoDbClient ddb, String tableName) {
-
         DynamoDbWaiter dbWaiter = ddb.waiter();
         ArrayList<AttributeDefinition> attributeDefinitions = new ArrayList<>();
 
@@ -866,7 +857,6 @@ public class Scenario {
 
         // Scan the table.
         public static void scanMovies(DynamoDbClient ddb, String tableName) {
-
             System.out.println("******* Scanning all movies.\n");
             try{
                 DynamoDbEnhancedClient enhancedClient = DynamoDbEnhancedClient.builder()
@@ -889,7 +879,6 @@ public class Scenario {
 
     // Load data into the table.
     public static void loadData(DynamoDbClient ddb, String tableName, String fileName) throws IOException {
-
         DynamoDbEnhancedClient enhancedClient = DynamoDbEnhancedClient.builder()
             .dynamoDbClient(ddb)
             .build();
@@ -901,7 +890,6 @@ public class Scenario {
         ObjectNode currentNode;
         int t = 0 ;
         while (iter.hasNext()) {
-
             // Only add 200 Movies to the table.
             if (t == 200)
                 break ;
@@ -924,7 +912,6 @@ public class Scenario {
 
     // Update the record to include show only directors.
     public static void updateTableItem(DynamoDbClient ddb, String tableName){
-
         HashMap<String,AttributeValue> itemKey = new HashMap<>();
         itemKey.put("year", AttributeValue.builder().n("1933").build());
         itemKey.put("title", AttributeValue.builder().s("King Kong").build());
@@ -955,7 +942,6 @@ public class Scenario {
     }
 
     public static void deleteDynamoDBTable(DynamoDbClient ddb, String tableName) {
-
         DeleteTableRequest request = DeleteTableRequest.builder()
             .tableName(tableName)
             .build();
@@ -971,7 +957,6 @@ public class Scenario {
     }
 
     public static void putRecord(DynamoDbClient ddb) {
-
         try {
             DynamoDbEnhancedClient enhancedClient = DynamoDbEnhancedClient.builder()
                 .dynamoDbClient(ddb)
@@ -1051,7 +1036,7 @@ The following code example shows how to:
 + Delete a batch of items by running multiple DELETE statements\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#readme)\. 
   
 
 ```
@@ -1425,7 +1410,7 @@ The following code example shows how to:
 + Delete an item by running a DELETE statement\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#readme)\. 
   
 
 ```

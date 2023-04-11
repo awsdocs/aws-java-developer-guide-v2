@@ -1,9 +1,3 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Asynchronous programming<a name="asynchronous"></a>
 
 The AWS SDK for Java 2\.x features truly nonblocking asynchronous clients that implement high concurrency across a few threads\. The AWS SDK for Java 1\.x has asynchronous clients that are wrappers around a thread pool and blocking synchronous clients that don’t provide the full benefit of nonblocking I/O\.
@@ -288,7 +282,7 @@ public class S3AsyncStreamOps {
 
 ## Advanced operations<a name="advanced-operations"></a>
 
-The AWS SDK for Java 2\.x uses [Netty](https://netty.io), an asynchronous event\-driven network application framework, to handle I/O threads\. The AWS SDK for Java 2\.x creates an `ExecutorService` behind Netty, to complete the futures returned from the HTTP client request through to the Netty client\. This abstraction reduces the risk of an application breaking the async process if developers choose to stop or sleep threads\. By default, 50 Threads are generated for each asynchronous client, and managed in a queue within the `ExecutorService`\.
+The AWS SDK for Java 2\.x uses [Netty](https://netty.io), an asynchronous event\-driven network application framework, to handle I/O threads\. The AWS SDK for Java 2\.x creates an `ExecutorService` behind Netty, to complete the futures returned from the HTTP client request through to the Netty client\. This abstraction reduces the risk of an application breaking the async process if developers choose to stop or sleep threads\. By default, each asynchronous client creates a threadpool based on the number of processors and manages the tasks in a queue within the `ExecutorService`\.
 
 Advanced users can specify their thread pool size when creating an asynchronous client using the following option when building\.
 
@@ -310,7 +304,7 @@ To optimize performance, you can manage your own thread pool executor, and inclu
 ```
 ThreadPoolExecutor executor = new ThreadPoolExecutor(50, 50,
     10, TimeUnit.SECONDS,
-    new LinkedBlockingQueue<>(10_000),
+    new LinkedBlockingQueue<>(<custom_value>),
     new ThreadFactoryBuilder()
       .threadNamePrefix("sdk-async-response").build());
 

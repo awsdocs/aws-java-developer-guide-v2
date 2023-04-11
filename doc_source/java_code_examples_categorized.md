@@ -1,10 +1,4 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
-# Single\-service actions and scenarios using SDK for Java 2\.x<a name="java_code_examples_categorized"></a>
+# Actions and scenarios using SDK for Java 2\.x<a name="java_code_examples_categorized"></a>
 
 The following code examples show how to perform actions and implement common scenarios by using the AWS SDK for Java 2\.x with AWS services\.
 
@@ -15,6 +9,7 @@ The following code examples show how to perform actions and implement common sce
 **Topics**
 + [API Gateway](java_api-gateway_code_examples.md)
 + [Application Recovery Controller](java_route53-recovery-cluster_code_examples.md)
++ [Aurora](java_aurora_code_examples.md)
 + [CloudFront](java_cloudfront_code_examples.md)
 + [CloudWatch](java_cloudwatch_code_examples.md)
 + [CloudWatch Events](java_cloudwatch-events_code_examples.md)
@@ -23,13 +18,16 @@ The following code examples show how to perform actions and implement common sce
 + [Amazon Comprehend](java_comprehend_code_examples.md)
 + [DynamoDB](java_dynamodb_code_examples.md)
 + [Amazon EC2](java_ec2_code_examples.md)
-+ [Amazon EC2 Auto Scaling](java_auto-scaling_code_examples.md)
++ [Auto Scaling](java_auto-scaling_code_examples.md)
++ [Amazon ECS](java_ecs_code_examples.md)
 + [EventBridge](java_eventbridge_code_examples.md)
 + [AWS Glue](java_glue_code_examples.md)
 + [IAM](java_iam_code_examples.md)
 + [AWS KMS](java_kms_code_examples.md)
++ [Amazon Keyspaces](java_keyspaces_code_examples.md)
 + [Kinesis](java_kinesis_code_examples.md)
 + [Lambda](java_lambda_code_examples.md)
++ [MediaConvert](java_mediaconvert_code_examples.md)
 + [Amazon Personalize](java_personalize_code_examples.md)
 + [Amazon Personalize Events](java_personalize-events_code_examples.md)
 + [Amazon Personalize Runtime](java_personalize-runtime_code_examples.md)
@@ -38,12 +36,15 @@ The following code examples show how to perform actions and implement common sce
 + [Amazon RDS](java_rds_code_examples.md)
 + [Amazon Redshift](java_redshift_code_examples.md)
 + [Amazon Rekognition](java_rekognition_code_examples.md)
++ [Route 53 domain registration](java_route53-domains_code_examples.md)
 + [Amazon S3](java_s3_code_examples.md)
 + [S3 Glacier](java_glacier_code_examples.md)
 + [Amazon SES](java_ses_code_examples.md)
 + [Amazon SES API v2](java_sesv2_code_examples.md)
 + [Amazon SNS](java_sns_code_examples.md)
 + [Amazon SQS](java_sqs_code_examples.md)
++ [AWS STS](java_sts_code_examples.md)
 + [Secrets Manager](java_secrets-manager_code_examples.md)
 + [Step Functions](java_sfn_code_examples.md)
++ [AWS Support](java_support_code_examples.md)
 + [Amazon Textract](java_textract_code_examples.md)

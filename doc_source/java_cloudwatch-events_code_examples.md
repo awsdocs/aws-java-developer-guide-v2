@@ -1,30 +1,24 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # CloudWatch Events examples using SDK for Java 2\.x<a name="java_cloudwatch-events_code_examples"></a>
 
 The following code examples show you how to perform actions and implement common scenarios by using the AWS SDK for Java 2\.x with CloudWatch Events\.
 
-*Actions* are code excerpts that show you how to call individual CloudWatch Events functions\.
+*Actions* are code excerpts that show you how to call individual service functions\.
 
-*Scenarios* are code examples that show you how to accomplish a specific task by calling multiple CloudWatch Events functions\.
+*Scenarios* are code examples that show you how to accomplish a specific task by calling multiple functions within the same service\.
 
 Each example includes a link to GitHub, where you can find instructions on how to set up and run the code in context\.
 
 **Topics**
-+ [Actions](#w620aac15c13b9c19c13)
++ [Actions](#actions)
 
-## Actions<a name="w620aac15c13b9c19c13"></a>
+## Actions<a name="actions"></a>
 
-### Adding a Lambda function target<a name="cloudwatch-events_PutTargets_java_topic"></a>
+### Adding a target<a name="cloudwatch-events_PutTargets_java_topic"></a>
 
-The following code example shows how to add an AWS Lambda function target to an Amazon CloudWatch Events event\.
+The following code example shows how to add a target to an Amazon CloudWatch Events event\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#readme)\. 
   
 
 ```
@@ -52,14 +46,14 @@ The following code example shows how to add an AWS Lambda function target to an 
         }
     }
 ```
-+  For API details, see [PutTargets](https://docs.aws.amazon.com/goto/SdkForJavaV2/eventbridge-2015-10-07/PutTargets) in *AWS SDK for Java 2\.x API Reference*\. 
++  For API details, see [PutTargets](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/PutTargets) in *AWS SDK for Java 2\.x API Reference*\. 
 
 ### Create a scheduled rule<a name="cloudwatch-events_PutRule_java_topic"></a>
 
 The following code example shows how to create an Amazon CloudWatch Events scheduled rule\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#readme)\. 
   
 
 ```
@@ -85,14 +79,14 @@ The following code example shows how to create an Amazon CloudWatch Events sched
         }
     }
 ```
-+  For API details, see [PutRule](https://docs.aws.amazon.com/goto/SdkForJavaV2/eventbridge-2015-10-07/PutRule) in *AWS SDK for Java 2\.x API Reference*\. 
++  For API details, see [PutRule](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/PutRule) in *AWS SDK for Java 2\.x API Reference*\. 
 
 ### Send events<a name="cloudwatch-events_PutEvents_java_topic"></a>
 
 The following code example shows how to send Amazon CloudWatch Events events\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#readme)\. 
   
 
 ```
@@ -122,4 +116,4 @@ The following code example shows how to send Amazon CloudWatch Events events\.
         }
     }
 ```
-+  For API details, see [PutEvents](https://docs.aws.amazon.com/goto/SdkForJavaV2/eventbridge-2015-10-07/PutEvents) in *AWS SDK for Java 2\.x API Reference*\. 
++  For API details, see [PutEvents](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/PutEvents) in *AWS SDK for Java 2\.x API Reference*\. 

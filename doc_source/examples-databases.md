@@ -1,9 +1,3 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # AWS database services and AWS SDK for Java 2\.x<a name="examples-databases"></a>
 
 AWS offers several database types: relational, key\-value, in\-memory, document, and [several others](http://aws.amazon.com/products/databases/)\. The SDK for Java 2\.x support varies depending the nature of the database service in AWS\.

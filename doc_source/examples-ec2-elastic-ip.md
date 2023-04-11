@@ -1,9 +1,3 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Use elastic IP addresses in Amazon EC2<a name="examples-ec2-elastic-ip"></a>
 
 ## EC2\-Classic is retiring<a name="retiringEC2Classic"></a>

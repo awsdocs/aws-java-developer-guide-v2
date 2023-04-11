@@ -1,30 +1,24 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # S3 Glacier examples using SDK for Java 2\.x<a name="java_glacier_code_examples"></a>
 
 The following code examples show you how to perform actions and implement common scenarios by using the AWS SDK for Java 2\.x with S3 Glacier\.
 
-*Actions* are code excerpts that show you how to call individual S3 Glacier functions\.
+*Actions* are code excerpts that show you how to call individual service functions\.
 
-*Scenarios* are code examples that show you how to accomplish a specific task by calling multiple S3 Glacier functions\.
+*Scenarios* are code examples that show you how to accomplish a specific task by calling multiple functions within the same service\.
 
 Each example includes a link to GitHub, where you can find instructions on how to set up and run the code in context\.
 
 **Topics**
-+ [Actions](#w620aac15c13b9c63c13)
++ [Actions](#actions)
 
-## Actions<a name="w620aac15c13b9c63c13"></a>
+## Actions<a name="actions"></a>
 
 ### Create a vault<a name="glacier_CreateVault_java_topic"></a>
 
 The following code example shows how to create an Amazon S3 Glacier vault\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glacier#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glacier#readme)\. 
   
 
 ```
@@ -51,7 +45,7 @@ The following code example shows how to create an Amazon S3 Glacier vault\.
 The following code example shows how to delete an Amazon S3 Glacier vault\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glacier#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glacier#readme)\. 
   
 
 ```
@@ -78,18 +72,19 @@ The following code example shows how to delete an Amazon S3 Glacier vault\.
 The following code example shows how to delete an Amazon S3 Glacier archive\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glacier#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glacier#readme)\. 
   
 
 ```
-    public static void deleteGlacierVault(GlacierClient glacier, String vaultName) {
-
+    public static void deleteGlacierArchive(GlacierClient glacier, String vaultName, String accountId, String archiveId) {
         try {
-            DeleteVaultRequest delVaultRequest = DeleteVaultRequest.builder()
+            DeleteArchiveRequest delArcRequest = DeleteArchiveRequest.builder()
                 .vaultName(vaultName)
+                .accountId(accountId)
+                .archiveId(archiveId)
                 .build();
 
-            glacier.deleteVault(delVaultRequest);
+            glacier.deleteArchive(delArcRequest);
             System.out.println("The vault was deleted!");
 
         } catch(GlacierException e) {
@@ -105,7 +100,7 @@ The following code example shows how to delete an Amazon S3 Glacier archive\.
 The following code example shows how to list Amazon S3 Glacier vaults\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glacier#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glacier#readme)\. 
   
 
 ```
@@ -162,7 +157,7 @@ The following code example shows how to list Amazon S3 Glacier vaults\.
 The following code example shows how to retrieve an Amazon S3 Glacier vault inventory\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glacier#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glacier#readme)\. 
   
 
 ```
@@ -250,7 +245,7 @@ The following code example shows how to retrieve an Amazon S3 Glacier vault inve
 The following code example shows how to upload an archive to an Amazon S3 Glacier vault\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glacier#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glacier#readme)\. 
   
 
 ```

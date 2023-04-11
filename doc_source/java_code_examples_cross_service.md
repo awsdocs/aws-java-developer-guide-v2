@@ -1,21 +1,16 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Cross\-service examples using SDK for Java 2\.x<a name="java_code_examples_cross_service"></a>
 
 The following sample applications use the AWS SDK for Java 2\.x to work across multiple AWS services\.
 
 **Topics**
 + [Build an app to submit data to a DynamoDB table](cross_SubmitDataApp_java_topic.md)
-+ [Building an Amazon Lex Chatbot](cross_LexChatbotLanguages_java_topic.md)
++ [Building an Amazon Lex chatbot](cross_LexChatbotLanguages_java_topic.md)
 + [Building an Amazon SNS application](cross_SnsPublishSubscription_java_topic.md)
 + [Create a messaging application](cross_SQSMessageApp_java_topic.md)
++ [Create a serverless application to manage photos](cross_PAM_java_topic.md)
 + [Create a web application to track DynamoDB data](cross_DynamoDBDataTracker_java_topic.md)
-+ [Create a web application to track Amazon RDS data](cross_RDSDataTracker_java_topic.md)
 + [Create a web application to track Amazon Redshift data](cross_RedshiftDataTracker_java_topic.md)
++ [Create an Aurora Serverless work item tracker](cross_RDSDataTracker_java_topic.md)
 + [Detect PPE in images](cross_RekognitionPhotoAnalyzerPPE_java_topic.md)
 + [Detect objects in images](cross_RekognitionPhotoAnalyzer_java_topic.md)
 + [Detect people and objects in a video](cross_RekognitionVideoDetection_java_topic.md)

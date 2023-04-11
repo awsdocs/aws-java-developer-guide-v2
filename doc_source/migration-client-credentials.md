@@ -1,15 +1,9 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Credentials provider changes<a name="migration-client-credentials"></a>
 
 ## Credentials provider<a name="client-credentials"></a>
 
 This section provides a mapping of the name changes of credential provider classes and methods between versions 1\.x and 2\.x of the AWS SDK for Java\. The following also lists some of the key differences in the way credentials are processed by the SDK in version 2\.x:
-+ The default credentials provider loads system properties before environment variables in version 2\.x\. See [Using credentials](credentials.md) for more information\.
++ The default credentials provider loads system properties before environment variables in version 2\.x\. For more information, see [Using credentials](credentials.md)\.
 + The constructor method is replaced with the `create` or `builder` methods\.  
 **Example**  
 
@@ -32,7 +26,7 @@ This section provides a mapping of the name changes of credential provider class
           		.profileFile(ProfileFile.builder().content(Paths.get("myProfileFile.file")).build())
           		.build();
   ```
-+ Profile file format has changed to more closely match the AWS CLI\. See [Configuring the AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html) in the * AWS Command Line Interface User Guide* for details\.
++ Profile file format has changed to more closely match the AWS CLI\. For details, see [Configuring the AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html) in the *AWS Command Line Interface User Guide*\.
 
 ## Credentials provider changes mapped between versions 1\.x and 2\.x<a name="credentials-changes-mapping"></a>
 
@@ -42,9 +36,9 @@ This section provides a mapping of the name changes of credential provider class
 | 1\.x | 2\.x | 
 | --- | --- | 
 |   `AWSCredentialsProvider.getCredentials`   |   `AwsCredentialsProvider.resolveCredentials`   | 
-|   `DefaultAWSCredentialsProviderChain.getInstance`   |  Not Supported  | 
-|   `AWSCredentialsProvider.getInstance`   |  Not Supported  | 
-|   `AWSCredentialsProvider.refresh`   |  Not Supported  | 
+|   `DefaultAWSCredentialsProviderChain.getInstance`   |  Not supported  | 
+|   `AWSCredentialsProvider.getInstance`   |  Not supported  | 
+|   `AWSCredentialsProvider.refresh`   |  Not supported  | 
 
 
 **Environment variable name changes**  

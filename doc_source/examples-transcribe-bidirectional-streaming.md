@@ -1,9 +1,3 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Working with Amazon Transcribe<a name="examples-transcribe-bidirectional-streaming"></a>
 
 The following example shows how bidirectional streaming works using Amazon Transcribe\. Bidirectional streaming implies that there’s both a stream of data going to the service and being received back in real time\. The example uses Amazon Transcribe streaming transcription to send an audio stream and receive a stream of transcribed text back in real time\.

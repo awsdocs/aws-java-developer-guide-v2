@@ -1,31 +1,25 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Amazon S3 examples using SDK for Java 2\.x<a name="java_s3_code_examples"></a>
 
 The following code examples show you how to perform actions and implement common scenarios by using the AWS SDK for Java 2\.x with Amazon S3\.
 
-*Actions* are code excerpts that show you how to call individual Amazon S3 functions\.
+*Actions* are code excerpts that show you how to call individual service functions\.
 
-*Scenarios* are code examples that show you how to accomplish a specific task by calling multiple Amazon S3 functions\.
+*Scenarios* are code examples that show you how to accomplish a specific task by calling multiple functions within the same service\.
 
 Each example includes a link to GitHub, where you can find instructions on how to set up and run the code in context\.
 
 **Topics**
-+ [Actions](#w620aac15c13b9c61c13)
-+ [Scenarios](#w620aac15c13b9c61c15)
++ [Actions](#actions)
++ [Scenarios](#scenarios)
 
-## Actions<a name="w620aac15c13b9c61c13"></a>
+## Actions<a name="actions"></a>
 
 ### Add CORS rules to a bucket<a name="s3_PutBucketCors_java_topic"></a>
 
 The following code example shows how to add cross\-origin resource sharing \(CORS\) rules to an S3 bucket\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
   
 
 ```
@@ -109,7 +103,7 @@ The following code example shows how to add cross\-origin resource sharing \(COR
 The following code example shows how to add a lifecycle configuration to an S3 bucket\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
   
 
 ```
@@ -253,7 +247,7 @@ The following code example shows how to add a lifecycle configuration to an S3 b
 The following code example shows how to add a policy to an S3 bucket\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
   
 
 ```
@@ -314,22 +308,15 @@ The following code example shows how to add a policy to an S3 bucket\.
 The following code example shows how to copy an S3 object from one bucket to another\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
-  
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
+Copy an object using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html)\.  
 
 ```
     public static String copyBucketObject (S3Client s3, String fromBucket, String objectKey, String toBucket) {
 
-        String encodedUrl = "";
-        try {
-            encodedUrl = URLEncoder.encode(fromBucket + "/" + objectKey, StandardCharsets.UTF_8.toString());
-        
-        } catch (UnsupportedEncodingException e) {
-            System.out.println("URL could not be encoded: " + e.getMessage());
-        }
-        
         CopyObjectRequest copyReq = CopyObjectRequest.builder()
-            .copySourceIfMatch(encodedUrl)
+            .sourceBucket(fromBucket)
+            .sourceKey(objectKey)
             .destinationBucket(toBucket)
             .destinationKey(objectKey)
             .build();
@@ -345,6 +332,39 @@ The following code example shows how to copy an S3 object from one bucket to ano
         return "";
     }
 ```
+Use an [S3TransferManager](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html) to [copy an object](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html#copy(software.amazon.awssdk.transfer.s3.CopyRequest)) from one bucket to another\. View the [complete file](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/transfermanager/ObjectCopy.java) and [test](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/test/java/TransferManagerTest.java)\.  
+
+```
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import software.amazon.awssdk.core.sync.RequestBody;
+import software.amazon.awssdk.services.s3.model.CopyObjectRequest;
+import software.amazon.awssdk.transfer.s3.S3TransferManager;
+import software.amazon.awssdk.transfer.s3.model.CompletedCopy;
+import software.amazon.awssdk.transfer.s3.model.Copy;
+import software.amazon.awssdk.transfer.s3.model.CopyRequest;
+
+import java.util.UUID;
+
+    public String copyObject(S3TransferManager transferManager, String bucketName,
+                             String key, String destinationBucket, String destinationKey){
+        CopyObjectRequest copyObjectRequest = CopyObjectRequest.builder()
+            .sourceBucket(bucketName)
+            .sourceKey(key)
+            .destinationBucket(destinationBucket)
+            .destinationKey(destinationKey)
+            .build();
+
+        CopyRequest copyRequest = CopyRequest.builder()
+            .copyObjectRequest(copyObjectRequest)
+            .build();
+
+        Copy copy = transferManager.copy(copyRequest);
+
+        CompletedCopy completedCopy = copy.completionFuture().join();
+        return completedCopy.response().copyObjectResult().eTag();
+    }
+```
 +  For API details, see [CopyObject](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/CopyObject) in *AWS SDK for Java 2\.x API Reference*\. 
 
 ### Create a bucket<a name="s3_CreateBucket_java_topic"></a>
@@ -352,7 +372,7 @@ The following code example shows how to copy an S3 object from one bucket to ano
 The following code example shows how to create an S3 bucket\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
   
 
 ```
@@ -387,7 +407,7 @@ The following code example shows how to create an S3 bucket\.
 The following code example shows how to delete a policy from an S3 bucket\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
   
 
 ```
@@ -415,7 +435,7 @@ The following code example shows how to delete a policy from an S3 bucket\.
 The following code example shows how to delete an empty S3 bucket\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
   
 
 ```
@@ -433,7 +453,7 @@ The following code example shows how to delete an empty S3 bucket\.
 The following code example shows how to delete multiple objects from an S3 bucket\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
   
 
 ```
@@ -488,7 +508,7 @@ The following code example shows how to delete multiple objects from an S3 bucke
 The following code example shows how to delete the website configuration from an S3 bucket\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
   
 
 ```
@@ -515,8 +535,8 @@ The following code example shows how to delete the website configuration from an
 The following code example shows how to determine the existence and content type of an object in an S3 bucket\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
-  
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
+Determine the content type of an object\.  
 
 ```
     public static void getContentType (S3Client s3, String bucketName, String keyName) {
@@ -537,15 +557,76 @@ The following code example shows how to determine the existence and content type
         }
     }
 ```
+Get the restore status of an object\.  
+
+```
+    public static void checkStatus(S3Client s3, String bucketName, String keyName) {
+        try {
+            HeadObjectRequest headObjectRequest = HeadObjectRequest.builder()
+                .bucket(bucketName)
+                .key(keyName)
+                .build();
+
+            HeadObjectResponse response = s3.headObject(headObjectRequest);
+            System.out.println("The Amazon S3 object restoration status is "+response.restore());
+
+        } catch (S3Exception e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+```
 +  For API details, see [HeadObject](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/HeadObject) in *AWS SDK for Java 2\.x API Reference*\. 
+
+### Download objects to a local directory<a name="s3_DownloadBucketToDirectory_java_topic"></a>
+
+The following code example shows how to download all objects in an Amazon Simple Storage Service \(Amazon S3\) bucket to a local directory\.
+
+**SDK for Java 2\.x**  
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
+Use an [S3TransferManager](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html) to [download all S3 objects](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html#downloadDirectory(software.amazon.awssdk.transfer.s3.DownloadDirectoryRequest)) in the same S3 bucket\. View the [complete file](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/transfermanager/DownloadToDirectory.java) and [test](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/test/java/TransferManagerTest.java)\.  
+
+```
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import software.amazon.awssdk.core.sync.RequestBody;
+import software.amazon.awssdk.services.s3.model.ObjectIdentifier;
+import software.amazon.awssdk.transfer.s3.S3TransferManager;
+import software.amazon.awssdk.transfer.s3.model.CompletedDirectoryDownload;
+import software.amazon.awssdk.transfer.s3.model.DirectoryDownload;
+import software.amazon.awssdk.transfer.s3.model.DownloadDirectoryRequest;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
+import java.util.stream.Collectors;
+
+    public Integer downloadObjectsToDirectory(S3TransferManager transferManager,
+                                              String destinationPath, String bucketName) {
+        DirectoryDownload directoryDownload =
+            transferManager.downloadDirectory(DownloadDirectoryRequest.builder()
+                .destination(Paths.get(destinationPath))
+                .bucket(bucketName)
+                .build());
+        CompletedDirectoryDownload completedDirectoryDownload = directoryDownload.completionFuture().join();
+
+        completedDirectoryDownload.failedTransfers().forEach(fail ->
+            logger.warn("Object [{}] failed to transfer", fail.toString()));
+        return completedDirectoryDownload.failedTransfers().size();
+    }
+```
++  For API details, see [DownloadDirectory](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/DownloadDirectory) in *AWS SDK for Java 2\.x API Reference*\. 
 
 ### Get an object from a bucket<a name="s3_GetObject_java_topic"></a>
 
 The following code example shows how to read data from an object in an S3 bucket\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
-Read data as a byte array\.  
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
+Read data as a byte array using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html)\.  
 
 ```
     public static void getObjectBytes (S3Client s3, String bucketName, String keyName, String path) {
@@ -575,7 +656,41 @@ Read data as a byte array\.
         }
     }
 ```
-Read tags that belong to an object\.  
+Use an [S3TransferManager](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html) to [download an object](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html#downloadFile(software.amazon.awssdk.transfer.s3.DownloadFileRequest)) in an S3 bucket to a local file\. View the [complete file](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/transfermanager/DownloadFile.java) and [test](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/test/java/TransferManagerTest.java)\.  
+
+```
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import software.amazon.awssdk.core.sync.RequestBody;
+import software.amazon.awssdk.transfer.s3.S3TransferManager;
+import software.amazon.awssdk.transfer.s3.model.CompletedFileDownload;
+import software.amazon.awssdk.transfer.s3.model.DownloadFileRequest;
+import software.amazon.awssdk.transfer.s3.model.FileDownload;
+import software.amazon.awssdk.transfer.s3.progress.LoggingTransferListener;
+
+import java.io.IOException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.UUID;
+
+    public Long downloadFile(S3TransferManager transferManager, String bucketName,
+                             String key, String downloadedFileWithPath) {
+        DownloadFileRequest downloadFileRequest =
+            DownloadFileRequest.builder()
+                .getObjectRequest(b -> b.bucket(bucketName).key(key))
+                .addTransferListener(LoggingTransferListener.create())
+                .destination(Paths.get(downloadedFileWithPath))
+                .build();
+
+        FileDownload downloadFile = transferManager.downloadFile(downloadFileRequest);
+
+        CompletedFileDownload downloadResult = downloadFile.completionFuture().join();
+        logger.info("Content length [{}]", downloadResult.response().contentLength());
+        return downloadResult.response().contentLength();
+    }
+```
+Read tags that belong to an object using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html)\.  
 
 ```
     public static void listTags(S3Client s3, String bucketName, String keyName) {
@@ -600,7 +715,7 @@ Read tags that belong to an object\.
         }
     }
 ```
-Get a URL for an object\.  
+Get a URL for an object using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html)\.  
 
 ```
     public static void getURL(S3Client s3, String bucketName, String keyName ) {
@@ -620,7 +735,7 @@ Get a URL for an object\.
         }
     }
 ```
-Get an object by using the S3Presigner client object\.  
+Get an object by using the S3Presigner client object using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html)\.  
 
 ```
        public static void getPresignedUrl(S3Presigner presigner, String bucketName, String keyName ) {
@@ -674,7 +789,7 @@ Get an object by using the S3Presigner client object\.
 The following code example shows how to get the access control list \(ACL\) of an S3 bucket\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
   
 
 ```
@@ -710,7 +825,7 @@ The following code example shows how to get the access control list \(ACL\) of a
 The following code example shows how to get the policy for an S3 bucket\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
   
 
 ```
@@ -742,7 +857,7 @@ The following code example shows how to get the policy for an S3 bucket\.
 The following code example shows how to list in\-progress multipart uploads to an S3 bucket\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
   
 
 ```
@@ -772,7 +887,7 @@ The following code example shows how to list in\-progress multipart uploads to a
 The following code example shows how to list objects in an S3 bucket\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
   
 
 ```
@@ -803,6 +918,27 @@ The following code example shows how to list objects in an S3 bucket\.
         return val/1024;
     }
 ```
+List objects using pagination\.  
+
+```
+    public static void listBucketObjects(S3Client s3, String bucketName ) {
+        try {
+            ListObjectsV2Request listReq = ListObjectsV2Request.builder()
+                .bucket(bucketName)
+                .maxKeys(1)
+                .build();
+
+            ListObjectsV2Iterable listRes = s3.listObjectsV2Paginator(listReq);
+            listRes.stream()
+                .flatMap(r -> r.contents().stream())
+                .forEach(content -> System.out.println(" Key: " + content.key() + " size = " + content.size()));
+
+        } catch (S3Exception e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+```
 +  For API details, see [ListObjects](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/ListObjects) in *AWS SDK for Java 2\.x API Reference*\. 
 
 ### Restore an archived copy of an object<a name="s3_RestoreObject_java_topic"></a>
@@ -810,7 +946,7 @@ The following code example shows how to list objects in an S3 bucket\.
 The following code example shows how to restore an archived copy of an object back into an S3 bucket\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
   
 
 ```
@@ -844,7 +980,7 @@ The following code example shows how to restore an archived copy of an object ba
 The following code example shows how to set a new access control list \(ACL\) for an S3 bucket\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
   
 
 ```
@@ -885,7 +1021,7 @@ The following code example shows how to set a new access control list \(ACL\) fo
 The following code example shows how to set the website configuration for an S3 bucket\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
   
 
 ```
@@ -917,8 +1053,8 @@ The following code example shows how to set the website configuration for an S3 
 The following code example shows how to upload an object to an S3 bucket\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
-Upload an object to a bucket\.  
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
+Upload a file to a bucket using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html)\.  
 
 ```
     public static String putS3Object(S3Client s3, String bucketName, String objectKey, String objectPath) {
@@ -970,7 +1106,37 @@ Upload an object to a bucket\.
         return bytesArray;
     }
 ```
-Upload an object to a bucket and set tags\.  
+Use an [S3TransferManager](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html) to [upload a file](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html#uploadFile(software.amazon.awssdk.transfer.s3.UploadFileRequest)) to a bucket\. View the [complete file](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/transfermanager/UploadFile.java) and [test](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/test/java/TransferManagerTest.java)\.  
+
+```
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import software.amazon.awssdk.transfer.s3.S3TransferManager;
+import software.amazon.awssdk.transfer.s3.model.CompletedFileUpload;
+import software.amazon.awssdk.transfer.s3.model.FileUpload;
+import software.amazon.awssdk.transfer.s3.model.UploadFileRequest;
+import software.amazon.awssdk.transfer.s3.progress.LoggingTransferListener;
+
+import java.net.URL;
+import java.nio.file.Paths;
+import java.util.UUID;
+
+    public String uploadFile(S3TransferManager transferManager, String bucketName,
+                             String key, String filePath) {
+        UploadFileRequest uploadFileRequest =
+            UploadFileRequest.builder()
+                .putObjectRequest(b -> b.bucket(bucketName).key(key))
+                .addTransferListener(LoggingTransferListener.create())
+                .source(Paths.get(filePath))
+                .build();
+
+        FileUpload fileUpload = transferManager.uploadFile(uploadFileRequest);
+
+        CompletedFileUpload uploadResult = fileUpload.completionFuture().join();
+        return uploadResult.response().eTag();
+    }
+```
+Upload an object to a bucket and set tags using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html)\.  
 
 ```
     public static void putS3ObjectTags(S3Client s3, String bucketName, String objectKey, String objectPath) {
@@ -1063,7 +1229,7 @@ Upload an object to a bucket and set tags\.
         }
     }
 ```
-Upload an object to a bucket and set metadata\.  
+Upload an object to a bucket and set metadata using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html)\.  
 
 ```
     public static String putS3Object(S3Client s3, String bucketName, String objectKey, String objectPath) {
@@ -1117,7 +1283,7 @@ Upload an object to a bucket and set metadata\.
         return bytesArray;
     }
 ```
-Upload an object to a bucket and set an object retention value\.  
+Upload an object to a bucket and set an object retention value using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html)\.  
 
 ```
     public static void setRentionPeriod(S3Client s3, String key, String bucket) {
@@ -1151,14 +1317,51 @@ Upload an object to a bucket and set an object retention value\.
 ```
 +  For API details, see [PutObject](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/PutObject) in *AWS SDK for Java 2\.x API Reference*\. 
 
-## Scenarios<a name="w620aac15c13b9c61c15"></a>
+### Upload directory to a bucket<a name="s3_UploadDirectoryToBucket_java_topic"></a>
+
+The following code example shows how to upload a local directory recursively to an Amazon Simple Storage Service \(Amazon S3\) bucket\.
+
+**SDK for Java 2\.x**  
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
+Use an [S3TransferManager](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html) to [upload a local directory](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html#uploadDirectory(software.amazon.awssdk.transfer.s3.UploadDirectoryRequest))\. View the [complete file](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/transfermanager/UploadADirectory.java) and [test](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/test/java/TransferManagerTest.java)\.  
+
+```
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import software.amazon.awssdk.services.s3.model.ObjectIdentifier;
+import software.amazon.awssdk.transfer.s3.S3TransferManager;
+import software.amazon.awssdk.transfer.s3.model.CompletedDirectoryUpload;
+import software.amazon.awssdk.transfer.s3.model.DirectoryUpload;
+import software.amazon.awssdk.transfer.s3.model.UploadDirectoryRequest;
+
+import java.net.URL;
+import java.nio.file.Paths;
+import java.util.UUID;
+
+    public Integer uploadDirectory(S3TransferManager transferManager,
+                                   String sourceDirectory, String bucketName){
+        DirectoryUpload directoryUpload =
+            transferManager.uploadDirectory(UploadDirectoryRequest.builder()
+                .source(Paths.get(sourceDirectory))
+                .bucket(bucketName)
+                .build());
+
+        CompletedDirectoryUpload completedDirectoryUpload = directoryUpload.completionFuture().join();
+        completedDirectoryUpload.failedTransfers().forEach(fail ->
+            logger.warn("Object [{}] failed to transfer", fail.toString()));
+        return completedDirectoryUpload.failedTransfers().size();
+    }
+```
++  For API details, see [UploadDirectory](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/UploadDirectory) in *AWS SDK for Java 2\.x API Reference*\. 
+
+## Scenarios<a name="scenarios"></a>
 
 ### Create a presigned URL<a name="s3_Scenario_PresignedUrl_java_topic"></a>
 
-The following code example shows how to create a presigned URL for S3 and upload an object\.
+The following code example shows how to create a presigned URL for Amazon S3 and upload an object\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
   
 
 ```
@@ -1205,29 +1408,38 @@ The following code example shows how to create a presigned URL for S3 and upload
 ### Get started with buckets and objects<a name="s3_Scenario_GettingStarted_java_topic"></a>
 
 The following code example shows how to:
-+ Create a bucket\.
-+ Upload a file to the bucket\.
++ Create a bucket and upload a file to it\.
 + Download an object from a bucket\.
 + Copy an object to a subfolder in a bucket\.
 + List the objects in a bucket\.
-+ Delete the objects in a bucket\.
-+ Delete a bucket\.
++ Delete the bucket objects and the bucket\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
   
 
 ```
 /**
- * Before running this Java V2 code example, set up your development environment, including your credentials.
+ *  Before running this Java V2 code example, set up your development environment, including your credentials.
  *
- * For more information, see the following documentation topic:
+ *  For more information, see the following documentation topic:
  *
- * https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/get-started.html
+ *  https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/get-started.html
+ *
+ *  This Java code example performs the following tasks:
+ *
+ *  1. Creates an Amazon S3 bucket.
+ *  2. Uploads an object to the bucket.
+ *  3. Downloads the object to another local file.
+ *  4. Uploads an object using multipart upload.
+ *  5. List all objects located in the Amazon S3 bucket.
+ *  6. Copies the object to another Amazon S3 bucket.
+ *  7. Deletes the object from the Amazon S3 bucket.
+ *  8. Deletes the Amazon S3 bucket.
  */
 
 public class S3Scenario {
-
+    public static final String DASHES = new String(new char[80]).replace("\0", "-");
     public static void main(String[] args) throws IOException {
 
         final String usage = "\n" +
@@ -1258,39 +1470,60 @@ public class S3Scenario {
             .credentialsProvider(credentialsProvider)
             .build();
 
-        // Create an Amazon S3 bucket.
+        System.out.println(DASHES);
+        System.out.println("Welcome to the Amazon S3 example scenario.");
+        System.out.println(DASHES);
+
+        System.out.println(DASHES);
+        System.out.println("1. Create an Amazon S3 bucket.");
         createBucket(s3, bucketName);
+        System.out.println(DASHES);
 
-        // Update a local file to the Amazon S3 bucket.
+        System.out.println(DASHES);
+        System.out.println("2. Update a local file to the Amazon S3 bucket.");
         uploadLocalFile(s3, bucketName, key, objectPath);
+        System.out.println(DASHES);
 
-        // Download the object to another local file.
+        System.out.println(DASHES);
+        System.out.println("3. Download the object to another local file.");
         getObjectBytes (s3, bucketName, key, savePath);
+        System.out.println(DASHES);
 
-        // Perform a multipart upload.
+        System.out.println(DASHES);
+        System.out.println("4. Perform a multipart upload.");
         String multipartKey = "multiPartKey";
         multipartUpload(s3, toBucket, multipartKey);
+        System.out.println(DASHES);
 
-        // List all objects located in the Amazon S3 bucket.
-        // Show 2 ways
+        System.out.println(DASHES);
+        System.out.println("5. List all objects located in the Amazon S3 bucket.");
         listAllObjects(s3, bucketName);
         anotherListExample(s3, bucketName) ;
+        System.out.println(DASHES);
 
-        // Copy the object to another Amazon S3 bucket
+        System.out.println(DASHES);
+        System.out.println("6. Copy the object to another Amazon S3 bucket.");
         copyBucketObject (s3, bucketName, key, toBucket);
+        System.out.println(DASHES);
 
-        // Delete the object from the Amazon S3 bucket.
+        System.out.println(DASHES);
+        System.out.println("7. Delete the object from the Amazon S3 bucket.");
         deleteObjectFromBucket(s3, bucketName, key);
+        System.out.println(DASHES);
 
-        // Delete the Amazon S3 bucket
+        System.out.println(DASHES);
+        System.out.println("8. Delete the Amazon S3 bucket.");
         deleteBucket(s3, bucketName);
+        System.out.println(DASHES);
+
+        System.out.println(DASHES);
         System.out.println("All Amazon S3 operations were successfully performed");
+        System.out.println(DASHES);
         s3.close();
     }
 
     // Create a bucket by using a S3Waiter object
     public static void createBucket( S3Client s3Client, String bucketName) {
-
         try {
             S3Waiter s3Waiter = s3Client.waiter();
             CreateBucketRequest bucketRequest = CreateBucketRequest.builder()
@@ -1326,7 +1559,6 @@ public class S3Scenario {
      * Upload an object in parts
      */
     private static void multipartUpload(S3Client s3, String bucketName, String key) {
-
         int mB = 1024 * 1024;
         // First create a multipart upload and get the upload id
         CreateMultipartUploadRequest createMultipartUploadRequest = CreateMultipartUploadRequest.builder()
@@ -1378,7 +1610,6 @@ public class S3Scenario {
 
     // Return a byte array
     private static byte[] getObjectFile(String filePath) {
-
         FileInputStream fileInputStream = null;
         byte[] bytesArray = null;
 
@@ -1403,7 +1634,6 @@ public class S3Scenario {
     }
 
     public static void getObjectBytes (S3Client s3, String bucketName, String keyName, String path ) {
-
         try {
             GetObjectRequest objectRequest = GetObjectRequest
                 .builder()
@@ -1415,7 +1645,7 @@ public class S3Scenario {
             byte[] data = objectBytes.asByteArray();
 
             // Write the data to a local file.
-            File myFile = new File(path );
+            File myFile = new File(path);
             OutputStream os = new FileOutputStream(myFile);
             os.write(data);
             System.out.println("Successfully obtained bytes from an S3 object");
@@ -1431,7 +1661,6 @@ public class S3Scenario {
 
 
     public static void uploadLocalFile(S3Client s3, String bucketName, String key, String objectPath) {
-
         PutObjectRequest objectRequest = PutObjectRequest.builder()
             .bucket(bucketName)
             .key(key)

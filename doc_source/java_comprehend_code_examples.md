@@ -1,30 +1,24 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Amazon Comprehend examples using SDK for Java 2\.x<a name="java_comprehend_code_examples"></a>
 
 The following code examples show you how to perform actions and implement common scenarios by using the AWS SDK for Java 2\.x with Amazon Comprehend\.
 
-*Actions* are code excerpts that show you how to call individual Amazon Comprehend functions\.
+*Actions* are code excerpts that show you how to call individual service functions\.
 
-*Scenarios* are code examples that show you how to accomplish a specific task by calling multiple Amazon Comprehend functions\.
+*Scenarios* are code examples that show you how to accomplish a specific task by calling multiple functions within the same service\.
 
 Each example includes a link to GitHub, where you can find instructions on how to set up and run the code in context\.
 
 **Topics**
-+ [Actions](#w620aac15c13b9c25c13)
++ [Actions](#actions)
 
-## Actions<a name="w620aac15c13b9c25c13"></a>
+## Actions<a name="actions"></a>
 
 ### Create a document classifier<a name="comprehend_CreateDocumentClassifier_java_topic"></a>
 
 The following code example shows how to create an Amazon Comprehend document classifier\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/comprehend#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/comprehend#readme)\. 
   
 
 ```
@@ -59,7 +53,7 @@ The following code example shows how to create an Amazon Comprehend document cla
 The following code example shows how to detect entities in a document with Amazon Comprehend\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/comprehend#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/comprehend#readme)\. 
   
 
 ```
@@ -90,7 +84,7 @@ The following code example shows how to detect entities in a document with Amazo
 The following code example shows how to detect key phrases in a document with Amazon Comprehend\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/comprehend#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/comprehend#readme)\. 
   
 
 ```
@@ -121,7 +115,7 @@ The following code example shows how to detect key phrases in a document with Am
 The following code example shows how to detect syntactial elements of a document with Amazon Comprehend\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/comprehend#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/comprehend#readme)\. 
   
 
 ```
@@ -153,7 +147,7 @@ The following code example shows how to detect syntactial elements of a document
 The following code example shows how to detect the dominant language in a document with Amazon Comprehend\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/comprehend#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/comprehend#readme)\. 
   
 
 ```
@@ -183,7 +177,7 @@ The following code example shows how to detect the dominant language in a docume
 The following code example shows how to detect the sentiment of a document with Amazon Comprehend\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/comprehend#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/comprehend#readme)\. 
   
 
 ```

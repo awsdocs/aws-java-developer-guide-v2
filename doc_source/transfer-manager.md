@@ -1,37 +1,33 @@
---------
+# Amazon S3 Transfer Manager<a name="transfer-manager"></a>
 
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
+The Amazon S3 Transfer Manager is an open source, high level file transfer utility for the AWS SDK for Java 2\.x\. Use it to transfer files and directories to and from Amazon Simple Storage Service \(Amazon S3\)\. 
 
---------
+When built on top of the [AWS CRT\-based S3 client](crt-based-s3-client.md), the S3 Transfer Manager can take advantage of performance improvements such as [multipart upload API](https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html) and [byte\-range fetches](https://docs.aws.amazon.com/whitepapers/latest/s3-optimizing-performance-best-practices/use-byte-range-fetches.html)\. 
 
-# Amazon S3 Transfer Manager \(Preview\)<a name="transfer-manager"></a>
+With the S3 Transfer Manager, you can also monitor a transfer's progress in real time and pause the transfer for later execution\.
 
+## Get started<a name="transfer-manager-prerequisites"></a>
 
-|  | 
-| --- |
-| The Amazon S3 Transfer Manager is in developer preview release for AWS SDK for Java 2\.x and is subject to change\. | 
+### Add dependencies to your build file<a name="transfer-manager-add-dependency"></a>
 
-The Amazon S3 Transfer Manager \(Preview\) is an open\-source high level file transfer utility for the AWS SDK for Java 2\.x that you can use to easily transfer files to and from Amazon Simple Storage Service \(S3\)\. It’s built on top of the Java bindings of the [AWS Common Runtime S3 Client](https://github.com/awslabs/aws-crt-java), benefiting from its enhanced throughput, performance, and reliability by leveraging Amazon S3 multipart upload and byte\-range fetches for parallel transfers\.
+To use the S3 Transfer Manager with enhanced performance based on the AWS CRT\-based S3 client, configure your build file with the following dependencies\.
++ Use version *2\.19\.1* or higher of the SDK for Java 2\.x\.
++ Add the `s3-transfer-manager` artifact as a dependency\.
++ Add the `aws-crt` artifact as a dependency at version *0\.20\.3* or higher\.
 
-This topic helps you use the S3 Transfer Manager\.
-
-## Prerequisites<a name="transfer-manager-prerequisites"></a>
-
-Before you can use the Transfer Manager, you must do the following:
-+ Complete the steps in [Setting up the AWS SDK for Java 2\.x](setup.md)\.
-+ Configure your project dependencies \(for example, in your `pom.xml` or `build.gradle` file\) to use version `2.17.16` or later of the SDK for Java\.
-+ Include version `2.17.16-PREVIEW` of the *artifactId* `s3-transfer-manager`\.
-
-The following code example shows how to configure your project dependencies\.
+The following code example shows how to configure your project dependencies for Maven\.
 
 ```
 <project>
+   <properties>
+     <aws.sdk.version>2.19.1</aws.sdk.version>
+  </properties>  
   <dependencyManagement>
    <dependencies>
       <dependency>
         <groupId>software.amazon.awssdk</groupId>
         <artifactId>bom</artifactId>
-        <version>2.17.16</version>
+        <version>${aws.sdk.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -41,91 +37,266 @@ The following code example shows how to configure your project dependencies\.
    <dependency>
       <groupId>software.amazon.awssdk</groupId>
       <artifactId>s3-transfer-manager</artifactId>
-      <version>2.17.16-PREVIEW</version>
+   </dependency>
+   <dependency>
+      <groupId>software.amazon.awssdk.crt</groupId>
+      <artifactId>aws-crt</artifactId>
+      <version>0.20.3</version>
    </dependency>
   </dependencies>
 </project>
 ```
 
-## Imports<a name="transfer-manager-imports"></a>
+Search the Maven central repository for the most recent versions of the [s3\-transfer\-manager](https://search.maven.org/search?q=g:software.amazon.awssdk%20AND%20a:s3-transfer-manager) and [aws\-crt](https://search.maven.org/search?q=g:software.amazon.awssdk.crt%20AND%20a:aws-crt) artifacts\.
 
-To make use of the code snippets in this topic, include the following imports:
+### Create an instance of the S3 Transfer Manager<a name="transfer-manager-create"></a>
+
+The following snippet shows how to create a [S3TransferManager](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html) instance with default settings\.
 
 ```
-import software.amazon.awssdk.regions.Region;
-import software.amazon.awssdk.transfer.s3.S3ClientConfiguration;
+        S3TransferManager transferManager = S3TransferManager.create();   
+```
+
+The following example shows how to configure a S3 Transfer Manager with custom settings\. In this example, a [AWS CRT\-based S3AsyncClient](crt-based-s3-client.md) instance is used as the underlying client for the S3 Transfer Manager\.
+
+```
+        S3AsyncClient s3AsyncClient =
+            S3AsyncClient.crtBuilder()
+                .credentialsProvider(DefaultCredentialsProvider.create())
+                .region(Region.US_EAST_1)
+                .targetThroughputInGbps(20.0)
+                .minimumPartSizeInBytes(8 * MB)
+                .build();
+
+        S3TransferManager transferManager =
+            S3TransferManager.builder()
+                .s3Client(s3AsyncClient)
+                .build();
+```
+
+**Note**  
+If the `aws-crt` dependency is not included in the build file, the S3 Transfer Manager is built on top of the standard S3 asynchronous client used in the SDK for Java 2\.x\.
+
+## Upload a file to an S3 bucket<a name="transfer-manager-upload"></a>
+
+To upload a file to Amazon S3 using the S3 Transfer Manager, pass an [https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/model/UploadFileRequest.html](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/model/UploadFileRequest.html) object to the `S3TransferManager`'s [uploadFile](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html#uploadFile(software.amazon.awssdk.transfer.s3.model.UploadFileRequest)) method\.
+
+The [FileUpload](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/model/FileUpload.html) object returned from the `uploadFile` method represents the upload process\. After the request finishes, the [CompletedFileUpload](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/model/CompletedFileUpload.html) object contains information about the upload\.
+
+The following example shows a file upload example along with the optional use of a [LoggingTransferListener](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/progress/LoggingTransferListener.html), which logs the progress of the upload\.
+
+### Imports<a name="transfer-manager-upload-imports"></a>
+
+```
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.transfer.s3.S3TransferManager;
-import software.amazon.awssdk.transfer.s3.CompletedDownload;
-import software.amazon.awssdk.transfer.s3.CompletedUpload;
-import software.amazon.awssdk.transfer.s3.Download;
-import software.amazon.awssdk.transfer.s3.Upload;
-import software.amazon.awssdk.transfer.s3.UploadRequest;
+import software.amazon.awssdk.transfer.s3.model.CompletedFileUpload;
+import software.amazon.awssdk.transfer.s3.model.FileUpload;
+import software.amazon.awssdk.transfer.s3.model.UploadFileRequest;
+import software.amazon.awssdk.transfer.s3.progress.LoggingTransferListener;
+
+import java.net.URL;
+import java.nio.file.Paths;
+import java.util.UUID;
 ```
 
-## Using the Transfer Manager \(Preview\)<a name="transfer-manager-using"></a>
-
-With the Preview of the Amazon S3 Transfer Manager, you can upload or download one file per request\.
-
-To upload or download a file, first instantiate an [http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/transfer/s3/S3TransferManager.html](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/transfer/s3/S3TransferManager.html) object to use as a service client\.
-
-To instantiate a service client using the default settings, use the `create()` method of `S3TransferManager`\.
+### Code<a name="transfer-manager-upload-code"></a>
 
 ```
-S3TransferManager s3TransferManager = S3TransferManager.create();
+    public String uploadFile(S3TransferManager transferManager, String bucketName,
+                             String key, String filePath) {
+        UploadFileRequest uploadFileRequest =
+            UploadFileRequest.builder()
+                .putObjectRequest(b -> b.bucket(bucketName).key(key))
+                .addTransferListener(LoggingTransferListener.create())
+                .source(Paths.get(filePath))
+                .build();
+
+        FileUpload fileUpload = transferManager.uploadFile(uploadFileRequest);
+
+        CompletedFileUpload uploadResult = fileUpload.completionFuture().join();
+        return uploadResult.response().eTag();
+    }
 ```
 
-To customize the configuration of the service client, such as to select a region or to use a specific credentials provider for the request, build an [http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/transfer/s3/S3ClientConfiguration.html](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/transfer/s3/S3ClientConfiguration.html) object and then specify that configuration with the `s3ClientConfiguration()` method on the service client builder\.
+## Download a file from an S3 bucket<a name="transfer-manager-download"></a>
+
+To download an object from an S3 bucket using the S3 Transfer Manager, build a [DownloadFileRequest](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/model/DownloadFileRequest.html) object and pass it to the [downloadFile](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html#downloadFile(software.amazon.awssdk.transfer.s3.model.DownloadFileRequest)) method\.
+
+The [FileDownload](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/model/FileDownload.html) object returned by the `S3TransferManager`'s `downloadFile` method represents the file transfer\. After the download completes, the [CompletedFileDownload](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/model/CompletedFileDownload.html) contains access to information about the download\.
+
+The following example also shows a download example plus the optional use of a [LoggingTransferListener](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/progress/LoggingTransferListener.html), which logs the progress of the download\.
+
+### Imports<a name="transfer-manager-download-import"></a>
 
 ```
-Region region = Region.US_WEST_2;
-S3ClientConfiguration s3ClientConfiguration =
-        S3ClientConfiguration.builder()
-                             .region(region)
-                             .minimumPartSizeInBytes(10 * MB)
-                             .targetThroughputInGbps(20.0)
-                             .build();
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import software.amazon.awssdk.core.sync.RequestBody;
+import software.amazon.awssdk.transfer.s3.S3TransferManager;
+import software.amazon.awssdk.transfer.s3.model.CompletedFileDownload;
+import software.amazon.awssdk.transfer.s3.model.DownloadFileRequest;
+import software.amazon.awssdk.transfer.s3.model.FileDownload;
+import software.amazon.awssdk.transfer.s3.progress.LoggingTransferListener;
 
-S3TransferManager s3TransferManager = S3TransferManager.builder()
-                            .s3ClientConfiguration(s3ClientConfiguration)
-                            .build();
-
-// use the configured s3TransferManager instance
+import java.io.IOException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.UUID;
 ```
 
-## Upload a file to S3<a name="transfer-manager-upload"></a>
-
-To upload a file to Amazon S3 using the Transfer Manager \(Preview\), first build a [http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/services/s3/model/PutObjectRequest.html](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/services/s3/model/PutObjectRequest.html), specifying the Amazon S3 bucket and key to which you want to upload with the `bucket()` and `key()` methods\. Next, instantiate an [http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/transfer/s3/UploadRequest.html](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/transfer/s3/UploadRequest.html) object, passing the `PutObjectRequest` object using the `putObjectRequest()` method\. Set the path to the file via the `source()` method\. Then build an [http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/transfer/s3/Upload.html](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/transfer/s3/Upload.html) object, passing in the `UploadRequest` object via the `upload()` method\.
-
-With the Transfer Manager, you can complete all of the above steps using short\-hand \(Java lambda\) notation, so that all you have to do is specify the path to the file you are uploading and the bucket and key to which you want to upload the file\.
+### Code<a name="transfer-manager-download-code"></a>
 
 ```
-Upload upload =
-        s3TransferManager.upload(b -> b.putObjectRequest(r -> r.bucket(bucket).key(key))
-                         .source(Paths.get("fileToUpload.txt")));
+    public Long downloadFile(S3TransferManager transferManager, String bucketName,
+                             String key, String downloadedFileWithPath) {
+        DownloadFileRequest downloadFileRequest =
+            DownloadFileRequest.builder()
+                .getObjectRequest(b -> b.bucket(bucketName).key(key))
+                .addTransferListener(LoggingTransferListener.create())
+                .destination(Paths.get(downloadedFileWithPath))
+                .build();
+
+        FileDownload downloadFile = transferManager.downloadFile(downloadFileRequest);
+
+        CompletedFileDownload downloadResult = downloadFile.completionFuture().join();
+        logger.info("Content length [{}]", downloadResult.response().contentLength());
+        return downloadResult.response().contentLength();
+    }
 ```
 
-To capture the response, use a [http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/transfer/s3/CompletedUpload.html](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/transfer/s3/CompletedUpload.html) object\.
+## Copy an Amazon S3 object to another bucket<a name="transfer-manager-copy"></a>
+
+To begin the copy of an object from an S3 bucket to another bucket, create a basic [CopyObjectRequest](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/model/CopyObjectRequest.html) instance\.
+
+Next, wrap the basic `CopyObjectRequest` in a [CopyRequest](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/model/CopyRequest.html) that can be used by the S3 Transfer Manager\. 
+
+The `Copy` object returned by the `S3TransferManager`'s `copy` method represents the copy process\. After the copy process completes, the [CompletedCopy](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/model/CompletedCopy.html) object contains details about the response\.
+
+### Imports<a name="transfer-manager-copy-import"></a>
 
 ```
-CompletedUpload completedUpload = upload.completionFuture().join();
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import software.amazon.awssdk.core.sync.RequestBody;
+import software.amazon.awssdk.services.s3.model.CopyObjectRequest;
+import software.amazon.awssdk.transfer.s3.S3TransferManager;
+import software.amazon.awssdk.transfer.s3.model.CompletedCopy;
+import software.amazon.awssdk.transfer.s3.model.Copy;
+import software.amazon.awssdk.transfer.s3.model.CopyRequest;
 
-System.out.println("PutObjectResponse: " + completedUpload.response());
+import java.util.UUID;
 ```
 
-## Download a file from S3<a name="transfer-manager-download"></a>
-
-To download a file from Amazon S3 using the Transfer Manager \(Preview\), build a [http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/transfer/s3/Download.html](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/transfer/s3/Download.html) object\. Using short\-hand notation, you can specify the Amazon S3 bucket and key using the `getObjectRequest()` method and use the `destination()` to set where the file will be saved\.
+### Code<a name="transfer-manager-copy-code"></a>
 
 ```
-Download download =
-        s3TransferManager.download(b -> b.getObjectRequest(r -> r.bucket(bucket).key(key))
-                         .destination(Paths.get("downloadedFile.txt")));
+    public String copyObject(S3TransferManager transferManager, String bucketName,
+                             String key, String destinationBucket, String destinationKey){
+        CopyObjectRequest copyObjectRequest = CopyObjectRequest.builder()
+            .sourceBucket(bucketName)
+            .sourceKey(key)
+            .destinationBucket(destinationBucket)
+            .destinationKey(destinationKey)
+            .build();
+
+        CopyRequest copyRequest = CopyRequest.builder()
+            .copyObjectRequest(copyObjectRequest)
+            .build();
+
+        Copy copy = transferManager.copy(copyRequest);
+
+        CompletedCopy completedCopy = copy.completionFuture().join();
+        return completedCopy.response().copyObjectResult().eTag();
+    }
 ```
 
-To capture the response, use a [http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/transfer/s3/CompletedDownload.html](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/transfer/s3/CompletedDownload.html) object\.
+**Note**  
+Cross\-Region copies are not currently supported\.
+
+## Upload a local directory to an S3 bucket<a name="transfer-manager-upload_directory"></a>
+
+To upload a local directory to an S3 bucket, start by calling the [uploadDirectory](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html#uploadDirectory(software.amazon.awssdk.transfer.s3.model.UploadDirectoryRequest)) method of the `S3TransferManager` instance, passing in an [UploadDirectoryRequest](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/model/UploadDirectoryRequest.html)\.
+
+The [DirectoryUpload](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/model/DirectoryUpload.html) object represents the upload process, which generates a [CompletedDirectoryUpload](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/model/CompletedDirectoryUpload.html) when the request completes\. The `CompleteDirectoryUpload` object contains information about the results of the transfer, including which files failed to transfer\.
+
+### Imports<a name="transfer-manager-upload_directory-import"></a>
 
 ```
-CompletedDownload completedDownload = download.completionFuture().join();
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import software.amazon.awssdk.services.s3.model.ObjectIdentifier;
+import software.amazon.awssdk.transfer.s3.S3TransferManager;
+import software.amazon.awssdk.transfer.s3.model.CompletedDirectoryUpload;
+import software.amazon.awssdk.transfer.s3.model.DirectoryUpload;
+import software.amazon.awssdk.transfer.s3.model.UploadDirectoryRequest;
 
-System.out.println("Content length: "+ completedDownload.response().contentLength());
+import java.net.URL;
+import java.nio.file.Paths;
+import java.util.UUID;
+```
+
+### Code<a name="transfer-manager-upload_directory-code"></a>
+
+```
+    public Integer uploadDirectory(S3TransferManager transferManager,
+                                   String sourceDirectory, String bucketName){
+        DirectoryUpload directoryUpload =
+            transferManager.uploadDirectory(UploadDirectoryRequest.builder()
+                .source(Paths.get(sourceDirectory))
+                .bucket(bucketName)
+                .build());
+
+        CompletedDirectoryUpload completedDirectoryUpload = directoryUpload.completionFuture().join();
+        completedDirectoryUpload.failedTransfers().forEach(fail ->
+            logger.warn("Object [{}] failed to transfer", fail.toString()));
+        return completedDirectoryUpload.failedTransfers().size();
+    }
+```
+
+## Download S3 bucket objects to a local directory<a name="transfer-manager-download_directory"></a>
+
+To download the objects in an S3 bucket to a local directory, begin by calling the [downloadDirectory](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html#downloadDirectory(software.amazon.awssdk.transfer.s3.model.DownloadDirectoryRequest)) method of the Transfer Manager, passing in a [DownloadDirectoryRequest](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/model/DownloadDirectoryRequest.html)\.
+
+The [DirectoryDownload](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/model/DirectoryDownload.html) object represents the download process, which generates a [CompletedDirectoryDownload](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/model/CompletedDirectoryDownload.html) when the request completes\. The `CompleteDirectoryDownload` object contains information about the results of the transfer, including which files failed to transfer\.
+
+### Imports<a name="transfer-manager-download_directory-import"></a>
+
+```
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import software.amazon.awssdk.core.sync.RequestBody;
+import software.amazon.awssdk.services.s3.model.ObjectIdentifier;
+import software.amazon.awssdk.transfer.s3.S3TransferManager;
+import software.amazon.awssdk.transfer.s3.model.CompletedDirectoryDownload;
+import software.amazon.awssdk.transfer.s3.model.DirectoryDownload;
+import software.amazon.awssdk.transfer.s3.model.DownloadDirectoryRequest;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
+import java.util.stream.Collectors;
+```
+
+### Code<a name="transfer-manager-download_directory-code"></a>
+
+```
+    public Integer downloadObjectsToDirectory(S3TransferManager transferManager,
+                                              String destinationPath, String bucketName) {
+        DirectoryDownload directoryDownload =
+            transferManager.downloadDirectory(DownloadDirectoryRequest.builder()
+                .destination(Paths.get(destinationPath))
+                .bucket(bucketName)
+                .build());
+        CompletedDirectoryDownload completedDirectoryDownload = directoryDownload.completionFuture().join();
+
+        completedDirectoryDownload.failedTransfers().forEach(fail ->
+            logger.warn("Object [{}] failed to transfer", fail.toString()));
+        return completedDirectoryDownload.failedTransfers().size();
+    }
 ```

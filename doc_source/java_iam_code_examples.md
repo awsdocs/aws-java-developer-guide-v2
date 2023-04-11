@@ -1,31 +1,25 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # IAM examples using SDK for Java 2\.x<a name="java_iam_code_examples"></a>
 
 The following code examples show you how to perform actions and implement common scenarios by using the AWS SDK for Java 2\.x with IAM\.
 
-*Actions* are code excerpts that show you how to call individual IAM functions\.
+*Actions* are code excerpts that show you how to call individual service functions\.
 
-*Scenarios* are code examples that show you how to accomplish a specific task by calling multiple IAM functions\.
+*Scenarios* are code examples that show you how to accomplish a specific task by calling multiple functions within the same service\.
 
 Each example includes a link to GitHub, where you can find instructions on how to set up and run the code in context\.
 
 **Topics**
-+ [Actions](#w620aac15c13b9c37c13)
-+ [Scenarios](#w620aac15c13b9c37c15)
++ [Actions](#actions)
++ [Scenarios](#scenarios)
 
-## Actions<a name="w620aac15c13b9c37c13"></a>
+## Actions<a name="actions"></a>
 
 ### Attach a policy to a role<a name="iam_AttachRolePolicy_java_topic"></a>
 
 The following code example shows how to attach an IAM policy to a role\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
   
 
 ```
@@ -73,7 +67,7 @@ The following code example shows how to attach an IAM policy to a role\.
 The following code example shows how to create an IAM policy\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
   
 
 ```
@@ -113,7 +107,7 @@ The following code example shows how to create an IAM policy\.
 The following code example shows how to create an IAM role\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
   
 
 ```
@@ -147,10 +141,13 @@ The following code example shows how to create an IAM role\.
 
 ### Create a user<a name="iam_CreateUser_java_topic"></a>
 
-The following code example shows how to create an IAM user\.
+The following code example shows how to create an IAM user\. 
+
+**Warning**  
+To avoid security risks, don't use IAM users for authentication when developing purpose\-built software or working with real data\. Instead, use federation with an identity provider such as [AWS IAM Identity Center \(successor to AWS Single Sign\-On\)](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
   
 
 ```
@@ -186,10 +183,13 @@ The following code example shows how to create an IAM user\.
 
 ### Create an access key<a name="iam_CreateAccessKey_java_topic"></a>
 
-The following code example shows how to create an IAM access key\.
+The following code example shows how to create an IAM access key\. 
+
+**Warning**  
+To avoid security risks, don't use IAM users for authentication when developing purpose\-built software or working with real data\. Instead, use federation with an identity provider such as [AWS IAM Identity Center \(successor to AWS Single Sign\-On\)](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
   
 
 ```
@@ -217,7 +217,7 @@ The following code example shows how to create an IAM access key\.
 The following code example shows how to create an alias for an IAM account\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
   
 
 ```
@@ -244,7 +244,7 @@ The following code example shows how to create an alias for an IAM account\.
 The following code example shows how to delete an IAM policy\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
   
 
 ```
@@ -269,10 +269,13 @@ The following code example shows how to delete an IAM policy\.
 
 ### Delete a user<a name="iam_DeleteUser_java_topic"></a>
 
-The following code example shows how to delete an IAM user\.
+The following code example shows how to delete an IAM user\. 
+
+**Warning**  
+To avoid security risks, don't use IAM users for authentication when developing purpose\-built software or working with real data\. Instead, use federation with an identity provider such as [AWS IAM Identity Center \(successor to AWS Single Sign\-On\)](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
   
 
 ```
@@ -296,10 +299,13 @@ The following code example shows how to delete an IAM user\.
 
 ### Delete an access key<a name="iam_DeleteAccessKey_java_topic"></a>
 
-The following code example shows how to delete an IAM access key\.
+The following code example shows how to delete an IAM access key\. 
+
+**Warning**  
+To avoid security risks, don't use IAM users for authentication when developing purpose\-built software or working with real data\. Instead, use federation with an identity provider such as [AWS IAM Identity Center \(successor to AWS Single Sign\-On\)](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
   
 
 ```
@@ -328,7 +334,7 @@ The following code example shows how to delete an IAM access key\.
 The following code example shows how to delete an IAM account alias\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
   
 
 ```
@@ -356,7 +362,7 @@ The following code example shows how to delete an IAM account alias\.
 The following code example shows how to detach an IAM policy from a role\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
   
 
 ```
@@ -382,10 +388,13 @@ The following code example shows how to detach an IAM policy from a role\.
 
 ### List a user's access keys<a name="iam_ListAccessKeys_java_topic"></a>
 
-The following code example shows how to list a user's IAM access keys\.
+The following code example shows how to list a user's IAM access keys\. 
+
+**Warning**  
+To avoid security risks, don't use IAM users for authentication when developing purpose\-built software or working with real data\. Instead, use federation with an identity provider such as [AWS IAM Identity Center \(successor to AWS Single Sign\-On\)](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
   
 
 ```
@@ -438,7 +447,7 @@ The following code example shows how to list a user's IAM access keys\.
 The following code example shows how to list IAM account aliases\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
   
 
 ```
@@ -460,10 +469,13 @@ The following code example shows how to list IAM account aliases\.
 
 ### List users<a name="iam_ListUsers_java_topic"></a>
 
-The following code example shows how to list IAM users\.
+The following code example shows how to list IAM users\. 
+
+**Warning**  
+To avoid security risks, don't use IAM users for authentication when developing purpose\-built software or working with real data\. Instead, use federation with an identity provider such as [AWS IAM Identity Center \(successor to AWS Single Sign\-On\)](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
   
 
 ```
@@ -511,10 +523,13 @@ The following code example shows how to list IAM users\.
 
 ### Update a user<a name="iam_UpdateUser_java_topic"></a>
 
-The following code example shows how to update an IAM user\.
+The following code example shows how to update an IAM user\. 
+
+**Warning**  
+To avoid security risks, don't use IAM users for authentication when developing purpose\-built software or working with real data\. Instead, use federation with an identity provider such as [AWS IAM Identity Center \(successor to AWS Single Sign\-On\)](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
   
 
 ```
@@ -539,10 +554,13 @@ The following code example shows how to update an IAM user\.
 
 ### Update an access key<a name="iam_UpdateAccessKey_java_topic"></a>
 
-The following code example shows how to update an IAM access key\.
+The following code example shows how to update an IAM access key\. 
+
+**Warning**  
+To avoid security risks, don't use IAM users for authentication when developing purpose\-built software or working with real data\. Instead, use federation with an identity provider such as [AWS IAM Identity Center \(successor to AWS Single Sign\-On\)](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
   
 
 ```
@@ -575,52 +593,71 @@ The following code example shows how to update an IAM access key\.
 ```
 +  For API details, see [UpdateAccessKey](https://docs.aws.amazon.com/goto/SdkForJavaV2/iam-2010-05-08/UpdateAccessKey) in *AWS SDK for Java 2\.x API Reference*\. 
 
-## Scenarios<a name="w620aac15c13b9c37c15"></a>
+## Scenarios<a name="scenarios"></a>
 
 ### Create a user and assume a role<a name="iam_Scenario_CreateUserAssumeRole_java_topic"></a>
 
-The following code example shows how to:
-+ Create a user who has no permissions\.
+The following code example shows how to create a user and assume a role\. 
+
+**Warning**  
+To avoid security risks, don't use IAM users for authentication when developing purpose\-built software or working with real data\. Instead, use federation with an identity provider such as [AWS IAM Identity Center \(successor to AWS Single Sign\-On\)](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)\.
++ Create a user with no permissions\.
 + Create a role that grants permission to list Amazon S3 buckets for the account\.
 + Add a policy to let the user assume the role\.
-+ Assume the role and list Amazon S3 buckets using temporary credentials\.
-+ Delete the policy, role, and user\.
++ Assume the role and list S3 buckets using temporary credentials, then clean up resources\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iam#readme)\. 
 Create functions that wrap IAM user actions\.  
 
 ```
+/*
+  To run this Java V2 code example, set up your development environment, including your credentials.
+
+  For information, see this documentation topic:
+
+  https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/get-started.html
+
+  This example performs these operations:
+
+  1. Creates a user that has no permissions.
+  2. Creates a role and policy that grants Amazon S3 permissions.
+  3. Creates a role.
+  4. Grants the user permissions.
+  5. Gets temporary credentials by assuming the role.  Creates an Amazon S3 Service client object with the temporary credentials.
+  6. Deletes the resources.
+ */
+
 public class IAMScenario {
-
+    public static final String DASHES = new String(new char[80]).replace("\0", "-");
     public static final String PolicyDocument =
-            "{" +
-                    "  \"Version\": \"2012-10-17\"," +
-                    "  \"Statement\": [" +
-                    "    {" +
-                    "        \"Effect\": \"Allow\"," +
-                    "        \"Action\": [" +
-                    "            \"s3:*\"" +
-                    "       ]," +
-                    "       \"Resource\": \"*\"" +
-                    "    }" +
-                    "   ]" +
-                    "}";
+        "{" +
+            "  \"Version\": \"2012-10-17\"," +
+            "  \"Statement\": [" +
+            "    {" +
+            "        \"Effect\": \"Allow\"," +
+            "        \"Action\": [" +
+            "            \"s3:*\"" +
+            "       ]," +
+            "       \"Resource\": \"*\"" +
+            "    }" +
+            "   ]" +
+            "}";
 
+    public static String userArn;
     public static void main(String[] args) throws Exception {
 
         final String usage = "\n" +
             "Usage:\n" +
-            "    <username> <policyName> <roleName> <roleSessionName> <fileLocation> <bucketName> \n\n" +
+            "    <username> <policyName> <roleName> <roleSessionName> <bucketName> \n\n" +
             "Where:\n" +
             "    username - The name of the IAM user to create. \n\n" +
             "    policyName - The name of the policy to create. \n\n" +
             "    roleName - The name of the role to create. \n\n" +
             "    roleSessionName - The name of the session required for the assumeRole operation. \n\n" +
-            "    fileLocation - The file location to the JSON required to create the role (see Readme). \n\n" +
-            "    bucketName - The name of the Amazon S3 bucket from which objects are read. \n\n" ;
+            "    bucketName - The name of the Amazon S3 bucket from which objects are read. \n\n";
 
-        if (args.length != 6) {
+        if (args.length != 5) {
             System.out.println(usage);
             System.exit(1);
         }
@@ -629,8 +666,7 @@ public class IAMScenario {
         String policyName = args[1];
         String roleName = args[2];
         String roleSessionName = args[3];
-        String fileLocation = args[4];
-        String bucketName = args[5];
+        String bucketName = args[4];
 
         Region region = Region.AWS_GLOBAL;
         IamClient iam = IamClient.builder()
@@ -638,32 +674,88 @@ public class IAMScenario {
             .credentialsProvider(ProfileCredentialsProvider.create())
             .build();
 
-        // Create the IAM user.
-        Boolean createUser = createIAMUser(iam, userName);
+        System.out.println(DASHES);
+        System.out.println("Welcome to the AWS IAM example scenario.");
+        System.out.println(DASHES);
 
-       if (createUser) {
-           System.out.println(userName + " was successfully created.");
-           String polArn = createIAMPolicy(iam, policyName);
-           System.out.println("The policy " + polArn + " was successfully created.");
-           String roleArn = createIAMRole(iam, roleName, fileLocation);
-           System.out.println(roleArn + " was successfully created.");
-           attachIAMRolePolicy(iam, roleName, polArn);
+        System.out.println(DASHES);
+        System.out.println(" 1. Create the IAM user.");
+        User createUser = createIAMUser(iam, userName);
 
-           System.out.println("*** Wait for 1 MIN so the resource is available");
-           TimeUnit.MINUTES.sleep(1);
-           assumeGivenRole(roleArn, roleSessionName, bucketName);
+        System.out.println(DASHES);
+        userArn = createUser.arn();
 
-           System.out.println("*** Getting ready to delete the AWS resources");
-           deleteRole(iam, roleName, polArn);
-           deleteIAMUser(iam, userName);
-           System.out.println("This IAM Scenario has successfully completed");
-       } else {
-           System.out.println(userName +" was not successfully created.");
-       }
+        AccessKey myKey = createIAMAccessKey(iam, userName);
+        String accessKey = myKey.accessKeyId();
+        String secretKey = myKey.secretAccessKey();
+        String assumeRolePolicyDocument = "{" +
+            "\"Version\": \"2012-10-17\"," +
+            "\"Statement\": [{" +
+            "\"Effect\": \"Allow\"," +
+            "\"Principal\": {" +
+            "	\"AWS\": \"" + userArn + "\"" +
+            "}," +
+            "\"Action\": \"sts:AssumeRole\"" +
+            "}]" +
+            "}";
+
+        System.out.println(assumeRolePolicyDocument);
+        System.out.println(userName + " was successfully created.");
+        System.out.println(DASHES);
+        System.out.println("2. Creates a policy.");
+        String polArn = createIAMPolicy(iam, policyName);
+        System.out.println("The policy " + polArn + " was successfully created.");
+        System.out.println(DASHES);
+
+        System.out.println(DASHES);
+        System.out.println("3. Creates a role.");
+        TimeUnit.SECONDS.sleep(30);
+        String roleArn = createIAMRole(iam, roleName, assumeRolePolicyDocument);
+        System.out.println(roleArn + " was successfully created.");
+        System.out.println(DASHES);
+
+        System.out.println(DASHES);
+        System.out.println("4. Grants the user permissions.");
+        attachIAMRolePolicy(iam, roleName, polArn);
+        System.out.println(DASHES);
+
+        System.out.println(DASHES);
+        System.out.println("*** Wait for 30 secs so the resource is available");
+        TimeUnit.SECONDS.sleep(30);
+        System.out.println("5. Gets temporary credentials by assuming the role.");
+        System.out.println("Perform an Amazon S3 Service operation using the temporary credentials.");
+        assumeRole(roleArn, roleSessionName, bucketName, accessKey, secretKey);
+        System.out.println(DASHES);
+
+        System.out.println(DASHES);
+        System.out.println("6 Getting ready to delete the AWS resources");
+        deleteKey(iam, userName, accessKey );
+        deleteRole(iam, roleName, polArn);
+        deleteIAMUser(iam, userName);
+        System.out.println(DASHES);
+
+        System.out.println(DASHES);
+        System.out.println("This IAM Scenario has successfully completed");
+        System.out.println(DASHES);
     }
 
-    public static Boolean createIAMUser(IamClient iam, String username ) {
+    public static AccessKey createIAMAccessKey(IamClient iam, String user) {
+        try {
+            CreateAccessKeyRequest request = CreateAccessKeyRequest.builder()
+                .userName(user)
+                .build();
 
+            CreateAccessKeyResponse response = iam.createAccessKey(request);
+            return response.accessKey();
+
+        } catch (IamException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+        return null;
+    }
+
+    public static User createIAMUser(IamClient iam, String username) {
         try {
             // Create an IamWaiter object
             IamWaiter iamWaiter = iam.waiter();
@@ -679,27 +771,26 @@ public class IAMScenario {
 
             WaiterResponse<GetUserResponse> waitUntilUserExists = iamWaiter.waitUntilUserExists(userRequest);
             waitUntilUserExists.matched().response().ifPresent(System.out::println);
-            return true;
+            return response.user();
 
         } catch (IamException e) {
             System.err.println(e.awsErrorDetails().errorMessage());
             System.exit(1);
         }
-        return false;
+        return null;
     }
 
-    public static String createIAMRole(IamClient iam, String rolename, String fileLocation ) throws Exception {
+    public static String createIAMRole(IamClient iam, String rolename, String json) {
 
         try {
-            JSONObject jsonObject = (JSONObject) readJsonSimpleDemo(fileLocation);
             CreateRoleRequest request = CreateRoleRequest.builder()
                 .roleName(rolename)
-                .assumeRolePolicyDocument(jsonObject.toJSONString())
+                .assumeRolePolicyDocument(json)
                 .description("Created using the AWS SDK for Java")
                 .build();
 
             CreateRoleResponse response = iam.createRole(request);
-            System.out.println("The ARN of the role is "+response.role().arn());
+            System.out.println("The ARN of the role is " + response.role().arn());
             return response.role().arn();
 
         } catch (IamException e) {
@@ -709,8 +800,7 @@ public class IAMScenario {
         return "";
     }
 
-    public static String createIAMPolicy(IamClient iam, String policyName ) {
-
+    public static String createIAMPolicy(IamClient iam, String policyName) {
         try {
             // Create an IamWaiter object.
             IamWaiter iamWaiter = iam.waiter();
@@ -719,8 +809,6 @@ public class IAMScenario {
                 .policyDocument(PolicyDocument).build();
 
             CreatePolicyResponse response = iam.createPolicy(request);
-
-            // Wait until the policy is created.
             GetPolicyRequest polRequest = GetPolicyRequest.builder()
                 .policyArn(response.policy().arn())
                 .build();
@@ -733,11 +821,10 @@ public class IAMScenario {
             System.err.println(e.awsErrorDetails().errorMessage());
             System.exit(1);
         }
-        return "" ;
+        return "";
     }
 
-    public static void attachIAMRolePolicy(IamClient iam, String roleName, String policyArn ) {
-
+    public static void attachIAMRolePolicy(IamClient iam, String roleName, String policyArn) {
         try {
             ListAttachedRolePoliciesRequest request = ListAttachedRolePoliciesRequest.builder()
                 .roleName(roleName)
@@ -745,11 +832,10 @@ public class IAMScenario {
 
             ListAttachedRolePoliciesResponse response = iam.listAttachedRolePolicies(request);
             List<AttachedPolicy> attachedPolicies = response.attachedPolicies();
-
             String polArn;
-            for (AttachedPolicy policy: attachedPolicies) {
+            for (AttachedPolicy policy : attachedPolicies) {
                 polArn = policy.policyArn();
-                if (polArn.compareTo(policyArn)==0) {
+                if (polArn.compareTo(policyArn) == 0) {
                     System.out.println(roleName + " policy is already attached to this role.");
                     return;
                 }
@@ -770,10 +856,13 @@ public class IAMScenario {
     }
 
     // Invoke an Amazon S3 operation using the Assumed Role.
-    public static void assumeGivenRole(String roleArn, String roleSessionName, String bucketName) {
+    public static void assumeRole(String roleArn, String roleSessionName, String bucketName, String keyVal, String keySecret) {
 
+        // Use the creds of the new IAM user that was created in this code example.
+        AwsBasicCredentials credentials = AwsBasicCredentials.create(keyVal, keySecret);
         StsClient stsClient = StsClient.builder()
             .region(Region.US_EAST_1)
+            .credentialsProvider(StaticCredentialsProvider.create(credentials))
             .build();
 
         try {
@@ -788,7 +877,7 @@ public class IAMScenario {
             String secKey = myCreds.secretAccessKey();
             String secToken = myCreds.sessionToken();
 
-            // List all objects in an Amazon S3 bucket using the temp creds.
+            // List all objects in an Amazon S3 bucket using the temp creds retrieved by invoking assumeRole.
             Region region = Region.US_EAST_1;
             S3Client s3 = S3Client.builder()
                 .credentialsProvider(StaticCredentialsProvider.create(AwsSessionCredentials.create(key, secKey, secToken)))
@@ -796,7 +885,7 @@ public class IAMScenario {
                 .build();
 
             System.out.println("Created a S3Client using temp credentials.");
-            System.out.println("Listing objects in "+bucketName);
+            System.out.println("Listing objects in " + bucketName);
             ListObjectsRequest listObjects = ListObjectsRequest.builder()
                 .bucket(bucketName)
                 .build();
@@ -813,7 +902,6 @@ public class IAMScenario {
             System.exit(1);
         }
     }
-
     public static void deleteRole(IamClient iam, String roleName, String polArn) {
 
         try {
@@ -831,7 +919,7 @@ public class IAMScenario {
                 .build();
 
             iam.deletePolicy(request);
-            System.out.println("*** Successfully deleted "+polArn);
+            System.out.println("*** Successfully deleted " + polArn);
 
             // Delete the role.
             DeleteRoleRequest roleRequest = DeleteRoleRequest.builder()
@@ -839,7 +927,24 @@ public class IAMScenario {
                 .build();
 
             iam.deleteRole(roleRequest);
-            System.out.println("*** Successfully deleted " +roleName);
+            System.out.println("*** Successfully deleted " + roleName);
+
+        } catch (IamException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+
+    public static void deleteKey(IamClient iam ,String username, String accessKey ) {
+        try {
+            DeleteAccessKeyRequest request = DeleteAccessKeyRequest.builder()
+                .accessKeyId(accessKey)
+                .userName(username)
+                .build();
+
+            iam.deleteAccessKey(request);
+            System.out.println("Successfully deleted access key " + accessKey +
+                " from user " + username);
 
         } catch (IamException e) {
             System.err.println(e.awsErrorDetails().errorMessage());
@@ -848,7 +953,6 @@ public class IAMScenario {
     }
 
     public static void deleteIAMUser(IamClient iam, String userName) {
-
         try {
             DeleteUserRequest request = DeleteUserRequest.builder()
                 .userName(userName)
@@ -861,12 +965,6 @@ public class IAMScenario {
             System.err.println(e.awsErrorDetails().errorMessage());
             System.exit(1);
         }
-    }
-
-    public static Object readJsonSimpleDemo(String filename) throws Exception {
-        FileReader reader = new FileReader(filename);
-        JSONParser jsonParser = new JSONParser();
-        return jsonParser.parse(reader);
     }
 }
 ```

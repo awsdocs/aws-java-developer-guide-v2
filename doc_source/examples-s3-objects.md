@@ -1,9 +1,3 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Working with Amazon S3 objects<a name="examples-s3-objects"></a>
 
 An Amazon S3 object represents a file or collection of data\. Every object must be contained in a [bucket](examples-s3-buckets.md)\.
@@ -15,7 +9,7 @@ This rule directs Amazon S3 to abort multipart uploads that don’t complete wit
 For more information, see [Lifecycle Configuration for a Bucket with Versioning](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/lifecycle-configuration-bucket-with-versioning.html) in the Amazon Simple Storage Service User Guide\.
 
 **Note**  
-These code snippets assume that you understand the material in basics, and have configured default AWS credentials using the information in [Set default credentials and Region](setup.md#setup-credentials)\.
+These code snippets assume that you understand the material in basics, and have configured default AWS credentials using the information in [Set up single sign\-on access for the SDK](setup-basics.md#setup-credentials)\.
 
 **Topics**
 + [Upload an object](#upload-object)
@@ -280,9 +274,6 @@ import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.CopyObjectRequest;
 import software.amazon.awssdk.services.s3.model.CopyObjectResponse;
 import software.amazon.awssdk.services.s3.model.S3Exception;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 ```
 
  **Code** 
@@ -290,16 +281,9 @@ import java.nio.charset.StandardCharsets;
 ```
     public static String copyBucketObject (S3Client s3, String fromBucket, String objectKey, String toBucket) {
 
-        String encodedUrl = "";
-        try {
-            encodedUrl = URLEncoder.encode(fromBucket + "/" + objectKey, StandardCharsets.UTF_8.toString());
-        
-        } catch (UnsupportedEncodingException e) {
-            System.out.println("URL could not be encoded: " + e.getMessage());
-        }
-        
         CopyObjectRequest copyReq = CopyObjectRequest.builder()
-            .copySourceIfMatch(encodedUrl)
+            .sourceBucket(fromBucket)
+            .sourceKey(objectKey)
             .destinationBucket(toBucket)
             .destinationKey(objectKey)
             .build();

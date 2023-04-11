@@ -1,9 +1,3 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # AWS region selection<a name="region-selection"></a>
 
 Regions enable you to access AWS services that physically reside in a specific geographic area\. This can be useful both for redundancy and to keep your data and applications running close to where you and your users will access them\.
@@ -79,7 +73,7 @@ This environment variable is set by the Lambda container\.
 
 1. If the SDK still hasn’t found a region by this point, client creation fails with an exception\.
 
-When developing AWS applications, a common approach is to use the *shared configuration file* \(described in [Credential retrieval order](credentials.md#credentials-default)\) to set the region for local development, and rely on the default region provider chain to determine the region when running on AWS infrastructure\. This greatly simplifies client creation and keeps your application portable\.
+When developing AWS applications, a common approach is to use the *shared configuration file* \(described in [Credential retrieval order](credentials-chain.md#credentials-default)\) to set the region for local development, and rely on the default region provider chain to determine the region when running on AWS infrastructure\. This greatly simplifies client creation and keeps your application portable\.
 
 ## Checking for service availability in a Region<a name="region-selection-query-service"></a>
 

@@ -1,9 +1,3 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Region class name changes<a name="migration-client-region"></a>
 
 This section describes the changes implemented in the AWS SDK for Java 2\.x for using the `Region` and `Regions` classes\.
@@ -17,7 +11,7 @@ This section describes the changes implemented in the AWS SDK for Java 2\.x for 
   ```
 +  `com.amazonaws.regions.Regions` and `com.amazonaws.regions.Region` classes are now combined into one class, `software.amazon.awssdk.regions.Region`\.
 
-## Method and Class Name Mappings<a name="region-method-mapping"></a>
+## Method and class name mappings<a name="region-method-mapping"></a>
 
 The following tables map Region related classes between versions 1\.x and 2\.x of the AWS SDK for Java\. You can create an instance of these classes using the `of()` method\.
 

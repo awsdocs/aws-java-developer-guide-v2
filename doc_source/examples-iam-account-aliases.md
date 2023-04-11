@@ -1,9 +1,3 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Using IAM account aliases<a name="examples-iam-account-aliases"></a>
 
 If you want the URL for your sign\-in page to contain your company name or other friendly identifier instead of your AWS account ID, you can create an alias for your AWS account\.
@@ -51,7 +45,7 @@ See the [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/blob/
 To list your account’s alias, if any, call the IamClient’s `listAccountAliases` method\.
 
 **Note**  
-The returned [ListAccountAliasesResponse](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/services/iam/model/ListAccountAliasesResponse.html) supports the same `isTruncated` and `marker` methods as other AWS SDK for Java *list* methods, but an S account can have only *one* account alias\.
+The returned [ListAccountAliasesResponse](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/services/iam/model/ListAccountAliasesResponse.html) supports the same `isTruncated` and `marker` methods as other AWS SDK for Java *list* methods, but an account can have only *one* account alias\.
 
  **Imports** 
 

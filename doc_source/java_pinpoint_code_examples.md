@@ -1,30 +1,24 @@
---------
-
-You can now use the [Amazon S3 Transfer Manager \(Developer Preview\)](https://bit.ly/2WQebiP) in the AWS SDK for Java 2\.x for accelerated file transfers\. Give it a try and [let us know what you think](https://bit.ly/3zT1YYM)\!
-
---------
-
 # Amazon Pinpoint examples using SDK for Java 2\.x<a name="java_pinpoint_code_examples"></a>
 
 The following code examples show you how to perform actions and implement common scenarios by using the AWS SDK for Java 2\.x with Amazon Pinpoint\.
 
-*Actions* are code excerpts that show you how to call individual Amazon Pinpoint functions\.
+*Actions* are code excerpts that show you how to call individual service functions\.
 
-*Scenarios* are code examples that show you how to accomplish a specific task by calling multiple Amazon Pinpoint functions\.
+*Scenarios* are code examples that show you how to accomplish a specific task by calling multiple functions within the same service\.
 
 Each example includes a link to GitHub, where you can find instructions on how to set up and run the code in context\.
 
 **Topics**
-+ [Actions](#w620aac15c13b9c51c13)
++ [Actions](#actions)
 
-## Actions<a name="w620aac15c13b9c51c13"></a>
+## Actions<a name="actions"></a>
 
 ### Create a campaign<a name="pinpoint_CreateCampaign_java_topic"></a>
 
 The following code example shows how to create a campaign\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#readme)\. 
 Create a campaign\.  
 
 ```
@@ -82,7 +76,7 @@ Create a campaign\.
 The following code example shows how to create a segment\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#readme)\. 
   
 
 ```
@@ -149,7 +143,7 @@ The following code example shows how to create a segment\.
 The following code example shows how to create an appliation\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#readme)\. 
   
 
 ```
@@ -181,7 +175,7 @@ The following code example shows how to create an appliation\.
 The following code example shows how to delete an application\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#readme)\. 
 Delete an application\.  
 
 ```
@@ -209,7 +203,7 @@ Delete an application\.
 The following code example shows how to delete an endpoint\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#readme)\. 
 Delete an endpoint\.  
 
 ```
@@ -239,7 +233,7 @@ Delete an endpoint\.
 The following code example shows how to export an endpoint\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#readme)\. 
 Export an endpoint\.  
 
 ```
@@ -382,7 +376,7 @@ Export an endpoint\.
 The following code example shows how to get endpoints\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#readme)\. 
   
 
 ```
@@ -420,7 +414,7 @@ The following code example shows how to get endpoints\.
 The following code example shows how to import a segment\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#readme)\. 
 Import a segment\.  
 
 ```
@@ -461,7 +455,7 @@ Import a segment\.
 The following code example shows how to list endpoints\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#readme)\. 
   
 
 ```
@@ -497,7 +491,7 @@ The following code example shows how to list endpoints\.
 The following code example shows how to list segments\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#readme)\. 
 List segments\.  
 
 ```
@@ -527,7 +521,7 @@ List segments\.
 The following code example shows how to send email and text messages with Amazon Pinpoint\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#readme)\. 
 Send an email message\.  
 
 ```
@@ -636,6 +630,56 @@ Send an SMS message\.
         }
     }
 ```
+Send batch SMS messages\.  
+
+```
+    public static void sendSMSMessage(PinpointClient pinpoint, String message, String appId, String originationNumber, String destinationNumber, String destinationNumber1) {
+        try {
+            Map<String, AddressConfiguration> addressMap = new HashMap<String, AddressConfiguration>();
+            AddressConfiguration addConfig = AddressConfiguration.builder()
+                .channelType(ChannelType.SMS)
+                .build();
+
+            // Add an entry to the Map object for each number to whom you want to send a message.
+            addressMap.put(destinationNumber, addConfig);
+            addressMap.put(destinationNumber1, addConfig);
+            SMSMessage smsMessage = SMSMessage.builder()
+                .body(message)
+                .messageType(messageType)
+                .originationNumber(originationNumber)
+                .senderId(senderId)
+                .keyword(registeredKeyword)
+                .build();
+
+            // Create a DirectMessageConfiguration object.
+            DirectMessageConfiguration direct = DirectMessageConfiguration.builder()
+                .smsMessage(smsMessage)
+                .build();
+
+            MessageRequest msgReq = MessageRequest.builder()
+                .addresses(addressMap)
+                .messageConfiguration(direct)
+                .build();
+
+            // Create a SendMessagesRequest object.
+            SendMessagesRequest request = SendMessagesRequest.builder()
+                .applicationId(appId)
+                .messageRequest(msgReq)
+                .build();
+
+            SendMessagesResponse response= pinpoint.sendMessages(request);
+            MessageResponse msg1 = response.messageResponse();
+            Map map1 = msg1.result();
+
+            // Write out the result of sendMessage.
+            map1.forEach((k, v) -> System.out.println((k + ":" + v)));
+
+        } catch (PinpointException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+```
 +  For API details, see [SendMessages](https://docs.aws.amazon.com/goto/SdkForJavaV2/pinpoint-2016-12-01/SendMessages) in *AWS SDK for Java 2\.x API Reference*\. 
 
 ### Update an endpoint<a name="pinpoint_UpdateEndpoint_java_topic"></a>
@@ -643,7 +687,7 @@ Send an SMS message\.
 The following code example shows how to update an endpoint\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#readme)\. 
   
 
 ```
@@ -750,7 +794,7 @@ The following code example shows how to update an endpoint\.
 The following code example shows how to update channels\.
 
 **SDK for Java 2\.x**  
- To learn how to set up and run this example, see [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#readme)\. 
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/pinpoint#readme)\. 
   
 
 ```
