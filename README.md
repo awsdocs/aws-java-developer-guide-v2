@@ -1,4 +1,4 @@
-## [Developer guide](doc_source/home.md) for version 2.x of the AWS SDK for Java
+## The [Developer guide](doc_source/home.md) for version 2.x of the AWS SDK for Java
 
 This is the open source version of the developer guide for version 2.x of the Amazon Web Services (AWS) SDK for Java.
 
