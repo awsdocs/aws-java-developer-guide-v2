@@ -19,7 +19,7 @@ S3Client client = S3Client.builder()
 
 ## Use access points or Multi\-Region Access Points<a name="examples-s3-access-points"></a>
 
-After [Amazon S3 access points](AmazonS3/latest/userguide/access-points.html) or [Multi\-Region Access Points](AmazonS3/latest/userguide/MultiRegionAccessPoints.html) are set up, you can call object methods, such as `putObject` and `getObject` and provide the access point identifier instead of a bucket name\.
+After [Amazon S3 access points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html) or [Multi\-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html) are set up, you can call object methods, such as `putObject` and `getObject` and provide the access point identifier instead of a bucket name\.
 
 For example, if an access point ARN identifier is `arn:aws:s3:us-west-2:123456789012:accesspoint/test`, you can use the following snippet to call the `putObject` method\.
 

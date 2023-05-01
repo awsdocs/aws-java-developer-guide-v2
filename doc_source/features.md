@@ -4,7 +4,7 @@ This section provides information about the features of the AWS SDK for Java 2\.
 
 **Topics**
 + [Asynchronous programming](asynchronous.md)
-+ [DynamoDB Enhanced Client](dynamodb-enhanced-client.md)
++ [DynamoDB Enhanced Client API](dynamodb-enhanced-client.md)
 + [HTTP/2](http2.md)
 + [SDK Metrics](metrics.md)
 + [Pagination](pagination.md)

@@ -1,6 +1,6 @@
 # Service client metrics<a name="metrics-list"></a>
 
-With the AWS SDK for Java 2\.x, you can collect metrics from the service clients in your application and then publish \(output\) those metrics to [Amazon CloudWatch](https://docs.aws.amazon.com/https://cloudwatch/index.html)\.
+With the AWS SDK for Java 2\.x, you can collect metrics from the service clients in your application and then publish \(output\) those metrics to [Amazon CloudWatch](https://docs.aws.amazon.com/cloudwatch/index.html)\.
 
 These tables list the metrics that you can collect and any HTTP client usage requirement\.
 

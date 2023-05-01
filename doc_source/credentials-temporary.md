@@ -8,7 +8,7 @@ When you configure the SDK to use IAM Identity Center single sign\-on access as 
 
 The SDK uses the IAM Identity Center access token to gain access to the IAM role that is configured with the `sso_role_name` setting in your `config` file\. The SDK assumes this IAM role and retrieves temporary credentials to use for AWS service requests\.
 
-For more details about how the SDK gets temporary credentials from the configuration, see the [Understanding IAM Identity Center authentication](sdkref/latest/guide/understanding-sso.html) section of the AWS SDKs and Tools Reference Guide\.
+For more details about how the SDK gets temporary credentials from the configuration, see the [Understanding IAM Identity Center authentication](https://docs.aws.amazon.com/sdkref/latest/guide/understanding-sso.html) section of the AWS SDKs and Tools Reference Guide\.
 
 ## Retrieve from AWS access portal<a name="credentials-temporary-from-portal"></a>
 

@@ -620,6 +620,51 @@ import java.util.stream.Collectors;
 ```
 +  For API details, see [DownloadDirectory](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/DownloadDirectory) in *AWS SDK for Java 2\.x API Reference*\. 
 
+### Enable notifications<a name="s3_SetBucketNotification_java_topic"></a>
+
+The following code example shows how to enable notifications on an S3 bucket\.
+
+**SDK for Java 2\.x**  
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
+  
+
+```
+    public static void setBucketNotification(S3Client s3Client, String bucketName, String topicArn, String id) {
+        try {
+            List<Event> events = new ArrayList<>();
+            events.add(Event.S3_OBJECT_CREATED_PUT);
+
+            TopicConfiguration config = TopicConfiguration.builder()
+                .topicArn(topicArn)
+                .events(events)
+                .id(id)
+                .build();
+
+            List<TopicConfiguration> topics = new ArrayList<>();
+            topics.add(config);
+
+            NotificationConfiguration configuration = NotificationConfiguration.builder()
+                .topicConfigurations(topics)
+                .build();
+
+            PutBucketNotificationConfigurationRequest configurationRequest = PutBucketNotificationConfigurationRequest.builder()
+                .bucket(bucketName)
+                .notificationConfiguration(configuration)
+                .skipDestinationValidation(true)
+                .build();
+
+            // Set the bucket notification configuration.
+            s3Client.putBucketNotificationConfiguration(configurationRequest);
+            System.out.println("Added bucket " + bucketName + " with EventBridge events enabled.");
+
+        } catch (S3Exception e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+```
++  For API details, see [PutBucketLogging](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/PutBucketLogging) in *AWS SDK for Java 2\.x API Reference*\. 
+
 ### Get an object from a bucket<a name="s3_GetObject_java_topic"></a>
 
 The following code example shows how to read data from an object in an S3 bucket\.
@@ -780,6 +825,35 @@ Get an object by using the S3Presigner client object using an [S3Client](https:/
        } catch (S3Exception | IOException e) {
            e.getStackTrace();
        }
+    }
+```
+Get an object by using a ResponseTransformer object and [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html)\.  
+
+```
+    public static void getObjectBytes (S3Client s3, String bucketName, String keyName, String path) {
+        try {
+            GetObjectRequest objectRequest = GetObjectRequest
+                .builder()
+                .key(keyName)
+                .bucket(bucketName)
+                .build();
+
+            ResponseBytes<GetObjectResponse> objectBytes = s3.getObject(objectRequest, ResponseTransformer.toBytes());
+            byte[] data = objectBytes.asByteArray();
+
+            // Write the data to a local file.
+            File myFile = new File(path );
+            OutputStream os = new FileOutputStream(myFile);
+            os.write(data);
+            System.out.println("Successfully obtained bytes from an S3 object");
+            os.close();
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } catch (S3Exception e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
     }
 ```
 +  For API details, see [GetObject](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/GetObject) in *AWS SDK for Java 2\.x API Reference*\. 
@@ -1057,8 +1131,8 @@ The following code example shows how to upload an object to an S3 bucket\.
 Upload a file to a bucket using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html)\.  
 
 ```
-    public static String putS3Object(S3Client s3, String bucketName, String objectKey, String objectPath) {
-
+    // This example uses RequestBody.fromFile to avoid loading the whole file into memory.
+    public static void putS3Object(S3Client s3, String bucketName, String objectKey, String objectPath) {
         try {
             Map<String, String> metadata = new HashMap<>();
             metadata.put("x-amz-meta-myVal", "test");
@@ -1068,42 +1142,13 @@ Upload a file to a bucket using an [S3Client](https://sdk.amazonaws.com/java/api
                 .metadata(metadata)
                 .build();
 
-            PutObjectResponse response = s3.putObject(putOb, RequestBody.fromBytes(getObjectFile(objectPath)));
-            return response.eTag();
+            s3.putObject(putOb, RequestBody.fromFile(new File(objectPath)));
+            System.out.println("Successfully placed " + objectKey +" into bucket "+bucketName);
 
         } catch (S3Exception e) {
             System.err.println(e.getMessage());
             System.exit(1);
         }
-
-        return "";
-    }
-
-    // Return a byte array.
-    private static byte[] getObjectFile(String filePath) {
-
-        FileInputStream fileInputStream = null;
-        byte[] bytesArray = null;
-
-        try {
-            File file = new File(filePath);
-            bytesArray = new byte[(int) file.length()];
-            fileInputStream = new FileInputStream(file);
-            fileInputStream.read(bytesArray);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (fileInputStream != null) {
-                try {
-                    fileInputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        return bytesArray;
     }
 ```
 Use an [S3TransferManager](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html) to [upload a file](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html#uploadFile(software.amazon.awssdk.transfer.s3.UploadFileRequest)) to a bucket\. View the [complete file](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/transfermanager/UploadFile.java) and [test](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/test/java/TransferManagerTest.java)\.  
@@ -1232,8 +1277,8 @@ Upload an object to a bucket and set tags using an [S3Client](https://sdk.amazon
 Upload an object to a bucket and set metadata using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html)\.  
 
 ```
-    public static String putS3Object(S3Client s3, String bucketName, String objectKey, String objectPath) {
-
+    // This example uses RequestBody.fromFile to avoid loading the whole file into memory.
+    public static void putS3Object(S3Client s3, String bucketName, String objectKey, String objectPath) {
         try {
             Map<String, String> metadata = new HashMap<>();
             metadata.put("author", "Mary Doe");
@@ -1245,42 +1290,13 @@ Upload an object to a bucket and set metadata using an [S3Client](https://sdk.am
                 .metadata(metadata)
                 .build();
 
-            PutObjectResponse response = s3.putObject(putOb, RequestBody.fromBytes(getObjectFile(objectPath)));
-            return response.eTag();
+            s3.putObject(putOb, RequestBody.fromFile(new File(objectPath)));
+            System.out.println("Successfully placed " + objectKey +" into bucket "+bucketName);
 
         } catch (S3Exception e) {
             System.err.println(e.getMessage());
             System.exit(1);
         }
-
-        return "";
-    }
-
-    // Return a byte array.
-    private static byte[] getObjectFile(String filePath) {
-
-        FileInputStream fileInputStream = null;
-        byte[] bytesArray = null;
-
-        try {
-            File file = new File(filePath);
-            bytesArray = new byte[(int) file.length()];
-            fileInputStream = new FileInputStream(file);
-            fileInputStream.read(bytesArray);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (fileInputStream != null) {
-                try {
-                    fileInputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        return bytesArray;
     }
 ```
 Upload an object to a bucket and set an object retention value using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html)\.  
@@ -1441,7 +1457,6 @@ The following code example shows how to:
 public class S3Scenario {
     public static final String DASHES = new String(new char[80]).replace("\0", "-");
     public static void main(String[] args) throws IOException {
-
         final String usage = "\n" +
             "Usage:\n" +
             "    <bucketName> <key> <objectPath> <savePath> <toBucket>\n\n" +
@@ -1522,7 +1537,7 @@ public class S3Scenario {
         s3.close();
     }
 
-    // Create a bucket by using a S3Waiter object
+    // Create a bucket by using a S3Waiter object.
     public static void createBucket( S3Client s3Client, String bucketName) {
         try {
             S3Waiter s3Waiter = s3Client.waiter();
@@ -1556,11 +1571,11 @@ public class S3Scenario {
     }
 
     /**
-     * Upload an object in parts
+     * Upload an object in parts.
      */
-    private static void multipartUpload(S3Client s3, String bucketName, String key) {
+    public static void multipartUpload(S3Client s3, String bucketName, String key) {
         int mB = 1024 * 1024;
-        // First create a multipart upload and get the upload id
+        // First create a multipart upload and get the upload id.
         CreateMultipartUploadRequest createMultipartUploadRequest = CreateMultipartUploadRequest.builder()
             .bucket(bucketName)
             .key(key)
@@ -1570,7 +1585,7 @@ public class S3Scenario {
         String uploadId = response.uploadId();
         System.out.println(uploadId);
 
-        // Upload all the different parts of the object
+        // Upload all the different parts of the object.
         UploadPartRequest uploadPartRequest1 = UploadPartRequest.builder()
             .bucket(bucketName)
             .key(key)
@@ -1608,31 +1623,6 @@ public class S3Scenario {
         return ByteBuffer.wrap(b);
     }
 
-    // Return a byte array
-    private static byte[] getObjectFile(String filePath) {
-        FileInputStream fileInputStream = null;
-        byte[] bytesArray = null;
-
-        try {
-            File file = new File(filePath);
-            bytesArray = new byte[(int) file.length()];
-            fileInputStream = new FileInputStream(file);
-            fileInputStream.read(bytesArray);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (fileInputStream != null) {
-                try {
-                    fileInputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        return bytesArray;
-    }
-
     public static void getObjectBytes (S3Client s3, String bucketName, String keyName, String path ) {
         try {
             GetObjectRequest objectRequest = GetObjectRequest
@@ -1666,11 +1656,10 @@ public class S3Scenario {
             .key(key)
             .build();
 
-        s3.putObject(objectRequest, RequestBody.fromBytes(getObjectFile(objectPath)));
+        s3.putObject(objectRequest, RequestBody.fromFile(new File(objectPath)));
     }
 
     public static void listAllObjects(S3Client s3, String bucketName) {
-
         ListObjectsV2Request listObjectsReqManual = ListObjectsV2Request.builder()
             .bucket(bucketName)
             .maxKeys(1)
@@ -1694,7 +1683,6 @@ public class S3Scenario {
     }
 
     public static void anotherListExample(S3Client s3, String bucketName) {
-
        ListObjectsV2Request listReq = ListObjectsV2Request.builder()
            .bucket(bucketName)
            .maxKeys(1)
@@ -1702,12 +1690,12 @@ public class S3Scenario {
 
        ListObjectsV2Iterable listRes = s3.listObjectsV2Paginator(listReq);
 
-       // Process response pages
+       // Process response pages.
        listRes.stream()
            .flatMap(r -> r.contents().stream())
            .forEach(content -> System.out.println(" Key: " + content.key() + " size = " + content.size()));
 
-        // Helper method to work with paginated collection of items directly
+        // Helper method to work with paginated collection of items directly.
         listRes.contents().stream()
             .forEach(content -> System.out.println(" Key: " + content.key() + " size = " + content.size()));
 
@@ -1716,9 +1704,7 @@ public class S3Scenario {
         }
     }
 
-
     public static void deleteObjectFromBucket(S3Client s3, String bucketName, String key) {
-
         DeleteObjectRequest deleteObjectRequest = DeleteObjectRequest.builder()
             .bucket(bucketName)
             .key(key)
@@ -1729,7 +1715,6 @@ public class S3Scenario {
     }
 
     public static String copyBucketObject (S3Client s3, String fromBucket, String objectKey, String toBucket) {
-
         String encodedUrl = null;
         try {
             encodedUrl = URLEncoder.encode(fromBucket + "/" + objectKey, StandardCharsets.UTF_8.toString());
@@ -1751,7 +1736,6 @@ public class S3Scenario {
             System.err.println(e.awsErrorDetails().errorMessage());
             System.exit(1);
         }
-
         return "";
     }
 }

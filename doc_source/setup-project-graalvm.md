@@ -26,7 +26,7 @@ mvn archetype:generate \
     -DinteractiveMode=false
 ```
 
-This command creates a Maven project configured with dependencies for the AWS SDK for Java, Amazon S3, and the `ApacheHttpClient` HTTP client\. It also includes a dependency for the [GraalVM Native Image Maven plugin](https://www.graalvm.org/reference-manual/native-image/NativeImageMavenPlugin/), so that you can build native images using Maven\.
+This command creates a Maven project configured with dependencies for the AWS SDK for Java, Amazon S3, and the `ApacheHttpClient` HTTP client\. It also includes a dependency for the [GraalVM Native Image Maven plugin](https://graalvm.github.io/native-build-tools/latest/index.html), so that you can build native images using Maven\.
 
 To include dependencies for a different Amazon Web Services, set the value of the `-Dservice` parameter to the artifact ID of that service\. Examples include `dynamodb`, `comprehend`, and `pinpoint`\. For a complete list of artifact IDs, see the list of managed dependencies for [software\.amazon\.awssdk on Maven Central](https://mvnrepository.com/artifact/software.amazon.awssdk/bom/latest)\.
 

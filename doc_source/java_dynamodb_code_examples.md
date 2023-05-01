@@ -129,35 +129,35 @@ The following code example shows how to get an item from a DynamoDB table\.
 Gets an item from a table by using the DynamoDbClient\.  
 
 ```
-    public static int queryTable(DynamoDbClient ddb, String tableName, String partitionKeyName, String partitionKeyVal, String partitionAlias) {
+    public static void getDynamoDBItem(DynamoDbClient ddb,String tableName,String key,String keyVal ) {
 
-        // Set up an alias for the partition key name in case it's a reserved word.
-        HashMap<String,String> attrNameAlias = new HashMap<String,String>();
-        attrNameAlias.put(partitionAlias, partitionKeyName);
-
-        // Set up mapping of the partition name with the value.
-        HashMap<String, AttributeValue> attrValues = new HashMap<>();
-
-        attrValues.put(":"+partitionKeyName, AttributeValue.builder()
-            .s(partitionKeyVal)
+        HashMap<String,AttributeValue> keyToGet = new HashMap<>();
+        keyToGet.put(key, AttributeValue.builder()
+            .s(keyVal)
             .build());
 
-        QueryRequest queryReq = QueryRequest.builder()
+        GetItemRequest request = GetItemRequest.builder()
+            .key(keyToGet)
             .tableName(tableName)
-            .keyConditionExpression(partitionAlias + " = :" + partitionKeyName)
-            .expressionAttributeNames(attrNameAlias)
-            .expressionAttributeValues(attrValues)
             .build();
 
         try {
-            QueryResponse response = ddb.query(queryReq);
-            return response.count();
+            Map<String,AttributeValue> returnedItem = ddb.getItem(request).item();
+            if (returnedItem != null) {
+                Set<String> keys = returnedItem.keySet();
+                System.out.println("Amazon DynamoDB table attributes: \n");
+
+                for (String key1 : keys) {
+                    System.out.format("%s: %s\n", key1, returnedItem.get(key1).toString());
+                }
+            } else {
+                System.out.format("No item found with the key %s!\n", key);
+            }
 
         } catch (DynamoDbException e) {
             System.err.println(e.getMessage());
             System.exit(1);
         }
-        return -1;
     }
 ```
 +  For API details, see [GetItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/dynamodb-2012-08-10/GetItem) in *AWS SDK for Java 2\.x API Reference*\. 

@@ -14,10 +14,10 @@ These code snippets assume that you understand the material in basics, and have 
 **Topics**
 + [Upload an object](#upload-object)
 + [Upload objects in multiple parts](#list-objects)
-+ [Download an object](#download-object)
 + [Delete an object](#delete-object)
 + [Copy an object](#copy-an-object)
 + [List objects](#list-object)
++ [More examples](#examples-s3-objects-more-ex)
 
 ## Upload an object<a name="upload-object"></a>
 
@@ -161,57 +161,6 @@ import software.amazon.awssdk.services.s3.model.HeadBucketResponse;
 
 See the [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java) on GitHub\.
 
-## Download an object<a name="download-object"></a>
-
-Build a [GetObjectRequest](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/services/s3/model/GetObjectRequest.html) and supply a bucket name and key name\. Use the S3Client’s `getObject` method, passing it the `GetObjectRequest` object and a `ResponseTransformer` object\. The `ResponseTransformer` creates a response handler that writes the response content to the specified file or stream\.
-
-The following example specifies a file name to write the object content to\.
-
- **Imports** 
-
-```
-import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.util.Random;
-import software.amazon.awssdk.core.waiters.WaiterResponse;
-import software.amazon.awssdk.regions.Region;
-import software.amazon.awssdk.services.s3.S3Client;
-import software.amazon.awssdk.services.s3.paginators.ListObjectsV2Iterable;
-import software.amazon.awssdk.core.sync.RequestBody;
-import software.amazon.awssdk.services.s3.model.S3Exception;
-import software.amazon.awssdk.services.s3.model.PutObjectRequest;
-import software.amazon.awssdk.services.s3.model.ListObjectsV2Request;
-import software.amazon.awssdk.services.s3.model.ListObjectsV2Response;
-import software.amazon.awssdk.services.s3.model.S3Object;
-import software.amazon.awssdk.services.s3.model.GetObjectRequest;
-import software.amazon.awssdk.services.s3.model.DeleteObjectRequest;
-import software.amazon.awssdk.services.s3.model.DeleteBucketRequest;
-import software.amazon.awssdk.services.s3.model.CreateMultipartUploadRequest;
-import software.amazon.awssdk.services.s3.model.CreateMultipartUploadResponse;
-import software.amazon.awssdk.services.s3.model.CompletedMultipartUpload;
-import software.amazon.awssdk.services.s3.model.CreateBucketRequest;
-import software.amazon.awssdk.services.s3.model.CompletedPart;
-import software.amazon.awssdk.services.s3.model.CreateBucketConfiguration;
-import software.amazon.awssdk.services.s3.model.UploadPartRequest;
-import software.amazon.awssdk.services.s3.model.CompleteMultipartUploadRequest;
-import software.amazon.awssdk.services.s3.waiters.S3Waiter;
-import software.amazon.awssdk.services.s3.model.HeadBucketRequest;
-import software.amazon.awssdk.services.s3.model.HeadBucketResponse;
-```
-
- **Code** 
-
-```
-        GetObjectRequest getObjectRequest = GetObjectRequest.builder()
-                .bucket(bucketName)
-                .key(key)
-                .build();
-
-        s3.getObject(getObjectRequest);
-```
-
-See the [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/s3/src/main/java/com/example/s3/S3ObjectOperations.java) on GitHub\.
-
 ## Delete an object<a name="delete-object"></a>
 
 Build a [DeleteObjectRequest](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/services/s3/model/DeleteObjectRequest.html) and supply a bucket name and key name\. Use the S3Client’s `deleteObject` method, and pass it the name of a bucket and object to delete\. *The specified bucket and object key must exist, or the service will return an error\.* 
@@ -351,3 +300,7 @@ import java.util.List;
 ```
 
 See the [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/s3/src/main/java/com/example/s3/ListObjects.java) on GitHub\.
+
+## More examples<a name="examples-s3-objects-more-ex"></a>
+
+The [Code examples](java_s3_code_examples.md) section of this guide contains more examples of working with Amazon S3 objects including how to [download an object](java_s3_code_examples.md#s3_GetObject_java_topic)\.

@@ -2,12 +2,14 @@
 
 This topic describes important changes to the AWS SDK for Java Developer Guide over the course of its history\.
 
- **This documentation was last built on:** 2023\-04\-10
+ **This documentation was last built on:** 2023\-04\-28
 
 
 | Change | Description | Date | 
 | --- | --- | --- | 
-| Remove Amazon S3 Encryption Client and DynamoDB document APIs from [list](home.md#features-notyet) of features not yet in version 2\. | [Amazon S3 Encryption Client](amazon-s3-encryption-client/latest/developerguide/what-is-s3-encryption-client.html) and [DynamoDB Enhanced Document API ](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/document/package-summary.html)have been released for version 2 of the SDK for Java\. | 10 April 2023 | 
+| [DynamoDB Enhanced Client API](dynamodb-enhanced-client.md) | Rewritten DynamoDB Enhanced Client API topic released | 28 April 2023 | 
+| [Update get started tutorial instructions](get-started.md#get-started-projectsetup) | Maven archetype modified to include option for credentialProvider; instructions modified accordingly\. | 11 April 2023 | 
+| Remove Amazon S3 Encryption Client and DynamoDB document APIs from [list](home.md#features-notyet) of features not yet in version 2\. | [Amazon S3 Encryption Client](https://docs.aws.amazon.com/amazon-s3-encryption-client/latest/developerguide/getting-started.html) and [DynamoDB Enhanced Document API ](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/document/package-summary.html)have been released for version 2 of the SDK for Java\. | 10 April 2023 | 
 | [HTTP client recommendations](http-configuration.md#http-clients-recommend) | Add HTTP client decision guidance | 30 March 2023 | 
 |  IAM best practices updates  |  Updated guide to align with the IAM best practices\. For more information, see [Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)\.  | 14 March 2023 | 
 | [Reload profile credentials](credentials-profiles.md#profile-reloading) | Add section on reloading profile credentials | 9 February 2023 | 

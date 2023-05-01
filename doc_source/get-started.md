@@ -30,7 +30,7 @@ To create the project for this tutorial, you run a Maven command that prompts yo
    mvn archetype:generate \
      -DarchetypeGroupId=software.amazon.awssdk \
      -DarchetypeArtifactId=archetype-app-quickstart \
-     -DarchetypeVersion=2.18.16
+     -DarchetypeVersion=2.20.43
    ```
 
 1. Enter the value listed in the second column for each prompt\.    
@@ -87,7 +87,7 @@ The `dependencyManagement` section contains a dependency to the AWS SDK for Java
         <maven.shade.plugin.version>3.2.1</maven.shade.plugin.version>
         <maven.compiler.plugin.version>3.6.1</maven.compiler.plugin.version>
         <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
-        <aws.java.sdk.version>2.18.16</aws.java.sdk.version>
+        <aws.java.sdk.version>2.20.43</aws.java.sdk.version> <-------- SDK version picked up from archetype version.
         <slf4j.version>1.7.28</slf4j.version>
         <junit5.version>5.8.1</junit5.version>
     </properties>
@@ -107,7 +107,7 @@ The `dependencyManagement` section contains a dependency to the AWS SDK for Java
     <dependencies>
         <dependency>
             <groupId>software.amazon.awssdk</groupId>
-            <artifactId>s3</artifactId>
+            <artifactId>s3</artifactId>  <-------- S3 dependency
             <exclusions>
                 <exclusion>
                     <groupId>software.amazon.awssdk</groupId>
@@ -122,7 +122,17 @@ The `dependencyManagement` section contains a dependency to the AWS SDK for Java
 
         <dependency>
             <groupId>software.amazon.awssdk</groupId>
-            <artifactId>apache-client</artifactId>
+            <artifactId>sso</artifactId> <-------- Required for identity center authentication.
+        </dependency>
+
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>ssooidc</artifactId> <-------- Required for identity center authentication.
+        </dependency>
+
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>apache-client</artifactId> <-------- HTTP client specified.
             <exclusions>
                 <exclusion>
                     <groupId>commons-logging</groupId>
@@ -171,19 +181,6 @@ The `dependencyManagement` section contains a dependency to the AWS SDK for Java
     </build>
 
 </project>
-```
-
-Copy the following two dependencies and paste them inside the `<dependencies>` section of the `pom.xml` file\.
-
-```
-        <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>sso</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>ssooidc</artifactId>
-        </dependency>
 ```
 
 ## Step 3: Write the code<a name="get-started-code"></a>

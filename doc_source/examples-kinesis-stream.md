@@ -127,7 +127,7 @@ See the [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/blob/
 
 ## Use the visitor interface<a name="use-the-visitor-interface"></a>
 
-You can use a [Visitor](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/services/kinesis/model/SubscribeToShardResponseHandlerVisitor.html) object to subscribe to specific events you’re interested in watching\.
+You can use a [Visitor](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/kinesis/model/SubscribeToShardResponseHandler.Visitor.html) object to subscribe to specific events you’re interested in watching\.
 
  **Code** 
 
@@ -209,7 +209,7 @@ See the [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/blob/
 
 ## Write data records into a Kinesis data stream<a name="write-data-records-into-a-kinesis-data-stream"></a>
 
-You can use the [AmazonKinesisClient](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/services/kinesis/AmazonKinesisClient.html) object to write data records into a Kinesis data stream by using the `putRecords` method\. To successfully invoke this method, create a [PutRecordsRequest](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/services/kinesis/model/PutRecordsRequest.html) object\. You pass the name of the data steam to the `streamName` method\. Also you must pass the data by using the `putRecords` method \(as shown in the following code example\)\.
+You can use the [KinesisClient](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/kinesis/KinesisClient.html) object to write data records into a Kinesis data stream by using the `putRecords` method\. To successfully invoke this method, create a [PutRecordsRequest](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/services/kinesis/model/PutRecordsRequest.html) object\. You pass the name of the data stream to the `streamName` method\. Also you must pass the data by using the `putRecords` method \(as shown in the following code example\)\.
 
  **Imports** 
 

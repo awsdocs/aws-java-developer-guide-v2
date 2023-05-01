@@ -6,7 +6,7 @@ To use the default credentials provider chain to supply temporary credentials th
 
 ```
 Region region = Region.US_WEST_2;
-DynamoDbClient ddb = 
+DynamoDbEnhancedClient ddb = 
     DynamoDbEnhancedClient.builder()
                           .region(region)
                           .build();
