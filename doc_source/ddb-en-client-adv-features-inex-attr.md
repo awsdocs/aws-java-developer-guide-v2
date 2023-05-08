@@ -1,6 +1,6 @@
 # Explicitly include or exclude attributes<a name="ddb-en-client-adv-features-inex-attr"></a>
 
-The DynamoDB Enhanced Client API offers annotations to exclude data class attributes from becoming attributes on a table\. With the API, ou can also use a different attribute name from the data class attribute name\.
+The DynamoDB Enhanced Client API offers annotations to exclude data class attributes from becoming attributes on a table\. With the API, you can also use an attribute name that's different from the data class attribute name\.
 
 ## Exclude attributes<a name="ddb-en-client-adv-features-inex-attr-ex"></a>
 
@@ -16,7 +16,7 @@ public void setInternalKey(String internalKey) { return this.internalKey = inter
 
 ## Include attributes<a name="ddb-en-client-adv-features-inex-attr-in"></a>
 
-To change the name of an attribute used in the DynamoDB table, mark it with the `@DynamoDbAttribute` annotation and supply a different name:
+To change the name of an attribute used in the DynamoDB table, mark it with the `@DynamoDbAttribute` annotation and supply a different name\.
 
 ```
 private String internalKey;

@@ -4,7 +4,7 @@
 
 The [DynamoDbEnhancedClient](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbEnhancedClient.html) class or its asynchronous counterpart, [DynamoDbEnhancedAsyncClient](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbEnhancedAsyncClient.html), is the entry point to working with the DynamoDB Enhanced Client API\.
 
-The enhanced client requires a standard `[DynamoDbClient](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/dynamodb/DynamoDbClient.html)` to perform work\. The API offers two ways to create a `DynamoDbEnhancedClient` instance\. The first, shown in the following snippet, creates a standard `DynamoDbClient` under the hood with default settings picked up from configuration settings\.
+The enhanced client requires a standard `[DynamoDbClient](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/dynamodb/DynamoDbClient.html)` to perform work\. The API offers two ways to create a `DynamoDbEnhancedClient` instance\. The first option, shown in the following snippet, creates a standard `DynamoDbClient` with default settings picked up from configuration settings\.
 
 ```
 DynamoDbEnhancedClient enhancedClient = DynamoDbEnhancedClient.create();
@@ -25,7 +25,7 @@ DynamoDbEnhancedClient enhancedClient = DynamoDbEnhancedClient.builder()
 
 ## Create a `DynamoDbTable` instance<a name="ddb-en-client-getting-started-dynamodbTable-table"></a>
 
-You can think of a [https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbTable.html](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbTable.html) as the client\-side representation of a DynamoDB table that uses the mapping functionality provided by a `TableSchema`\. The `DyanamoDbTable` class provides methods for CRUD operations that let you interact with a single DynamoDB table\.
+Think of a [https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbTable.html](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbTable.html) as the client\-side representation of a DynamoDB table that uses the mapping functionality provided by a `TableSchema`\. The `DyanamoDbTable` class provides methods for CRUD operations that let you interact with a single DynamoDB table\.
 
 `DynamoDbTable<T>` is a generic class that takes a single type argument, whether it is a custom class or an `EnhancedDocument` when working with document\-type items\. This argument type establishes the relationship between the class that you use and the single DynamoDB table\.
 
@@ -38,4 +38,4 @@ static final DynamoDbTable<Customer> customerTable =
 
 `DynamoDbTable` instances are candidates for singletons because they are immutable and can be used throughout your application\.
 
-Your code now has an in\-memory representation of a DynamoDB table that can store `Customer` instances\. The actual DynamoDB table may or may not exist\. If the table named "Customer" already exists, you can begin performing CRUD operations against it\. If it doesn't exist, use the `DynamoDbTable` instance to create the table as discussed in the next section\.
+Your code now has an in\-memory representation of a DynamoDB table that can store `Customer` instances\. The actual DynamoDB table might or might not exist\. If the table named `Customer` already exists, you can begin performing CRUD operations against it\. If it doesn't exist, use the `DynamoDbTable` instance to create the table as discussed in the next section\.

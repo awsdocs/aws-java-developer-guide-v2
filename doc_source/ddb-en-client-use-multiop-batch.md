@@ -1,12 +1,12 @@
 # Batch operations<a name="ddb-en-client-use-multiop-batch"></a>
 
-The DynamoDB Enhanced Client API offers two batch methods [`batchGetItem`\(\)](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbEnhancedClient.html#batchGetItem(java.util.function.Consumer)) and [`batchWriteItem`\(\)](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbEnhancedClient.html#batchWriteItem(java.util.function.Consumer))\.
+The DynamoDB Enhanced Client API offers two batch methods, [`batchGetItem`\(\)](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbEnhancedClient.html#batchGetItem(java.util.function.Consumer)) and [`batchWriteItem`\(\)](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbEnhancedClient.html#batchWriteItem(java.util.function.Consumer))\.
 
 ## `batchGetItem()` example<a name="ddb-en-client-use-multiop-batch-get"></a>
 
-The [https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbEnhancedClient.html#batchGetItem(java.util.function.Consumer)](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbEnhancedClient.html#batchGetItem(java.util.function.Consumer)) method lets you retrieve up to 100 individual items across multiple tables in one overall request\. The following example uses the [`Customer`](ddb-en-client-gs-tableschema.md#ddb-en-client-gs-tableschema-anno-bean-cust) and [`MovieActor`](ddb-en-client-use-multirecord-query.md#ddb-en-client-use-movieactor-class) data classes shown previously\.
+With the [https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbEnhancedClient.html#batchGetItem(java.util.function.Consumer)](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbEnhancedClient.html#batchGetItem(java.util.function.Consumer)) method, you can retrieve up to 100 individual items across multiple tables in one overall request\. The following example uses the [`Customer`](ddb-en-client-gs-tableschema.md#ddb-en-client-gs-tableschema-anno-bean-cust) and [`MovieActor`](ddb-en-client-use-multirecord-query.md#ddb-en-client-use-movieactor-class) data classes shown previously\.
 
-In the example after lines 1 and 2, we build `[ReadBatch](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/model/ReadBatch.html)` objects that we later add as parameters to the `batchGetItem()` method after comment line 3\. The code after comment line 1 builds the batch to read from the `Customer` table\. The code after comment line 1a shows the use of a `[GetItemEnhancedRequest](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/model/GetItemEnhancedRequest.Builder.html)` builder that takes primary key values to specify the item to read\. In contrast to specifying key values to request an item, you can use a data class to request an item as shown after comment line 1b\. The SDK extracts the key values behind the scenes before submitting the request\.
+In the example after lines 1 and 2, you build `[ReadBatch](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/model/ReadBatch.html)` objects that you later add as parameters to the `batchGetItem()` method after comment line 3\. The code after comment line 1 builds the batch to read from the `Customer` table\. The code after comment line 1a shows the use of a `[GetItemEnhancedRequest](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/model/GetItemEnhancedRequest.Builder.html)` builder that takes primary key values to specify the item to read\. In contrast to specifying key values to request an item, you can use a data class to request an item as shown after comment line 1b\. The SDK extracts the key values behind the scenes before submitting the request\.
 
 When you specify the item using the key\-based approach as shown in the two statements after 2a, you can also specify that DynamoDB should perform a[ strongly consistent read](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html)\. When the `consistentRead()` method is used, it must be used on all requested items for the same table\.
 
@@ -21,12 +21,12 @@ To discover items that DynamoDB did not process, use the approach after comment 
 
         Customer customer2 = new Customer();
         customer2.setId("2");
-        customer2.setEmail("cust2@orgname.org");
+        customer2.setEmail("cust2@example.org");
 
         // 1. Build a batch to read from the Customer table.
         ReadBatch customerBatch = ReadBatch.builder(Customer.class)
                 .mappedTableResource(customerTable)
-                // 1a. Specify the primary key values for the item
+                // 1a. Specify the primary key values for the item.
                 .addGetItem(b -> b.key(k -> k.partitionValue("1").sortValue("cust1@orgname.org")))
                 // 1b. Alternatively, supply a data class instances to provide the primary key values.
                 .addGetItem(customer2)
@@ -60,11 +60,11 @@ Assume that the following items are in the two tables before running the example
 ### Items in tables<a name="ddb-en-client-use-multiop-batch-get-tableitems"></a>
 
 ```
-Customer [id=1, name=CustName1, email=cust1@orgname.org, regDate=2023-03-31T15:46:27.688Z]
-Customer [id=2, name=CustName2, email=cust2@orgname.org, regDate=2023-03-31T15:46:28.688Z]
-Customer [id=3, name=CustName3, email=cust3@orgname.org, regDate=2023-03-31T15:46:29.688Z]
-Customer [id=4, name=CustName4, email=cust4@orgname.org, regDate=2023-03-31T15:46:30.688Z]
-Customer [id=5, name=CustName5, email=cust5@orgname.org, regDate=2023-03-31T15:46:31.689Z]
+Customer [id=1, name=CustName1, email=cust1@example.org, regDate=2023-03-31T15:46:27.688Z]
+Customer [id=2, name=CustName2, email=cust2@example.org, regDate=2023-03-31T15:46:28.688Z]
+Customer [id=3, name=CustName3, email=cust3@example.org, regDate=2023-03-31T15:46:29.688Z]
+Customer [id=4, name=CustName4, email=cust4@example.org, regDate=2023-03-31T15:46:30.688Z]
+Customer [id=5, name=CustName5, email=cust5@example.org, regDate=2023-03-31T15:46:31.689Z]
 MovieActor{movieName='movie01', actorName='actor0', actingAward='actingaward0', actingYear=2001, actingSchoolName='null'}
 MovieActor{movieName='movie01', actorName='actor1', actingAward='actingaward1', actingYear=2001, actingSchoolName='actingschool1'}
 MovieActor{movieName='movie01', actorName='actor2', actingAward='actingaward2', actingYear=2001, actingSchoolName='actingschool2'}
@@ -75,8 +75,8 @@ MovieActor{movieName='movie01', actorName='actor4', actingAward='actingaward4', 
 The following output shows the items returned and logged after comment line 4\.
 
 ```
-Customer [id=1, name=CustName1, email=cust1@orgname.org, regDate=2023-03-31T15:46:27.688Z]
-Customer [id=2, name=CustName2, email=cust2@orgname.org, regDate=2023-03-31T15:46:28.688Z]
+Customer [id=1, name=CustName1, email=cust1@example.org, regDate=2023-03-31T15:46:27.688Z]
+Customer [id=2, name=CustName2, email=cust2@example.org, regDate=2023-03-31T15:46:28.688Z]
 MovieActor{movieName='movie01', actorName='actor4', actingAward='actingaward4', actingYear=2001, actingSchoolName='actingschool4'}
 MovieActor{movieName='movie01', actorName='actor1', actingAward='actingaward1', actingYear=2001, actingSchoolName='actingschool1'}
 ```

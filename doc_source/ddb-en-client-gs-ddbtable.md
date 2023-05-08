@@ -28,16 +28,16 @@ import software.amazon.awssdk.services.dynamodb.waiters.DynamoDbWaiter;
 
 ```
 public static void createCustomerTable(DynamoDbTable<Customer> customerDynamoDbTable, DynamoDbClient dynamoDbClient) {
-    // Create the DynamoDB table using the 'customerDynamoDbTable' DynamoDbTable instance.
+    // Create the DynamoDB table by using the 'customerDynamoDbTable' DynamoDbTable instance.
     customerDynamoDbTable.createTable(builder -> builder
             .provisionedThroughput(b -> b
                     .readCapacityUnits(10L)
                     .writeCapacityUnits(10L)
                     .build())
     );
-    // The 'dynamoDbClient' instance passed to the builder for the DynamoDbWaiter, is the same instance
+    // The 'dynamoDbClient' instance that's passed to the builder for the DynamoDbWaiter is the same instance
     // that was passed to the builder of the DynamoDbEnhancedClient instance used to create the 'customerDynamoDbTable'.
-    // This ensures that the same Region that was configured on the standard 'dynamoDbClient' instance is used for all service clients.
+    // This means that the same Region that was configured on the standard 'dynamoDbClient' instance is used for all service clients.
     try (DynamoDbWaiter waiter = DynamoDbWaiter.builder().client(dynamoDbClient).build()) { // DynamoDbWaiter is Autocloseable
         ResponseOrException<DescribeTableResponse> response = waiter
                 .waitUntilTableExists(builder -> builder.tableName("Customer").build())

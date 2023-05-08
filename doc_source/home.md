@@ -35,7 +35,7 @@ In addition to this guide, the following are valuable online resources for AWS S
 + GitHub:
   +  [Developer Guide documentation source](https://github.com/awsdocs/aws-java-developer-guide-v2) 
   +  [SDK source](https://github.com/aws/aws-sdk-java-v2) 
-+ The [AWS Code Sample Catalog](http://docs.aws.amazon.com/code-samples/latest/catalog/) 
++ [AWS SDK Code Examples library](https://docs.aws.amazon.com/code-library/latest/ug/what-is-code-library.html) 
 +  [@awsforjava \(Twitter\)](https://twitter.com/awsforjava) 
 
 ## Features not yet in version 2 of the SDK<a name="features-notyet"></a>

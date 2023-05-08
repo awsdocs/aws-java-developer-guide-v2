@@ -210,7 +210,7 @@ The alternative approach is to use static table schema builders for each of the 
 
 The table schemas for the `Address` and `PhoneNumber` classes are abstract in the sense that they cannot be used with a DynamoDB table\. This is because they lack definitions for the primary key\. They are used, however, as nested schemas in the table schema for the `Person` class\.
 
-After comment lines 1 and 2 in the definition of `PERSON_TABLE_SCHEMA`, you see the code that uses the abstract table schemas\. The use of `documentOf` in the `EnhanceType.documentOf(...)` method does not indicate that the method returns an `EnhancedDocument` type of the Enhanced Document API\. The `documentOf(...)` method in this context returns an object that knows how to map its class argument to and from DynamoDB table attributes using the table schema argument\.
+After comment lines 1 and 2 in the definition of `PERSON_TABLE_SCHEMA`, you see the code that uses the abstract table schemas\. The use of `documentOf` in the `EnhanceType.documentOf(...)` method does not indicate that the method returns an `EnhancedDocument` type of the Enhanced Document API\. The `documentOf(...)` method in this context returns an object that knows how to map its class argument to and from DynamoDB table attributes by using the table schema argument\.
 
 #### Static schema code<a name="ddb-en-client-adv-features-nested-map-builder-code"></a>
 
@@ -280,13 +280,13 @@ After comment lines 1 and 2 in the definition of `PERSON_TABLE_SCHEMA`, you see 
 
 ## Project nested attributes<a name="ddb-en-client-adv-features-nested-projection"></a>
 
-For `query()` and `scan()` methods, you can specify which attributes you want to be returned in the results\. Under the hood, the DynamoDB Enhanced Client API creates [projection expressions](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ProjectionExpressions.html)\.
+For `query()` and `scan()` methods, you can specify which attributes you want to be returned in the results by using method calls such as `addNestedAttributeToProject()` and `attributesToProject()`\. The DynamoDB Enhanced Client API converts the Java method call parameters into[projection expressions](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ProjectionExpressions.html) before the request is sent\.
 
-The following example populates the `Person` table with two items then performs three scan operations\. 
+The following example populates the `Person` table with two items, then performs three scan operations\. 
 
 The first scan accesses all items in the table in order to compare the results to the other scan operations\. 
 
-The second scan uses the [https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/model/ScanEnhancedRequest.Builder.html#addNestedAttributeToProject(software.amazon.awssdk.enhanced.dynamodb.NestedAttributeName)](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/model/ScanEnhancedRequest.Builder.html#addNestedAttributeToProject(software.amazon.awssdk.enhanced.dynamodb.NestedAttributeName)) builder method to return only the `street` attribute's value\.
+The second scan uses the [https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/model/ScanEnhancedRequest.Builder.html#addNestedAttributeToProject(software.amazon.awssdk.enhanced.dynamodb.NestedAttributeName)](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/model/ScanEnhancedRequest.Builder.html#addNestedAttributeToProject(software.amazon.awssdk.enhanced.dynamodb.NestedAttributeName)) builder method to return only the `street` attribute value\.
 
 The third scan operation uses the [https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/model/ScanEnhancedRequest.Builder.html#attributesToProject(java.lang.String...)](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/model/ScanEnhancedRequest.Builder.html#attributesToProject(java.lang.String...)) builder method to return the data for the first\-level attribute, `hobbies`\. The attribute type of `hobbies` is a list\. To access individual list items, perform a `get()` operation on the list\.
 
@@ -347,7 +347,7 @@ hobby 11
 ```
 
 **Note**  
-If the `attributesToProject()` method follows any other builder method that adds attributes that you want to project, the list of attributes names supplied to the `attributesToProject()` replaces all other attribute names\.  
+If the `attributesToProject()` method follows any other builder method that adds attributes that you want to project, the list of attribute names supplied to the `attributesToProject()` replaces all other attribute names\.  
 A scan performed with the `ScanEnhancedRequest` instance in the following snippet returns only hobby data\.  
 
 ```

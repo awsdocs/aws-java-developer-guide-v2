@@ -1,8 +1,8 @@
 # Control attribute conversion<a name="ddb-en-client-adv-features-conversion"></a>
 
-By default, a table schema provides converters for all primitive and many common Java types through a default implementation of the `[AttributeConverterProvider](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/AttributeConverterProvider.html)` interface\. You can change the default behavior overall with a custom `AttributeConverterProvider` implementation\. You can also change the converter for a single attribute\.
+By default, a table schema provides converters for all primitive types and many common Java types through a default implementation of the `[AttributeConverterProvider](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/AttributeConverterProvider.html)` interface\. You can change the overall default behavior with a custom `AttributeConverterProvider` implementation\. You can also change the converter for a single attribute\.
 
-You can find a list of the available converters in the [AttributeConverter](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/AttributeConverter.html) interface Java doc\.
+For a list of available converters, see the [AttributeConverter](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/AttributeConverter.html) interface Java doc\.
 
 ## Provide custom attribute converter providers<a name="ddb-en-client-adv-features-conversion-prov"></a>
 
@@ -10,9 +10,9 @@ You can provide a single `AttributeConverterProvider` or a chain of ordered `Att
 
 Note that if you supply your own chain of attribute converter providers, you will override the default converter provider, `DefaultAttributeConverterProvider`\. If you want to use the functionality of the `DefaultAttributeConverterProvider`, you must include it in the chain\. 
 
-It's also possible to annotate the bean with an empty array `{}`\. This disables the use of any attribute converter providers including the default\. In this case all attributes that are to be mapped must have their own attribute converter\.
+It's also possible to annotate the bean with an empty array `{}`\. This disables the use of any attribute converter providers, including the default\. In this case all attributes that are to be mapped must have their own attribute converter\.
 
-The following snipped shows a single converter provider\.
+The following snippet shows a single converter provider\.
 
 ```
 @DynamoDbBean(converterProviders = ConverterProvider1.class)
@@ -21,7 +21,7 @@ public class Customer {
 }
 ```
 
-The following snippet shows the use of a chain of converter providers\. Since the SDK's default is provided last, it has the lowest priority\.
+The following snippet shows the use of a chain of converter providers\. Since the SDK default is provided last, it has the lowest priority\.
 
 ```
 @DynamoDbBean(converterProviders = {
@@ -48,7 +48,7 @@ private static final StaticTableSchema<Customer> CUSTOMER_TABLE_SCHEMA =
 
 ## Override the mapping of a single attribute<a name="ddb-en-client-adv-features-conversion-single"></a>
 
-To override the way a single attribute is mapped, supply an `AttributeConverter` for the attribute\. This addition overrides any converters provided by the table schema's `AttributeConverterProviders`\. This adds a custom converter for only that attribute\. Other attributes, even those of the same type, won't use that converter unless it is explicitly specified for those other attributes\.
+To override the way a single attribute is mapped, supply an `AttributeConverter` for the attribute\. This addition overrides any converters provided by `AttributeConverterProviders` in the table schema\. This adds a custom converter for only that attribute\. Other attributes, even those of the same type, won't use that converter unless it is explicitly specified for those other attributes\.
 
 The `@DynamoDbConvertedBy` annotation is used to specify the custom `AttributeConverter` class as shown in the following snippet\.
 
@@ -157,7 +157,7 @@ The `CookieConverterProvider` in the following example provides an instance of a
 
 In the `transformFrom()` method of the following `HttpCookieConverter` class, the code receives an `HttpCookie` instance and transforms it into a DynamoDB map that will be stored as an attribute\.
 
-The `transformTo()` method receives a DynamoDB map parameter then invokes the `HttpCookie` constructor that requires a name and a value\.
+The `transformTo()` method receives a DynamoDB map parameter, then invokes the `HttpCookie` constructor that requires a name and a value\.
 
 ```
     public static final class HttpCookieConverter implements AttributeConverter<HttpCookie> {

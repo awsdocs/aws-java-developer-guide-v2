@@ -1,6 +1,6 @@
 # `transactWriteItems()` examples<a name="ddb-en-client-use-multiop-trans-writeitems"></a>
 
-The `[transactWriteItems\(\)](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbEnhancedClient.html#transactWriteItems(java.util.function.Consumer))` accepts up to 100 put, update, or delete actions in a single atomic transaction across multiple tables\. The DynamoDB Developer Guide contains details about restrictions and failure conditions of the [underlying DynamoDB service operation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/transaction-apis.html#transaction-apis-txwriteitems)\.
+The `[transactWriteItems\(\)](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbEnhancedClient.html#transactWriteItems(java.util.function.Consumer))` accepts up to 100 put, update, or delete actions in a single atomic transaction across multiple tables\. The *Amazon DynamoDB Developer Guide *contains details about restrictions and failure conditions of the [underlying DynamoDB service operation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/transaction-apis.html#transaction-apis-txwriteitems)\.
 
 ## Basic example<a name="ddb-en-client-use-multiop-trans-writeitems-basic"></a>
 
@@ -10,7 +10,7 @@ Each of the three possible operations—put, update, and delete—uses a dedicat
 
 The code after comment line 1 shows the simple variation of the `addPutItem()` method\. The method accepts a `[MappedTableResource](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/MappedTableResource.html)` object and the data object instance to put\. The statement after comment line 2 shows the variation that accepts a `[TransactPutItemEnhancedRequest](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/model/TransactPutItemEnhancedRequest.html)` instance\. This variation lets you add more options in the request, such as a condition expression\. A subsequent [example](#ddb-en-client-use-multiop-trans-writeitems-opcondition) shows a condition expression for an individual operation\.
 
-An update operation is requested after comment line 3\. `[TransactUpdateItemEnhancedRequest](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/model/TransactUpdateItemEnhancedRequest.Builder.html)` has an `ignoreNulls() `method that lets you configure what the SDK does with `null` values on the model object\. If the `ignoreNulls()` method returns true, the SDK does not remove the table's attribute values for data object attributes that are `null`\. If the `ignoreNulls()` method returns false, the SDK requests the DynamoDB service to remove the attributes from the item in the table\. The default value for `ignoreNulls` is false\.
+An update operation is requested after comment line 3\. `[TransactUpdateItemEnhancedRequest](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/model/TransactUpdateItemEnhancedRequest.Builder.html)` has an `ignoreNulls()` method that lets you configure what the SDK does with `null` values on the model object\. If the `ignoreNulls()` method returns true, the SDK does not remove the table's attribute values for data object attributes that are `null`\. If the `ignoreNulls()` method returns false, the SDK requests the DynamoDB service to remove the attributes from the item in the table\. The default value for `ignoreNulls` is false\.
 
 The statement after comment line 4 shows the variation of a delete request that takes a data object\. The enhanced client extracts the key values before dispatching the final request\.
 
@@ -97,7 +97,7 @@ The following items are in the tables after the code finishes running\.
 5 | MovieActor{movieName='Sophie's Choice', actorName='Meryl Streep', actingAward='Best Actress', actingYear=1982, actingSchoolName='Yale School of Drama'}
 ```
 
-The item on line 2 has been deleted and lines 3 and 5 show the items that were put\. Line 4 shows the update of line 1\. The 'price' value is the only value that changed on the item\. If `ignoreNulls()` had returned false, line 4 would look like the following line\.
+The item on line 2 has been deleted and lines 3 and 5 show the items that were put\. Line 4 shows the update of line 1\. The `price` value is the only value that changed on the item\. If `ignoreNulls()` had returned false, line 4 would look like the following line\.
 
 ```
 ProductCatalog{id=4, title='Title 1', isbn='null', authors=null, price=40.0}
@@ -110,9 +110,9 @@ The following example shows the use of a condition check\. A condition check is 
 **Note**  
 You can't target the same item with multiple operations within the same transaction\. For example, you can't perform a condition check and also attempt to update the same item in the same transaction\.
 
-The example shows one of each type of operation in a transactional write items request\. After comment line 2, the `addConditionCheck()` method supplies the condition that fails the transaction if the `conditionExpression` parameter evaluates to `false`\. The condition expression that is returned from the method shown in the Helper methods block checks if the award year for the movie 'Sophie's Choice' is not equal to 1982\. If it is the expression evaluates to `false` and the transaction fails\.
+The example shows one of each type of operation in a transactional write items request\. After comment line 2, the `addConditionCheck()` method supplies the condition that fails the transaction if the `conditionExpression` parameter evaluates to `false`\. The condition expression that is returned from the method shown in the Helper methods block checks if the award year for the movie `Sophie's Choice` is not equal to `1982`\. If it is, the expression evaluates to `false` and the transaction fails\.
 
-This guide discusses [expressions](ddb-en-client-expressions.md) in depth in a following topic\.
+This guide discusses [expressions](ddb-en-client-expressions.md) in depth in another topic\.
 
 ```
     public static void conditionCheckFailExample(DynamoDbEnhancedClient enhancedClient,
@@ -210,9 +210,9 @@ MovieActor{movieName='Sophie's Choice', actorName='Meryl Streep', actingAward='B
 MovieActor{movieName='Tar', actorName='Cate Blanchett', actingAward='Best Actress', actingYear=2022, actingSchoolName='National Institute of Dramatic Art'}
 ```
 
-Items remain unchanged in the tables because the transaction failed\. The `actingYear` value for the movie *Sophie's Choice* is 1982 as shown on line 2 of the items in the table before the `transactWriteItem()` method was called\.
+Items remain unchanged in the tables because the transaction failed\. The `actingYear` value for the movie `Sophie's Choice` is `1982`, as shown on line 2 of the items in the table before the `transactWriteItem()` method is called\.
 
-To capture the cancellation information for the transaction, enclose the `transactWriteItems()` method call in a `try` block and `catch` the [https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/dynamodb/model/TransactionCanceledException.html](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/dynamodb/model/TransactionCanceledException.html)\. After comment line 4 of the example, the code logs each `[CancellationReason](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/dynamodb/model/CancellationReason.html)` object\. Because the code following comment line 3 of the example specifies that values should be returned for the item that caused the transaction to fail, the log displays the raw database values for the *Sophie's Choice* movie item\.
+To capture the cancellation information for the transaction, enclose the `transactWriteItems()` method call in a `try` block and `catch` the [https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/dynamodb/model/TransactionCanceledException.html](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/dynamodb/model/TransactionCanceledException.html)\. After comment line 4 of the example, the code logs each `[CancellationReason](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/dynamodb/model/CancellationReason.html)` object\. Because the code following comment line 3 of the example specifies that values should be returned for the item that caused the transaction to fail, the log displays the raw database values for the `Sophie's Choice` movie item\.
 
 ```
 CancellationReason(Code=None)
@@ -224,7 +224,7 @@ CancellationReason(Item={actor=AttributeValue(S=Meryl Streep), movie=AttributeVa
 
 ## Single operation condition example<a name="ddb-en-client-use-multiop-trans-writeitems-opcondition"></a>
 
-The following example shows the use of a condition on a single operation in a transaction request\. The delete operation after comment line 1 contains a condition that checks the value of the target item of the operation against the database\. In this example, the condition expression created with the helper method after comment line 2 specifies that the item should be deleted from the database if the acting year of the movie is not equal to 2013\.
+The following example shows the use of a condition on a single operation in a transaction request\. The delete operation after comment line 1 contains a condition that checks the value of the target item of the operation against the database\. In this example, the condition expression created with the helper method after comment line 2 specifies that the item should be deleted from the database if the acting year of the movie is not equal to 2013\.
 
 [Expressions](ddb-en-client-expressions.md) are discussed later in this guide\.
 
@@ -315,7 +315,7 @@ ProductCatalog{id=4, title='Title 1', isbn='orig_isbn', authors=[b, g], price=10
 2023-03-15 11:29:07 [main] INFO  org.example.tests.TransactDemoTest:168 - MovieActor{movieName='Blue Jasmine', actorName='Cate Blanchett', actingAward='Best Actress', actingYear=2013, actingSchoolName='National Institute of Dramatic Art'}
 ```
 
-Items remain unchanged in the tables because the transaction failed\. The `actingYear` value for the movie *Blue Jasmine* is 2013 as shown on line 2 in the list of items before the code example runs\.
+Items remain unchanged in the tables because the transaction failed\. The `actingYear` value for the movie `Blue Jasmine` is `2013` as shown on line 2 in the list of items before the code example runs\.
 
 The following lines are logged to the console\.
 

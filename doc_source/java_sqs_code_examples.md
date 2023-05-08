@@ -310,65 +310,31 @@ The following code example shows how to send a message to an Amazon SQS queue\.
   
 
 ```
-public class SendReceiveMessages {
-    private static final String QUEUE_NAME = "testQueue" + new Date().getTime();
-
-    public static void main(String[] args) {
-
-        SqsClient sqsClient = SqsClient.builder()
-                .region(Region.US_WEST_2)
-                .build();
+    public static void sendMessage(SqsClient sqsClient, String queueName, String message) {
 
         try {
             CreateQueueRequest request = CreateQueueRequest.builder()
-                    .queueName(QUEUE_NAME)
-                    .build();
-            CreateQueueResponse createResult = sqsClient.createQueue(request);
+                .queueName(queueName)
+                .build();
+            sqsClient.createQueue(request);
 
             GetQueueUrlRequest getQueueRequest = GetQueueUrlRequest.builder()
-                .queueName(QUEUE_NAME)
+                .queueName(queueName)
                 .build();
 
             String queueUrl = sqsClient.getQueueUrl(getQueueRequest).queueUrl();
-
             SendMessageRequest sendMsgRequest = SendMessageRequest.builder()
                 .queueUrl(queueUrl)
-                .messageBody("hello world")
+                .messageBody(message)
                 .delaySeconds(5)
                 .build();
+
             sqsClient.sendMessage(sendMsgRequest);
 
-             // Send multiple messages to the queue
-            SendMessageBatchRequest sendBatchRequest = SendMessageBatchRequest.builder()
-                .queueUrl(queueUrl)
-                .entries(
-                        SendMessageBatchRequestEntry.builder()
-                                .messageBody("Hello from message 1")
-                                .id("msg_1")
-                                .build()
-                        ,
-                        SendMessageBatchRequestEntry.builder()
-                                .messageBody("Hello from message 2")
-                                .delaySeconds(10)
-                                .id("msg_2")
-                                .build())
-                .build();
-             sqsClient.sendMessageBatch(sendBatchRequest);
-
-            // Receive messages from the queue
-            ReceiveMessageRequest receiveRequest = ReceiveMessageRequest.builder()
-                .queueUrl(queueUrl)
-                .build();
-            List<Message> messages = sqsClient.receiveMessage(receiveRequest).messages();
-
-            // Print out the messages
-             for (Message m : messages) {
-                System.out.println("\n" +m.body());
-            }
-        } catch (QueueNameExistsException e) {
-            throw e;
+        } catch (SqsException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
         }
     }
-}
 ```
 +  For API details, see [SendMessage](https://docs.aws.amazon.com/goto/SdkForJavaV2/sqs-2012-11-05/SendMessage) in *AWS SDK for Java 2\.x API Reference*\. 

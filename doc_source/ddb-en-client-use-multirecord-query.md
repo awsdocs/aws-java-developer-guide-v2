@@ -1,6 +1,6 @@
 # Query a table<a name="ddb-en-client-use-multirecord-query"></a>
 
-The [https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbTable.html#query(java.util.function.Consumer)](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbTable.html#query(java.util.function.Consumer)) method of the `DynamoDbTable` class finds items based on primary key values\. The annotations `@DynamoDbPartitionKey` and optionally `@DynamoDbSortKey` are used to define the primary key on your data class\.
+The [https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbTable.html#query(java.util.function.Consumer)](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbTable.html#query(java.util.function.Consumer)) method of the `DynamoDbTable` class finds items based on primary key values\. The `@DynamoDbPartitionKey` annotation and the optional `@DynamoDbSortKey` annotation are used to define the primary key on your data class\.
 
 The `query()` method requires a partition key value that finds items that match the supplied value\. If your table also defines a sort key, you can add a value for it to your query as an additional comparison condition to fine tune the results\. 
 
@@ -190,9 +190,9 @@ In the following query request variation shown previously after comment line 3, 
                 .queryConditional(sortGreaterThanOrEqualTo)
 ```
 
-Because this table has a composite primary key, all `QueryConditional` instances require a partition key value\. `QueryConditional` methods that begin with 'sort\.\.\.' do not indicate that the results will be sorted, but rather that a *sort* key is required\.
+Because this table has a composite primary key, all `QueryConditional` instances require a partition key value\. `QueryConditional` methods that begin with `sort...` indicate that a *sort* key is required\. The results are not sorted\.
 
-The following output displays the results from the query\. The query returns items that have a `movieName` value equal to **movie01** and only items that have an `actorName` value that is greater than or equal to **actor2**\. Since the filter was removed, the query returns items that have no value for the `actingSchoolName` attribute\.
+The following output displays the results from the query\. The query returns items that have a `movieName` value equal to **movie01** and only items that have an `actorName` value that is greater than or equal to **actor2**\. Because the filter was removed, the query returns items that have no value for the `actingSchoolName` attribute\.
 
 ```
 2023-03-05 13:15:00 [main] INFO  org.example.tests.QueryDemo:46 - page count: 1

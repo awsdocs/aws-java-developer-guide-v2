@@ -70,6 +70,7 @@
          + [Build enhanced documents](ddb-en-client-doc-api-steps-create-ed.md)
          + [Perform CRUD operations](ddb-en-client-doc-api-steps-use.md)
          + [Access enhanced document attributes as custom objects](ddb-en-client-doc-api-convert.md)
+         + [Use an EnhancedDocument without DynamoDB](ddb-en-client-doc-api-standalone.md)
       + [Non-blocking asynchronous operations](ddb-en-client-async.md)
    + [Working with HTTP/2 in the AWS SDK for Java](http2.md)
    + [Enabling SDK metrics for the AWS SDK for Java](metrics.md)

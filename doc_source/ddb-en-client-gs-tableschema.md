@@ -2,16 +2,16 @@
 
 A `[TableSchema](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/enhanced/dynamodb/TableSchema.html)` enables the enhanced client to map DynamoDB attribute values to and from your client\-side classes\. The DynamoDB Enhanced Client API provides several types of `TableSchema`s that we discuss in another [section](ddb-en-client-adv-features.md#ddb-en-client-adv-features-schm-overview)\.
 
-In this tutorial, we'll look at `TableSchema`s derived from a static data class and generated from code by using a builder\.
+In this tutorial, you learn about `TableSchema`s derived from a static data class and generated from code by using a builder\.
 
 ## Use an annotated data class<a name="ddb-en-client-gs-tableschema-anno-bean"></a>
 
 The SDK for Java 2\.x includes a [set of annotations](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/mapper/annotations/package-summary.html) that you can use with a data class to quickly generate a `TableSchema` for mapping your classes to tables\.
 
-Start by creating a data class that conforms to the [JavaBean specification](http://download.oracle.com/otn-pub/jcp/7224-javabeans-1.01-fr-spec-oth-JSpec/beans.101.pdf)\. The specification requires that a class has public constructor that accepts no arguments and getters and setters for each attribute in the class\. Include a class\-level annotation to indicate that the data class is a `DynamoDbBean`\. Also, at a minimum, include a `DynamoDbPartitionKey` annotation on the getter or setter for the primary key attribute\. 
+Start by creating a data class that conforms to the [JavaBean specification](http://download.oracle.com/otn-pub/jcp/7224-javabeans-1.01-fr-spec-oth-JSpec/beans.101.pdf)\. The specification requires that a class has a no\-argument public constructor and has getters and setters for each attribute in the class\. Include a class\-level annotation to indicate that the data class is a `DynamoDbBean`\. Also, at a minimum, include a `DynamoDbPartitionKey` annotation on the getter or setter for the primary key attribute\. 
 
 **Note**  
-The term `property` is normally used for a value encapsulated in a JavaBean\. However, this guide uses the term `attribute` instead in order to be consistent with the terminology used with DynamoDB\.
+The term `property` is normally used for a value encapsulated in a JavaBean\. However, this guide uses the term `attribute` instead, to be consistent with the terminology used by DynamoDB\.
 
 The following `Customer` class shows the annotations that link the class definition to the DynamoDB table\.
 

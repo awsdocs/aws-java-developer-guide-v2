@@ -1,8 +1,8 @@
 # Scan a table<a name="ddb-en-client-use-multirecord-scan"></a>
 
-The SDK's [https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbAsyncTable.html#scan(java.util.function.Consumer)](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbAsyncTable.html#scan(java.util.function.Consumer)) method corresponds to the [DynamoDB operation](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Scan.html) of the same name\. The DynamoDB Enhanced Client API offers the same options but it makes it easier to use by using a familiar object model and handling the pagination for you\.
+The SDK's [https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbAsyncTable.html#scan(java.util.function.Consumer)](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbAsyncTable.html#scan(java.util.function.Consumer)) method corresponds to the [DynamoDB operation](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Scan.html) of the same name\. The DynamoDB Enhanced Client API offers the same options but it uses a familiar object model and handles the pagination for you\.
 
-We'll first explore the `PageIterable` interface by looking at the `scan` method of the synchronous mapping class, [DynamoDbTable](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbTable.html)\.
+First, explore the `PageIterable` interface by looking at the `scan` method of the synchronous mapping class, [DynamoDbTable](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbTable.html)\.
 
 ## Use the synchronous API<a name="ddb-en-client-use-multirecord-scan-sync"></a>
 
@@ -126,7 +126,7 @@ The [CountDownLatch](https://docs.oracle.com/javase/7/docs/api/java/util/concurr
             subscription = sub;
             subscription.request(1L);
             try {
-                latch.await(); // called by main thread blocking it until latch is released
+                latch.await(); // Called by main thread blocking it until latch is released.
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -134,7 +134,7 @@ The [CountDownLatch](https://docs.oracle.com/javase/7/docs/api/java/util/concurr
 
         @Override
         public void onNext(Page<ProductCatalog> productCatalogPage) {
-            // 8. Collect all the ProductCatalog instances in the page, then ask the publisher for one more page
+            // 8. Collect all the ProductCatalog instances in the page, then ask the publisher for one more page.
             itemsFromAllPages.addAll(productCatalogPage.items());
             subscription.request(1L);
         }
@@ -145,7 +145,7 @@ The [CountDownLatch](https://docs.oracle.com/javase/7/docs/api/java/util/concurr
 
         @Override
         public void onComplete() {
-            latch.countDown(); // call by subscription thread; latch releases
+            latch.countDown(); // Call by subscription thread; latch releases.
         }
 
         List<ProductCatalog> getSubscribedItems() {
@@ -154,7 +154,7 @@ The [CountDownLatch](https://docs.oracle.com/javase/7/docs/api/java/util/concurr
     }
 ```
 
-The following snippet example uses the version of the `PagePublisher.subscribe` method that accepts a `Consumer` after comment line 6\. The Java lambda parameter consumes pages, which further process each item\. In this example, each page is process and the items on each page are sorted and then logged\.
+The following snippet example uses the version of the `PagePublisher.subscribe` method that accepts a `Consumer` after comment line 6\. The Java lambda parameter consumes pages, which further process each item\. In this example, each page is processed and the items on each page are sorted and then logged\.
 
 ```
         // 6. Use a Consumer to work through each page.
@@ -166,7 +166,7 @@ The following snippet example uses the version of the `PagePublisher.subscribe` 
                 .join(); // If needed, blocks the subscribe() method thread until it is finished processing.
 ```
 
-The `items` method of `PagePublisher` 'unwraps' the model instances so that your code can process the items directly\. This approach is shown in the following snippet\.
+The `items` method of `PagePublisher` unwraps the model instances so that your code can process the items directly\. This approach is shown in the following snippet\.
 
 ```
         // 7. Use a Consumer to work through each ProductCatalog item.

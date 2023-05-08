@@ -2,7 +2,7 @@
 
 An `[EnhancedDocument](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/document/EnhancedDocument.html)` represents a document\-type object that has complex structure with nested attributes\. An `EnhancedDocument` requires top\-level attributes that match the primary key attributes specified for the `DocumentTableSchema`\. The remaining content is arbitrary and can consist of top\-level attributes and also deeply nested attributes\.
 
-You create an `EnhancedDocument` instance using a builder that provides several ways to add elements\.
+You create an `EnhancedDocument` instance by using a builder that provides several ways to add elements\.
 
 ## Build from a JSON string<a name="ddb-en-client-doc-api-steps-create-ed-fromJson"></a>
 

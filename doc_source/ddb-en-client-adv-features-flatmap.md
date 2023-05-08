@@ -86,11 +86,11 @@ For the static schema approach, use the `extend()` method of the builder to coll
                                 .getter(org.example.tests.model.inheritance.stat.Customer::getName)
                                 .setter(org.example.tests.model.inheritance.stat.Customer::setName))
                         // 1. Use the extend() method to collapse the parent attributes onto the child class.
-                        .extend(GENERIC_RECORD_SCHEMA)     // All the attributes of the GenericRecord schema are added to Customer
+                        .extend(GENERIC_RECORD_SCHEMA)     // All the attributes of the GenericRecord schema are added to Customer.
                         .build();
 ```
 
-The previous static schema example uses the following data classes\. Since the mapping is defined when you build the static table schema, the data classes require no annotations\.
+The previous static schema example uses the following data classes\. Because the mapping is defined when you build the static table schema, the data classes don't require annotations\.
 
 #### Data classes<a name="gunk"></a>
 
@@ -145,7 +145,7 @@ If your classes use composition, use the following approaches to flatten the hie
 
 The `@DynamoDbFlatten` annotation flattens the contained class\.
 
-The following data class examples use the @DynamoDbFlatten annotation to effectively add all attributes of the contained `GenericRecord` class to the `Customer` class\.
+The following data class examples use the `@DynamoDbFlatten` annotation to effectively add all attributes of the contained `GenericRecord` class to the `Customer` class\.
 
 ------
 #### [ Standard data class ]

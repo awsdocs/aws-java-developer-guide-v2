@@ -12,9 +12,9 @@ The following class shows annotations for two indices\. The GSI named *SubjectLa
 
 Note that the `Subject` attribute serves a dual role\. It is the primary key's sort key and the partition key of the GSI named *SubjectLastPostedDateIndex*\.
 
-### `MessageThread` class used in the [DynamoDB Developer Guide](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SampleData.CreateTables.html)<a name="ddb-en-client-use-secindex-class"></a>
+### `MessageThread` class<a name="ddb-en-client-use-secindex-class"></a>
 
-The `MessageThread` class is suitable to use as a data class for the [example `Thread` table in the DynamoDB Developer Guide](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SampleData.CreateTables.html#SampleData.CreateTablesSteps.Thread)\.
+The `MessageThread` class is suitable to use as a data class for the [example Thread table](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SampleData.CreateTables.html#SampleData.CreateTablesSteps.Thread) in the *Amazon DynamoDB Developer Guide*\.
 
 #### Imports<a name="ddb-en-client-use-secindex-classimports"></a>
 
@@ -151,20 +151,20 @@ public class MessageThread {
 
 Unlike the primary key, which is generated from the `@DynamoDbPartitionKey` and `@DynamoDbSortKey` annotations, the enhanced client does not automatically generate the secondary indexes\. These indexes are configured and created when the table is created\.
 
-The following example builds the two indexes for the `Thread` table\. The [builder](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/model/CreateTableEnhancedRequest.Builder.html) parameter has methods to configure both types of indexes as shown after comment lines 1 and 2\. You use the index builder's `indexName()` method to associate the index names specified in the data class' annotations with the intended type of index\.
+The following example builds the two indexes for the `Thread` table\. The [builder](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/model/CreateTableEnhancedRequest.Builder.html) parameter has methods to configure both types of indexes as shown after comment lines 1 and 2\. You use the index builder's `indexName()` method to associate the index names specified in the data class annotations with the intended type of index\.
 
-This code configures all of the tables attributes to end up in both indexes after comment lines 3 and 4\. More information about [attribute projections](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LSI.html#LSI.Projections) is available in the DynamoDB Developer Guide\.
+This code configures all of the table attributes to end up in both indexes after comment lines 3 and 4\. More information about [attribute projections](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LSI.html#LSI.Projections) is available in the *Amazon DynamoDB Developer Guide*\.
 
 ```
     public static void createMessageThreadTable(DynamoDbTable<MessageThread> messageThreadDynamoDbTable, DynamoDbClient dynamoDbClient) {
         messageThreadDynamoDbTable.createTable(b -> b
-                // 1. Generate the GSI
+                // 1. Generate the GSI.
                 .globalSecondaryIndices(gsi -> gsi.indexName("SubjectLastPostedDateIndex")
-                        // 3. Populate the GSI with all attributes
+                        // 3. Populate the GSI with all attributes.
                         .projection(p -> p
                                 .projectionType(ProjectionType.ALL))
                 )
-                // 2. Generate the LSI
+                // 2. Generate the LSI.
                 .localSecondaryIndices(lsi -> lsi.indexName("ForumLastPostedDateIndex")
                         // 4. Populate the LSI with all attributes.
                         .projection(p -> p
@@ -173,17 +173,17 @@ This code configures all of the tables attributes to end up in both indexes afte
         );
 ```
 
-## Query using an index<a name="ddb-en-client-use-secindex-query"></a>
+## Query by using an index<a name="ddb-en-client-use-secindex-query"></a>
 
 The following example queries the local secondary index *ForumLastPostedDateIndex*\.
 
-Following comment line 2, we create a [QueryConditional](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/model/QueryConditional.html) object that is required when calling the [DynamoDbIndex\.query\(\)](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbIndex.html#query(java.util.function.Consumer)) method\. 
+Following comment line 2, you create a [QueryConditional](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/model/QueryConditional.html) object that is required when calling the [DynamoDbIndex\.query\(\)](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/DynamoDbIndex.html#query(java.util.function.Consumer)) method\. 
 
-We get a reference to the index we want to query after comment line 3 by passing in the name of the index\. Following comment line 4, we call the `query()` method on the index passing in the `QueryConditional` object\. 
+You get a reference to the index you want to query after comment line 3 by passing in the name of the index\. Following comment line 4, you call the `query()` method on the index passing in the `QueryConditional` object\. 
 
-We also configure the query to return three attribute values as shown after comment line 5\. If `attributesToProject()` is not called, the query returns all attribute values\. Notice that the attribute names specified begin with lowercase letters\. These attribute names match those used in the table not necessarily the attribute names of the data class\.
+You also configure the query to return three attribute values as shown after comment line 5\. If `attributesToProject()` is not called, the query returns all attribute values\. Notice that the specified attribute names begin with lowercase letters\. These attribute names match those used in the table, not necessarily the attribute names of the data class\.
 
-Following comment line 6, we iterate through the results and log each item returned by the query and also store it in list to return to the caller\.
+Following comment line 6, iterate through the results and log each item returned by the query and also store it in the list to return to the caller\.
 
 ```
 public static List<MessageThread> queryUsingSecondaryIndices(DynamoDbEnhancedClient enhancedClient,
@@ -199,14 +199,14 @@ public static List<MessageThread> queryUsingSecondaryIndices(DynamoDbEnhancedCli
         // 3. Specify the index name to query the DynamoDbIndex instance.
         final DynamoDbIndex<MessageThread> forumLastPostedDateIndex = threadTable.index("ForumLastPostedDateIndex");
 
-        // 4. Perform the query using the QueryConditional object.
+        // 4. Perform the query by using the QueryConditional object.
         final SdkIterable<Page<MessageThread>> pagedResult = forumLastPostedDateIndex.query(q -> q
                 .queryConditional(queryConditional)
                 // 5. Request three attribute in the results.
                 .attributesToProject("forumName", "subject", "lastPostedDateTime"));
 
         List<MessageThread> collectedItems = new ArrayList<>();
-        // 6. Iterate through pages response and sort the items.
+        // 6. Iterate through the pages response and sort the items.
         pagedResult.stream().forEach(page -> page.items().stream()
                         .sorted(Comparator.comparing(MessageThread::getLastPostedDateTime))
                         .forEach(mt -> {
@@ -242,4 +242,4 @@ MessageThread{ForumName='Forum02', Subject='Subject08', Message='', LastPostedBy
 MessageThread{ForumName='Forum02', Subject='Subject10', Message='', LastPostedBy='', LastPostedDateTime='2023.04.06', Views=0, Replies=0, Answered=0, Tags=null}
 ```
 
-The query returned items with a `forumName` value of *Forum02* and a `lastPostedDateTime` value greater than or equal to *2023\.03\.31*\. The results show `message` values with an empty string although the `message` attributes have values in the index\. This is because the message attribute was not projected at after comment line 5\. 
+The query returned items with a `forumName` value of *Forum02* and a `lastPostedDateTime` value greater than or equal to *2023\.03\.31*\. The results show `message` values with an empty string although the `message` attributes have values in the index\. This is because the message attribute was not projected after comment line 5\. 

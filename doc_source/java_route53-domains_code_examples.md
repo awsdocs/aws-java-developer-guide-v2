@@ -26,19 +26,19 @@ The following code examples show how to get started using Route 53 domain regis
  *
  * https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/get-started.html
  *
- * This Java code example performs the following operation:
+ * This Java code examples performs the following operation:
  *
- * 1. Invokes ListPrices for at least one domain type, such as the “com” type, and displays prices for registration and renewal.
+ * 1. Invokes ListPrices for at least one domain type, such as the “com” type and displays the prices for Registration and Renewal.
  *
  */
-public class Route53Hello {
+public class HelloRoute53 {
     public static final String DASHES = new String(new char[80]).replace("\0", "-");
     public static void main(String[] args) {
         final String usage = "\n" +
             "Usage:\n" +
-            "    <domainType> \n\n" +
+            "    <hostedZoneId> \n\n" +
             "Where:\n" +
-            "    domainType - The domain type (for example, com). \n";
+            "    hostedZoneId - The id value of an existing hosted zone. \n";
 
         if (args.length != 1) {
             System.out.println(usage);
@@ -71,6 +71,7 @@ public class Route53Hello {
                 System.out.println("Name: "+pr.name());
                 System.out.println("Registration: "+pr.registrationPrice().price() + " " +pr.registrationPrice().currency());
                 System.out.println("Renewal: "+pr.renewalPrice().price() + " " +pr.renewalPrice().currency());
+                System.out.println("Transfer: "+pr.transferPrice().price() + " " +pr.transferPrice().currency());
                 System.out.println("Transfer: "+pr.transferPrice().price() + " " +pr.transferPrice().currency());
                 System.out.println("Change Ownership: "+pr.changeOwnershipPrice().price() + " " +pr.changeOwnershipPrice().currency());
                 System.out.println("Restoration: "+pr.restorationPrice().price() + " " +pr.restorationPrice().currency());

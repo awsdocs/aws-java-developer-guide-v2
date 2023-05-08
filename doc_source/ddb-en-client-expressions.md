@@ -1,6 +1,6 @@
 # Expressions and conditions<a name="ddb-en-client-expressions"></a>
 
-Expressions in the DynamoDB Enhanced Client API are java representations of [DynamoDB expressions](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.html)\.
+Expressions in the DynamoDB Enhanced Client API are Java representations of [DynamoDB expressions](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.html)\.
 
 The DynamoDB Enhanced Client API uses three types of expressions:
 
@@ -15,7 +15,7 @@ This class helps you write DynamoDB [update expressions](https://docs.aws.amazon
 
 ## Expression anatomy<a name="ddb-en-client-expressions-compoonents"></a>
 
-An expression is made up of:
+An expression is made up of the following:
 + A string expression \(required\)\. The string contains a DynamoDB logic expression with placeholder names for attribute names and attribute values\.
 + A map of expression values \(usually required\)\.
 + A map of expression names \(optional\)\.
@@ -30,9 +30,9 @@ Expression espression = Expression.builder()
                            .build()
 ```
 
-`Expression`s usually require a map of expression values that provides the values for the placeholders in the string expression\. The map key consists of the placeholder name preceded with a colon \(`:`\) and the map value is an instance of [AttributeValue](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/dynamodb/model/AttributeValue.html)\. The [AttributeValues](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/internal/AttributeValues.html) class has convenience methods to generate an `AttributeValue` instance from a literal\. Alternatively, you can use the `AttributeValue.Builder` to generate an `AttributeValue` instance\.
+`Expression`s usually require a map of expression values\. The map provides the values for the placeholders in the string expression\. The map key consists of the placeholder name preceded with a colon \(`:`\) and the map value is an instance of [AttributeValue](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/dynamodb/model/AttributeValue.html)\. The [AttributeValues](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/internal/AttributeValues.html) class has convenience methods to generate an `AttributeValue` instance from a literal\. Alternatively, you can use the `AttributeValue.Builder` to generate an `AttributeValue` instance\.
 
-The following snippet shows a map with two entries after comment line 2\. The string passed to the `expression()` method, shown after comment line 1, contains the placeholders that DynamoDB resolves before performing the operation\. This snippet contains no map of expression names, because *price* is a permissible attribute name\.
+The following snippet shows a map with two entries after comment line 2\. The string passed to the `expression()` method, shown after comment line 1, contains the placeholders that DynamoDB resolves before performing the operation\. This snippet doesn't contain a map of expression names, because *price* is a permissible attribute name\.
 
 ```
     public static void scanAsync(DynamoDbAsyncTable productCatalog) {
@@ -76,7 +76,7 @@ The following example builds an `Expression` that uses a [DynamoDB function](htt
 Expression exp = Expression.builder().expression("attribute_not_exists (movie)").build();
 ```
 
-The DynamoDB Developer Guide contains complete information on the[ low\-level expressions](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.html) used with DynamoDB\.
+The DynamoDB Developer Guide contains complete information on the[ low\-level expressions](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.html) that are used with DynamoDB\.
 
 ## Condition expressions and conditionals<a name="ddb-en-client-expressions-cond"></a>
 
@@ -90,9 +90,9 @@ For examples of `QueryConditionals`, see the first code example of the [`Query` 
 
 Filter expressions are used in scan and query operations to filter the items that are returned\. 
 
-A filter expression is applied after all the data is read from the database, so the read cost is the same as if there were no filter\. The Amazon DynamoDB Developer Guide has more information about using filter expressions for both [query](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.html#Query.FilterExpression) and [scan](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.FilterExpression) operations\.
+A filter expression is applied after all the data is read from the database, so the read cost is the same as if there were no filter\. The *Amazon DynamoDB Developer Guide* has more information about using filter expressions for both [query](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.html#Query.FilterExpression) and [scan](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.FilterExpression) operations\.
 
-The following example shows a filter expression added to a scan request\. The criteria restricts the items return where the price is between 8\.00 and 80\.00 inclusive\.
+The following example shows a filter expression added to a scan request\. The criteria restricts the items returned to items with a price between 8\.00 and 80\.00 inclusive\.
 
 ```
         Map<String, AttributeValue> expressionValues = Map.of(

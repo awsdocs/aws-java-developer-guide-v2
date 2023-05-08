@@ -8,7 +8,7 @@ If you are new to the DynamoDB Enhanced Client API, we recommend that you go thr
 
 DynamoDB tables store items\. Depending on your use case, items on the Java side can take the form of statically structured data or structures created dynamically\. 
 
-If your use case calls for items with a consistent set of attributes, use [annotated classes](ddb-en-client-gs-tableschema.md#ddb-en-client-gs-tableschema-anno-bean) or use a [builder](ddb-en-client-gs-tableschema.md#ddb-en-client-gs-tableschema-builder) to generate the appropriate statically\-type `TableSchema`\. 
+If your use case calls for items with a consistent set of attributes, use [annotated classes](ddb-en-client-gs-tableschema.md#ddb-en-client-gs-tableschema-anno-bean) or use a [builder](ddb-en-client-gs-tableschema.md#ddb-en-client-gs-tableschema-builder) to generate the appropriate statically\-typed `TableSchema`\. 
 
 Alternatively, if you need to store items that consist of varying structures, create a `DocumentTableSchema`\. `DocumentTableSchema` is part of the [Enhanced Document API](ddb-en-client-doc-api.md) and requires only a statically\-typed primary key and works with `EnhancedDocument` instances to hold the data elements\. The Enhanced Document API is covered in another [topic\.](ddb-en-client-doc-api.md)
 
@@ -16,15 +16,15 @@ Alternatively, if you need to store items that consist of varying structures, cr
 
 Although DynamoDB supports [a small number of attribute types](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes) compared to the rich type system of Java, the DynamoDB Enhanced Client API provides mechanisms to convert members of a Java class to and from DynamoDB attribute types\.
 
-By default, the DynamoDB Enhanced Client API supports attribute converters for a large number of types, such as [Integer](https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html), [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html), [BigDecimal](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/internal/converter/attribute/BigDecimalAttributeConverter.html), and [Instant](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/internal/converter/attribute/InstantAsStringAttributeConverter.html)\. The list appears in the [known implementing classes of the AttributeConverter interface](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/AttributeConverter.html)\. The list includes many types and also collections such as maps, lists, and sets\.
+By default, the DynamoDB Enhanced Client API supports attribute converters for a large number of types, such as [Integer](https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html), [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html), [BigDecimal](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/internal/converter/attribute/BigDecimalAttributeConverter.html), and [Instant](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/internal/converter/attribute/InstantAsStringAttributeConverter.html)\. The list appears in the [known implementing classes of the AttributeConverter interface](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/AttributeConverter.html)\. The list includes many types and collections such as maps, lists, and sets\.
 
-To store the data for an attribute type that is not supported by default or does not conform to the JavaBean convention, you can write a custom `AttributeConverter` implementation to do the conversion\. See the attribute conversion section for an [example](ddb-en-client-adv-features-conversion.md#ddb-en-client-adv-features-conversion-example)\.
+To store the data for an attribute type that isn't supported by default or doesn't conform to the JavaBean convention, you can write a custom `AttributeConverter` implementation to do the conversion\. See the attribute conversion section for an [example](ddb-en-client-adv-features-conversion.md#ddb-en-client-adv-features-conversion-example)\.
 
 To store the data for an attribute type whose class conforms to the Java beans specification \(or an [immutable data class](ddb-en-client-use-immut.md)\), you can take two approaches\. 
 + If you have access to the source file, you can annotate the class with `@DynamoDbBean` \(or `@DynamoDbImmutable`\)\. The section that discusses nested attributes shows [examples](ddb-en-client-adv-features-nested.md#ddb-en-client-adv-features-nested-map-anno) of using annotated classes\.
 + If do not have access to the source file of the JavaBean data class for the attribute \(or you don't want to annotate the source file of a class that you do have access to\), then you can use the builder approach\. This creates a table schema without defining the keys\. Then, you can nest this table schema inside another table schema to perform the mapping\. The nested attribute section has an [example](ddb-en-client-adv-features-nested.md#ddb-en-client-adv-features-nested-map-builder) showing use of nested schemas\.
 
-### Java primitive values<a name="ddb-en-client-use-types-primatives"></a>
+### Java primitive type values<a name="ddb-en-client-use-types-primatives"></a>
 
 Although the enhanced client can work with attributes of primitive types, we encourage the use of object types because you cannot represent null values with primitive types\.
 
@@ -77,7 +77,7 @@ Customer [id=1, custName=NewName, email=email, registrationDate=null]
 
 ## DynamoDB Enhanced Client basic methods<a name="ddb-en-client-use-basic-ops"></a>
 
-Basic methods of the enhanced client map to the DynamoDB service operations they are named after\. The following examples show the simplest variation of each method\. You can customize each method by passing in an enhanced request object\. Enhanced request objects offer most of the features available in the standard DynamoDB client\. They are fully documented in the AWS SDK for Java 2\.x API Reference\.
+Basic methods of the enhanced client map to the DynamoDB service operations that they're named after\. The following examples show the simplest variation of each method\. You can customize each method by passing in an enhanced request object\. Enhanced request objects offer most of the features available in the standard DynamoDB client\. They are fully documented in the AWS SDK for Java 2\.x API Reference\.
 
 The example uses the [`Customer` class](ddb-en-client-gs-tableschema.md#ddb-en-client-gs-tableschema-anno-bean-cust) shown previously\.
 
@@ -140,7 +140,7 @@ While both client APIs support data\-level operations, the standard DynamoDB cli
 
 To illustrate the different approaches used by the two client APIs, the following code examples show the creation of the same `ProductCatalog` table using the standard client and the enhanced client\.
 
-### Compare: create a table using the standard DynamoDB client<a name="ddb-en-client-use-compare-cs1"></a>
+### Compare: Create a table using the standard DynamoDB client<a name="ddb-en-client-use-compare-cs1"></a>
 
 ```
 DependencyFactory.dynamoDbClient().createTable(builder -> builder
@@ -169,7 +169,7 @@ DependencyFactory.dynamoDbClient().createTable(builder -> builder
 );
 ```
 
-### Compare: create a table using the DynamoDB Enhanced Client<a name="ddb-en-client-use-compare-cs2"></a>
+### Compare: Create a table using the DynamoDB Enhanced Client<a name="ddb-en-client-use-compare-cs2"></a>
 
 ```
 DynamoDbEnhancedClient enhancedClient = DependencyFactory.enhancedClient();
@@ -185,7 +185,7 @@ productCatalog.createTable(b -> b
 );
 ```
 
-The enhanced client uses the following annotated data class\. The DynamoDB Enhanced Client maps Java data types to DynamoDB data types leading to less verbose code that is easier to follow\. `ProductCatalog` is an example of using an immutable class with the DynamoDB Enhanced Client\. The use of Immutable classes for mapped data classes is [discussed later](ddb-en-client-use-immut.md) in this topic\.
+The enhanced client uses the following annotated data class\. The DynamoDB Enhanced Client maps Java data types to DynamoDB data types for less verbose code that is easier to follow\. `ProductCatalog` is an example of using an immutable class with the DynamoDB Enhanced Client\. The use of Immutable classes for mapped data classes is [discussed later](ddb-en-client-use-immut.md) in this topic\.
 
 ### `ProductCatalog` class<a name="ddb-en-client-use-compare-cs3"></a>
 
@@ -288,7 +288,7 @@ public class ProductCatalog implements Comparable<ProductCatalog> {
 
 The following two code examples of a batch write illustrate the verboseness and lack of type safety when using the standard client as opposed to the enhanced client\.
 
-### Compare: batch write using the standard DynamoDB client<a name="ddb-en-client-use-compare-cs4"></a>
+### Compare: Batch write using the standard DynamoDB client<a name="ddb-en-client-use-compare-cs4"></a>
 
 ```
     public static void batchWriteStandard(DynamoDbClient dynamoDbClient, String tableName) {
@@ -328,7 +328,7 @@ The following two code examples of a batch write illustrate the verboseness and 
     }
 ```
 
-### Compare: batch write using the DynamoDB Enhanced Client<a name="ddb-en-client-use-compare-cs5"></a>
+### Compare: Batch write using the DynamoDB Enhanced Client<a name="ddb-en-client-use-compare-cs5"></a>
 
 ```
     public static void batchWriteEnhanced(DynamoDbTable<ProductCatalog> productCatalog) {

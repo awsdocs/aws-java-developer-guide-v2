@@ -1748,3 +1748,64 @@ public class S3Scenario {
   + [GetObject](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/GetObject)
   + [ListObjects](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/ListObjects)
   + [PutObject](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/PutObject)
+
+### Upload or download large files<a name="s3_Scenario_UsingLargeFiles_java_topic"></a>
+
+The following code example shows how to upload or download large files to and from Amazon S3\.
+
+For more information, see [Uploading an object using multipart upload](https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpu-upload-object.html)\.
+
+**SDK for Java 2\.x**  
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#readme)\. 
+Call functions that transfer files to and from an S3 bucket using the S3TransferManager\.  
+
+```
+    public Integer downloadObjectsToDirectory(S3TransferManager transferManager,
+                                              String destinationPath, String bucketName) {
+        DirectoryDownload directoryDownload =
+            transferManager.downloadDirectory(DownloadDirectoryRequest.builder()
+                .destination(Paths.get(destinationPath))
+                .bucket(bucketName)
+                .build());
+        CompletedDirectoryDownload completedDirectoryDownload = directoryDownload.completionFuture().join();
+
+        completedDirectoryDownload.failedTransfers().forEach(fail ->
+            logger.warn("Object [{}] failed to transfer", fail.toString()));
+        return completedDirectoryDownload.failedTransfers().size();
+    }
+```
+Upload an entire local directory\.  
+
+```
+    public Integer uploadDirectory(S3TransferManager transferManager,
+                                   String sourceDirectory, String bucketName){
+        DirectoryUpload directoryUpload =
+            transferManager.uploadDirectory(UploadDirectoryRequest.builder()
+                .source(Paths.get(sourceDirectory))
+                .bucket(bucketName)
+                .build());
+
+        CompletedDirectoryUpload completedDirectoryUpload = directoryUpload.completionFuture().join();
+        completedDirectoryUpload.failedTransfers().forEach(fail ->
+            logger.warn("Object [{}] failed to transfer", fail.toString()));
+        return completedDirectoryUpload.failedTransfers().size();
+    }
+```
+Upload a single file\.  
+
+```
+    public String uploadFile(S3TransferManager transferManager, String bucketName,
+                             String key, String filePath) {
+        UploadFileRequest uploadFileRequest =
+            UploadFileRequest.builder()
+                .putObjectRequest(b -> b.bucket(bucketName).key(key))
+                .addTransferListener(LoggingTransferListener.create())
+                .source(Paths.get(filePath))
+                .build();
+
+        FileUpload fileUpload = transferManager.uploadFile(uploadFileRequest);
+
+        CompletedFileUpload uploadResult = fileUpload.completionFuture().join();
+        return uploadResult.response().eTag();
+    }
+```

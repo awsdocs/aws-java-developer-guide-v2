@@ -160,9 +160,9 @@ The following code example shows how to list Secrets Manager secrets\.
 ```
 +  For API details, see [ListSecrets](https://docs.aws.amazon.com/goto/SdkForJavaV2/secretsmanager-2017-10-17/ListSecrets) in *AWS SDK for Java 2\.x API Reference*\. 
 
-### Put a value in a secret<a name="secrets-manager_PutSecretValue_java_topic"></a>
+### Modifies the details of a secret<a name="secrets-manager_UpdateSecret_java_topic"></a>
 
-The following code example shows how to put a value in a Secrets Manager secret\.
+The following code example shows how to modifies the secret\.
 
 **SDK for Java 2\.x**  
  There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/secretsmanager#readme)\. 
@@ -178,6 +178,33 @@ The following code example shows how to put a value in a Secrets Manager secret\
                 .build();
 
             secretsClient.updateSecret(secretRequest);
+
+        } catch (SecretsManagerException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+```
++  For API details, see [UpdateSecret](https://docs.aws.amazon.com/goto/SdkForJavaV2/secretsmanager-2017-10-17/UpdateSecret) in *AWS SDK for Java 2\.x API Reference*\. 
+
+### Put a value in a secret<a name="secrets-manager_PutSecretValue_java_topic"></a>
+
+The following code example shows how to put a value in a Secrets Manager secret\.
+
+**SDK for Java 2\.x**  
+ There's more on GitHub\. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/secretsmanager#readme)\. 
+  
+
+```
+    public static void putSecret(SecretsManagerClient secretsClient, String secretName, String secretValue) {
+        try {
+            PutSecretValueRequest secretRequest = PutSecretValueRequest.builder()
+                .secretId(secretName)
+                .secretString(secretValue)
+                .build();
+
+            secretsClient.putSecretValue(secretRequest);
+            System.out.println("A new version was created.");
 
         } catch (SecretsManagerException e) {
             System.err.println(e.awsErrorDetails().errorMessage());

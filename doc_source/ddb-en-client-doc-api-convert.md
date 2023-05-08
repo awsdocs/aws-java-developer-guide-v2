@@ -88,7 +88,7 @@ public class CustomAttributeConverterProvider implements AttributeConverterProvi
 
     // 3. Custom attribute converter
     private class AddressConverter implements AttributeConverter<Address> {
-        // 4. Transform an Address object in into a DynamoDB map.
+        // 4. Transform an Address object into a DynamoDB map.
         @Override
         public AttributeValue transformFrom(Address address) {
 

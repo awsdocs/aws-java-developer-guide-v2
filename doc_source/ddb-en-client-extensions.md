@@ -1,14 +1,14 @@
 # Extensions<a name="ddb-en-client-extensions"></a>
 
-The DynamoDB Enhanced Client API supports plugin extensions that provide functionality beyond mapping operations\. Extensions have two hook methods, `beforeWrite()` and `afterRead()`\. `beforeWrite()` modifies a write operation before it happens, and the `afterRead()` method modifies the results of a read operation after it happens\. Since some operations such as item updates perform both a write and then a read, both hook methods are called\. 
+The DynamoDB Enhanced Client API supports plugin extensions that provide functionality beyond mapping operations\. Extensions have two hook methods, `beforeWrite()` and `afterRead()`\. `beforeWrite()` modifies a write operation before it happens, and the `afterRead()` method modifies the results of a read operation after it happens\. Because some operations \(such as item updates\) perform both a write and then a read, both hook methods are called\. 
 
-Extensions are loaded in the order that they are specified in the enhanced client builder\. The load order can be important, since one extension can act on values that have been transformed by a previous extension\. 
+Extensions are loaded in the order that they are specified in the enhanced client builder\. The load order can be important because one extension can act on values that have been transformed by a previous extension\. 
 
-The enhanced client API comes with a set of plugin extensions, located in the `[extensions](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/extensions/package-summary.html)` package\. By default the enhanced client loads the `[VersionedRecordExtension](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/extensions/VersionedRecordExtension.html)` and the `[AtomicCounterExtension](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/extensions/AtomicCounterExtension.html)`\. You can override the default behavior with the enhance client builder and load any extension\. You can also specify none if you do not want the default extensions\. 
+The enhanced client API comes with a set of plugin extensions that are located in the `[extensions](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/extensions/package-summary.html)` package\. By default, the enhanced client loads the `[VersionedRecordExtension](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/extensions/VersionedRecordExtension.html)` and the `[AtomicCounterExtension](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/extensions/AtomicCounterExtension.html)`\. You can override the default behavior with the enhance client builder and load any extension\. You can also specify none if you don't want the default extensions\. 
 
-If you load your own extensions, the enhanced client does not load any default extensions\. If you want the behavior provided by either default extension, you need to explicitly added it to the list of extensions\. 
+If you load your own extensions, the enhanced client doesn't load any default extensions\. If you want the behavior provided by either default extension, you need to explicitly add it to the list of extensions\. 
 
-In the following example, a custom extension named `verifyChecksumExtension` is loaded after the `VersionedRecordExtension`, which is usually loaded by default by itself\. The `AtomicCounterExtension` will not be loaded in this example\.
+In the following example, a custom extension named `verifyChecksumExtension` is loaded after the `VersionedRecordExtension`, which is usually loaded by default by itself\. The `AtomicCounterExtension` is not loaded in this example\.
 
 ```
 DynamoDbEnhancedClientExtension versionedRecordExtension = VersionedRecordExtension.builder().build();
@@ -22,7 +22,7 @@ DynamoDbEnhancedClient enhancedClient =
 
 ## VersionedRecordExtension<a name="ddb-en-client-extensions-VRE"></a>
 
-The `VersionedRecordExtension` is loaded by default and will increment and track an item version number as items are written to the database\. A condition will be added to every write that causes the write to fail if the version number of the actual persisted item does not match the value that the application last read\. This behavior effectively provides optimistic locking for item updates\. If another process updates an item between the time the first process has read the item and is writing an update to it, the write will fail\.
+The `VersionedRecordExtension` is loaded by default and will increment and track an item version number as items are written to the database\. A condition will be added to every write that causes the write to fail if the version number of the actual persisted item doesn't match the value that the application last read\. This behavior effectively provides optimistic locking for item updates\. If another process updates an item between the time the first process has read the item and is writing an update to it, the write will fail\.
 
 To specify which attribute to use to track the item version number, tag a numeric attribute in the table schema\. 
 
@@ -40,7 +40,7 @@ The equivalent static table schema approach is shown in the following snippet\.
     .addAttribute(Integer.class, a -> a.name("version")
                                        .getter(Customer::getVersion)
                                        .setter(Customer::setVersion)
-                                        // Apply the 'version' tag to the attribute
+                                        // Apply the 'version' tag to the attribute.
                                        .tags(VersionedRecordExtension.AttributeTags.versionAttribute())
 ```
 
@@ -64,7 +64,7 @@ The static table schema approach is shown in the following snippet\. The atomic 
     .addAttribute(Integer.class, a -> a.name("counter")
                                        .getter(Customer::getCounter)
                                        .setter(Customer::setCounter)
-                                        // Apply the 'atomicCounter' tag to the attribute with start and increment values
+                                        // Apply the 'atomicCounter' tag to the attribute with start and increment values.
                                        .tags(StaticAttributeTags.atomicCounter(10L, 5L))
 ```
 
@@ -90,7 +90,7 @@ The equivalent static table schema approach is shown in the following snippet\.
      .addAttribute(Instant.class, a -> a.name("lastUpdate")
                                         .getter(Customer::getLastUpdate)
                                         .setter(Customer::setLastUpdate)
-                                        // Applying the 'autoGeneratedTimestamp' tag to the attribute
+                                        // Applying the 'autoGeneratedTimestamp' tag to the attribute.
                                         .tags(AutoGeneratedTimestampRecordExtension.AttributeTags.autoGeneratedTimestampAttribute())
 ```
 

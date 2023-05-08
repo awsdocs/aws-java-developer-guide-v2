@@ -6,7 +6,7 @@ After you define an `EnhancedDocument` instance, you can save it to a DynamoDB t
 documentDynamoDbTable.putItem(personDocument);
 ```
 
-After you read an enhanced document instance from DynamoDB, you can extract the individual attribute values using getters as shown in the following code snippet\. You can alternatively extract the complete content to a JSON string as shown in the last part of the example code\.
+After you read an enhanced document instance from DynamoDB, you can extract the individual attribute values using getters as shown in the following code snippet\. Alternatively, you can extract the complete content to a JSON string as shown in the last part of the example code\.
 
 ```
         // Read the item.

@@ -2,7 +2,7 @@
 
 The Enhanced Document API requires the same [dependencies](ddb-en-client-getting-started.md#ddb-en-client-gs-dep) that are needed for the DynamoDB Enhanced Client API\. It also requires a [`DynamoDbEnhancedClient` instance](ddb-en-client-getting-started-dynamodbTable.md#ddb-en-client-getting-started-dynamodbTable-eclient) as shown at the start of this topic\.
 
-Since the Enhanced Document API was released with version 2\.20\.3 of the AWS SDK for Java 2\.x, you need that version or greater\.
+Because the Enhanced Document API was released with version 2\.20\.3 of the AWS SDK for Java 2\.x, you need that version or greater\.
 
 ## Create a `DocumentTableSchema` and a `DynamoDbTable`<a name="ddb-en-client-doc-api-steps-createschema"></a>
 
@@ -10,7 +10,7 @@ To invoke commands against a DynamoDB table using the Enhanced Document API, ass
 
 The enhanced client's `table()` method creates a `DynamoDbTable<EnhancedDocument>` instance and requires parameters for the DynamoDB table name and a `DocumentTableSchema`\. 
 
-The builder for a [DocumentTableSchema](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/document/DocumentTableSchema.html) requires a primary index key and one or more attribute converter providers\. The `AttributeConverterProvider.defaultProvider()` method provides converters for [default types](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/internal/converter/attribute/package-summary.html) and should be specified even if you provide a custom attribute converter provider\. You can add an optional secondary index key to the builder\.
+The builder for a [DocumentTableSchema](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/document/DocumentTableSchema.html) requires a primary index key and one or more attribute converter providers\. The `AttributeConverterProvider.defaultProvider()` method provides converters for [default types](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/internal/converter/attribute/package-summary.html)\. It should be specified even if you provide a custom attribute converter provider\. You can add an optional secondary index key to the builder\.
 
 The following code snippet shows the code that generates the client\-side representation of a DynamoDB `person` table that stores schemaless `EnhancedDocument` objects\.
 
@@ -29,7 +29,7 @@ DynamoDbTable<EnhancedDocument> documentDynamoDbTable =
 // createTable() should be called only one time.
 ```
 
-The following shows the JSON representation of a `person` object that we'll use throughout this section\.
+The following shows the JSON representation of a `person` object that is used throughout this section\.
 
 ### JSON `person` object<a name="ddb-en-client-doc-api-steps-createschema-obj"></a>
 

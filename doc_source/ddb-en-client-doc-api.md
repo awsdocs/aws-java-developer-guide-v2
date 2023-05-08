@@ -1,6 +1,6 @@
 # Enhanced Document API for DynamoDB<a name="ddb-en-client-doc-api"></a>
 
-The [Enhanced Document API](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/document/package-summary.html) for AWS SDK for Java 2\.x is designed to work with document\-oriented data that has no fixed schema, but also lets you use custom classes to map individual attributes\.
+The [Enhanced Document API](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/document/package-summary.html) for AWS SDK for Java 2\.x is designed to work with document\-oriented data that has no fixed schema\. However, it also lets you use custom classes to map individual attributes\.
 
  The Enhanced Document API is the successor to the [Document API](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/dynamodbv2/document/DynamoDB.html) of the AWS SDK for Java v1\.x\.
 
@@ -12,3 +12,4 @@ The [Enhanced Document API](https://sdk.amazonaws.com/java/api/latest/software/a
   + [Build from individual elements](ddb-en-client-doc-api-steps-create-ed.md#ddb-en-client-doc-api-steps-create-ed-fromparts)
 + [Perform CRUD operations](ddb-en-client-doc-api-steps-use.md)
 + [Access enhanced document attributes as custom objects](ddb-en-client-doc-api-convert.md)
++ [Use an `EnhancedDocument` without DynamoDB](ddb-en-client-doc-api-standalone.md)
