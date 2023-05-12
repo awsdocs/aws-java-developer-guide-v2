@@ -177,7 +177,6 @@ import software.amazon.awssdk.services.ec2.model.Ec2Exception;
 ```
     public static void describeEC2Instances( Ec2Client ec2){
 
-        boolean done = false;
         String nextToken = null;
 
         try {
