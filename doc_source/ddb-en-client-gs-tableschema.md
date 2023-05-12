@@ -1,8 +1,6 @@
 # Generate a `TableSchema`<a name="ddb-en-client-gs-tableschema"></a>
 
-A `[TableSchema](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/enhanced/dynamodb/TableSchema.html)` enables the enhanced client to map DynamoDB attribute values to and from your client\-side classes\. The DynamoDB Enhanced Client API provides several types of `TableSchema`s that we discuss in another [section](ddb-en-client-adv-features.md#ddb-en-client-adv-features-schm-overview)\.
-
-In this tutorial, you learn about `TableSchema`s derived from a static data class and generated from code by using a builder\.
+A `[TableSchema](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/enhanced/dynamodb/TableSchema.html)` enables the enhanced client to map DynamoDB attribute values to and from your client\-side classes\. In this tutorial, you learn about `TableSchema`s derived from a static data class and generated from code by using a builder\.
 
 ## Use an annotated data class<a name="ddb-en-client-gs-tableschema-anno-bean"></a>
 
@@ -69,6 +67,8 @@ static final TableSchema<Customer> customerTableSchema = TableSchema.fromBean(Cu
 A `TableSchema` is designed to be static and immutable\. You can usually instantiate it at class\-load time\.
 
 The static `TableSchema.fromBean()` factory method introspects the bean to generate the mapping of data class attributes to and from DynamoDB attributes\.
+
+For an example of working with a data model made up of several data classes, see the `Person` class in the [Work with nested attributes](ddb-en-client-adv-features-nested.md) section\.
 
 ## Use a builder<a name="ddb-en-client-gs-tableschema-builder"></a>
 

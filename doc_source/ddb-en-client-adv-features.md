@@ -24,10 +24,10 @@ This implementation is built from an immutable data class\. This approach is des
 The following `TableSchema`s are built from code by using a builder\. This approach is less costly than the approach that uses annotated data classes\. The builder approach avoids the use of annotations and doesn't require JavaBean naming standards\.
 
 [StaticTableSchema](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/mapper/StaticTableSchema.html)  
-This implementation is built for mutable data classes\. For more information, see [Use a builder](ddb-en-client-gs-tableschema.md#ddb-en-client-gs-tableschema-builder)\.
+This implementation is built for mutable data classes\. The getting started section of this guide demonstrated how to [generate a `StaticTableSchema` using a builder](ddb-en-client-gs-tableschema.md#ddb-en-client-gs-tableschema-builder)\.
 
 [StaticImmutableTableSchema](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/mapper/StaticImmutableTableSchema.html)  
-This implementation is built for use with immutable data classes and uses the [StaticImmutableTableSchema\.Builder](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/mapper/StaticImmutableTableSchema.Builder.html) class\.
+Similarly to how you build a `StaticTableSchema`, you generate an implementation of this type of `TableSchema` using a [builder](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/enhanced/dynamodb/mapper/StaticImmutableTableSchema.html) for use with immutable data classes\.
 
 ### Table schema for data without a fixed schema<a name="ddb-en-client-adv-features-schema-document"></a>
 

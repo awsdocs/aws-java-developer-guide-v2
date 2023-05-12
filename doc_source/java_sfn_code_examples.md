@@ -52,35 +52,21 @@ The following code example shows how to create a Step Functions state machine\.
   
 
 ```
-    public static String createMachine( SfnClient sfnClient, String roleARN, String stateMachineName, String jsonFile) {
-
-        String json = getJSONString(jsonFile);
+    public static String createMachine( SfnClient sfnClient, String roleARN, String stateMachineName, String json) {
         try {
-           CreateStateMachineRequest machineRequest = CreateStateMachineRequest.builder()
-               .definition(json)
-               .name(stateMachineName)
-               .roleArn(roleARN)
-               .type(StateMachineType.STANDARD)
-               .build();
+            CreateStateMachineRequest machineRequest = CreateStateMachineRequest.builder()
+                .definition(json)
+                .name(stateMachineName)
+                .roleArn(roleARN)
+                .type(StateMachineType.STANDARD)
+                .build();
 
-           CreateStateMachineResponse response = sfnClient.createStateMachine(machineRequest);
-           return response.stateMachineArn();
+            CreateStateMachineResponse response = sfnClient.createStateMachine(machineRequest);
+            return response.stateMachineArn();
 
         } catch (SfnException e) {
             System.err.println(e.awsErrorDetails().errorMessage());
             System.exit(1);
-        }
-        return "";
-    }
-
-    private static String getJSONString(String path) {
-        try {
-            JSONParser parser = new JSONParser();
-            JSONObject data = (JSONObject) parser.parse(new FileReader(path));//path to the JSON file.
-            return data.toJSONString();
-
-        } catch (IOException | org.json.simple.parser.ParseException e) {
-            e.printStackTrace();
         }
         return "";
     }
@@ -394,15 +380,12 @@ The following code example shows how to start a Step Functions state machine run
   
 
 ```
-    public static String startWorkflow(SfnClient sfnClient, String stateMachineArn, String jsonFile) {
-
-        String json = getJSONString(jsonFile);
+    public static String startWorkflow(SfnClient sfnClient, String stateMachineArn, String jsonEx) {
         UUID uuid = UUID.randomUUID();
         String uuidValue = uuid.toString();
         try {
-
             StartExecutionRequest executionRequest = StartExecutionRequest.builder()
-                .input(json)
+                .input(jsonEx)
                 .stateMachineArn(stateMachineArn)
                 .name(uuidValue)
                 .build();
@@ -413,20 +396,6 @@ The following code example shows how to start a Step Functions state machine run
         } catch (SfnException e) {
             System.err.println(e.awsErrorDetails().errorMessage());
             System.exit(1);
-        }
-        return "";
-    }
-
-    private static String getJSONString(String path) {
-
-        try {
-            JSONParser parser = new JSONParser();
-            JSONObject data = (JSONObject) parser.parse(new FileReader(path));//path to the JSON file.
-            String json = data.toJSONString();
-            return json;
-
-        } catch (IOException | org.json.simple.parser.ParseException e) {
-            e.printStackTrace();
         }
         return "";
     }
